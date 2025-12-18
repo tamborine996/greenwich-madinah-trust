@@ -599,26 +599,11 @@ p {
 
 @media (max-width: 600px) {
     .logo-symbol {
-        height: 40px;
+        height: 36px;
     }
 
     .logo-text {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Scale entire logo down proportionally - keeps both icon and text visible */
-    .logo {
-        transform: scale(0.85);
-        transform-origin: left center;
-    }
-}
-
-@media (max-width: 380px) {
-    .logo {
-        transform: scale(0.75);
-        transform-origin: left center;
+        font-size: 1.25rem;
     }
 }
 
@@ -897,69 +882,89 @@ p {
         gap: var(--space-sm);
     }
 
+    /* Stack Jummah times with dates underneath */
     .prayer-banner-left {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
         width: 100%;
+        gap: var(--space-xs);
     }
 
     .juma-times {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .juma-time {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .prayer-banner-date {
-        font-size: 0.7rem;
-        text-align: right;
+        font-size: 0.75rem;
+        text-align: center;
+        display: flex;
+        gap: var(--space-sm);
     }
 
     .prayer-times-quick {
         width: 100%;
-        justify-content: space-between;
-        gap: var(--space-xs);
+        justify-content: flex-start;
+        gap: 2px;
     }
 
-    /* Show mobile-friendly labels row */
+    /* Keep labels visible on mobile - compact styling */
     .prayer-times-labels {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        gap: 2px;
-        padding-bottom: 2px;
+        padding-right: 4px;
+        margin-right: 4px;
+        border-right: 1px solid rgba(255,255,255,0.15);
+        min-width: 42px;
     }
 
-    .prayer-times-labels .row-label {
-        font-size: 0.5rem;
-        text-align: right;
-        padding-right: var(--space-xs);
+    .row-label {
+        font-size: 0.45rem;
+        letter-spacing: 0.05em;
     }
 
-    .prayer-times-labels .row-label:first-child {
-        display: none;
+    .row-label:first-child {
+        height: 0.9rem;
+        line-height: 0.9rem;
+    }
+
+    .row-label:nth-child(2) {
+        height: 1rem;
+        line-height: 1rem;
+    }
+
+    .row-label:nth-child(3) {
+        height: 0.85rem;
+        line-height: 0.85rem;
     }
 
     .prayer-time-item {
         min-width: auto;
         flex: 1;
         flex-direction: column;
-        gap: 2px;
+        gap: 1px;
     }
 
     .prayer-name {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
+        margin-bottom: 0;
+        height: 0.9rem;
+        line-height: 0.9rem;
     }
 
     .jamaat-time {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        height: 1rem;
+        line-height: 1rem;
     }
 
     .begins-time {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         opacity: 0.85;
+        height: 0.85rem;
+        line-height: 0.85rem;
     }
 
     /* Hide Full Timetable button and social icons on mobile */
@@ -970,27 +975,40 @@ p {
     .social-icons-banner {
         display: none;
     }
+
+    /* Hide Full Timetable button on pages where it's not wrapped in .prayer-banner-right */
+    .prayer-banner-content > .btn {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
     .juma-label {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
     }
 
     .juma-time {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .row-label {
+        font-size: 0.4rem;
+    }
+
+    .prayer-times-labels {
+        min-width: 38px;
     }
 
     .prayer-name {
-        font-size: 0.55rem;
+        font-size: 0.45rem;
     }
 
     .jamaat-time {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .begins-time {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
     }
 
     /* Tighter banner on small screens */
