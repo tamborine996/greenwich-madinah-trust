@@ -896,15 +896,15 @@ p {
 
     /* Add mobile header for prayer times */
     .prayer-times-quick::before {
-        content: 'JAMA\0027AT';
+        content: 'JAMAAT';
         position: absolute;
-        top: -1.2rem;
+        top: -1rem;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 0.6rem;
+        font-size: 0.55rem;
         font-weight: 600;
         letter-spacing: 0.1em;
-        color: rgba(255,255,255,0.5);
+        color: rgba(255,255,255,0.6);
     }
 
     .prayer-times-quick {
@@ -942,8 +942,9 @@ p {
     }
 }
 
-@media (max-width: 400px) {
-    .prayer-banner-right .btn {
+@media (max-width: 480px) {
+    /* Hide Full Timetable button on small phones */
+    .prayer-banner-right {
         display: none;
     }
 
@@ -961,6 +962,23 @@ p {
 
     .jamaat-time {
         font-size: 0.8rem;
+    }
+
+    /* Tighter banner on small screens */
+    .prayer-banner {
+        padding: var(--space-xs) 0;
+    }
+
+    .prayer-banner-content {
+        gap: var(--space-xs);
+    }
+
+    .prayer-times-quick {
+        padding-top: var(--space-xs);
+    }
+
+    .prayer-times-quick::before {
+        top: -0.8rem;
     }
 }
 
