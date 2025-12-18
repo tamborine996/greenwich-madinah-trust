@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Swiper.js for carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- GLightbox for video modals -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -136,66 +140,50 @@
                         <a href="contact.html" class="btn btn-outline">Get in Touch</a>
                     </div>
                 </div>
-                <!-- Right: Carousel -->
-                <div class="hero-carousel-compact" id="hero-carousel">
-                    <div class="carousel-container-compact">
-                        <div class="carousel-track" id="carousel-track">
-                            <!-- Slide 1: Dars-e-Quran Shareef - Weekly Event -->
-                            <div class="carousel-slide-compact slide-quran-shareef active">
-                                <div class="slide-content-compact">
-                                    <svg class="quran-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M32 4L8 16v32l24 12 24-12V16L32 4z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                                        <path d="M32 4v56M8 16l24 12 24-12" stroke="#c4a962" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
-                                        <circle cx="32" cy="32" r="8" stroke="#c4a962" stroke-width="1" fill="none" stroke-opacity="0.4"/>
-                                    </svg>
-                                    <span class="slide-badge">Weekly Gathering</span>
-                                    <h3 class="slide-title-compact">Dars-e-Quran Shareef</h3>
-                                    <span class="slide-time-highlight">Every Monday after Isha</span>
-                                    <p class="slide-description-compact">Join our brothers for the blessed recitation of the Holy Quran</p>
-                                    <a href="learn.html#dars" class="btn btn-light btn-sm">Learn More</a>
-                                </div>
+                <!-- Right: Carousel (Swiper.js) -->
+                <div class="hero-carousel-compact swiper" id="hero-carousel">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Dars-e-Quran Shareef - Weekly Event -->
+                        <div class="swiper-slide carousel-slide-compact slide-quran-shareef">
+                            <div class="slide-content-compact">
+                                <span class="slide-badge">Weekly Gathering</span>
+                                <h3 class="slide-title-compact">Dars-e-Quran Shareef</h3>
+                                <span class="slide-time-highlight">Every Monday after Isha</span>
+                                <p class="slide-description-compact">Join our brothers for the blessed recitation of the Holy Quran</p>
+                                <a href="learn.html#dars" class="btn btn-light btn-sm">Learn More</a>
                             </div>
-                            <!-- Slide 2: Madrassah -->
-                            <div class="carousel-slide-compact" style="background: linear-gradient(135deg, var(--emerald-light) 0%, var(--emerald) 100%);">
-                                <div class="slide-content-compact">
-                                    <span class="slide-badge">Education</span>
-                                    <h3 class="slide-title-compact">Madrassah Enrolment</h3>
-                                    <p class="slide-description-compact">Quran, Arabic, and Islamic Studies for children</p>
-                                    <a href="learn.html#madrassah" class="btn btn-light btn-sm">Register Now</a>
-                                </div>
+                        </div>
+                        <!-- Slide 2: Madrassah -->
+                        <div class="swiper-slide carousel-slide-compact slide-madrassah">
+                            <div class="slide-content-compact">
+                                <span class="slide-badge">Education</span>
+                                <h3 class="slide-title-compact">Madrassah Enrolment</h3>
+                                <p class="slide-description-compact">Quran, Arabic, and Islamic Studies for children</p>
+                                <a href="learn.html#madrassah" class="btn btn-light btn-sm">Register Now</a>
                             </div>
-                            <!-- Slide 4: YouTube Spotlight (configured video) -->
-                            <div class="carousel-slide-compact carousel-slide-youtube" id="carousel-youtube-slide" style="display: none;">
-                                <img id="youtube-slide-thumb" class="youtube-slide-bg" src="" alt="">
-                                <div class="youtube-slide-overlay">
-                                    <span class="slide-badge">Spotlight</span>
-                                    <button type="button" class="youtube-slide-play-btn" id="youtube-slide-btn" aria-label="Play video">
+                        </div>
+                        <!-- Slide 3: YouTube Spotlight (configured video) -->
+                        <div class="swiper-slide carousel-slide-compact carousel-slide-youtube" id="carousel-youtube-slide" style="display: none;">
+                            <div class="youtube-slide-content">
+                                <span class="slide-badge">Spotlight</span>
+                                <div class="youtube-slide-thumb-wrapper">
+                                    <img id="youtube-slide-thumb" class="youtube-slide-thumb" src="" alt="">
+                                    <button type="button" class="youtube-slide-play-btn glightbox-trigger" id="youtube-slide-btn" aria-label="Play video">
                                         <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
                                             <path d="M8 5v14l11-7z"/>
                                         </svg>
                                     </button>
-                                    <h3 class="youtube-slide-title" id="youtube-slide-title"></h3>
                                 </div>
+                                <p class="youtube-slide-description">Watch a video from our recent event</p>
+                                <h3 class="youtube-slide-title" id="youtube-slide-title"></h3>
                             </div>
                         </div>
-                        <!-- Carousel Navigation -->
-                        <button class="carousel-btn-compact carousel-prev" id="carousel-prev" aria-label="Previous slide">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M15 18l-6-6 6-6"/>
-                            </svg>
-                        </button>
-                        <button class="carousel-btn-compact carousel-next" id="carousel-next" aria-label="Next slide">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 18l6-6-6-6"/>
-                            </svg>
-                        </button>
-                        <!-- Carousel Dots -->
-                        <div class="carousel-dots-compact" id="carousel-dots">
-                            <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
-                            <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
-                            <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
-                        </div>
                     </div>
+                    <!-- Swiper Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- Swiper Pagination (dots) -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
@@ -450,22 +438,6 @@
       })();
     </script>
 
-    <!-- Video Lightbox -->
-    <div id="video-lightbox" class="video-lightbox" style="display: none;">
-        <div class="video-lightbox-overlay"></div>
-        <div class="video-lightbox-content">
-            <button class="video-lightbox-close" aria-label="Close video">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-            <div class="video-lightbox-player">
-                <iframe id="video-lightbox-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <h3 class="video-lightbox-title"></h3>
-        </div>
-    </div>
-
     <!-- Location Section -->
     <section class="location">
         <div class="container">
@@ -535,7 +507,41 @@
 
     <script src="js/prayer-times.js"></script>
     <script src="js/events.js"></script>
+    <!-- Swiper.js for carousel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- GLightbox for video modals -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="js/youtube.js"></script>
     <script src="js/main.js"></script>
+    <!-- Initialize Swiper carousel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Store globally so youtube.js can call update() after showing spotlight slide
+            window.heroSwiper = new Swiper('#hero-carousel', {
+                loop: true,
+                autoplay: {
+                    delay: 10000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true
+                }
+            });
+        });
+    </script>
 </body>
 </html>

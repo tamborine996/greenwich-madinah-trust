@@ -1,7 +1,7 @@
 /**
  * YouTube Integration for Greenwich Madinah Trust
  * Fetches latest videos and detects live streams
- * Opens videos in embedded lightbox player
+ * Opens videos in GLightbox modal
  */
 
 (function() {
@@ -21,6 +21,9 @@
 
     // Spotlight config loaded from data/spotlight.json
     let spotlightConfig = null;
+
+    // GLightbox instance (initialized once)
+    let lightboxInstance = null;
 
     // Load spotlight configuration from JSON
     async function loadSpotlightConfig() {
@@ -133,43 +136,39 @@
         }
     }
 
-    // Video Lightbox functionality
+    // Initialize GLightbox and return open function
     function initLightbox() {
-        const lightbox = document.getElementById('video-lightbox');
-        if (!lightbox) return;
+        // Check if GLightbox is available
+        if (typeof GLightbox === 'undefined') {
+            console.warn('GLightbox not loaded, video modals will not work');
+            return () => {};
+        }
 
-        const overlay = lightbox.querySelector('.video-lightbox-overlay');
-        const closeBtn = lightbox.querySelector('.video-lightbox-close');
-        const iframe = document.getElementById('video-lightbox-iframe');
-        const titleEl = lightbox.querySelector('.video-lightbox-title');
-
+        // Return a function that opens GLightbox with a specific video
         function openLightbox(videoId, title) {
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            titleEl.textContent = title;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            // Create a temporary GLightbox instance for this video
+            const tempLightbox = GLightbox({
+                elements: [{
+                    href: `https://www.youtube.com/watch?v=${videoId}`,
+                    type: 'video',
+                    title: title,
+                    source: 'youtube',
+                    width: 900
+                }],
+                autoplayVideos: true,
+                plyr: {
+                    config: {
+                        youtube: {
+                            rel: 0,
+                            showinfo: 0,
+                            modestbranding: 1
+                        }
+                    }
+                }
+            });
+            tempLightbox.open();
         }
 
-        function closeLightbox() {
-            lightbox.style.display = 'none';
-            iframe.src = '';
-            document.body.style.overflow = '';
-        }
-
-        // Close on overlay click
-        overlay.addEventListener('click', closeLightbox);
-
-        // Close on button click
-        closeBtn.addEventListener('click', closeLightbox);
-
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-                closeLightbox();
-            }
-        });
-
-        // Return the open function for use elsewhere
         return openLightbox;
     }
 
@@ -198,7 +197,7 @@
         const thumbImg = document.getElementById('youtube-slide-thumb');
         const titleEl = document.getElementById('youtube-slide-title');
         const playBtn = document.getElementById('youtube-slide-btn');
-        const overlay = slide.querySelector('.youtube-slide-overlay');
+        const thumbWrapper = slide.querySelector('.youtube-slide-thumb-wrapper');
 
         // Populate content
         thumbImg.src = spotlightVideo.thumbnail;
@@ -208,13 +207,26 @@
         // Show the slide
         slide.style.display = '';
 
-        // Click handler for overlay and play button
+        // Tell Swiper to recalculate (needed because slide was initially hidden)
+        // With loop mode and fade effect, Swiper needs to know about the new slide
+        if (window.heroSwiper) {
+            window.heroSwiper.update();
+        }
+
+        // Click handler for thumbnail wrapper and play button
         const openVideo = (e) => {
+            e.preventDefault();
             e.stopPropagation();
             openLightbox(spotlightVideo.videoId, spotlightVideo.title);
         };
-        overlay.addEventListener('click', openVideo);
-        playBtn.addEventListener('click', openVideo);
+
+        // Make thumbnail wrapper clickable
+        if (thumbWrapper) {
+            thumbWrapper.addEventListener('click', openVideo);
+        }
+        if (playBtn) {
+            playBtn.addEventListener('click', openVideo);
+        }
     }
 
     // Render the YouTube section

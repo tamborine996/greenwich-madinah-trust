@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     initMobileMenu();
 
-    // Hero Carousel
-    initHeroCarousel();
+    // Note: Hero Carousel is now handled by Swiper.js (initialized in index.html)
 
     // FAQ Accordions
     initFaqAccordions();
