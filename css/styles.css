@@ -602,11 +602,23 @@ p {
         height: 40px;
     }
 
-    /* Allow logo text to wrap to two lines on mobile */
     .logo-text {
-        font-size: 1rem;
-        line-height: 1.2;
-        max-width: 180px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Scale entire logo down proportionally - keeps both icon and text visible */
+    .logo {
+        transform: scale(0.85);
+        transform-origin: left center;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo {
+        transform: scale(0.75);
+        transform-origin: left center;
     }
 }
 
@@ -2785,25 +2797,18 @@ p {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Sticky columns - Date and Day */
+/* Date and Day columns */
 .sticky-col {
-    position: sticky;
-    left: 0;
-    z-index: 10;
     background: var(--ivory);
 }
 
 .sticky-col-2 {
-    position: sticky;
-    left: 55px;
-    z-index: 10;
     background: var(--ivory);
 }
 
-/* Header sticky columns need higher z-index */
+/* Header columns */
 thead .sticky-col,
 thead .sticky-col-2 {
-    z-index: 25;
     background: var(--emerald-deep);
 }
 
@@ -4134,6 +4139,18 @@ td.col-maghrib,
 .jummah-note strong {
     color: var(--emerald);
     font-weight: 600;
+}
+
+.pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    font-size: 0.9rem;
+}
+
+.pdf-link svg {
+    flex-shrink: 0;
 }
 
 /* ========== EVENT SPOTLIGHT SECTION ========== */
