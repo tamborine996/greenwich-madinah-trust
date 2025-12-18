@@ -482,6 +482,11 @@ p {
     width: 100%;
 }
 
+/* Nav Social Links - hidden on desktop, shown in mobile menu */
+.nav-social {
+    display: none;
+}
+
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
@@ -557,6 +562,38 @@ p {
     .nav-link {
         font-size: 0.95rem;
         padding: var(--space-sm) 0;
+    }
+
+    /* Social links in mobile menu */
+    .nav-social {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-md);
+        padding-top: var(--space-md);
+        margin-top: var(--space-md);
+        border-top: 1px solid var(--cream-warm);
+    }
+
+    .nav-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--emerald);
+        color: white;
+        transition: all var(--duration-fast) var(--ease-out-expo);
+    }
+
+    .nav-social a:hover {
+        background: var(--emerald-light);
+        transform: scale(1.1);
+    }
+
+    .nav-social svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -894,43 +931,46 @@ p {
         display: none;
     }
 
-    /* Add mobile header for prayer times */
-    .prayer-times-quick::before {
-        content: 'JAMAAT';
-        position: absolute;
-        top: -1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.55rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        color: rgba(255,255,255,0.6);
-    }
-
-    .prayer-times-quick {
-        position: relative;
-        padding-top: var(--space-sm);
-    }
-
     .prayer-time-item {
         min-width: auto;
         flex: 1;
+        flex-direction: column;
+        gap: 2px;
     }
 
     .prayer-name {
         font-size: 0.6rem;
     }
 
+    /* Show both times stacked with labels */
     .jamaat-time {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        position: relative;
     }
 
-    /* Hide "Begins" times on mobile - Jama'at is what matters */
+    .jamaat-time::before {
+        content: 'J';
+        font-size: 0.5rem;
+        font-weight: 600;
+        opacity: 0.7;
+        margin-right: 2px;
+    }
+
     .begins-time {
-        display: none;
+        font-size: 0.7rem;
+        opacity: 0.8;
+        position: relative;
     }
 
-    /* Hide social icons from banner on mobile - they're in footer */
+    .begins-time::before {
+        content: 'B';
+        font-size: 0.45rem;
+        font-weight: 600;
+        opacity: 0.7;
+        margin-right: 2px;
+    }
+
+    /* Hide social icons from banner on mobile - they go in hamburger menu */
     .social-icons-banner {
         display: none;
     }
