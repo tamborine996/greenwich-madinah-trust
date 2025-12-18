@@ -599,29 +599,14 @@ p {
 
 @media (max-width: 600px) {
     .logo-symbol {
-        height: 45px;
+        height: 40px;
     }
 
+    /* Allow logo text to wrap to two lines on mobile */
     .logo-text {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .logo-text {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .logo-text {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 340px) {
-    .logo-text {
-        display: none;
+        font-size: 1rem;
+        line-height: 1.2;
+        max-width: 180px;
     }
 }
 
@@ -926,8 +911,22 @@ p {
         gap: var(--space-xs);
     }
 
-    /* Show labels differently on mobile */
+    /* Show mobile-friendly labels row */
     .prayer-times-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 2px;
+        padding-bottom: 2px;
+    }
+
+    .prayer-times-labels .row-label {
+        font-size: 0.5rem;
+        text-align: right;
+        padding-right: var(--space-xs);
+    }
+
+    .prayer-times-labels .row-label:first-child {
         display: none;
     }
 
@@ -942,52 +941,26 @@ p {
         font-size: 0.6rem;
     }
 
-    /* Show both times stacked with labels */
     .jamaat-time {
         font-size: 0.85rem;
-        position: relative;
-    }
-
-    .jamaat-time::before {
-        content: 'J';
-        font-size: 0.5rem;
-        font-weight: 600;
-        opacity: 0.7;
-        margin-right: 2px;
     }
 
     .begins-time {
         font-size: 0.7rem;
-        opacity: 0.8;
-        position: relative;
+        opacity: 0.85;
     }
 
-    .begins-time::before {
-        content: 'B';
-        font-size: 0.45rem;
-        font-weight: 600;
-        opacity: 0.7;
-        margin-right: 2px;
-    }
-
-    /* Hide social icons from banner on mobile - they go in hamburger menu */
-    .social-icons-banner {
-        display: none;
-    }
-
-    /* Make Full Timetable button smaller */
-    .prayer-banner-right .btn {
-        font-size: 0.7rem;
-        padding: var(--space-xs) var(--space-sm);
-    }
-}
-
-@media (max-width: 480px) {
-    /* Hide Full Timetable button on small phones */
+    /* Hide Full Timetable button and social icons on mobile */
     .prayer-banner-right {
         display: none;
     }
 
+    .social-icons-banner {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
     .juma-label {
         font-size: 0.65rem;
     }
@@ -1004,6 +977,10 @@ p {
         font-size: 0.8rem;
     }
 
+    .begins-time {
+        font-size: 0.65rem;
+    }
+
     /* Tighter banner on small screens */
     .prayer-banner {
         padding: var(--space-xs) 0;
@@ -1011,14 +988,6 @@ p {
 
     .prayer-banner-content {
         gap: var(--space-xs);
-    }
-
-    .prayer-times-quick {
-        padding-top: var(--space-xs);
-    }
-
-    .prayer-times-quick::before {
-        top: -0.8rem;
     }
 }
 
