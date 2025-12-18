@@ -855,51 +855,112 @@ p {
 }
 
 @media (max-width: 600px) {
-    .prayer-times-quick {
-        gap: var(--space-md);
+    .prayer-banner {
+        padding: var(--space-sm) 0;
     }
 
-    .jamaat-time {
-        font-size: 0.95rem;
+    .prayer-banner-content {
+        gap: var(--space-sm);
     }
 
-    .prayer-times-labels {
-        display: none;
-    }
-
-    .prayer-banner-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-xs);
-    }
-
-    .juma-times {
-        font-size: 0.9rem;
-    }
-
-    .juma-time {
-        font-size: 1.1rem;
-    }
-
-    .prayer-banner-date {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 400px) {
     .prayer-banner-left {
         flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
     }
 
     .juma-times {
-        flex-shrink: 0;
+        font-size: 0.85rem;
+    }
+
+    .juma-time {
+        font-size: 1rem;
     }
 
     .prayer-banner-date {
-        flex-shrink: 0;
+        font-size: 0.7rem;
+        text-align: right;
+    }
+
+    .prayer-times-quick {
+        width: 100%;
+        justify-content: space-between;
+        gap: var(--space-xs);
+    }
+
+    /* Show labels differently on mobile */
+    .prayer-times-labels {
+        display: none;
+    }
+
+    /* Add mobile header for prayer times */
+    .prayer-times-quick::before {
+        content: 'JAMA\0027AT';
+        position: absolute;
+        top: -1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.5);
+    }
+
+    .prayer-times-quick {
+        position: relative;
+        padding-top: var(--space-sm);
+    }
+
+    .prayer-time-item {
+        min-width: auto;
+        flex: 1;
+    }
+
+    .prayer-name {
+        font-size: 0.6rem;
+    }
+
+    .jamaat-time {
+        font-size: 0.9rem;
+    }
+
+    /* Hide "Begins" times on mobile - Jama'at is what matters */
+    .begins-time {
+        display: none;
+    }
+
+    /* Hide social icons from banner on mobile - they're in footer */
+    .social-icons-banner {
+        display: none;
+    }
+
+    /* Make Full Timetable button smaller */
+    .prayer-banner-right .btn {
+        font-size: 0.7rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+}
+
+@media (max-width: 400px) {
+    .prayer-banner-right .btn {
+        display: none;
+    }
+
+    .juma-label {
+        font-size: 0.65rem;
+    }
+
+    .juma-time {
+        font-size: 0.9rem;
+    }
+
+    .prayer-name {
+        font-size: 0.55rem;
+    }
+
+    .jamaat-time {
+        font-size: 0.8rem;
     }
 }
 
