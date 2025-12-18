@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prayer times and monthly timetable for Greenwich Madinah Trust mosque in Plumstead, London.">
+    <title>Prayer Times | Greenwich Madinah Trust</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/favicon.png" alt="" class="logo-symbol">
+                    <span class="logo-text">Greenwich Madinah Trust</span>
+                </a>
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="prayer-times.html" class="nav-link active">Prayer Times</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="learn.html" class="nav-link">Learn</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Prayer Times Banner -->
+    <section class="prayer-banner">
+        <div class="container">
+            <div class="prayer-banner-content">
+                <div class="prayer-banner-left">
+                    <div class="juma-times">
+                        <span class="juma-label">Jum'a</span>
+                        <span class="juma-time">1:00 & 1:30</span>
+                    </div>
+                    <div class="prayer-banner-date">
+                        <span class="gregorian-date" id="gregorian-date"></span>
+                        <span class="hijri-date" id="hijri-date">Loading...</span>
+                    </div>
+                </div>
+                <div class="prayer-times-quick" id="prayer-times-quick">
+                    <div class="prayer-times-labels">
+                        <span class="row-label"></span>
+                        <span class="row-label">Jama'at</span>
+                        <span class="row-label">Begins</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Fajr</span>
+                        <span class="jamaat-time" id="fajr-jamaat">--:--</span>
+                        <span class="begins-time" id="fajr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Dhuhr</span>
+                        <span class="jamaat-time" id="dhuhr-jamaat">--:--</span>
+                        <span class="begins-time" id="dhuhr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Asr</span>
+                        <span class="jamaat-time" id="asr-jamaat">--:--</span>
+                        <span class="begins-time" id="asr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Maghrib</span>
+                        <span class="jamaat-time" id="maghrib-jamaat">--:--</span>
+                        <span class="begins-time" id="maghrib-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Isha</span>
+                        <span class="jamaat-time" id="isha-jamaat">--:--</span>
+                        <span class="begins-time" id="isha-time">--:--</span>
+                    </div>
+                </div>
+                <a href="prayer-times.html" class="btn btn-outline-light btn-sm">Full Timetable</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Prayer Times</h1>
+            <p>Daily prayer times and monthly timetable</p>
+        </div>
+    </section>
+
+    <!-- Monthly Timetable -->
+    <section class="content-section timetable-section">
+        <div class="container">
+            <div class="timetable-header">
+                <div class="month-nav">
+                    <button id="prev-month" class="month-nav-btn" aria-label="Previous month">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M12 15L7 10L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <h2 id="current-month-label">December 2025</h2>
+                    <button id="next-month" class="month-nav-btn" aria-label="Next month">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 5L13 10L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="jummah-note">Jum'a: <strong>1:00 PM</strong> & <strong>1:30 PM</strong> every Friday</p>
+            </div>
+
+            <div class="table-container" id="monthly-timetable">
+                <p class="text-center">Loading prayer times...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Greenwich Madinah Trust</h4>
+                    <p>Serving the local Muslim community with prayers, education, and services.</p>
+                    <p class="charity-number">Registered UK Charity No. 1129277</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="prayer-times.html">Prayer Times</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
+                        <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Greenwich Madinah Trust. All rights reserved.</p>
+                <a href="privacy.html">Data & Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/prayer-times.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Prayer Times Page Specific JS
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize monthly timetable
+            let currentYear = new Date().getFullYear();
+            let currentMonth = new Date().getMonth() + 1;
+
+            loadMonthlyTimetable(currentYear, currentMonth);
+            updateMonthLabel(currentYear, currentMonth);
+
+            // Month navigation
+            document.getElementById('prev-month').addEventListener('click', function() {
+                currentMonth--;
+                if (currentMonth < 1) {
+                    currentMonth = 12;
+                    currentYear--;
+                }
+                loadMonthlyTimetable(currentYear, currentMonth);
+                updateMonthLabel(currentYear, currentMonth);
+            });
+
+            document.getElementById('next-month').addEventListener('click', function() {
+                currentMonth++;
+                if (currentMonth > 12) {
+                    currentMonth = 1;
+                    currentYear++;
+                }
+                loadMonthlyTimetable(currentYear, currentMonth);
+                updateMonthLabel(currentYear, currentMonth);
+            });
+        });
+
+        function loadMonthlyTimetable(year, month) {
+            PrayerTimes.renderMonthlyTable('monthly-timetable', year, month);
+        }
+
+        function updateMonthLabel(year, month) {
+            const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('current-month-label').textContent = `${months[month-1]} ${year}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Services provided by Greenwich Madinah Trust - Janazah, Nikah, counselling, and more.">
+    <title>Services | Greenwich Madinah Trust</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/favicon.png" alt="" class="logo-symbol">
+                    <span class="logo-text">Greenwich Madinah Trust</span>
+                </a>
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
+                        <li><a href="services.html" class="nav-link active">Services</a></li>
+                        <li><a href="learn.html" class="nav-link">Learn</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Prayer Times Banner -->
+    <section class="prayer-banner">
+        <div class="container">
+            <div class="prayer-banner-content">
+                <div class="prayer-banner-left">
+                    <div class="juma-times">
+                        <span class="juma-label">Jum'a</span>
+                        <span class="juma-time">1:00 & 1:30</span>
+                    </div>
+                    <div class="prayer-banner-date">
+                        <span class="gregorian-date" id="gregorian-date"></span>
+                        <span class="hijri-date" id="hijri-date">Loading...</span>
+                    </div>
+                </div>
+                <div class="prayer-times-quick" id="prayer-times-quick">
+                    <div class="prayer-times-labels">
+                        <span class="row-label"></span>
+                        <span class="row-label">Jama'at</span>
+                        <span class="row-label">Begins</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Fajr</span>
+                        <span class="jamaat-time" id="fajr-jamaat">--:--</span>
+                        <span class="begins-time" id="fajr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Dhuhr</span>
+                        <span class="jamaat-time" id="dhuhr-jamaat">--:--</span>
+                        <span class="begins-time" id="dhuhr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Asr</span>
+                        <span class="jamaat-time" id="asr-jamaat">--:--</span>
+                        <span class="begins-time" id="asr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Maghrib</span>
+                        <span class="jamaat-time" id="maghrib-jamaat">--:--</span>
+                        <span class="begins-time" id="maghrib-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Isha</span>
+                        <span class="jamaat-time" id="isha-jamaat">--:--</span>
+                        <span class="begins-time" id="isha-time">--:--</span>
+                    </div>
+                </div>
+                <a href="prayer-times.html" class="btn btn-outline-light btn-sm">Full Timetable</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Supporting our community through all stages of life</p>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="content-section">
+        <div class="container">
+            <div class="services-detail-grid">
+                <!-- Janazah Services -->
+                <div class="service-detail-card" id="janazah">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Memorial candle - universal remembrance symbol -->
+                            <!-- Flame -->
+                            <path d="M24 6c-3 4-5 7-5 10c0 3 2 5 5 5s5-2 5-5c0-3-2-6-5-10z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <path d="M24 12c-1 1.5-2 3-2 4c0 1.2 0.9 2 2 2s2-0.8 2-2c0-1-1-2.5-2-4z" fill="#c4a962" fill-opacity="0.3"/>
+                            <!-- Candle body -->
+                            <rect x="18" y="21" width="12" height="22" rx="1" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <!-- Candle holder base -->
+                            <path d="M14 43h20" stroke="#c4a962" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h2>Funeral Services (Janazah)</h2>
+                        <p>We provide comprehensive funeral services for the Muslim community, including:</p>
+                        <ul>
+                            <li>Guidance and support during bereavement</li>
+                            <li>Ghusl (ritual washing) facilities</li>
+                            <li>Kafan (shrouding) services</li>
+                            <li>Janazah prayer at the mosque</li>
+                            <li>Liaison with funeral directors</li>
+                        </ul>
+                        <p class="service-note">For urgent assistance, please contact us immediately.</p>
+                        <a href="contact.html#janazah" class="btn btn-primary">Contact for Janazah Services</a>
+                    </div>
+                </div>
+
+                <!-- Nikah Services -->
+                <div class="service-detail-card" id="nikah">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Marriage contract document with pen -->
+                            <rect x="8" y="4" width="24" height="32" rx="2" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <!-- Document lines -->
+                            <path d="M14 12h12M14 18h12M14 24h8" stroke="#c4a962" stroke-width="1" stroke-opacity="0.6"/>
+                            <!-- Two signature lines at bottom -->
+                            <path d="M12 30h8M22 30h8" stroke="#c4a962" stroke-width="1.5"/>
+                            <!-- Pen writing -->
+                            <path d="M34 20l8-12 2 2-8 12-3 1 1-3z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h2>Marriage Services (Nikah)</h2>
+                        <p>We offer Islamic marriage ceremonies conducted according to the Sunni tradition:</p>
+                        <ul>
+                            <li>Pre-marital guidance and counselling</li>
+                            <li>Nikah ceremony at the mosque</li>
+                            <li>Islamic marriage certificate</li>
+                            <li>Guidance on Islamic marital rights and responsibilities</li>
+                        </ul>
+                        <p class="service-note">Please <a href="contact.html#nikah">contact us</a> in advance to arrange a Nikah ceremony.</p>
+                    </div>
+                </div>
+
+                <!-- Counselling -->
+                <div class="service-detail-card" id="counselling">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Two people - support/guidance -->
+                            <circle cx="24" cy="16" r="8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <path d="M12 40c0-8 5-12 12-12s12 4 12 12" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <path d="M32 28c4 0 8 3 8 8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                            <circle cx="36" cy="18" r="5" stroke="#c4a962" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h2>Counselling</h2>
+                        <p>We provide confidential counselling and support services:</p>
+                        <ul>
+                            <li>Marriage and family counselling</li>
+                            <li>Spiritual guidance</li>
+                            <li>Support during difficult times</li>
+                            <li>Referrals to specialist services when needed</li>
+                        </ul>
+                        <p class="service-note">All counselling is strictly confidential.</p>
+                        <a href="contact.html#counselling" class="btn btn-primary">Request Counselling</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="cta-box large">
+                <h2>Need Our Services?</h2>
+                <p>We're here to help. Reach out to us for any of our services or if you have questions.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                    <a href="mailto:info@greenwichmadinatrust.org.uk" class="btn btn-outline">Email Directly</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Greenwich Madinah Trust</h4>
+                    <p>Serving the local Muslim community with prayers, education, and services.</p>
+                    <p class="charity-number">Registered UK Charity No. 1129277</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="prayer-times.html">Prayer Times</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
+                        <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Greenwich Madinah Trust. All rights reserved.</p>
+                <a href="privacy.html">Data & Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/prayer-times.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
