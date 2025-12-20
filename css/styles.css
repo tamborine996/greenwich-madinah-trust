@@ -3642,6 +3642,31 @@ td.col-maghrib,
     margin-bottom: var(--space-md);
 }
 
+.location-info {
+    background: var(--cream-warm);
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid var(--gold);
+    margin: var(--space-md) 0;
+    line-height: 1.7;
+}
+
+.location-info strong {
+    color: var(--charcoal);
+}
+
+.directions-link {
+    display: inline-block;
+    margin-left: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.directions-link:hover {
+    text-decoration: underline;
+}
+
 .service-detail-content p {
     color: var(--slate);
     line-height: 1.7;
