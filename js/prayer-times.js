@@ -11,8 +11,9 @@ const PrayerTimes = (function() {
         'july', 'august', 'september', 'october', 'november', 'december'
     ];
 
-    // Cache for loaded prayer times data
+    // Cache for loaded data
     let prayerTimesData = null;
+    let hijriCalendarData = null;
 
     /**
      * Load prayer times JSON data
@@ -31,6 +32,27 @@ const PrayerTimes = (function() {
             return prayerTimesData;
         } catch (error) {
             console.error('Error loading prayer times:', error);
+            return null;
+        }
+    }
+
+    /**
+     * Load Hijri calendar data (mosque's official moon sighting dates)
+     */
+    async function loadHijriCalendarData() {
+        if (hijriCalendarData) {
+            return hijriCalendarData;
+        }
+
+        try {
+            const response = await fetch('data/hijri-calendar.json');
+            if (!response.ok) {
+                throw new Error('Failed to load Hijri calendar data');
+            }
+            hijriCalendarData = await response.json();
+            return hijriCalendarData;
+        } catch (error) {
+            console.error('Error loading Hijri calendar:', error);
             return null;
         }
     }
@@ -79,75 +101,48 @@ const PrayerTimes = (function() {
     }
 
     /**
-     * Format Hijri date (approximation based on moon day in data)
+     * Calculate Hijri date based on mosque's official calendar
+     * Uses data/hijri-calendar.json which is updated when new month is announced
      */
-    function getHijriDate(dayData) {
-        // The JSON includes moon day which helps with Hijri date
-        // This is a simplified display - the mosque's PDF includes this
-        const moon = dayData.moon;
-
-        // Get approximate Hijri month based on date
-        // This is simplified - in production would use a proper Hijri calendar
-        const today = new Date();
-        const hijriMonths = [
-            'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
-            'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Shaban',
-            'Ramadan', 'Shawwal', 'Dhul Qadah', 'Dhul Hijjah'
-        ];
-
-        // Approximate Hijri year for 2025 (most of 2025 is 1446-1447 AH)
-        // December 2025 is in Jumada al-Thani 1447
-        let hijriMonth, hijriYear;
-
-        const gregorianMonth = today.getMonth();
-
-        // Rough mapping for 2025 (this should be refined)
-        if (gregorianMonth <= 0) { // January
-            hijriMonth = 'Rajab';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 1) { // February
-            hijriMonth = 'Shaban';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 2) { // March
-            hijriMonth = 'Ramadan';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 3) { // April
-            hijriMonth = 'Shawwal';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 4) { // May
-            hijriMonth = 'Dhul Qadah';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 5) { // June
-            hijriMonth = 'Dhul Hijjah';
-            hijriYear = 1446;
-        } else if (gregorianMonth <= 6) { // July
-            hijriMonth = 'Muharram';
-            hijriYear = 1447;
-        } else if (gregorianMonth <= 7) { // August
-            hijriMonth = 'Safar';
-            hijriYear = 1447;
-        } else if (gregorianMonth <= 8) { // September
-            hijriMonth = 'Rabi al-Awwal';
-            hijriYear = 1447;
-        } else if (gregorianMonth <= 9) { // October
-            hijriMonth = 'Rabi al-Thani';
-            hijriYear = 1447;
-        } else if (gregorianMonth <= 10) { // November
-            hijriMonth = 'Jumada al-Awwal';
-            hijriYear = 1447;
-        } else { // December
-            hijriMonth = 'Jumada al-Thani';
-            hijriYear = 1447;
+    async function getHijriDate() {
+        const calendar = await loadHijriCalendarData();
+        if (!calendar) {
+            return { day: '?', month: '?', year: '?' };
         }
 
-        // Handle moon day display (strip asterisk if present)
-        let moonDay = moon;
-        if (typeof moon === 'string' && moon.startsWith('*')) {
-            moonDay = moon.substring(1);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Parse the next month start date
+        const nextMonthStart = new Date(calendar.nextMonth.gregorianStartDate);
+        nextMonthStart.setHours(0, 0, 0, 0);
+
+        // Parse the current month start date
+        const currentMonthStart = new Date(calendar.currentMonth.gregorianStartDate);
+        currentMonthStart.setHours(0, 0, 0, 0);
+
+        let hijriMonth, hijriYear, hijriDay;
+
+        if (today >= nextMonthStart) {
+            // We're in the next month
+            hijriMonth = calendar.nextMonth.hijriMonth;
+            hijriYear = calendar.nextMonth.hijriYear;
+            // Calculate day of month (1-indexed)
+            const diffTime = today - nextMonthStart;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            hijriDay = diffDays + 1;
+        } else {
+            // We're in the current month
+            hijriMonth = calendar.currentMonth.hijriMonth;
+            hijriYear = calendar.currentMonth.hijriYear;
+            // Calculate day of month (1-indexed)
+            const diffTime = today - currentMonthStart;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            hijriDay = diffDays + 1;
         }
 
         return {
-            day: moonDay,
+            day: hijriDay,
             month: hijriMonth,
             year: hijriYear
         };
@@ -209,11 +204,11 @@ const PrayerTimes = (function() {
             }
         }
 
-        // Update Hijri date (month and year only - day varies by mosque ruling)
+        // Update Hijri date from mosque's official calendar
         const hijriElement = document.getElementById('hijri-date');
         if (hijriElement) {
-            const hijri = getHijriDate(dayData);
-            hijriElement.textContent = `${hijri.month} ${hijri.year} AH`;
+            const hijri = await getHijriDate();
+            hijriElement.textContent = `${hijri.day} ${hijri.month} ${hijri.year} AH`;
         }
 
         // Update Gregorian date

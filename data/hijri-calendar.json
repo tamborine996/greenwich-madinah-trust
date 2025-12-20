@@ -1,0 +1,16 @@
+{
+  "description": "Greenwich Madinah Trust official Hijri calendar. Update this when new Islamic month is announced.",
+  "lastUpdated": "2025-12-20",
+  "currentMonth": {
+    "hijriMonth": "Jumada al-Thani",
+    "hijriYear": 1447,
+    "gregorianStartDate": "2025-11-23",
+    "note": "Based on mosque moon sighting announcement"
+  },
+  "nextMonth": {
+    "hijriMonth": "Rajab",
+    "hijriYear": 1447,
+    "gregorianStartDate": "2025-12-22",
+    "note": "Announced: Monday 22nd December 2025 is 1st Rajab"
+  }
+}

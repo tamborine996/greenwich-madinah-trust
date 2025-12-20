@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Greenwich Madinah Trust - Serving the local Muslim community with prayers, events, and services in Plumstead, London.">
     <title>Greenwich Madinah Trust | Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20241220">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -28,7 +28,7 @@
                         <li><a href="index.html" class="nav-link active">Home</a></li>
                         <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
                         <li><a href="services.html" class="nav-link">Services</a></li>
-                        <li><a href="learn.html" class="nav-link">Learn</a></li>
+                        <li><a href="education.html" class="nav-link">Education</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                     <div class="nav-social">
@@ -147,10 +147,10 @@
                         <div class="swiper-slide carousel-slide-compact slide-quran-shareef">
                             <div class="slide-content-compact">
                                 <span class="slide-badge">Weekly Gathering</span>
-                                <h3 class="slide-title-compact">Dars-e-Quran Shareef</h3>
-                                <span class="slide-time-highlight">Every Monday after Isha</span>
-                                <p class="slide-description-compact">Join our brothers for the blessed recitation of the Holy Quran</p>
-                                <a href="learn.html#dars" class="btn btn-light btn-sm">Learn More</a>
+                                <h3 class="slide-title-compact">Dars-e-Quran</h3>
+                                <span class="slide-time-highlight">Men: Thursdays after Isha | Ladies: TBA</span>
+                                <p class="slide-description-compact">Weekly Quran study sessions with tafseer and discussion</p>
+                                <a href="education.html#dars" class="btn btn-light btn-sm">Learn More</a>
                             </div>
                         </div>
                         <!-- Slide 2: Madrassah -->
@@ -159,7 +159,7 @@
                                 <span class="slide-badge">Education</span>
                                 <h3 class="slide-title-compact">Madrassah Enrolment</h3>
                                 <p class="slide-description-compact">Quran, Arabic, and Islamic Studies for children</p>
-                                <a href="learn.html#madrassah" class="btn btn-light btn-sm">Register Now</a>
+                                <a href="education.html#madrassah" class="btn btn-light btn-sm">Register Now</a>
                             </div>
                         </div>
                         <!-- Slide 3: YouTube Spotlight (configured video) -->
@@ -190,7 +190,7 @@
     </section>
 
     <!-- Event Spotlight Section -->
-    <section class="event-spotlight light" id="event-spotlight">
+    <section class="event-spotlight light" id="event-spotlight" style="display: none;">
         <div class="container">
             <div class="spotlight-content">
                 <div class="spotlight-poster">
@@ -227,91 +227,70 @@
                 <p>Nurturing faith and knowledge in our community</p>
             </div>
             <div class="education-grid">
-                <div class="education-main">
-                    <div class="education-card featured">
+                    <div class="education-card">
                         <div class="education-card-icon">
                             <!-- Two children reading together -->
                             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <!-- Left child head -->
                                 <circle cx="14" cy="12" r="5"/>
-                                <!-- Right child head -->
                                 <circle cx="34" cy="12" r="5"/>
-                                <!-- Left child body leaning in -->
                                 <path d="M14 17v6l6 4"/>
-                                <!-- Right child body leaning in -->
                                 <path d="M34 17v6l-6 4"/>
-                                <!-- Open book between them -->
                                 <path d="M14 34l10-4 10 4v8l-10-3-10 3v-8z"/>
                                 <path d="M24 30v9"/>
                             </svg>
                         </div>
-                        <div class="education-card-content">
-                            <h3>Children's Madrassah</h3>
-                            <p class="education-schedule">Weekdays, 4:00 PM - 7:00 PM</p>
-                            <p>Our Madrassah provides comprehensive Islamic education for children, including:</p>
-                            <ul class="education-list">
-                                <li>Quran recitation and Tajweed</li>
-                                <li>Islamic studies and Aqeedah</li>
-                                <li>Arabic language fundamentals</li>
-                                <li>Seerah and Islamic history</li>
-                            </ul>
-                            <a href="learn.html#madrassah" class="btn btn-primary btn-sm">Enrol Now</a>
-                        </div>
+                        <h4>Children's Madrassah</h4>
+                        <p class="education-schedule">Weekdays: 4:30 - 6:50 PM</p>
+                        <p>Quran, Islamic studies, and Arabic for children ages 5-16.</p>
                     </div>
-                </div>
-                <div class="education-sidebar">
                     <div class="education-card">
-                        <div class="education-card-icon small">
-                            <!-- Kufi/topi (Muslim cap) with open book -->
+                        <div class="education-card-icon">
+                            <!-- Open Quran with radiating light -->
                             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <!-- Kufi cap -->
-                                <path d="M12 16c0-6 5-10 12-10s12 4 12 10"/>
-                                <path d="M10 16h28v4c0 2-6 3-14 3s-14-1-14-3v-4z"/>
-                                <!-- Open book below -->
-                                <path d="M10 32l14-3 14 3v10l-14-3-14 3v-10z"/>
-                                <path d="M24 29v13"/>
+                                <path d="M6 14l18-6 18 6v26l-18-6-18 6V14z"/>
+                                <path d="M24 8v26"/>
+                                <path d="M24 4v2"/>
+                                <path d="M18 3l2 2"/>
+                                <path d="M30 3l-2 2"/>
                             </svg>
                         </div>
-                        <h4>Men's Dars-e-Quran</h4>
-                        <p class="education-schedule">Every Monday after Isha</p>
-                        <p>Weekly Quran study circle with tafseer and discussion.</p>
+                        <h4>Dars-e-Quran</h4>
+                        <p class="education-schedule">Men: Thursdays after Isha | Ladies: TBA</p>
+                        <p>Quran study circles with tafseer and discussion for all.</p>
                     </div>
                     <div class="education-card">
-                        <div class="education-card-icon small">
-                            <!-- Clear hijab frontal silhouette with book -->
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <!-- Hijab - front view, fabric draping around face -->
-                                <ellipse cx="24" cy="14" rx="10" ry="11"/>
-                                <path d="M14 14c0 8 4 14 10 16c6-2 10-8 10-16"/>
-                                <!-- Face opening (oval) -->
-                                <ellipse cx="24" cy="13" rx="5" ry="6"/>
-                                <!-- Open book below -->
-                                <path d="M10 36l14-3 14 3v7l-14-2-14 2v-7z"/>
-                                <path d="M24 33v10"/>
-                            </svg>
-                        </div>
-                        <h4>Ladies' Dars-e-Quran</h4>
-                        <p class="education-schedule">Weekly sessions</p>
-                        <p>Quran study and discussion for women.</p>
-                    </div>
-                    <div class="education-card">
-                        <div class="education-card-icon small">
-                            <!-- Clear Arabic letter Ba ب -->
+                        <div class="education-card-icon">
+                            <!-- Arabic letter Ba ب -->
                             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <!-- Ba - the boat/bowl shape -->
                                 <path d="M8 20c0 10 8 14 16 14s16-4 16-14"/>
-                                <!-- The single dot below Ba -->
                                 <circle cx="24" cy="40" r="3" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h4>Adult Arabic Classes</h4>
-                        <p class="education-schedule">Weekly (contact for schedule)</p>
-                        <p>Arabic language for beginners to advanced.</p>
+                        <h4>Arabic Classes <span class="badge-coming-soon">Coming Soon</span></h4>
+                        <p class="education-schedule">For adults at all levels</p>
+                        <p>Learn to read, write, and understand Arabic.</p>
                     </div>
-                </div>
             </div>
+            <!-- Islamic Knowledge Banner -->
+            <a href="education.html#islamic-knowledge" class="beliefs-banner">
+                <div class="beliefs-banner-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Open book -->
+                        <path d="M6 12l18-6 18 6v28l-18-6-18 6V12z"/>
+                        <path d="M24 6v28"/>
+                    </svg>
+                </div>
+                <div class="beliefs-banner-content">
+                    <span class="beliefs-banner-title">Islamic Knowledge</span>
+                    <span class="beliefs-banner-text">Learn about Milad-un-Nabi, Gyarwee Shareef, Eid celebrations, and more</span>
+                </div>
+                <div class="beliefs-banner-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+
             <div class="section-cta">
-                <a href="learn.html" class="btn btn-outline">View All Programs</a>
+                <a href="education.html" class="btn btn-outline">Explore Education</a>
             </div>
         </div>
     </section>
@@ -484,7 +463,7 @@
                     <ul class="footer-links">
                         <li><a href="prayer-times.html">Prayer Times</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="education.html">Education</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -505,14 +484,14 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js"></script>
-    <script src="js/events.js"></script>
+    <script src="js/prayer-times.js?v=20241220"></script>
+    <script src="js/events.js?v=20241220"></script>
     <!-- Swiper.js for carousel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GLightbox for video modals -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="js/youtube.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/youtube.js?v=20241220"></script>
+    <script src="js/main.js?v=20241220"></script>
     <!-- Initialize Swiper carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {

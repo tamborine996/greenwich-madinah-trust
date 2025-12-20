@@ -361,6 +361,12 @@ p {
     transform: translateY(-2px);
 }
 
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 .btn-sm {
     padding: 0.6rem 1.25rem;
     font-size: 0.75rem;
@@ -369,6 +375,20 @@ p {
 .btn-lg {
     padding: 1.25rem 2.5rem;
     font-size: 0.9rem;
+}
+
+.badge-coming-soon {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 0.5rem;
 }
 
 /* ========== HEADER ========== */
@@ -2025,19 +2045,16 @@ p {
 
 .education-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-xl);
-    align-items: start;
-}
-
-.education-main {
-    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    align-items: stretch;
 }
 
 .education-card {
     background: var(--ivory);
     border: 1px solid rgba(196, 169, 98, 0.2);
-    padding: var(--space-xl);
+    padding: var(--space-2xl) var(--space-xl);
+    text-align: center;
     transition: all var(--duration-normal) var(--ease-out-expo);
 }
 
@@ -2059,6 +2076,7 @@ p {
     width: 80px;
     height: 80px;
     min-width: 80px;
+    margin: 0 auto var(--space-lg);
     border: 2px solid var(--gold);
     border-radius: 50%;
     display: flex;
@@ -2162,31 +2180,105 @@ p {
 
 @media (max-width: 900px) {
     .education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .education-card.featured {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .education-card-icon {
-        margin: 0 auto var(--space-lg);
-    }
-
-    .education-list {
-        text-align: left;
-    }
-
-    .education-sidebar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 700px) {
-    .education-sidebar {
+@media (max-width: 600px) {
+    .education-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Beliefs & Traditions Banner */
+.beliefs-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl);
+    background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald) 100%);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.beliefs-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l8.66 15.36L55.36 14.64 54.64 31.34 70 40l-15.36 8.66 1.36 16.7-16.7-1.36L30 80l-8.66-15.36-16.7 1.36 1.36-16.7L-10 40l15.36-8.66-1.36-16.7 16.7 1.36L30 0z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+}
+
+.beliefs-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(13, 92, 77, 0.3);
+}
+
+.beliefs-banner-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.beliefs-banner-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--gold-bright);
+}
+
+.beliefs-banner-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.beliefs-banner-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.beliefs-banner-text {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.beliefs-banner-arrow {
+    position: relative;
+    z-index: 1;
+    opacity: 0.7;
+    transition: all var(--duration-fast) ease;
+}
+
+.beliefs-banner:hover .beliefs-banner-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+    .beliefs-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-lg);
+    }
+
+    .beliefs-banner-arrow {
+        display: none;
     }
 }
 
@@ -3565,6 +3657,30 @@ td.col-maghrib,
     margin: var(--space-lg) 0;
 }
 
+/* Schedule Table - compact time listings */
+.schedule-table {
+    width: auto;
+    margin: var(--space-sm) 0 var(--space-md);
+    border-collapse: collapse;
+}
+
+.schedule-table td {
+    padding: var(--space-xs) var(--space-md) var(--space-xs) 0;
+    font-size: 0.9rem;
+    color: var(--slate);
+}
+
+.schedule-table td:first-child {
+    font-weight: 500;
+    color: var(--charcoal);
+}
+
+.schedule-table td:last-child {
+    color: var(--gold-muted);
+    font-weight: 600;
+    padding-right: 0;
+}
+
 @media (max-width: 768px) {
     .service-detail-card {
         grid-template-columns: 1fr;
@@ -3578,6 +3694,127 @@ td.col-maghrib,
     .service-detail-content ul,
     .service-detail-content ol {
         text-align: left;
+    }
+
+    .schedule-table {
+        text-align: left;
+    }
+}
+
+/* ========== BELIEFS CARDS ========== */
+.beliefs-card {
+    background: var(--ivory);
+    border: 1px solid rgba(196, 169, 98, 0.2);
+    border-radius: 12px;
+    margin-bottom: var(--space-xl);
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    overflow: hidden;
+}
+
+.beliefs-card:hover {
+    border-color: rgba(196, 169, 98, 0.4);
+    box-shadow: var(--shadow-medium);
+}
+
+.beliefs-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-xl) var(--space-2xl);
+    background: linear-gradient(135deg, rgba(13, 92, 77, 0.03) 0%, rgba(196, 169, 98, 0.05) 100%);
+    border-bottom: 1px solid rgba(196, 169, 98, 0.15);
+}
+
+.beliefs-card-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+}
+
+.beliefs-card-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.beliefs-card-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--emerald-deep);
+    margin: 0;
+}
+
+.beliefs-card-content {
+    padding: var(--space-xl) var(--space-2xl) var(--space-2xl);
+}
+
+.beliefs-card-content p {
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+}
+
+.beliefs-card-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--emerald-deep);
+    margin: var(--space-lg) 0 var(--space-sm);
+}
+
+.beliefs-card-content ul {
+    margin: var(--space-sm) 0 var(--space-md);
+    padding-left: var(--space-lg);
+}
+
+.beliefs-card-content li {
+    position: relative;
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-sm);
+    color: var(--slate);
+    line-height: 1.6;
+}
+
+.beliefs-card-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .beliefs-card-header {
+        padding: var(--space-lg);
+        gap: var(--space-md);
+    }
+
+    .beliefs-card-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+    }
+
+    .beliefs-card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .beliefs-card-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .beliefs-card-content {
+        padding: var(--space-lg);
     }
 }
 
@@ -3620,6 +3857,17 @@ td.col-maghrib,
 
 .cta-box .btn {
     position: relative;
+}
+
+.cta-box .btn-outline {
+    color: var(--ivory);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cta-box .btn-outline:hover {
+    background: var(--ivory);
+    color: var(--emerald);
+    border-color: var(--ivory);
 }
 
 .cta-box.large {
@@ -3775,6 +4023,24 @@ td.col-maghrib,
 
 .faq-answer a:hover {
     color: var(--gold-muted);
+}
+
+.faq-answer blockquote {
+    margin: var(--space-md) var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--cream-warm);
+    border-left: 4px solid var(--gold);
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.7;
+}
+
+.faq-answer blockquote em {
+    display: block;
+    margin-top: var(--space-sm);
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--stone);
 }
 
 /* ========== NIKAH REGISTRATION FORM ========== */

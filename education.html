@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Islamic education and learning programs at Greenwich Madinah Trust - Madrassah, Dars-e-Quran, Arabic classes, and frequently asked questions.">
-    <title>Learn | Greenwich Madinah Trust</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Islamic education at Greenwich Madinah Trust - Madrassah, Dars-e-Quran, Arabic classes, and our beliefs and traditions.">
+    <title>Education | Greenwich Madinah Trust</title>
+    <link rel="stylesheet" href="css/styles.css?v=20241220">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -24,7 +24,7 @@
                         <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
                         <li><a href="services.html" class="nav-link">Services</a></li>
-                        <li><a href="learn.html" class="nav-link active">Learn</a></li>
+                        <li><a href="education.html" class="nav-link active">Education</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                     <div class="nav-social">
@@ -95,8 +95,8 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Learn</h1>
-            <p>Education and Islamic knowledge for all ages</p>
+            <h1>Education</h1>
+            <p>Programs and Islamic knowledge for all ages</p>
         </div>
     </section>
 
@@ -104,7 +104,7 @@
     <section class="content-section">
         <div class="container">
             <div class="section-header">
-                <h2>Education Programs</h2>
+                <h2>Programs</h2>
                 <p>Nurturing faith and knowledge in our community</p>
             </div>
 
@@ -123,16 +123,24 @@
                 </div>
                 <div class="service-detail-content">
                     <h2>Children's Madrassah</h2>
-                    <p class="service-schedule">Weekdays, 4:00 PM - 7:00 PM</p>
-                    <p>Our Madrassah provides comprehensive Islamic education for children, including:</p>
+                    <p class="service-schedule">Weekdays after school</p>
+                    <table class="schedule-table">
+                        <tr><td>Young learners (ages 5-9)</td><td>4:30 - 5:50 PM</td></tr>
+                        <tr><td>Older children (ages 10-16)</td><td>5:50 - 6:50 PM</td></tr>
+                    </table>
+                    <p>Our Madrassah provides comprehensive Islamic education with a dedicated syllabus for each age group:</p>
                     <ul>
                         <li>Quran recitation and Tajweed</li>
                         <li>Islamic studies and Aqeedah</li>
+                        <li>Duas and etiquette</li>
                         <li>Arabic language fundamentals</li>
                         <li>Seerah and Islamic history</li>
                     </ul>
-                    <p>To enrol your child, please contact us via email or visit the mosque in person.</p>
-                    <a href="contact.html#madrassah" class="btn btn-primary">Enquire About Enrolment</a>
+                    <p>Download the enrolment form, complete it, and submit it with a copy of your child's birth certificate or passport.</p>
+                    <div class="button-group">
+                        <a href="documents/madrassah-enrolment-form.pdf" class="btn btn-primary" download>Download Enrolment Form</a>
+                        <a href="contact.html#madrassah" class="btn btn-secondary">Have Questions?</a>
+                    </div>
                 </div>
             </div>
 
@@ -149,14 +157,12 @@
                 </div>
                 <div class="service-detail-content">
                     <h2>Dars-e-Quran</h2>
-                    <p class="service-schedule">Every Monday after Isha</p>
+                    <p class="service-schedule">Weekly</p>
+                    <table class="schedule-table">
+                        <tr><td>Men's</td><td>Every Thursday after Isha</td></tr>
+                        <tr><td>Ladies'</td><td>TBA</td></tr>
+                    </table>
                     <p>Weekly Quran study sessions with tafseer (explanation) and discussion. These are not formal classes but regular talks that anyone can attend to deepen their understanding of the Quran.</p>
-                    <h4>Sessions Available:</h4>
-                    <ul>
-                        <li><strong>Men's Dars-e-Quran:</strong> Every Monday after Isha prayer</li>
-                        <li><strong>Ladies' Dars-e-Quran:</strong> Weekly sessions (contact for schedule)</li>
-                    </ul>
-                    <p>No registration required - simply attend after Isha prayer.</p>
                 </div>
             </div>
 
@@ -170,93 +176,69 @@
                     </svg>
                 </div>
                 <div class="service-detail-content">
-                    <h2>Adult Arabic Classes</h2>
-                    <p class="service-schedule">Weekly (contact for current schedule)</p>
+                    <h2>Adult Arabic Classes <span class="badge-coming-soon">Coming Soon</span></h2>
                     <p>Arabic language classes for adults at all levels, from beginners to advanced. Learn to read, write, and understand Arabic.</p>
-                    <a href="contact.html" class="btn btn-outline">Contact for Schedule</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="content-section alt-bg">
+    <!-- Islamic Knowledge -->
+    <section class="content-section alt-bg" id="islamic-knowledge">
         <div class="container">
             <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Common questions about our mosque and Islamic practices</p>
+                <h2>Islamic Knowledge</h2>
+                <p>Learn about Islamic practices and traditions</p>
             </div>
 
-            <!-- General Questions -->
             <div class="faq-category">
-                <h3>General Questions</h3>
-
-                <div class="faq-item">
+                <!-- Milad-un-Nabi -->
+                <div class="faq-item" id="milad">
                     <button class="faq-question">
-                        <span>What are the Jummah prayer times?</span>
+                        <span>Why do we celebrate Milad-un-Nabi (Mawlid)?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>We hold two Jummah prayers every Friday:</p>
+                        <p>Milad-un-Nabi (Mawlid) is the celebration of the birth of Prophet Muhammad (peace, blessings and salutations be upon him). At Greenwich Madinah Trust, we commemorate this blessed occasion in the same manner as it is celebrated by the mainstream Ahlus Sunnah across the world, as an expression of our love and gratitude.</p>
+
+                        <h4>Why We Celebrate</h4>
+
+                        <p><strong>Expression of Love</strong></p>
+                        <p>The Prophet Muhammad (peace, blessings and salutations be upon him) said:</p>
+                        <blockquote>"None of you truly believes until I am more beloved to him than his father, his child, and all of mankind."<br><em>(Bukhari & Muslim)</em></blockquote>
+                        <p>Celebrating Milad-un-Nabi (Mawlid) is one of the ways we express this love.</p>
+
+                        <p><strong>Gratitude to Allah</strong></p>
+                        <p>The Prophet Muhammad (peace, blessings and salutations be upon him) is described in the Qur'an as a "mercy to all the worlds" (21:107). His birth was a blessing for all of humanity, and we thank Allah for this tremendous gift.</p>
+
+                        <p><strong>Following the Prophet's Example</strong></p>
+                        <p>The Prophet Muhammad (peace, blessings and salutations be upon him) used to fast on Mondays. When asked about this, he said:</p>
+                        <blockquote>"That is the day on which I was born."<br><em>(Muslim)</em></blockquote>
+                        <p>This shows that he acknowledged the significance of his blessed birth.</p>
+
+                        <p><strong>Scholarly Tradition (Ahlus Sunnah)</strong></p>
+                        <p>Celebrating Milad-un-Nabi (Mawlid) has been supported and practiced by leading scholars of Ahlus Sunnah throughout Islamic history. Among them:</p>
                         <ul>
-                            <li><strong>First Jummah:</strong> 1:00 PM</li>
-                            <li><strong>Second Jummah:</strong> 1:30 PM</li>
+                            <li><strong>Imam Jalal al-Din al-Suyuti (d. 911 AH)</strong> stated that gatherings held to commemorate the birth of the Prophet Muhammad (peace, blessings and salutations be upon him), which include recitation of the Qur'an, feeding others, and praising the Prophet, are a praiseworthy innovation (bid'ah hasanah) and a means of reward.</li>
+                            <li><strong>Imam Ibn Hajar al-'Asqalani (d. 852 AH)</strong> explained that remembering the Prophet's birth and expressing joy on that occasion is permissible and commendable when it consists of good deeds such as charity, remembrance of Allah, and sending blessings upon the Prophet.</li>
+                            <li><strong>Imam Abu Shamah (d. 665 AH)</strong> praised the practice of commemorating the Prophet's birth, describing it as a way of expressing gratitude to Allah for the blessing of the Prophet Muhammad (peace, blessings and salutations be upon him).</li>
+                            <li><strong>Imam al-Qastallani (d. 923 AH)</strong> wrote that Muslims have consistently celebrated the month of the Prophet's birth with gatherings, charity, and expressions of joy, and that Allah bestows blessings upon those who honour this occasion.</li>
                         </ul>
-                        <p>Please arrive early to secure a place.</p>
-                    </div>
-                </div>
+                        <p>These scholarly positions reflect the long-standing and mainstream Ahlus Sunnah understanding of Milad-un-Nabi (Mawlid).</p>
 
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Where is the mosque located?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Greenwich Madinah Trust is located at:</p>
-                        <address>
-                            <p>56 Camrose Street</p>
-                            <p>Plumstead, London</p>
-                            <p>SE2 0JA</p>
-                        </address>
-                        <p><a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" target="_blank">Get directions on Google Maps</a></p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How do I enrol my child in Madrassah?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Our Madrassah runs on weekdays from 4:00 PM to 7:00 PM. To enrol your child, please:</p>
-                        <ol>
-                            <li>Contact us via email at <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a></li>
-                            <li>Or visit the mosque in person to speak with the administration</li>
-                        </ol>
-                        <p>We teach Quran recitation, Islamic studies, and Arabic language.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How can I book a Nikah ceremony?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>To arrange a Nikah (Islamic marriage ceremony), please contact us in advance. We provide:</p>
+                        <h4>How We Celebrate</h4>
+                        <p>Our Milad-un-Nabi (Mawlid) gatherings typically include:</p>
                         <ul>
-                            <li>Pre-marital guidance</li>
-                            <li>The Nikah ceremony at our mosque</li>
-                            <li>Islamic marriage certificate</li>
+                            <li>Recitation of the Holy Qur'an</li>
+                            <li>Salawat (sending blessings upon the Prophet Muhammad, peace, blessings and salutations be upon him)</li>
+                            <li>Na'at and Qasida (poetry in praise of the Prophet)</li>
+                            <li>Talks on the life, character, and teachings of the Prophet Muhammad (peace, blessings and salutations be upon him)</li>
+                            <li>Du'a (supplication) and the sharing of food</li>
                         </ul>
-                        <p>Visit our <a href="services.html#nikah">Marriage Services page</a> to register your interest.</p>
+
+                        <p>We hold Mehfil-e-Milad gatherings throughout the year, especially in Rabi' al-Awwal, the blessed month of the birth of the Prophet Muhammad (peace, blessings and salutations be upon him).</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Islamic Practice Questions -->
-            <div class="faq-category">
-                <h3>Islamic Practice Questions</h3>
 
                 <!-- Gyarwee Shareef -->
                 <div class="faq-item" id="gyarwee">
@@ -265,72 +247,45 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Gyarwee Shareef (also spelled Giyarwee or Giyarhwee) is a monthly gathering commemorating Sheikh Abdul Qadir Jilani (Rahmatullahi Alayhi), one of the most revered saints in Islamic history.</p>
+                        <p>Gyarwee Shareef (also spelled Giyarwee or Giyarhwee) is a monthly gathering held to commemorate the legacy of Shaykh ʿAbd al-Qādir al-Jīlānī, may Allah be pleased with him, one of the most revered saints in Islamic history.</p>
 
-                        <h4>About Sheikh Abdul Qadir Jilani (RA)</h4>
+                        <h4>About Shaykh ʿAbd al-Qādir al-Jīlānī</h4>
                         <ul>
-                            <li>Born in 1077 CE in Gilan (modern-day Iran)</li>
-                            <li>Known as "Ghaus-ul-Azam" (The Greatest Helper)</li>
-                            <li>Founder of the Qadiriyya Sufi order</li>
-                            <li>Renowned scholar, preacher, and saint</li>
-                            <li>Passed away on the 11th of Rabi' al-Thani, 1166 CE</li>
+                            <li>Born in 1077 CE in Gilan (present-day Iran)</li>
+                            <li>Known as "Ghous-ul-Azam", meaning The Greatest Helper by the bestowal of Allah</li>
+                            <li>Founder of the Qādiriyya Sufi Order</li>
+                            <li>A renowned Islamic scholar, preacher, and saint</li>
+                            <li>Passed away on the 11th of Rabīʿ al-Thānī, 1166 CE</li>
                         </ul>
 
                         <h4>Why "Gyarwee"?</h4>
-                        <p>"Gyarwee" means "eleventh" in Urdu/Hindi, referring to the 11th day of each Islamic month when these gatherings are traditionally held, commemorating the date of his passing.</p>
+                        <p>"Gyarwee" means "eleventh" in Urdu and Hindi. These gatherings trace back to the practice of the great Sufi Shaykh himself, who would hold monthly gatherings on the 11th day. The intention of these gatherings was education, spiritual guidance, and calling people back towards Allah and His Noble Messenger, peace, blessings, and salutations be upon him.</p>
 
-                        <h4>What Happens at Gyarwee</h4>
+                        <h4>What Happens at Gyarwee Shareef</h4>
                         <p>Our Gyarwee gatherings typically include:</p>
                         <ul>
-                            <li>Recitation of the Holy Quran</li>
-                            <li>Isal e Sawab (sending spiritual rewards to the deceased)</li>
+                            <li>Recitation of the Holy Qur'an</li>
+                            <li>Hamd, Naat, and Manqabats recited in praise of Allah and His Noble Messenger, peace, blessings, and salutations be upon him</li>
+                            <li>Speeches delivered by Islamic scholars</li>
+                            <li>Salat and Salam recited</li>
+                            <li>Khatam Shareef performed for Isal-e-Sawab, conveying spiritual reward to the deceased</li>
                             <li>Du'a (supplication)</li>
                             <li>Sharing of food</li>
                         </ul>
 
-                        <p><strong>Dates are announced on our social media.</strong> Follow us on <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank">Facebook</a> for announcements.</p>
-                    </div>
-                </div>
-
-                <!-- Milad-un-Nabi -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Why do we celebrate Milad-un-Nabi (Mawlid)?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Milad-un-Nabi (also known as Mawlid) is the celebration of the birth of Prophet Muhammad (peace be upon him). At Greenwich Madinah Trust, we commemorate this blessed occasion as an expression of our love and gratitude.</p>
-
-                        <h4>Why We Celebrate</h4>
-                        <ul>
-                            <li><strong>Expression of Love:</strong> The Prophet (PBUH) said, "None of you truly believes until I am more beloved to him than his father, his child, and all of mankind." (Bukhari & Muslim). Celebrating his birth is one way we express this love.</li>
-                            <li><strong>Gratitude to Allah:</strong> The Prophet (PBUH) is described in the Quran as a "mercy to all the worlds" (21:107). His birth was a blessing for humanity, and we thank Allah for this gift.</li>
-                            <li><strong>Following the Prophet's Example:</strong> The Prophet (PBUH) used to fast on Mondays, and when asked about it, he said, "That is the day on which I was born." (Muslim). This shows he acknowledged the significance of his birth.</li>
-                            <li><strong>Scholarly Tradition:</strong> Celebrating Milad has been practiced by scholars and Muslims for centuries across the Islamic world.</li>
-                        </ul>
-
-                        <h4>How We Celebrate</h4>
-                        <p>Our Milad gatherings typically include:</p>
-                        <ul>
-                            <li>Recitation of the Holy Quran</li>
-                            <li>Salawat (sending blessings upon the Prophet)</li>
-                            <li>Na'at and Qasida (poetry in praise of the Prophet)</li>
-                            <li>Talks about the life and character of the Prophet (PBUH)</li>
-                            <li>Du'a (supplication) and sharing of food</li>
-                        </ul>
-
-                        <p>We hold our Mehfil e Milad gatherings throughout the year, especially in Rabi' al-Awwal, the month of the Prophet's birth.</p>
+                        <p><strong>Dates are announced on our social media platforms.</strong> Follow us on <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank">Facebook</a> for announcements and updates.</p>
+                        <p><strong>Sponsor a Gyarwee gathering</strong> and dedicate the reward to your departed loved ones. <a href="contact.html#gyarwee">Contact us to arrange sponsorship</a>.</p>
                     </div>
                 </div>
 
                 <!-- Eid Prayers -->
-                <div class="faq-item">
+                <div class="faq-item" id="eid">
                     <button class="faq-question">
-                        <span>What is the difference between Eid al-Fitr and Eid al-Adha prayers?</span>
+                        <span>What is the difference between Eid al-Fitr and Eid al-Adha?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Both Eid prayers follow a similar structure but commemorate different occasions:</strong></p>
+                        <p>The two Eid festivals are among the most joyous occasions in the Islamic calendar.</p>
 
                         <h4>Eid al-Fitr (Festival of Breaking the Fast)</h4>
                         <ul>
@@ -349,15 +304,8 @@
                             <li>The sacrifice (Qurbani) is performed after the Eid prayer</li>
                         </ul>
 
-                        <h4>The Eid Prayer Itself</h4>
-                        <p>Both Eid prayers consist of two rak'ahs with additional takbeers:</p>
-                        <ul>
-                            <li>In the first rak'ah: After the opening takbeer, there are additional takbeers (the number varies by madhab)</li>
-                            <li>In the second rak'ah: Before the rukoo (bowing), there are additional takbeers</li>
-                            <li>The Imam delivers a khutbah (sermon) after the prayer</li>
-                        </ul>
-
-                        <p>Please check our announcements for exact Eid prayer times.</p>
+                        <h4>The Eid Prayer</h4>
+                        <p>Both Eid prayers consist of two rak'ahs with additional takbeers. The Imam delivers a khutbah (sermon) after the prayer. Please check our announcements for exact Eid prayer times.</p>
                     </div>
                 </div>
             </div>
@@ -365,7 +313,7 @@
             <!-- More Questions CTA -->
             <div class="cta-box">
                 <h3>Have More Questions?</h3>
-                <p>If you can't find the answer you're looking for, please get in touch with us.</p>
+                <p>If you'd like to learn more about Islamic practices, please get in touch.</p>
                 <a href="contact.html" class="btn btn-primary">Contact Us</a>
             </div>
         </div>
@@ -385,7 +333,7 @@
                     <ul class="footer-links">
                         <li><a href="prayer-times.html">Prayer Times</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="education.html">Education</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -406,7 +354,7 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/prayer-times.js?v=20241220"></script>
+    <script src="js/main.js?v=20241220"></script>
 </body>
 </html>
