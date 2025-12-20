@@ -2051,16 +2051,39 @@ p {
 }
 
 .education-card {
+    display: block;
     background: var(--ivory);
-    border: 1px solid rgba(196, 169, 98, 0.2);
+    border: 1px solid transparent;
     padding: var(--space-2xl) var(--space-xl);
     text-align: center;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--gold);
+    opacity: 0;
     transition: all var(--duration-normal) var(--ease-out-expo);
 }
 
 .education-card:hover {
-    border-color: rgba(196, 169, 98, 0.4);
-    box-shadow: var(--shadow-soft);
+    border-color: rgba(196, 169, 98, 0.3);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+}
+
+.education-card:hover::before {
+    opacity: 1;
+    width: 60px;
 }
 
 .education-card.featured {
@@ -2083,12 +2106,23 @@ p {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+    transition: all var(--duration-normal) var(--ease-out-expo);
 }
 
 .education-card-icon svg {
     width: 36px;
     height: 36px;
     color: var(--gold);
+    transition: color var(--duration-normal) var(--ease-out-expo);
+}
+
+.education-card:hover .education-card-icon {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+.education-card:hover .education-card-icon svg {
+    color: var(--ivory);
 }
 
 .education-card-icon.small {
