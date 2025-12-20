@@ -4599,6 +4599,7 @@ td.col-maghrib,
     font-size: 0.95rem;
     color: var(--slate);
     margin: 0;
+    text-align: center;
 }
 
 .jummah-note strong {
