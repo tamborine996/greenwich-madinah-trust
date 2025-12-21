@@ -4005,6 +4005,56 @@ td.col-maghrib,
     position: relative;
 }
 
+/* ========== QUICK LINKS GRID ========== */
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.quick-link-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--ivory);
+    border: 1px solid rgba(196, 169, 98, 0.2);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.quick-link-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.quick-link-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: var(--gold);
+}
+
+.quick-link-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.quick-link-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--emerald-deep);
+    margin-bottom: var(--space-xs);
+}
+
+.quick-link-content p {
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+    margin: 0;
+}
+
 /* ========== FAQ CATEGORY STYLING ========== */
 .faq-category {
     margin-bottom: var(--space-2xl);
@@ -4458,6 +4508,18 @@ td.col-maghrib,
     font-weight: 500;
     color: var(--emerald);
     margin-bottom: var(--space-xs);
+}
+
+.contact-card .location-label {
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+    margin-bottom: var(--space-md);
+}
+
+.location-note {
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+    font-style: italic;
 }
 
 .social-links-vertical {
