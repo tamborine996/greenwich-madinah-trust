@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Services provided by Greenwich Madinah Trust - Janazah, Nikah, counselling, and more.">
-    <title>Services | Greenwich Madinah Trust</title>
+    <meta name="description" content="What Greenwich Madinah Trust offers - Services, educational programs, and community gatherings.">
+    <title>What We Offer | Greenwich Madinah Trust</title>
     <link rel="stylesheet" href="css/styles.css?v=20241220">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +23,7 @@
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
-                        <li><a href="services.html" class="nav-link active">Services</a></li>
-                        <li><a href="education.html" class="nav-link">Education</a></li>
+                        <li><a href="what-we-offer.html" class="nav-link active">What We Offer</a></li>
                         <li><a href="resources.html" class="nav-link">Resources</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
@@ -96,31 +95,32 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Our Services</h1>
-            <p>Supporting our community through all stages of life</p>
+            <h1>What We Offer</h1>
+            <p>Services, programs, and gatherings for our community</p>
         </div>
     </section>
 
-    <!-- Services Detail -->
-    <section class="content-section">
+    <!-- Services Section -->
+    <section class="content-section" id="services">
         <div class="container">
+            <div class="section-header">
+                <h2>Services</h2>
+                <p>Supporting our community through all stages of life</p>
+            </div>
+
             <div class="services-detail-grid">
                 <!-- Janazah Services -->
                 <div class="service-detail-card" id="janazah">
                     <div class="service-detail-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Memorial candle - universal remembrance symbol -->
-                            <!-- Flame -->
                             <path d="M24 6c-3 4-5 7-5 10c0 3 2 5 5 5s5-2 5-5c0-3-2-6-5-10z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
                             <path d="M24 12c-1 1.5-2 3-2 4c0 1.2 0.9 2 2 2s2-0.8 2-2c0-1-1-2.5-2-4z" fill="#c4a962" fill-opacity="0.3"/>
-                            <!-- Candle body -->
                             <rect x="18" y="21" width="12" height="22" rx="1" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <!-- Candle holder base -->
                             <path d="M14 43h20" stroke="#c4a962" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
                     <div class="service-detail-content">
-                        <h2>Funeral Services (Janazah)</h2>
+                        <h3>Funeral Services (Janazah)</h3>
                         <p>We provide comprehensive funeral services for the Muslim community, including:</p>
                         <ul>
                             <li>Guidance and support during bereavement</li>
@@ -139,18 +139,14 @@
                 <div class="service-detail-card" id="nikah">
                     <div class="service-detail-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Marriage contract document with pen -->
                             <rect x="8" y="4" width="24" height="32" rx="2" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <!-- Document lines -->
                             <path d="M14 12h12M14 18h12M14 24h8" stroke="#c4a962" stroke-width="1" stroke-opacity="0.6"/>
-                            <!-- Two signature lines at bottom -->
                             <path d="M12 30h8M22 30h8" stroke="#c4a962" stroke-width="1.5"/>
-                            <!-- Pen writing -->
                             <path d="M34 20l8-12 2 2-8 12-3 1 1-3z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
                         </svg>
                     </div>
                     <div class="service-detail-content">
-                        <h2>Marriage Services (Nikah)</h2>
+                        <h3>Marriage Services (Nikah)</h3>
                         <p>We offer Islamic marriage ceremonies conducted according to the Sunni tradition:</p>
                         <ul>
                             <li>Pre-marital guidance and counselling</li>
@@ -167,7 +163,6 @@
                 <div class="service-detail-card" id="counselling">
                     <div class="service-detail-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Two people - support/guidance -->
                             <circle cx="24" cy="16" r="8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
                             <path d="M12 40c0-8 5-12 12-12s12 4 12 12" stroke="#c4a962" stroke-width="1.5" fill="none"/>
                             <path d="M32 28c4 0 8 3 8 8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
@@ -175,7 +170,7 @@
                         </svg>
                     </div>
                     <div class="service-detail-content">
-                        <h2>Counselling</h2>
+                        <h3>Counselling</h3>
                         <p>We provide confidential counselling and support services:</p>
                         <ul>
                             <li>Marriage and family counselling</li>
@@ -191,12 +186,158 @@
         </div>
     </section>
 
+    <!-- Educational Programs Section -->
+    <section class="content-section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>Educational Programs</h2>
+                <p>Nurturing faith and knowledge in our community</p>
+            </div>
+
+            <div class="services-detail-grid">
+                <!-- Madrassah -->
+                <div class="service-detail-card" id="madrassah">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="14" cy="12" r="5"/>
+                            <circle cx="34" cy="12" r="5"/>
+                            <path d="M14 17v6l6 4"/>
+                            <path d="M34 17v6l-6 4"/>
+                            <path d="M14 34l10-4 10 4v8l-10-3-10 3v-8z"/>
+                            <path d="M24 30v9"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Children's Madrassah</h3>
+                        <p class="service-schedule">Weekdays after school</p>
+                        <table class="schedule-table">
+                            <tr><td>Junior (ages 5-9)</td><td>4:30 - 5:50 PM</td></tr>
+                            <tr><td>Senior (ages 10-16)</td><td>5:50 - 6:50 PM</td></tr>
+                        </table>
+                        <p class="location-info">
+                            <strong>Location:</strong> Greenwich Madinah Trust Educational Centre<br>
+                            56 Conway Road, Plumstead, London SE18 1AR
+                            <a href="https://www.google.com/maps/search/?api=1&query=56+Conway+Road+Plumstead+London+SE18+1AR" target="_blank" class="directions-link">Get Directions</a>
+                        </p>
+                        <p>Our Madrassah provides comprehensive Islamic education with a dedicated syllabus for each age group:</p>
+                        <ul>
+                            <li>Quran recitation and Tajweed</li>
+                            <li>Islamic studies and Aqeedah</li>
+                            <li>Duas and etiquette</li>
+                            <li>Arabic language fundamentals</li>
+                            <li>Seerah and Islamic history</li>
+                        </ul>
+                        <p>Download the enrolment form, complete it, and submit it with a copy of your child's birth certificate or passport.</p>
+                        <div class="button-group">
+                            <a href="documents/madrassah-enrolment-form.pdf" class="btn btn-primary" download>Download Enrolment Form</a>
+                            <a href="contact.html#madrassah" class="btn btn-secondary">Have Questions?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dars-e-Quran -->
+                <div class="service-detail-card" id="dars">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 12l18-6 18 6v28l-18-6-18 6V12z"/>
+                            <path d="M24 6v28"/>
+                            <path d="M10 16c4-1 8-1 14 1M10 22c4-1 8-1 14 1M10 28c4-1 8-1 14 1" stroke-opacity="0.5"/>
+                            <path d="M38 16c-4-1-8-1-14 1M38 22c-4-1-8-1-14 1M38 28c-4-1-8-1-14 1" stroke-opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Dars-e-Quran</h3>
+                        <p class="service-schedule">Weekly</p>
+                        <table class="schedule-table">
+                            <tr><td>Men's</td><td>Every Thursday after Isha</td></tr>
+                            <tr><td>Ladies'</td><td>TBA</td></tr>
+                        </table>
+                        <p>Weekly Quran study sessions with tafseer (explanation) and discussion. These are not formal classes but regular talks that anyone can attend to deepen their understanding of the Quran.</p>
+                    </div>
+                </div>
+
+                <!-- Arabic Classes -->
+                <div class="service-detail-card" id="arabic">
+                    <div class="service-detail-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 20c0 10 8 14 16 14s16-4 16-14"/>
+                            <circle cx="24" cy="40" r="3" fill="#c4a962"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Adult Arabic Classes <span class="badge-coming-soon">Coming Soon</span></h3>
+                        <p>Arabic language classes for adults at all levels, from beginners to advanced. Learn to read, write, and understand Arabic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gatherings Section -->
+    <section class="content-section" id="gatherings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gatherings</h2>
+                <p>Coming together to commemorate and celebrate</p>
+            </div>
+
+            <div class="services-detail-grid">
+                <!-- Mawlid -->
+                <div class="service-detail-card" id="mawlid">
+                    <div class="service-detail-icon">
+                        <!-- Crescent and star - Islamic celebration symbol -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 8c-8 2-14 10-14 18c0 10 8 18 18 18c8 0 15-5 17-12c-12 0-21-10-21-24z"/>
+                            <path d="M36 14l1 3h3l-2.5 2 1 3-2.5-2-2.5 2 1-3-2.5-2h3l1-3z" fill="#c4a962"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Milad-un-Nabi (Mawlid)</h3>
+                        <p class="service-schedule">Annually in Rabi' al-Awwal, and throughout the year</p>
+                        <p>We celebrate the birth of Prophet Muhammad (peace, blessings and salutations be upon him) with gatherings that include Quran recitation, Salawat, Na'at poetry, and talks on the Prophet's life and teachings.</p>
+                        <p>Mehfil-e-Milad gatherings are held regularly, especially during the blessed month of Rabi' al-Awwal.</p>
+                        <a href="resources.html#milad" class="btn btn-outline">Learn about Milad-un-Nabi</a>
+                    </div>
+                </div>
+
+                <!-- Gyarwee Shareef -->
+                <div class="service-detail-card" id="gyarwee">
+                    <div class="service-detail-icon">
+                        <!-- Rose/flower - associated with Sufi gatherings -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="20" r="6"/>
+                            <path d="M24 14c0-4 3-8 3-8s3 4 3 8"/>
+                            <path d="M24 14c0-4-3-8-3-8s-3 4-3 8"/>
+                            <path d="M18 20c-4 0-8-3-8-3s4-3 8-3"/>
+                            <path d="M30 20c4 0 8-3 8-3s-4-3-8-3"/>
+                            <path d="M18 20c-4 0-8 3-8 3s4 3 8 3"/>
+                            <path d="M30 20c4 0 8 3 8 3s-4 3-8 3"/>
+                            <path d="M24 26v16"/>
+                            <path d="M20 34c-4 2-6 1-6 1"/>
+                            <path d="M28 30c4 2 6 1 6 1"/>
+                        </svg>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Gyarwee Shareef</h3>
+                        <p class="service-schedule">Monthly on the 11th</p>
+                        <p>Monthly gatherings commemorating Shaykh Abd al-Qadir al-Jilani (may Allah be pleased with him), one of the most revered saints in Islamic history. These gatherings include Quran recitation, Hamd, Naat, Manqabats, and the sharing of food.</p>
+                        <p><strong>Sponsor a Gyarwee</strong> and dedicate the reward to your departed loved ones.</p>
+                        <div class="button-group">
+                            <a href="resources.html#gyarwee" class="btn btn-outline">Learn about Gyarwee</a>
+                            <a href="contact.html#gyarwee" class="btn btn-primary">Sponsor a Gyarwee</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="content-section">
         <div class="container">
             <div class="cta-box large">
-                <h2>Need Our Services?</h2>
-                <p>We're here to help. Reach out to us for any of our services or if you have questions.</p>
+                <h2>Need Our Help?</h2>
+                <p>We're here to serve our community. Reach out to us for any of our services or if you have questions.</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-primary">Use Contact Form</a>
                     <a href="mailto:info@greenwichmadinatrust.org.uk" class="btn btn-outline">Email Directly</a>
@@ -218,8 +359,7 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="prayer-times.html">Prayer Times</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="education.html">Education</a></li>
+                        <li><a href="what-we-offer.html">What We Offer</a></li>
                         <li><a href="resources.html">Resources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
