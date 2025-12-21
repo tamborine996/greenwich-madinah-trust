@@ -3437,6 +3437,66 @@ td.col-maghrib,
     border: 0;
 }
 
+.text-muted {
+    color: var(--stone);
+}
+
+/* ========== DOWNLOADS GRID ========== */
+.downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.download-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--ivory);
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.download-card:hover {
+    border-color: rgba(196, 169, 98, 0.3);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.download-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream-warm);
+    border-radius: 8px;
+    color: var(--emerald);
+    transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.download-card:hover .download-icon {
+    background: var(--gold);
+    color: var(--ivory);
+}
+
+.download-info h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 0 0 var(--space-xs);
+}
+
+.download-info p {
+    font-size: 0.9rem;
+    color: var(--stone);
+    margin: 0;
+}
+
 /* ========== ANIMATIONS ========== */
 @keyframes fadeIn {
     from { opacity: 0; }
