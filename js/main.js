@@ -1,5 +1,5 @@
 /**
- * Main JavaScript for Greenwich Madinah Trust Website
+ * Main JavaScript for Greenwich Madina Trust Website
  */
 
 document.addEventListener('DOMContentLoaded', function() {

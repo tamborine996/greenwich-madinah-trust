@@ -1,5 +1,5 @@
 /**
- * Event Manager for Greenwich Madinah Trust
+ * Event Manager for Greenwich Madina Trust
  * Reads from data/events.json and controls visibility of event sections
  */
 

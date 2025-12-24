@@ -1,6 +1,6 @@
 /**
  * Prayer Times Module
- * Uses official Greenwich Madinah Trust prayer times from local JSON
+ * Uses official Greenwich Madina Trust prayer times from local JSON
  * Data extracted from mosque's official 2025 timetable PDF
  */
 
@@ -336,7 +336,7 @@ const PrayerTimes = (function() {
         // Add note about official times
         html += `
             <div class="timetable-footer">
-                <p>Official prayer times from Greenwich Madinah Trust's 2025 timetable.</p>
+                <p>Official prayer times from Greenwich Madina Trust's 2025 timetable.</p>
             </div>
         `;
 

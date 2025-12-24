@@ -1,5 +1,5 @@
 /**
- * YouTube Integration for Greenwich Madinah Trust
+ * YouTube Integration for Greenwich Madina Trust
  * Fetches latest videos and detects live streams
  * Opens videos in GLightbox modal
  */
