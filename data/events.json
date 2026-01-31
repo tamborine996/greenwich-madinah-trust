@@ -1,17 +1,17 @@
 {
   "spotlight": {
-    "enabled": false,
-    "title": "Gyarwee Shareef",
-    "date": "Saturday, 21st December 2025",
-    "description": "Join us for our monthly gathering commemorating Sheikh Abdul Qadir Jilani (RA). All are welcome.",
-    "time": "After Isha Prayer",
-    "location": "Ghousia Masjid",
+    "enabled": true,
+    "title": "Shab-e-Barat",
+    "date": "Tuesday, 3rd February 2026",
+    "description": "The Night of Forgiveness. Program includes Tilawat, speech, recitation of Naats, Surah Mulk, Nawafil, Dhikr, Dua'a, and Salaat-ul-Tasbeeh.",
+    "time": "After Isha Salaah",
+    "location": "56 Camrose Street",
     "poster": "images/event-poster.jpg",
-    "facebookUrl": "https://www.facebook.com/GreenwichMadinaTrust/"
+    "facebookUrl": ""
   },
   "notificationBar": {
-    "enabled": false,
-    "linkText": "Gyarwee Shareef — Saturday, 21st December",
+    "enabled": true,
+    "linkText": "Shab-e-Barat — Tuesday 3rd February — After Isha — Tilawat, Naats, Surah Mulk, Nawafil & Dua'a",
     "linkUrl": "#event-spotlight"
   }
 }
