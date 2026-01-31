@@ -103,6 +103,10 @@ const PrayerTimes = (function() {
     /**
      * Calculate Hijri date based on mosque's official calendar
      * Uses data/hijri-calendar.json which is updated when new month is announced
+     *
+     * DEFENSIVE: Handles null nextMonth.gregorianStartDate gracefully.
+     * Before moon sighting is announced, nextMonth date will be null.
+     * In this case, we safely use currentMonth until the date is updated.
      */
     async function getHijriDate() {
         const calendar = await loadHijriCalendarData();
@@ -113,17 +117,23 @@ const PrayerTimes = (function() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        // Parse the next month start date
-        const nextMonthStart = new Date(calendar.nextMonth.gregorianStartDate);
-        nextMonthStart.setHours(0, 0, 0, 0);
-
-        // Parse the current month start date
+        // Parse the current month start date (required)
         const currentMonthStart = new Date(calendar.currentMonth.gregorianStartDate);
         currentMonthStart.setHours(0, 0, 0, 0);
 
+        // Parse the next month start date (may be null if moon not yet sighted)
+        // DEFENSIVE: Only create Date if value exists, otherwise null
+        const nextMonthStart = calendar.nextMonth.gregorianStartDate
+            ? new Date(calendar.nextMonth.gregorianStartDate)
+            : null;
+        if (nextMonthStart) {
+            nextMonthStart.setHours(0, 0, 0, 0);
+        }
+
         let hijriMonth, hijriYear, hijriDay;
 
-        if (today >= nextMonthStart) {
+        // DEFENSIVE: Only use nextMonth if date exists AND we've reached it
+        if (nextMonthStart && today >= nextMonthStart) {
             // We're in the next month
             hijriMonth = calendar.nextMonth.hijriMonth;
             hijriYear = calendar.nextMonth.hijriYear;
@@ -132,7 +142,7 @@ const PrayerTimes = (function() {
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             hijriDay = diffDays + 1;
         } else {
-            // We're in the current month
+            // We're in the current month (or nextMonth date not yet announced)
             hijriMonth = calendar.currentMonth.hijriMonth;
             hijriYear = calendar.currentMonth.hijriYear;
             // Calculate day of month (1-indexed)

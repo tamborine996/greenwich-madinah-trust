@@ -1,16 +1,16 @@
 {
   "description": "Greenwich Madina Trust official Hijri calendar. Update this when new Islamic month is announced.",
-  "lastUpdated": "2025-12-20",
+  "lastUpdated": "2026-01-19",
   "currentMonth": {
-    "hijriMonth": "Jumada al-Thani",
+    "hijriMonth": "Shaban",
     "hijriYear": 1447,
-    "gregorianStartDate": "2025-11-23",
-    "note": "Based on mosque moon sighting announcement"
+    "gregorianStartDate": "2026-01-21",
+    "note": "Announced: Crescent not sighted on 19th Jan, therefore Wednesday 21st January 2026 is 1st Shaban. Shab e Baraat night: Tuesday 3rd February after sunset."
   },
   "nextMonth": {
-    "hijriMonth": "Rajab",
+    "hijriMonth": "Ramadan",
     "hijriYear": 1447,
-    "gregorianStartDate": "2025-12-22",
-    "note": "Announced: Monday 22nd December 2025 is 1st Rajab"
+    "gregorianStartDate": null,
+    "note": "To be announced after moon sighting"
   }
 }

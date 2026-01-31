@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>February 2026 Prayer Times | Greenwich Madina Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #0D5C4D;
+            --emerald-deep: #083D33;
+            --emerald-light: #1A7A67;
+            --gold: #C4A962;
+            --gold-bright: #D4BE7A;
+            --cream: #FAF6F0;
+            --cream-warm: #F5EFE6;
+            --charcoal: #2A2A2A;
+            --slate: #4A4A4A;
+            --friday-bg: #D0E0DC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .calendar-page {
+            width: 100%;
+            height: 100vh;
+            padding: 8px 15px 6px;
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header - matches website */
+        .header {
+            background: var(--cream);
+            padding: 6px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px solid #e0dcd4;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+        }
+
+        .header-title {
+            font-family: 'Bodoni Moda', Georgia, serif;
+            font-size: 18pt;
+            font-weight: 500;
+            color: var(--emerald);
+            letter-spacing: 0.5px;
+        }
+
+        /* Prayer Banner - matches website */
+        .prayer-banner {
+            background: var(--emerald);
+            color: white;
+            text-align: center;
+            padding: 6px 15px;
+        }
+
+        .month-title {
+            font-family: 'Bodoni Moda', Georgia, serif;
+            font-size: 13pt;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .month-subtitle {
+            font-size: 7.5pt;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        /* Fajr Note */
+        .fajr-note {
+            background: var(--gold);
+            color: var(--emerald-deep);
+            text-align: center;
+            padding: 3px 10px;
+            font-size: 6.5pt;
+            font-weight: 600;
+        }
+
+        .table-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.5pt;
+            table-layout: fixed;
+            background: white;
+            flex: 1;
+        }
+
+        thead tr {
+            background: var(--emerald);
+        }
+
+        th {
+            color: white;
+            padding: 5px 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 5pt;
+            letter-spacing: 0.2px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th small {
+            display: block;
+            font-size: 4.5pt;
+            font-weight: 500;
+            opacity: 0.85;
+        }
+
+        /* Prayer group dividers - subtle vertical lines between sections */
+        th:nth-child(3),  /* Sehri - start of Fajr group */
+        th:nth-child(6),  /* Dhahwa - start of Dhuhr group */
+        th:nth-child(9),  /* Asr - start of Asr group */
+        th:nth-child(11), /* Maghrib */
+        th:nth-child(12)  /* Isha - start of Isha group */
+        {
+            border-left: 2px solid var(--gold);
+        }
+
+        td:nth-child(3),
+        td:nth-child(6),
+        td:nth-child(9),
+        td:nth-child(11),
+        td:nth-child(12) {
+            border-left: 1px solid #d4d0c8;
+        }
+
+        tbody tr {
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--cream);
+        }
+
+        tbody tr.friday {
+            background: var(--friday-bg);
+            font-weight: 700;
+            border-left: 3px solid var(--gold);
+        }
+
+        td {
+            padding: 4px 1px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .date-col {
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .day-col {
+            color: var(--slate);
+            font-size: 7pt;
+        }
+
+        .friday .day-col {
+            color: var(--emerald);
+            font-weight: 700;
+        }
+
+        .jamaat {
+            color: var(--emerald);
+            font-weight: 700;
+            background: rgba(13, 92, 77, 0.06);
+        }
+
+        .dhahwa {
+            color: var(--slate);  /* Subtle - matches other time columns */
+        }
+
+        /* Announcements */
+        .announcements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 6px;
+            padding: 0;
+        }
+
+        .announcement-box {
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 6.5pt;
+            line-height: 1.35;
+        }
+
+        .announcement-box.classes {
+            background: var(--emerald);
+            color: white;
+        }
+
+        .announcement-box.makruh {
+            background: white;
+            border: 1px solid var(--gold);
+            color: var(--charcoal);
+            font-size: 6.5pt;
+        }
+
+        .announcement-title {
+            font-weight: 700;
+            font-size: 7pt;
+            margin-bottom: 3px;
+        }
+
+        .announcement-box.classes .announcement-title {
+            color: var(--gold);
+        }
+
+        .announcement-box.makruh .announcement-title {
+            color: var(--emerald);
+            font-size: 8.5pt;
+            margin-bottom: 4px;
+        }
+
+        .class-item {
+            margin-bottom: 2px;
+        }
+
+        .makruh-list {
+            margin-left: 6px;
+            margin-top: 2px;
+        }
+
+        .makruh-item {
+            margin-bottom: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4px;
+            margin-left: -15px;
+            margin-right: -15px;
+            font-size: 6pt;
+        }
+
+        .footer-announcements {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            background: var(--cream-warm);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 4px 15px;
+            color: var(--charcoal);
+            font-size: 7pt;
+        }
+
+        .footer-announcement-label {
+            font-weight: 600;
+            color: var(--emerald);
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 15px;
+            background: var(--emerald);
+            color: white;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .footer-center {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .calendar-page {
+                max-width: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-page">
+        <header class="header">
+            <img src="images/gemini-logo-final.png" alt="GMT Logo" class="logo">
+            <div class="header-title">Greenwich Madina Trust | Ghousia Masjid</div>
+        </header>
+
+        <div class="prayer-banner">
+            <div class="month-title">Salah Timetable — February 2026</div>
+        </div>
+
+        <div class="fajr-note">
+            For Fajr, allow at least 3 minutes after Sehri End before you pray.
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Fajr Start<small>(Sehri End)</small></th>
+                        <th>Fajr<small>Jama'at</small></th>
+                        <th>Sunrise</th>
+                        <th>Dhahwa-<small>e-Kubra</small></th>
+                        <th>Dhuhr</th>
+                        <th>Dhuhr<small>Jama'at</small></th>
+                        <th>Asr</th>
+                        <th>Asr<small>Jama'at</small></th>
+                        <th>Maghrib</th>
+                        <th>Isha</th>
+                        <th>Isha<small>Jama'at</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="date-col">1</td><td class="day-col">Sun</td><td>05:41</td><td class="jamaat">06:15</td><td>07:37</td><td class="dhahwa">11:16</td><td>12:14</td><td class="jamaat">13:30</td><td>15:03</td><td class="jamaat">15:30</td><td class="jamaat">16:51</td><td>18:45</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">2</td><td class="day-col">Mon</td><td>05:40</td><td class="jamaat">06:15</td><td>07:35</td><td class="dhahwa">11:16</td><td>12:14</td><td class="jamaat">13:30</td><td>15:05</td><td class="jamaat">15:30</td><td class="jamaat">16:53</td><td>18:47</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">3</td><td class="day-col">Tue</td><td>05:39</td><td class="jamaat">06:15</td><td>07:33</td><td class="dhahwa">11:16</td><td>12:14</td><td class="jamaat">13:30</td><td>15:07</td><td class="jamaat">15:30</td><td class="jamaat">16:55</td><td>18:48</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">4</td><td class="day-col">Wed</td><td>05:37</td><td class="jamaat">06:15</td><td>07:32</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:08</td><td class="jamaat">15:30</td><td class="jamaat">16:57</td><td>18:50</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">5</td><td class="day-col">Thu</td><td>05:36</td><td class="jamaat">06:15</td><td>07:30</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:10</td><td class="jamaat">15:30</td><td class="jamaat">16:59</td><td>18:51</td><td class="jamaat">19:45</td></tr>
+                    <tr class="friday"><td class="date-col">6</td><td class="day-col">Fri</td><td>05:34</td><td class="jamaat">06:15</td><td>07:28</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:12</td><td class="jamaat">15:30</td><td class="jamaat">17:01</td><td>18:53</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">7</td><td class="day-col">Sat</td><td>05:33</td><td class="jamaat">06:15</td><td>07:27</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:13</td><td class="jamaat">15:30</td><td class="jamaat">17:02</td><td>18:54</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">8</td><td class="day-col">Sun</td><td>05:31</td><td class="jamaat">06:15</td><td>07:25</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:15</td><td class="jamaat">15:30</td><td class="jamaat">17:04</td><td>18:56</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">9</td><td class="day-col">Mon</td><td>05:30</td><td class="jamaat">06:15</td><td>07:23</td><td class="dhahwa">11:17</td><td>12:14</td><td class="jamaat">13:30</td><td>15:17</td><td class="jamaat">15:30</td><td class="jamaat">17:06</td><td>18:58</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">10</td><td class="day-col">Tue</td><td>05:28</td><td class="jamaat">06:15</td><td>07:22</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:19</td><td class="jamaat">15:30</td><td class="jamaat">17:08</td><td>18:59</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">11</td><td class="day-col">Wed</td><td>05:27</td><td class="jamaat">06:15</td><td>07:20</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:20</td><td class="jamaat">15:30</td><td class="jamaat">17:10</td><td>19:01</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">12</td><td class="day-col">Thu</td><td>05:25</td><td class="jamaat">06:15</td><td>07:18</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:22</td><td class="jamaat">15:30</td><td class="jamaat">17:12</td><td>19:03</td><td class="jamaat">19:45</td></tr>
+                    <tr class="friday"><td class="date-col">13</td><td class="day-col">Fri</td><td>05:23</td><td class="jamaat">06:15</td><td>07:16</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:24</td><td class="jamaat">15:30</td><td class="jamaat">17:13</td><td>19:04</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">14</td><td class="day-col">Sat</td><td>05:22</td><td class="jamaat">06:15</td><td>07:14</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:25</td><td class="jamaat">15:45</td><td class="jamaat">17:15</td><td>19:06</td><td class="jamaat">19:45</td></tr>
+                    <tr><td class="date-col">15</td><td class="day-col">Sun</td><td>05:20</td><td class="jamaat">06:15</td><td>07:12</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:27</td><td class="jamaat">15:45</td><td class="jamaat">17:17</td><td>19:07</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">16</td><td class="day-col">Mon</td><td>05:18</td><td class="jamaat">06:15</td><td>07:10</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:29</td><td class="jamaat">15:45</td><td class="jamaat">17:19</td><td>19:09</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">17</td><td class="day-col">Tue</td><td>05:16</td><td class="jamaat">06:15</td><td>07:08</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:30</td><td class="jamaat">15:45</td><td class="jamaat">17:21</td><td>19:11</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">18</td><td class="day-col">Wed</td><td>05:15</td><td class="jamaat">06:15</td><td>07:06</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:32</td><td class="jamaat">15:45</td><td class="jamaat">17:22</td><td>19:12</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">19</td><td class="day-col">Thu</td><td>05:13</td><td class="jamaat">06:15</td><td>07:04</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:34</td><td class="jamaat">15:45</td><td class="jamaat">17:24</td><td>19:14</td><td class="jamaat">20:00</td></tr>
+                    <tr class="friday"><td class="date-col">20</td><td class="day-col">Fri</td><td>05:11</td><td class="jamaat">06:15</td><td>07:02</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:35</td><td class="jamaat">15:45</td><td class="jamaat">17:26</td><td>19:16</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">21</td><td class="day-col">Sat</td><td>05:09</td><td class="jamaat">06:15</td><td>07:00</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:37</td><td class="jamaat">15:45</td><td class="jamaat">17:28</td><td>19:18</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">22</td><td class="day-col">Sun</td><td>05:07</td><td class="jamaat">06:00</td><td>06:58</td><td class="dhahwa">11:18</td><td>12:14</td><td class="jamaat">13:30</td><td>15:38</td><td class="jamaat">16:00</td><td class="jamaat">17:30</td><td>19:19</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">23</td><td class="day-col">Mon</td><td>05:05</td><td class="jamaat">06:00</td><td>06:56</td><td class="dhahwa">11:18</td><td>12:13</td><td class="jamaat">13:30</td><td>15:40</td><td class="jamaat">16:00</td><td class="jamaat">17:31</td><td>19:21</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">24</td><td class="day-col">Tue</td><td>05:03</td><td class="jamaat">06:00</td><td>06:54</td><td class="dhahwa">11:18</td><td>12:13</td><td class="jamaat">13:30</td><td>15:42</td><td class="jamaat">16:00</td><td class="jamaat">17:33</td><td>19:23</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">25</td><td class="day-col">Wed</td><td>05:01</td><td class="jamaat">06:00</td><td>06:52</td><td class="dhahwa">11:18</td><td>12:13</td><td class="jamaat">13:30</td><td>15:43</td><td class="jamaat">16:00</td><td class="jamaat">17:35</td><td>19:24</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">26</td><td class="day-col">Thu</td><td>04:59</td><td class="jamaat">06:00</td><td>06:50</td><td class="dhahwa">11:17</td><td>12:13</td><td class="jamaat">13:30</td><td>15:45</td><td class="jamaat">16:00</td><td class="jamaat">17:37</td><td>19:26</td><td class="jamaat">20:00</td></tr>
+                    <tr class="friday"><td class="date-col">27</td><td class="day-col">Fri</td><td>04:57</td><td class="jamaat">06:00</td><td>06:48</td><td class="dhahwa">11:17</td><td>12:13</td><td class="jamaat">13:30</td><td>15:46</td><td class="jamaat">16:00</td><td class="jamaat">17:39</td><td>19:28</td><td class="jamaat">20:00</td></tr>
+                    <tr><td class="date-col">28</td><td class="day-col">Sat</td><td>04:55</td><td class="jamaat">06:00</td><td>06:46</td><td class="dhahwa">11:17</td><td>12:13</td><td class="jamaat">13:30</td><td>15:48</td><td class="jamaat">16:00</td><td class="jamaat">17:40</td><td>19:30</td><td class="jamaat">20:00</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-box classes">
+                <div class="announcement-title">Weekly Classes</div>
+                <div class="class-item"><strong>Qur'an Circle (Tajweed)</strong></div>
+                <div style="font-size: 5.5pt; margin-left: 8px; opacity: 0.9;">Men: Tuesdays after Isha <em>@ Masjid</em></div>
+                <div style="font-size: 5.5pt; margin-left: 8px; opacity: 0.9;">Ladies: Fridays 12–1pm <em>@ Educational Centre</em></div>
+                <div class="class-item" style="margin-top: 3px;"><strong>Dars-e-Quran</strong></div>
+                <div style="font-size: 5.5pt; margin-left: 8px; opacity: 0.9;">Men: Thursdays after Isha <em>@ Masjid</em></div>
+                <div style="margin-top: 6px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 5.5pt;">
+                    <strong>Masjid:</strong> 56 Camrose St, SE2 0JA &nbsp;|&nbsp; <strong>Educational Centre:</strong> 46 Conway Rd, SE18 1AR
+                </div>
+            </div>
+            <div class="announcement-box makruh">
+                <div class="announcement-title">Important: Makruh Times</div>
+                <div>3 times when Salah, Sajdah & Nafl are <strong>prohibited</strong>:</div>
+                <div class="makruh-list">
+                    <div class="makruh-item"><strong>1.</strong> From sunrise to 20 min after sunrise</div>
+                    <div class="makruh-item"><strong>2.</strong> From Dhahwa-e-Kubra to start of Dhuhr</div>
+                    <div class="makruh-item"><strong>3.</strong> From Asr "End Time" to Maghrib <em>(End = 26 min before sunset)</em></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-announcements">
+                <span class="footer-announcement-label">Announcements:</span>
+                <span><strong>Monthly Gyarwee Shareef</strong> – dates announced on social media</span>
+                <span style="margin-left: 12px;"><strong>Madrassah Enrolment Open</strong> – Ages 5–9: 4:30–5:40pm | Ages 10–16: 5:40–6:50pm</span>
+            </div>
+            <div class="footer-main">
+                <div class="footer-left">
+                    Ghousia Masjid | 56 Camrose Street, Plumstead, London SE2 0JA
+                </div>
+                <div class="footer-center">
+                    UK Registered Charity No. 1129277
+                </div>
+                <div class="footer-right">
+                    <a href="https://greenwichmadinatrust.org.uk">greenwichmadinatrust.org.uk</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
