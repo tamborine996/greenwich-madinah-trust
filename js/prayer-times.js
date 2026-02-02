@@ -182,8 +182,14 @@ const PrayerTimes = (function() {
         const today = new Date();
 
         // Update Begins times (when prayer time starts)
+        // Fajr begins is 1 minute after sehri_end (JSON stores adjusted sehri cutoff)
+        const fajrBegins = (() => {
+            const [h, m] = dayData.sehri_end.split(':').map(Number);
+            const mins = m + 1;
+            return `${String(h + Math.floor(mins / 60)).padStart(2, '0')}:${String(mins % 60).padStart(2, '0')}`;
+        })();
         const beginsElements = {
-            'fajr-time': dayData.sehri_end, // Fajr begins ~3 min after sehri end
+            'fajr-time': fajrBegins,
             'sunrise-time': dayData.sunrise,
             'dhuhr-time': dayData.dhuhr_begins,
             'asr-time': dayData.asr_begins,
