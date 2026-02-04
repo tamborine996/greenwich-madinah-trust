@@ -1,6 +1,6 @@
 {
   "spotlight": {
-    "enabled": true,
+    "enabled": false,
     "title": "Shab-e-Barat",
     "date": "Tuesday, 3rd February 2026",
     "description": "The Night of Forgiveness. Program includes Tilawat, speech, recitation of Naats, Surah Mulk, Nawafil, Dhikr, Dua'a, and Salaat-ul-Tasbeeh.",
@@ -10,7 +10,7 @@
     "facebookUrl": ""
   },
   "notificationBar": {
-    "enabled": true,
+    "enabled": false,
     "linkText": "Shab-e-Barat — Tuesday 3rd February — After Isha — Tilawat, Naats, Surah Mulk, Nawafil & Dua'a",
     "linkUrl": "#event-spotlight"
   }
