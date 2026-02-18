@@ -1,16 +1,16 @@
 {
   "description": "Greenwich Madina Trust official Hijri calendar. Update this when new Islamic month is announced.",
-  "lastUpdated": "2026-01-19",
+  "lastUpdated": "2026-02-18",
   "currentMonth": {
-    "hijriMonth": "Shaban",
-    "hijriYear": 1447,
-    "gregorianStartDate": "2026-01-21",
-    "note": "Announced: Crescent not sighted on 19th Jan, therefore Wednesday 21st January 2026 is 1st Shaban. Shab e Baraat night: Tuesday 3rd February after sunset."
-  },
-  "nextMonth": {
     "hijriMonth": "Ramadan",
     "hijriYear": 1447,
+    "gregorianStartDate": "2026-02-19",
+    "note": "1st Ramadan 1447 = Thursday 19th February 2026"
+  },
+  "nextMonth": {
+    "hijriMonth": "Shawwal",
+    "hijriYear": 1447,
     "gregorianStartDate": null,
-    "note": "To be announced after moon sighting"
+    "note": "To be announced after moon sighting (Eid ul-Fitr)"
   }
 }
