@@ -40,6 +40,12 @@
         bar.style.display = '';
         bar.href = config.linkUrl || '#event-spotlight';
 
+        // Update badge text
+        const badgeEl = bar.querySelector('.event-notif-badge');
+        if (badgeEl && config.badgeText) {
+            badgeEl.textContent = config.badgeText;
+        }
+
         const textEl = bar.querySelector('.event-notif-text');
         if (textEl && config.linkText) {
             // Parse the text to bold the event name (before the em dash)
@@ -72,11 +78,17 @@
         // Show the section
         section.style.display = '';
 
+        // Update badge text
+        const badgeEl = section.querySelector('.spotlight-badge');
+        if (badgeEl && config.badgeText) {
+            badgeEl.textContent = config.badgeText;
+        }
+
         // Update poster
         const posterImg = section.querySelector('.spotlight-poster img');
         if (posterImg && config.poster) {
             posterImg.src = config.poster;
-            posterImg.alt = config.title + ' Event Poster';
+            posterImg.alt = config.title + ' Poster';
         }
 
         // Update title
@@ -97,22 +109,42 @@
             descEl.textContent = config.description;
         }
 
-        // Update time
-        const timeEl = section.querySelector('.spotlight-time');
-        if (timeEl && config.time) {
-            timeEl.textContent = config.time;
+        // Update time - hide if empty
+        const timeDetail = section.querySelector('.spotlight-time')?.closest('.spotlight-detail');
+        if (timeDetail) {
+            if (config.time) {
+                timeDetail.style.display = '';
+                section.querySelector('.spotlight-time').textContent = config.time;
+            } else {
+                timeDetail.style.display = 'none';
+            }
         }
 
-        // Update location
-        const locationEl = section.querySelector('.spotlight-location');
-        if (locationEl && config.location) {
-            locationEl.textContent = config.location;
+        // Update location - hide if empty
+        const locationDetail = section.querySelector('.spotlight-location')?.closest('.spotlight-detail');
+        if (locationDetail) {
+            if (config.location) {
+                locationDetail.style.display = '';
+                section.querySelector('.spotlight-location').textContent = config.location;
+            } else {
+                locationDetail.style.display = 'none';
+            }
         }
 
-        // Update Facebook link
-        const fbLink = section.querySelector('.spotlight-fb-link');
-        if (fbLink && config.facebookUrl) {
-            fbLink.href = config.facebookUrl;
+        // Update button - use custom URL/text or Facebook
+        const btn = section.querySelector('.spotlight-fb-link');
+        if (btn) {
+            if (config.buttonUrl) {
+                btn.href = config.buttonUrl;
+                btn.removeAttribute('target');
+                btn.textContent = config.buttonText || 'Learn More';
+            } else if (config.facebookUrl) {
+                btn.href = config.facebookUrl;
+                btn.target = '_blank';
+                btn.textContent = 'View on Facebook';
+            } else {
+                btn.style.display = 'none';
+            }
         }
     }
 

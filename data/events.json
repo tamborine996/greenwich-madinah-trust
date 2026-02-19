@@ -1,17 +1,21 @@
 {
   "spotlight": {
-    "enabled": false,
-    "title": "Shab-e-Barat",
-    "date": "Tuesday, 3rd February 2026",
-    "description": "The Night of Forgiveness. Program includes Tilawat, speech, recitation of Naats, Surah Mulk, Nawafil, Dhikr, Dua'a, and Salaat-ul-Tasbeeh.",
-    "time": "After Isha Salaah",
-    "location": "56 Camrose Street",
-    "poster": "images/event-poster.jpg",
+    "enabled": true,
+    "badgeText": "Announcement",
+    "title": "Ramadan 1447H / 2026",
+    "date": "Thursday 19th February – Friday 20th March",
+    "description": "View the complete Ramadan timetable with Suhur, Fajr, Iftar times and Jama'at schedules. Fitrana: £7 per person.",
+    "time": "",
+    "location": "",
+    "poster": "images/ramadan-timetable-2026.jpg",
+    "buttonText": "View Full Timetable",
+    "buttonUrl": "prayer-times.html",
     "facebookUrl": ""
   },
   "notificationBar": {
-    "enabled": false,
-    "linkText": "Shab-e-Barat — Tuesday 3rd February — After Isha — Tilawat, Naats, Surah Mulk, Nawafil & Dua'a",
-    "linkUrl": "#event-spotlight"
+    "enabled": true,
+    "badgeText": "Announcement",
+    "linkText": "Ramadan Mubarak — View full timetable with Suhur & Iftar times",
+    "linkUrl": ""
   }
 }
