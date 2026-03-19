@@ -1,6 +1,6 @@
 {
   "description": "Greenwich Madina Trust official Hijri calendar. Update this when new Islamic month is announced.",
-  "lastUpdated": "2026-02-18",
+  "lastUpdated": "2026-03-19",
   "currentMonth": {
     "hijriMonth": "Ramadan",
     "hijriYear": 1447,
@@ -10,7 +10,7 @@
   "nextMonth": {
     "hijriMonth": "Shawwal",
     "hijriYear": 1447,
-    "gregorianStartDate": null,
-    "note": "To be announced after moon sighting (Eid ul-Fitr)"
+    "gregorianStartDate": "2026-03-21",
+    "note": "1st Shawwal 1447 / Eid ul-Fitr = Saturday 21st March 2026"
   }
 }

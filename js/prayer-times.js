@@ -87,17 +87,27 @@ const PrayerTimes = (function() {
      * Get monthly calendar data
      */
     async function getMonthlyCalendar(year, month) {
-        // Currently only have 2025 data
-        if (year !== 2025) {
-            console.warn('Prayer times only available for 2025');
-            return null;
-        }
-
         const data = await loadPrayerTimesData();
         if (!data) return null;
 
         const monthName = MONTHS[month - 1]; // month is 1-indexed
-        return data[monthName] || null;
+        const monthData = data[monthName];
+        if (!monthData) return null;
+
+        // Adjust day names if viewing a different year than the source data (2025)
+        if (year !== 2025) {
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            return monthData.map(day => {
+                const d = new Date(year, month - 1, day.date);
+                return { ...day, day: days[d.getDay()] };
+            }).filter(day => {
+                // Filter out invalid dates (e.g. Feb 29 in non-leap years)
+                const d = new Date(year, month - 1, day.date);
+                return d.getMonth() === month - 1;
+            });
+        }
+
+        return monthData;
     }
 
     /**
@@ -352,7 +362,7 @@ const PrayerTimes = (function() {
         // Add note about official times
         html += `
             <div class="timetable-footer">
-                <p>Official prayer times from Greenwich Madina Trust's 2025 timetable.</p>
+                <p>Official prayer times from Greenwich Madina Trust's timetable.</p>
             </div>
         `;
 
