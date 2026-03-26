@@ -1,6 +1,6 @@
 {
   "spotlight": {
-    "enabled": true,
+    "enabled": false,
     "badgeText": "Eid Mubarak",
     "title": "Eid ul-Fitr 1447H / 2026",
     "date": "Friday 20th March 2026",
@@ -13,7 +13,7 @@
     "facebookUrl": ""
   },
   "notificationBar": {
-    "enabled": true,
+    "enabled": false,
     "badgeText": "Eid Mubarak",
     "linkText": "Eid ul-Fitr is Friday 20th March — Jama'at: 9:00 AM, 10:00 AM & 10:45 AM",
     "linkUrl": "prayer-times.html"
