@@ -4056,6 +4056,48 @@ td.col-maghrib,
     margin: 0;
 }
 
+.quick-link-card--multi {
+    cursor: default;
+}
+
+.quick-link-card--multi:hover {
+    transform: none;
+}
+
+.quick-link-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.quick-link-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    background: var(--emerald-deep);
+    color: white;
+}
+
+.quick-link-btn:hover {
+    background: var(--emerald);
+    transform: translateY(-1px);
+}
+
+.quick-link-btn--outline {
+    background: transparent;
+    color: var(--emerald-deep);
+    border: 1px solid var(--emerald-deep);
+}
+
+.quick-link-btn--outline:hover {
+    background: var(--emerald-deep);
+    color: white;
+}
+
 /* ========== FAQ CATEGORY STYLING ========== */
 .faq-category {
     margin-bottom: var(--space-2xl);
