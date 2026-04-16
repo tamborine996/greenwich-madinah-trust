@@ -61,13 +61,14 @@
         .latest-update-card {
             background: var(--ivory);
             border-radius: 24px;
-            border: 1px solid rgba(13,92,77,0.08);
+            border: 1px solid rgba(13,92,77,0.10);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 100%;
+            max-width: 620px;
         }
         .latest-update-media {
             background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
@@ -75,6 +76,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 260px;
         }
         .latest-update-media img {
             width: 100%;
@@ -133,31 +135,34 @@
         }
         .latest-updates-prev,
         .latest-updates-next {
-            width: 2.75rem;
-            height: 2.75rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 999px;
-            border: 1px solid rgba(13, 92, 77, 0.15);
-            background: var(--ivory);
-            color: var(--emerald-deep);
+            border: 1px solid rgba(13, 92, 77, 0.28);
+            background: var(--emerald-deep);
+            color: var(--ivory);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow-medium);
             cursor: pointer;
-            transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo), color var(--duration-fast) var(--ease-out-expo);
+            transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo), background var(--duration-fast) var(--ease-out-expo), color var(--duration-fast) var(--ease-out-expo);
         }
         .latest-updates-prev:hover,
         .latest-updates-next:hover {
             transform: translateY(-1px);
-            box-shadow: var(--shadow-medium);
-            color: var(--gold-muted);
+            box-shadow: var(--shadow-elevated);
+            background: var(--emerald);
+            color: var(--gold-bright);
         }
         .latest-updates-prev.swiper-button-disabled,
         .latest-updates-next.swiper-button-disabled {
-            opacity: 0.45;
+            opacity: 0.5;
             cursor: default;
             transform: none;
             box-shadow: var(--shadow-soft);
+            background: rgba(13,92,77,0.28);
+            color: rgba(255,255,255,0.9);
         }
         .latest-updates-footer {
             margin-top: var(--space-lg);
@@ -409,7 +414,7 @@
                 <div class="section-header">
                     <span class="overline">Latest Updates</span>
                     <h2>Recent news from Facebook</h2>
-                    <p>A light-touch addition to the existing homepage — short updates here, fuller detail on a separate page.</p>
+                    <p>Short updates here on the homepage, with fuller detail available on a separate updates page.</p>
                 </div>
                 <div class="latest-updates-controls" aria-label="Recent Facebook updates navigation">
                     <button class="latest-updates-prev" type="button" aria-label="Show previous Facebook update">
@@ -426,7 +431,7 @@
                 </div>
             </div>
             <div class="latest-updates-footer">
-                <p class="spotlight-note">This keeps the homepage mostly intact while still showing that the Trust is active and current.</p>
+                <p class="spotlight-note">A simple way to show recent activity without changing the main homepage structure too much.</p>
                 <a href="news-preview-list.html" class="btn btn-outline">View all updates</a>
             </div>
         </div>
