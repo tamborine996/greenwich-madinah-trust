@@ -32,19 +32,26 @@
         }
         .latest-updates-preview .section-header {
             margin-bottom: var(--space-xl);
+            text-align: center;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .latest-updates-preview .section-header p {
+            margin-left: auto;
+            margin-right: auto;
         }
         .latest-updates-header-row {
             display: flex;
-            justify-content: space-between;
-            align-items: end;
+            flex-direction: column;
+            align-items: center;
             gap: 1rem;
             margin-bottom: var(--space-lg);
-            flex-wrap: wrap;
         }
         .latest-updates-carousel-wrap {
             position: relative;
             padding: 0 3.5rem;
-            max-width: 760px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         .latest-updates-carousel {
@@ -68,7 +75,8 @@
             flex-direction: column;
             height: 100%;
             width: 100%;
-            max-width: 620px;
+            max-width: 500px;
+            margin: 0 auto;
         }
         .latest-update-media {
             background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
@@ -167,10 +175,14 @@
         .latest-updates-footer {
             margin-top: var(--space-lg);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
+            text-align: center;
+        }
+        .latest-updates-footer p {
+            margin: 0 auto;
         }
         .prototype-local-banner {
             display: none;
@@ -195,8 +207,21 @@
             color: rgba(255,255,255,0.85);
         }
         @media (max-width: 900px) {
-            .latest-updates-grid {
-                grid-template-columns: 1fr;
+            .latest-updates-carousel-wrap {
+                padding: 0 2.75rem;
+            }
+            .latest-update-card {
+                max-width: 430px;
+            }
+        }
+        @media (max-width: 680px) {
+            .latest-updates-carousel-wrap {
+                padding: 0 2.25rem;
+            }
+            .latest-updates-prev,
+            .latest-updates-next {
+                width: 2.7rem;
+                height: 2.7rem;
             }
         }
     </style>
@@ -414,7 +439,7 @@
                 <div class="section-header">
                     <span class="overline">Latest Updates</span>
                     <h2>Recent news from Facebook</h2>
-                    <p>Short updates here on the homepage, with fuller detail available on a separate updates page.</p>
+                    <p>Two recent updates are visible here, with more available by scrolling through the carousel or opening the full updates page.</p>
                 </div>
                 <div class="latest-updates-controls" aria-label="Recent Facebook updates navigation">
                     <button class="latest-updates-prev" type="button" aria-label="Show previous Facebook update">
@@ -676,9 +701,9 @@
                 `).join('');
 
                 window.latestUpdatesSwiper = new Swiper('#latest-updates-carousel', {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    centeredSlides: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    centeredSlides: false,
                     watchOverflow: true,
                     navigation: {
                         nextEl: '.latest-updates-next',
@@ -687,6 +712,16 @@
                     keyboard: {
                         enabled: true,
                         onlyInViewport: true
+                    },
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 2,
+                            spaceBetween: 16
+                        },
+                        900: {
+                            slidesPerView: 2,
+                            spaceBetween: 24
+                        }
                     }
                 });
             } catch (error) {
