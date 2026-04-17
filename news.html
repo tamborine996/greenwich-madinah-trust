@@ -41,32 +41,37 @@
             flex-wrap: wrap;
             gap: 0.75rem;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.15rem;
         }
         .news-pill {
             display: inline-flex;
             align-items: center;
-            padding: 0.3rem 0.75rem;
+            padding: 0.34rem 0.8rem;
             border-radius: 999px;
             background: rgba(13, 92, 77, 0.1);
             color: var(--emerald-deep);
             text-transform: uppercase;
             letter-spacing: 0.08em;
             font-size: 0.74rem;
-            font-weight: 700;
+            font-weight: 800;
         }
         .news-date {
-            color: var(--stone);
-            font-size: 0.95rem;
+            color: var(--emerald-deep);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
         .news-prose {
             display: grid;
-            gap: 0.9rem;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1.65rem;
         }
         .news-prose p {
             margin: 0;
             max-width: 72ch;
+            color: var(--charcoal);
+            font-size: 1.04rem;
+            line-height: 1.72;
         }
         .news-prose .arabic {
             font-family: var(--font-arabic);
@@ -87,14 +92,20 @@
             border: 1px solid rgba(196, 169, 98, 0.25);
             border-radius: 18px;
             padding: 1rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
         }
         .news-detail-label {
             font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--gold-muted);
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 0.35rem;
+        }
+        .news-detail-value {
+            color: var(--charcoal);
+            font-weight: 700;
+            line-height: 1.55;
         }
         .news-gallery {
             display: grid;
@@ -141,9 +152,18 @@
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 1.75rem;
+            padding: 1rem 1.2rem;
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(13,92,77,0.08);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
         }
         .news-helper {
-            color: var(--stone);
+            color: var(--slate);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 42rem;
+            margin: 0;
         }
         .news-loading,
         .news-error {
@@ -203,7 +223,7 @@
     <main class="news-listing">
         <div class="container-narrow">
             <div class="news-top-actions">
-                <p class="news-helper">Home should stay selective. This page carries fuller detail, posters, galleries, and linked updates.</p>
+                <p class="news-helper">Recent announcements, notices, and community updates in fuller detail.</p>
                 <a href="index.html" class="btn btn-outline">Back to home</a>
             </div>
             <div id="news-root" class="news-loading">Loading news…</div>
@@ -272,13 +292,17 @@
             return `<div class="news-poster"><img src="${escapeHtml(poster.url)}" alt="${escapeHtml(poster.alt || '')}" loading="lazy"></div>`;
         }
 
+        function newsDisplayDate(post) {
+            return post.published_date || post.published_label || '';
+        }
+
         function renderPost(post, index) {
             return `
                 <article class="news-article" id="post-${index + 1}">
                     <div class="news-article-body">
                         <div class="news-meta">
                             <span class="news-pill">${escapeHtml(post.eyebrow || 'Update')}</span>
-                            <span class="news-date">${escapeHtml(post.published_label || '')}</span>
+                            <span class="news-date">${escapeHtml(newsDisplayDate(post))}</span>
                         </div>
                         <h2>${escapeHtml(post.title)}</h2>
                         <div class="news-prose">${renderTextBlocks(post.text_blocks || [])}</div>
@@ -286,7 +310,7 @@
                         ${renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
                         <div class="news-actions">
-                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View original Facebook post</a>
+                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View original post</a>
                         </div>
                     </div>
                 </article>
