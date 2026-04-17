@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="description" content="Local-only prototype for Greenwich Madina Trust home page latest news treatment.">
+    <title>Greenwich Madina Trust | Home News Prototype</title>
+    <link rel="stylesheet" href="css/styles.css?v=20241220b">
+    <style>
+        .prototype-banner {
+            background: rgba(196, 169, 98, 0.18);
+            border-bottom: 1px solid rgba(196, 169, 98, 0.35);
+            color: var(--emerald-deep);
+            text-align: center;
+            padding: 0.65rem 1rem;
+            font-weight: 600;
+        }
+        .prototype-intro {
+            padding: 3rem 0 2rem;
+            background: linear-gradient(180deg, rgba(13,92,77,0.08), rgba(250,246,240,0));
+        }
+        .prototype-layout {
+            padding-bottom: 5rem;
+        }
+        .latest-news {
+            padding: 0 0 4rem;
+        }
+        .latest-news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+        .news-card {
+            background: var(--ivory);
+            border: 1px solid rgba(13, 92, 77, 0.08);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+        }
+        .news-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            background: var(--cream-warm);
+        }
+        .news-card-body {
+            padding: 1.35rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            height: 100%;
+        }
+        .news-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+            font-size: 0.88rem;
+        }
+        .news-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(13, 92, 77, 0.1);
+            color: var(--emerald-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+        .news-card p {
+            margin: 0;
+        }
+        .news-card-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .news-card-excerpt {
+            color: var(--slate);
+            max-width: none;
+        }
+        .latest-news-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .spotlight-note {
+            color: var(--stone);
+            font-size: 0.95rem;
+        }
+        .spotlight-summary {
+            max-width: 62ch;
+        }
+        .spotlight-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .news-link-secondary {
+            color: var(--emerald-deep);
+            font-weight: 700;
+        }
+        .news-loading,
+        .news-error {
+            padding: 2rem;
+            background: var(--ivory);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+        @media (max-width: 900px) {
+            .latest-news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="prototype-banner">Local-only prototype: homepage treatment for Spotlight + Latest News. Not deployed.</div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/gemini-logo-final.png" alt="" class="logo-symbol">
+                    <span class="logo-text">Greenwich Madina Trust</span>
+                </a>
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
+                        <li><a href="what-we-offer.html" class="nav-link">What We Offer</a></li>
+                        <li><a href="resources.html" class="nav-link">Resources</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="prototype-intro">
+        <div class="container-narrow">
+            <div class="section-header">
+                <span class="overline">Homepage prototype</span>
+                <h1>Spotlight + Latest News</h1>
+                <p>This prototype tests the structure I recommend for the live site: one focused spotlight item, then short latest news previews, with a fuller news page behind them.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="prototype-layout">
+        <section class="event-spotlight light" id="prototype-spotlight" style="display:none;">
+            <div class="container">
+                <div class="spotlight-content">
+                    <div class="spotlight-poster">
+                        <div class="poster-frame">
+                            <img id="spotlight-poster-image" src="" alt="Featured news poster">
+                        </div>
+                    </div>
+                    <div class="spotlight-text">
+                        <span class="spotlight-badge">Latest News Spotlight</span>
+                        <h2 class="spotlight-title" id="spotlight-title"></h2>
+                        <p class="spotlight-date" id="spotlight-date"></p>
+                        <p class="spotlight-description spotlight-summary" id="spotlight-summary"></p>
+                        <div class="spotlight-details" id="spotlight-details"></div>
+                        <div class="spotlight-actions">
+                            <a href="news-preview-list.html" class="btn btn-primary">Read full news</a>
+                            <a id="spotlight-facebook-link" href="#" target="_blank" rel="noopener" class="btn btn-outline">View original Facebook post</a>
+                        </div>
+                        <p class="spotlight-note">Use this slot only for the one most important current update.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-news">
+            <div class="container">
+                <div class="section-header">
+                    <span class="overline">Latest News</span>
+                    <h2>Recent updates from the Trust</h2>
+                    <p>Keep this section short on the home page — just enough to show freshness and encourage deeper reading.</p>
+                </div>
+                <div id="latest-news-root" class="news-loading">Loading latest news…</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Prototype Purpose</h4>
+                    <p>This local page tests whether the homepage should show a featured spotlight plus a shorter latest news row instead of full imported posts.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Next click</h4>
+                    <p><a class="news-link-secondary" href="news-preview-list.html">Open the fuller news page prototype</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function firstImage(post) {
+            return post.poster?.url || post.gallery?.[0]?.url || '';
+        }
+
+        function excerpt(post) {
+            const source = post.text_blocks || [];
+            const candidate = source.find(block => !/[\u0600-\u06FF]/.test(block) && !/^https?:/.test(block));
+            return candidate || '';
+        }
+
+        function renderDetail(detail) {
+            return `
+                <div class="spotlight-detail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+                    <span>${escapeHtml(detail.label)}: ${escapeHtml(detail.value)}</span>
+                </div>
+            `;
+        }
+
+        function renderCard(post, index) {
+            return `
+                <article class="news-card">
+                    ${firstImage(post) ? `<img src="${escapeHtml(firstImage(post))}" alt="${escapeHtml(post.title)}">` : ''}
+                    <div class="news-card-body">
+                        <div class="news-card-meta">
+                            <span class="news-pill">${escapeHtml(post.eyebrow || 'Update')}</span>
+                            <span>${escapeHtml(post.published_label || '')}</span>
+                        </div>
+                        <h3 class="news-card-title">${escapeHtml(post.title)}</h3>
+                        <p class="news-card-excerpt">${escapeHtml(excerpt(post))}</p>
+                        <div class="spotlight-actions">
+                            <a class="btn btn-primary" href="news-preview-list.html#post-${index + 1}">Read more</a>
+                            <a class="btn btn-outline" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">Facebook</a>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        async function init() {
+            const latestRoot = document.getElementById('latest-news-root');
+            const spotlight = document.getElementById('prototype-spotlight');
+            try {
+                const response = await fetch('data/facebook-news-preview.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                const posts = data.posts || [];
+                if (!posts.length) throw new Error('No posts found');
+
+                const featured = posts[1] || posts[0];
+                document.getElementById('spotlight-title').textContent = featured.title;
+                document.getElementById('spotlight-date').textContent = featured.published_label || 'Recent post';
+                document.getElementById('spotlight-summary').textContent = excerpt(featured);
+                document.getElementById('spotlight-facebook-link').href = featured.source_url;
+                document.getElementById('spotlight-poster-image').src = firstImage(featured);
+                document.getElementById('spotlight-poster-image').alt = featured.title;
+                document.getElementById('spotlight-details').innerHTML = (featured.key_details || []).map(renderDetail).join('');
+                spotlight.style.display = '';
+
+                latestRoot.className = '';
+                latestRoot.innerHTML = `
+                    <div class="latest-news-grid">${posts.slice(0, 2).map(renderCard).join('')}</div>
+                    <div class="latest-news-footer">
+                        <p class="spotlight-note">Home page rule: show only a small number of recent items here. Let the fuller news page carry the full text and galleries.</p>
+                        <a class="btn btn-outline" href="news-preview-list.html">View all news details</a>
+                    </div>
+                `;
+            } catch (error) {
+                latestRoot.className = 'news-error';
+                latestRoot.innerHTML = `<strong>Could not load local prototype news.</strong><p>${escapeHtml(error.message)}</p>`;
+            }
+        }
+
+        init();
+    </script>
+    <script src="js/main.js?v=20241220"></script>
+</body>
+</html>

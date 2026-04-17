@@ -69,68 +69,68 @@
             border: 1px solid rgba(13,92,77,0.10);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
-            display: grid;
-            grid-template-rows: auto 1fr;
+            display: flex;
+            flex-direction: column;
             height: 100%;
-            min-height: 710px;
             width: 100%;
             max-width: 500px;
             margin: 0 auto;
         }
         .latest-update-media {
-            padding: 1rem 1rem 0.55rem;
-        }
-        .latest-update-media-stage {
-            position: relative;
-            min-height: clamp(300px, 35vw, 380px);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(13,92,77,0.08), rgba(196,169,98,0.18));
+            background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
+            padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            overflow: hidden;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 36%),
-                radial-gradient(circle at bottom right, rgba(13,92,77,0.14), transparent 34%),
-                linear-gradient(135deg, rgba(196,169,98,0.18), rgba(13,92,77,0.04));
-            opacity: 0.95;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 1rem;
-            width: 44%;
-            height: 2px;
-            transform: translateX(-50%);
-            border-radius: 999px;
-            background: linear-gradient(90deg, transparent, rgba(196,169,98,0.88), transparent);
+            min-height: 260px;
+            height: 260px;
         }
         .latest-update-media img {
-            position: relative;
-            z-index: 1;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            border-radius: 16px;
-            background: var(--ivory);
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 18px;
+            background: var(--cream);
         }
         .latest-update-media.is-portrait img {
-            max-width: min(74%, 250px);
+            width: auto;
+            aspect-ratio: 3 / 4;
+            max-width: 260px;
+            object-fit: contain;
+            background: var(--ivory);
             box-shadow: var(--shadow-soft);
         }
         .latest-update-body {
-            padding: 1rem 1.25rem 1.25rem;
-            display: grid;
-            grid-template-rows: auto auto minmax(0, 1fr) auto;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
             gap: 0.8rem;
-            min-height: 0;
+            flex: 1;
+        }
+        .latest-update-link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        .latest-update-link:hover .latest-update-title {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 0.16em;
+        }
+        .latest-update-date {
+            color: var(--stone);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .latest-update-actions {
+            margin-top: auto;
+            padding-top: 0.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         .latest-update-meta {
             display: flex;
@@ -155,25 +155,11 @@
         .latest-update-title {
             font-size: clamp(1.3rem, 2vw, 1.7rem);
             line-height: 1.25;
-            margin: 0;
-            min-height: calc(1.25em * 2);
         }
         .latest-update-excerpt {
             color: var(--slate);
             margin: 0;
             max-width: none;
-            line-height: 1.58;
-            min-height: calc(1.58em * 4);
-        }
-        .latest-update-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-            padding-top: 0.85rem;
-            border-top: 1px solid rgba(13, 92, 77, 0.10);
         }
         .latest-updates-controls {
             display: flex;
@@ -237,6 +223,9 @@
             color: var(--emerald-deep);
             font-weight: 700;
         }
+        .latest-update-actions .btn {
+            min-width: 8.5rem;
+        }
         @media (max-width: 900px) {
             .latest-updates-carousel-wrap {
                 padding: 0 2.75rem;
@@ -261,26 +250,25 @@
             }
             .latest-update-card {
                 max-width: 100%;
-                min-height: 760px;
                 border-radius: 20px;
             }
             .latest-update-media {
-                padding: 0.85rem 0.85rem 0.45rem;
+                min-height: 0;
+                height: 220px;
+                padding: 0.85rem;
             }
-            .latest-update-media-stage {
-                min-height: 360px;
-                padding: 0.9rem;
-            }
-            .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-                bottom: 0.85rem;
-                width: 52%;
+            .latest-update-media img {
+                aspect-ratio: 16 / 9;
             }
             .latest-update-media.is-portrait img {
-                max-width: min(64vw, 210px);
+                max-width: min(72vw, 260px);
             }
             .latest-update-body {
-                padding: 0.95rem 1rem 1rem;
+                padding: 1rem;
                 gap: 0.65rem;
+            }
+            .latest-update-actions {
+                gap: 0.75rem;
             }
             .latest-update-meta {
                 gap: 0.5rem;
@@ -288,20 +276,6 @@
             }
             .latest-update-title {
                 font-size: 1.2rem;
-            }
-            .latest-update-excerpt {
-                min-height: calc(1.58em * 4);
-            }
-            .latest-update-actions {
-                align-items: stretch;
-            }
-            .latest-update-actions .btn {
-                flex: 1 1 100%;
-                justify-content: center;
-            }
-            .news-archive-link {
-                width: 100%;
-                text-align: center;
             }
             .latest-updates-prev,
             .latest-updates-next {
@@ -322,19 +296,12 @@
                 </a>
                 <nav class="nav" id="main-nav">
                     <ul class="nav-list">
-
                         <li><a href="index.html" class="nav-link active">Home</a></li>
-
-                        <li><a href="news.html" class="nav-link">News</a></li>
-
                         <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
-
+                        <li><a href="news.html" class="nav-link">News</a></li>
                         <li><a href="what-we-offer.html" class="nav-link">What We Offer</a></li>
-
                         <li><a href="resources.html" class="nav-link">Resources</a></li>
-
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
-
                     </ul>
                     <div class="nav-social">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">
@@ -565,344 +532,3 @@
                         <!-- House with heart - caring life services -->
                         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M8 22l16-14 16 14"/>
-                            <path d="M12 20v20h24V20"/>
-                            <path d="M24 38l-6-6c-2-2-2-5 0-7s5-2 6 1c1-3 4-3 6-1s2 5 0 7l-6 6z" fill="currentColor" fill-opacity="0.2"/>
-                        </svg>
-                    </div>
-                    <h3>Services</h3>
-                    <p>Janazah, Nikah, and counselling support</p>
-                </a>
-                <a href="what-we-offer.html#education" class="service-card">
-                    <div class="service-icon">
-                        <!-- Book/education symbol -->
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 14l18-6 18 6v26l-18-6-18 6V14z"/>
-                            <path d="M24 8v26"/>
-                            <path d="M10 18c4-1 8-1 14 1M10 24c4-1 8-1 14 1" stroke-opacity="0.5"/>
-                            <path d="M38 18c-4-1-8-1-14 1M38 24c-4-1-8-1-14 1" stroke-opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <h3>Educational Programs</h3>
-                    <p>Madrassah, Dars-e-Quran, and Arabic classes</p>
-                </a>
-                <a href="what-we-offer.html#gatherings" class="service-card">
-                    <div class="service-icon">
-                        <!-- Calendar with star - special events/gatherings -->
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="6" y="10" width="36" height="32" rx="2"/>
-                            <path d="M6 18h36"/>
-                            <path d="M14 6v8"/>
-                            <path d="M34 6v8"/>
-                            <path d="M24 24l2 4h4l-3 3 1 5-4-2-4 2 1-5-3-3h4l2-4z" fill="currentColor" fill-opacity="0.2"/>
-                        </svg>
-                    </div>
-                    <h3>Gatherings</h3>
-                    <p>Gyarwee Shareef, Mawlid, and community events</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Media Section - YouTube & Instagram -->
-    <section id="media-section" class="media-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Media</h2>
-                <p>Videos and updates from our community</p>
-            </div>
-
-            <!-- YouTube Videos -->
-            <div class="media-subsection" id="youtube-section" style="display: none;">
-                <div class="media-subsection-header">
-                    <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                        Videos
-                    </h3>
-                    <a href="https://www.youtube.com/@greenwichmadinatrust2219" target="_blank" rel="noopener" class="media-link">
-                        Subscribe
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="youtube-live-container"></div>
-                <div class="youtube-videos-grid"></div>
-            </div>
-
-            <!-- Instagram Feed -->
-            <div class="media-subsection">
-                <div class="media-subsection-header">
-                    <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
-                            <defs>
-                                <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#FFDC80"/>
-                                    <stop offset="25%" style="stop-color:#F77737"/>
-                                    <stop offset="50%" style="stop-color:#E1306C"/>
-                                    <stop offset="75%" style="stop-color:#C13584"/>
-                                    <stop offset="100%" style="stop-color:#833AB4"/>
-                                </linearGradient>
-                            </defs>
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                        Instagram
-                    </h3>
-                    <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" class="media-link">
-                        Follow
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="instagram-feed-container">
-                    <behold-widget feed-id="NvUlYqJtlkywvlwqle0g"></behold-widget>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script>
-      (() => {
-        const d=document,s=d.createElement("script");s.type="module";
-        s.src="https://w.behold.so/widget.js";d.head.append(s);
-      })();
-    </script>
-
-    <!-- Location Section -->
-    <section class="location">
-        <div class="container">
-            <div class="location-content">
-                <div class="location-info">
-                    <h2>Visit Us</h2>
-                    <address>
-                        <p><strong>Greenwich Madina Trust</strong></p>
-                        <p>56 Camrose Street</p>
-                        <p>Plumstead, London</p>
-                        <p>SE2 0JA</p>
-                    </address>
-                    <p class="location-email">
-                        <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>
-                    </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" class="btn btn-outline" target="_blank">Get Directions</a>
-                </div>
-                <div class="location-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5!2d0.1026!3d51.4869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzEyLjciTiAwwrAwNicwOS40IkU!5e0!3m2!1sen!2suk!4v1234567890"
-                        width="100%"
-                        height="300"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        title="Greenwich Madina Trust Location">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Greenwich Madina Trust</h4>
-                    <p>Serving the local Muslim community with prayers, education, and services.</p>
-                    <p class="charity-number">Registered UK Charity No. 1129277</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="prayer-times.html">Prayer Times</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="what-we-offer.html">What We Offer</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
-                        <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
-                        <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span data-current-year></span> Greenwich Madina Trust. All rights reserved.</p>
-                <a href="privacy.html">Data & Privacy Policy</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function gmtEscapeHtml(text) {
-            return String(text)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
-        function gmtNewsFirstImage(post) {
-            return (post.poster && post.poster.url) || (post.gallery && post.gallery[0] && post.gallery[0].url) || '';
-        }
-        function gmtNewsIsPortrait(post) {
-            return !!post.poster && !(post.gallery && post.gallery.length);
-        }
-        function gmtClampText(text, maxLength) {
-            const normalized = String(text || '').replace(/\s+/g, ' ').trim();
-            if (!normalized) return '';
-            if (normalized.length <= maxLength) return normalized;
-
-            const sentenceBoundary = normalized.slice(0, maxLength + 20).search(/[.!?](?=\s|$)/);
-            if (sentenceBoundary >= Math.max(36, maxLength - 18)) {
-                return normalized.slice(0, sentenceBoundary + 1);
-            }
-
-            const softBreak = normalized.lastIndexOf(' ', maxLength);
-            const cutoff = softBreak >= Math.max(30, maxLength - 16) ? softBreak : maxLength;
-            return `${normalized.slice(0, cutoff).trimEnd()}…`;
-        }
-        function gmtNewsExcerpt(post, maxLength = 165) {
-            const blocks = post.text_blocks || [];
-            const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
-            if (!candidate) return '';
-            return gmtClampText(candidate, maxLength);
-        }
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            const root = document.getElementById('latest-updates-wrapper');
-            if (!root) return;
-            try {
-                const response = await fetch('data/facebook-news-preview.json', { cache: 'no-store' });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
-                const posts = (data.posts || []).slice(0, 3);
-                const fallbackDate = data.updated_at
-                    ? new Date(`${data.updated_at}T12:00:00Z`).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        timeZone: 'UTC'
-                    })
-                    : '';
-                root.innerHTML = posts.map((post, index) => {
-                    const staticDate = post.published_date || fallbackDate || post.published_label || '';
-                    return `
-                    <div class="swiper-slide">
-                        <article class="latest-update-card">
-                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><div class="latest-update-media-stage"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div></div>` : ''}
-                            <div class="latest-update-body">
-                                <div class="latest-update-meta">
-                                    <span class="latest-update-pill">${gmtEscapeHtml(post.eyebrow || 'Update')}</span>
-                                    <span>${gmtEscapeHtml(staticDate)}</span>
-                                </div>
-                                <h3 class="latest-update-title">${gmtEscapeHtml(gmtClampText(post.title, gmtNewsIsPortrait(post) ? 64 : 74))}</h3>
-                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
-                                <div class="latest-update-actions">
-                                    <a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
-                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    `;
-                }).join('');
-
-                window.latestUpdatesSwiper = new Swiper('#latest-updates-carousel', {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                    centeredSlides: false,
-                    watchOverflow: true,
-                    navigation: {
-                        nextEl: '.latest-updates-next',
-                        prevEl: '.latest-updates-prev'
-                    },
-                    keyboard: {
-                        enabled: true,
-                        onlyInViewport: true
-                    },
-                    breakpoints: {
-                        0: {
-                            slidesPerView: 1,
-                            spaceBetween: 12
-                        },
-                        681: {
-                            slidesPerView: 2,
-                            spaceBetween: 16
-                        },
-                        900: {
-                            slidesPerView: 2,
-                            spaceBetween: 24
-                        }
-                    },
-                    on: {
-                        init: updateLatestStatus,
-                        breakpoint: updateLatestStatus,
-                        resize: updateLatestStatus,
-                        slideChange: updateLatestStatus
-                    }
-                });
-
-                function updateLatestStatus() {
-                    const status = document.getElementById('latest-updates-status');
-                    if (!status || !window.latestUpdatesSwiper) return;
-                    const swiper = window.latestUpdatesSwiper;
-                    const total = posts.length;
-                    const configured = Number(swiper.params.slidesPerView) || 1;
-                    const visible = Math.min(configured, total);
-                    const start = Math.min(swiper.activeIndex + 1, total);
-                    const end = Math.min(start + visible - 1, total);
-                    status.textContent = visible === 1 ? `${start} of ${total}` : `${start}–${end} of ${total}`;
-                }
-            } catch (error) {
-                root.innerHTML = `<div class="swiper-slide"><p>Could not load news: ${gmtEscapeHtml(error.message)}</p></div>`;
-            }
-        });
-    </script>
-
-    <script src="js/prayer-times.js?v=20241220"></script>
-    <script src="js/events.js?v=20241220"></script>
-    <!-- Swiper.js for carousel -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- GLightbox for video modals -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="js/youtube.js?v=20241220"></script>
-    <script src="js/main.js?v=20241220"></script>
-    <!-- Initialize Swiper carousel -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Store globally so youtube.js can call update() after showing spotlight slide
-            window.heroSwiper = new Swiper('#hero-carousel', {
-                loop: true,
-                autoplay: {
-                    delay: 10000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                },
-                keyboard: {
-                    enabled: true,
-                    onlyInViewport: true
-                }
-            });
-        });
-    </script>
-</body>
-</html>

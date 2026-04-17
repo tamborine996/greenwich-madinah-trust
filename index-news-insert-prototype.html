@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- GLightbox for video modals -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
     <style>
         .latest-updates-preview {
             padding: var(--space-3xl) 0;
@@ -30,107 +31,64 @@
         }
         .latest-updates-preview .section-header {
             margin-bottom: var(--space-xl);
-            text-align: center;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .latest-updates-preview .section-header p {
-            margin-left: auto;
-            margin-right: auto;
         }
         .latest-updates-header-row {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            align-items: end;
             gap: 1rem;
             margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
         }
         .latest-updates-carousel-wrap {
             position: relative;
             padding: 0 3.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
         }
         .latest-updates-carousel {
             overflow: hidden;
         }
-        .latest-updates-carousel .swiper-wrapper {
-            align-items: stretch;
-        }
         .latest-updates-carousel .swiper-slide {
             height: auto;
             display: flex;
-            justify-content: center;
         }
         .latest-update-card {
             background: var(--ivory);
             border-radius: 24px;
-            border: 1px solid rgba(13,92,77,0.10);
+            border: 1px solid rgba(13,92,77,0.08);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
-            display: grid;
-            grid-template-rows: auto 1fr;
+            display: flex;
+            flex-direction: column;
             height: 100%;
-            min-height: 710px;
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
         }
         .latest-update-media {
-            padding: 1rem 1rem 0.55rem;
-        }
-        .latest-update-media-stage {
-            position: relative;
-            min-height: clamp(300px, 35vw, 380px);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(13,92,77,0.08), rgba(196,169,98,0.18));
+            background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
+            padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            overflow: hidden;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 36%),
-                radial-gradient(circle at bottom right, rgba(13,92,77,0.14), transparent 34%),
-                linear-gradient(135deg, rgba(196,169,98,0.18), rgba(13,92,77,0.04));
-            opacity: 0.95;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 1rem;
-            width: 44%;
-            height: 2px;
-            transform: translateX(-50%);
-            border-radius: 999px;
-            background: linear-gradient(90deg, transparent, rgba(196,169,98,0.88), transparent);
         }
         .latest-update-media img {
-            position: relative;
-            z-index: 1;
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 16px;
-            background: var(--ivory);
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 18px;
+            background: var(--cream);
         }
         .latest-update-media.is-portrait img {
-            max-width: min(74%, 250px);
+            aspect-ratio: 3 / 4;
+            max-width: 260px;
+            object-fit: contain;
+            background: var(--ivory);
             box-shadow: var(--shadow-soft);
         }
         .latest-update-body {
-            padding: 1rem 1.25rem 1.25rem;
-            display: grid;
-            grid-template-rows: auto auto minmax(0, 1fr) auto;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
             gap: 0.8rem;
-            min-height: 0;
+            flex: 1;
         }
         .latest-update-meta {
             display: flex;
@@ -155,163 +113,84 @@
         .latest-update-title {
             font-size: clamp(1.3rem, 2vw, 1.7rem);
             line-height: 1.25;
-            margin: 0;
-            min-height: calc(1.25em * 2);
         }
         .latest-update-excerpt {
             color: var(--slate);
             margin: 0;
             max-width: none;
-            line-height: 1.58;
-            min-height: calc(1.58em * 4);
-        }
-        .latest-update-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-            padding-top: 0.85rem;
-            border-top: 1px solid rgba(13, 92, 77, 0.10);
         }
         .latest-updates-controls {
             display: flex;
             gap: 0.65rem;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .latest-updates-status {
-            min-width: 10.5rem;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            color: var(--emerald-deep);
         }
         .latest-updates-prev,
         .latest-updates-next {
-            width: 3rem;
-            height: 3rem;
+            width: 2.75rem;
+            height: 2.75rem;
             border-radius: 999px;
-            border: 1px solid rgba(13, 92, 77, 0.28);
-            background: var(--emerald-deep);
-            color: var(--ivory);
+            border: 1px solid rgba(13, 92, 77, 0.15);
+            background: var(--ivory);
+            color: var(--emerald-deep);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-soft);
             cursor: pointer;
-            transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo), background var(--duration-fast) var(--ease-out-expo), color var(--duration-fast) var(--ease-out-expo);
+            transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo), color var(--duration-fast) var(--ease-out-expo);
         }
         .latest-updates-prev:hover,
         .latest-updates-next:hover {
             transform: translateY(-1px);
-            box-shadow: var(--shadow-elevated);
-            background: var(--emerald);
-            color: var(--gold-bright);
+            box-shadow: var(--shadow-medium);
+            color: var(--gold-muted);
         }
         .latest-updates-prev.swiper-button-disabled,
         .latest-updates-next.swiper-button-disabled {
-            opacity: 0.5;
+            opacity: 0.45;
             cursor: default;
             transform: none;
             box-shadow: var(--shadow-soft);
-            background: rgba(13,92,77,0.28);
-            color: rgba(255,255,255,0.9);
         }
         .latest-updates-footer {
             margin-top: var(--space-lg);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
-            text-align: center;
         }
-        .latest-updates-footer p {
-            margin: 0 auto;
+        .prototype-local-banner {
+            background: rgba(196, 169, 98, 0.2);
+            border-bottom: 1px solid rgba(196, 169, 98, 0.35);
+            color: var(--emerald-deep);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         .news-archive-link {
             color: var(--emerald-deep);
             font-weight: 700;
         }
-        @media (max-width: 900px) {
-            .latest-updates-carousel-wrap {
-                padding: 0 2.75rem;
-            }
-            .latest-update-card {
-                max-width: 430px;
-            }
+        .news-slide-meta {
+            display: inline-flex;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
         }
-        @media (max-width: 680px) {
-            .latest-updates-header-row {
-                gap: 0.75rem;
-            }
-            .latest-updates-carousel-wrap {
-                padding: 0 0.85rem;
-            }
-            .latest-updates-controls {
-                gap: 0.5rem;
-            }
-            .latest-updates-status {
-                min-width: 0;
-                font-size: 0.9rem;
-            }
-            .latest-update-card {
-                max-width: 100%;
-                min-height: 760px;
-                border-radius: 20px;
-            }
-            .latest-update-media {
-                padding: 0.85rem 0.85rem 0.45rem;
-            }
-            .latest-update-media-stage {
-                min-height: 360px;
-                padding: 0.9rem;
-            }
-            .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-                bottom: 0.85rem;
-                width: 52%;
-            }
-            .latest-update-media.is-portrait img {
-                max-width: min(64vw, 210px);
-            }
-            .latest-update-body {
-                padding: 0.95rem 1rem 1rem;
-                gap: 0.65rem;
-            }
-            .latest-update-meta {
-                gap: 0.5rem;
-                font-size: 0.82rem;
-            }
-            .latest-update-title {
-                font-size: 1.2rem;
-            }
-            .latest-update-excerpt {
-                min-height: calc(1.58em * 4);
-            }
-            .latest-update-actions {
-                align-items: stretch;
-            }
-            .latest-update-actions .btn {
-                flex: 1 1 100%;
-                justify-content: center;
-            }
-            .news-archive-link {
-                width: 100%;
-                text-align: center;
-            }
-            .latest-updates-prev,
-            .latest-updates-next {
-                width: 2.7rem;
-                height: 2.7rem;
+        @media (max-width: 900px) {
+            .latest-updates-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
+
 </head>
 <body>
+    <div class="prototype-local-banner">Local-only comparison variant: existing homepage + compact Latest Updates insertion. Not deployed.</div>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -322,19 +201,11 @@
                 </a>
                 <nav class="nav" id="main-nav">
                     <ul class="nav-list">
-
                         <li><a href="index.html" class="nav-link active">Home</a></li>
-
-                        <li><a href="news.html" class="nav-link">News</a></li>
-
                         <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
-
                         <li><a href="what-we-offer.html" class="nav-link">What We Offer</a></li>
-
                         <li><a href="resources.html" class="nav-link">Resources</a></li>
-
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
-
                     </ul>
                     <div class="nav-social">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">
@@ -524,19 +395,20 @@
         </div>
     </section>
 
+
     <section class="latest-updates-preview" id="latest-updates-preview">
         <div class="container">
             <div class="latest-updates-header-row">
                 <div class="section-header">
                     <span class="overline">Latest Updates</span>
-                    <h2>Recent news</h2>
+                    <h2>Recent news from Facebook</h2>
+                    <p>A light-touch addition to the existing homepage — short updates here, fuller detail on a separate page.</p>
                 </div>
-                <div class="latest-updates-controls" aria-label="Recent updates navigation">
-                    <button class="latest-updates-prev" type="button" aria-label="Show previous update">
+                <div class="latest-updates-controls" aria-label="Recent Facebook updates navigation">
+                    <button class="latest-updates-prev" type="button" aria-label="Show previous Facebook update">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                     </button>
-                    <span class="latest-updates-status" id="latest-updates-status">1–2 of 3</span>
-                    <button class="latest-updates-next" type="button" aria-label="Show next update">
+                    <button class="latest-updates-next" type="button" aria-label="Show next Facebook update">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
                     </button>
                 </div>
@@ -547,10 +419,12 @@
                 </div>
             </div>
             <div class="latest-updates-footer">
-                <a href="news.html" class="btn btn-outline">View all news</a>
+                <p class="spotlight-note">This keeps the homepage mostly intact while still showing that the Trust is active and current.</p>
+                <a href="news-preview-list.html" class="btn btn-outline">View all updates</a>
             </div>
         </div>
     </section>
+
 
     <!-- What We Offer Section -->
     <section class="quick-links">
@@ -714,7 +588,6 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="prayer-times.html">Prayer Times</a></li>
-                        <li><a href="news.html">News</a></li>
                         <li><a href="what-we-offer.html">What We Offer</a></li>
                         <li><a href="resources.html">Resources</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -737,6 +610,7 @@
         </div>
     </footer>
 
+
     <script>
         function gmtEscapeHtml(text) {
             return String(text)
@@ -752,27 +626,13 @@
         function gmtNewsIsPortrait(post) {
             return !!post.poster && !(post.gallery && post.gallery.length);
         }
-        function gmtClampText(text, maxLength) {
-            const normalized = String(text || '').replace(/\s+/g, ' ').trim();
-            if (!normalized) return '';
-            if (normalized.length <= maxLength) return normalized;
-
-            const sentenceBoundary = normalized.slice(0, maxLength + 20).search(/[.!?](?=\s|$)/);
-            if (sentenceBoundary >= Math.max(36, maxLength - 18)) {
-                return normalized.slice(0, sentenceBoundary + 1);
-            }
-
-            const softBreak = normalized.lastIndexOf(' ', maxLength);
-            const cutoff = softBreak >= Math.max(30, maxLength - 16) ? softBreak : maxLength;
-            return `${normalized.slice(0, cutoff).trimEnd()}…`;
-        }
-        function gmtNewsExcerpt(post, maxLength = 165) {
+        function gmtNewsExcerpt(post) {
             const blocks = post.text_blocks || [];
             const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
-            if (!candidate) return '';
-            return gmtClampText(candidate, maxLength);
+            return candidate || '';
         }
     </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
@@ -783,85 +643,46 @@
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
                 const posts = (data.posts || []).slice(0, 3);
-                const fallbackDate = data.updated_at
-                    ? new Date(`${data.updated_at}T12:00:00Z`).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        timeZone: 'UTC'
-                    })
-                    : '';
-                root.innerHTML = posts.map((post, index) => {
-                    const staticDate = post.published_date || fallbackDate || post.published_label || '';
-                    return `
+                root.innerHTML = posts.map((post, index) => `
                     <div class="swiper-slide">
                         <article class="latest-update-card">
-                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><div class="latest-update-media-stage"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div></div>` : ''}
+                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div>` : ''}
                             <div class="latest-update-body">
                                 <div class="latest-update-meta">
                                     <span class="latest-update-pill">${gmtEscapeHtml(post.eyebrow || 'Update')}</span>
-                                    <span>${gmtEscapeHtml(staticDate)}</span>
+                                    <span>${gmtEscapeHtml(post.published_label || '')}</span>
                                 </div>
-                                <h3 class="latest-update-title">${gmtEscapeHtml(gmtClampText(post.title, gmtNewsIsPortrait(post) ? 64 : 74))}</h3>
-                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
-                                <div class="latest-update-actions">
-                                    <a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
-                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>
+                                <h3 class="latest-update-title">${gmtEscapeHtml(post.title)}</h3>
+                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post))}</p>
+                                <div class="spotlight-actions">
+                                    <a href="news-preview-list.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
+                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">Facebook</a>
                                 </div>
                             </div>
                         </article>
                     </div>
-                    `;
-                }).join('');
+                `).join('');
 
                 window.latestUpdatesSwiper = new Swiper('#latest-updates-carousel', {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                    centeredSlides: false,
-                    watchOverflow: true,
+                    slidesPerView: 1,
+                    spaceBetween: 20,
                     navigation: {
                         nextEl: '.latest-updates-next',
                         prevEl: '.latest-updates-prev'
                     },
-                    keyboard: {
-                        enabled: true,
-                        onlyInViewport: true
-                    },
                     breakpoints: {
-                        0: {
-                            slidesPerView: 1,
-                            spaceBetween: 12
-                        },
-                        681: {
-                            slidesPerView: 2,
-                            spaceBetween: 16
-                        },
                         900: {
                             slidesPerView: 2,
                             spaceBetween: 24
                         }
                     },
-                    on: {
-                        init: updateLatestStatus,
-                        breakpoint: updateLatestStatus,
-                        resize: updateLatestStatus,
-                        slideChange: updateLatestStatus
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true
                     }
                 });
-
-                function updateLatestStatus() {
-                    const status = document.getElementById('latest-updates-status');
-                    if (!status || !window.latestUpdatesSwiper) return;
-                    const swiper = window.latestUpdatesSwiper;
-                    const total = posts.length;
-                    const configured = Number(swiper.params.slidesPerView) || 1;
-                    const visible = Math.min(configured, total);
-                    const start = Math.min(swiper.activeIndex + 1, total);
-                    const end = Math.min(start + visible - 1, total);
-                    status.textContent = visible === 1 ? `${start} of ${total}` : `${start}–${end} of ${total}`;
-                }
             } catch (error) {
-                root.innerHTML = `<div class="swiper-slide"><p>Could not load news: ${gmtEscapeHtml(error.message)}</p></div>`;
+                root.innerHTML = `<div class="swiper-slide"><p>Could not load local updates: ${gmtEscapeHtml(error.message)}</p></div>`;
             }
         });
     </script>

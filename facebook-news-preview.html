@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="description" content="Internal preview of Facebook-imported news items for Greenwich Madina Trust.">
+    <title>Greenwich Madina Trust | Facebook News Preview</title>
+    <link rel="stylesheet" href="css/styles.css?v=20241220b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .preview-hero {
+            padding: 3.5rem 0 2rem;
+            background: linear-gradient(180deg, rgba(13,92,77,0.08), rgba(250,246,240,0));
+        }
+        .preview-shell {
+            padding: 0 0 5rem;
+        }
+        .preview-note {
+            max-width: 70ch;
+            margin-top: 1rem;
+            color: var(--slate);
+        }
+        .preview-list {
+            display: grid;
+            gap: 2rem;
+        }
+        .preview-card {
+            background: var(--ivory);
+            border-radius: 24px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+            border: 1px solid rgba(13, 92, 77, 0.08);
+        }
+        .preview-card-body {
+            padding: 2rem;
+        }
+        .preview-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .preview-eyebrow,
+        .preview-source {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .preview-eyebrow {
+            background: rgba(13, 92, 77, 0.1);
+            color: var(--emerald-deep);
+        }
+        .preview-source {
+            background: rgba(196, 169, 98, 0.18);
+            color: var(--gold-muted);
+        }
+        .preview-published {
+            color: var(--stone);
+            font-size: 0.95rem;
+        }
+        .preview-card h2 {
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+        .preview-content {
+            display: grid;
+            gap: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .preview-content p {
+            max-width: 72ch;
+            margin: 0;
+        }
+        .preview-content p.is-arabic {
+            font-family: var(--font-arabic);
+            font-size: 1.5rem;
+            line-height: 1.7;
+            direction: rtl;
+            text-align: right;
+            color: var(--emerald-deep);
+        }
+        .preview-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 0 0 1.5rem;
+        }
+        .preview-detail {
+            background: var(--cream-warm);
+            border: 1px solid rgba(196, 169, 98, 0.25);
+            border-radius: 18px;
+            padding: 1rem;
+        }
+        .preview-detail-label {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gold-muted);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+        .preview-detail-value {
+            color: var(--charcoal);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .preview-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin: 0 0 1.5rem;
+        }
+        .preview-gallery img,
+        .preview-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            background: var(--cream-warm);
+        }
+        .preview-poster {
+            max-width: 420px;
+            margin-bottom: 1.5rem;
+        }
+        .preview-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .preview-status {
+            color: var(--stone);
+            font-size: 0.95rem;
+        }
+        .preview-empty,
+        .preview-loading {
+            padding: 2rem;
+            background: var(--ivory);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+        @media (max-width: 720px) {
+            .preview-card-body {
+                padding: 1.25rem;
+            }
+            .preview-gallery {
+                grid-template-columns: 1fr;
+            }
+            .preview-content p.is-arabic {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/gemini-logo-final.png" alt="" class="logo-symbol">
+                    <span class="logo-text">Greenwich Madina Trust</span>
+                </a>
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="prayer-times.html" class="nav-link">Prayer Times</a></li>
+                        <li><a href="what-we-offer.html" class="nav-link">What We Offer</a></li>
+                        <li><a href="resources.html" class="nav-link">Resources</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="preview-hero">
+        <div class="container-narrow">
+            <div class="section-header">
+                <span class="overline">Internal preview</span>
+                <h1>Facebook News Preview</h1>
+                <p>Draft website rendering of today’s Facebook posts. This page is local-only, unlinked, and not for public release yet.</p>
+            </div>
+            <div class="draft-content">
+                <p class="preview-note">Purpose: test whether Facebook text, images, and formatting cues can be imported into a calmer website layout before any live deployment decision is made.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="preview-shell">
+        <div class="container-narrow">
+            <div id="preview-root" class="preview-loading">Loading preview…</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Greenwich Madina Trust</h4>
+                    <p>Serving the local Muslim community with prayers, education, and services.</p>
+                    <p class="charity-number">Registered UK Charity No. 1129277</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Preview Status</h4>
+                    <p>This page is intentionally unlinked and intended for local review only.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const isArabicLine = (text) => /[\u0600-\u06FF]/.test(text) && text.replace(/[\u0600-\u06FF\s،۔,:;!?.\-]/g, '').length < 8;
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderTextBlocks(blocks) {
+            return blocks.map(block => {
+                const safe = escapeHtml(block);
+                if (/^https?:\/\//.test(block)) {
+                    return `<p><a href="${safe}" target="_blank" rel="noopener">${safe}</a></p>`;
+                }
+                return `<p class="${isArabicLine(block) ? 'is-arabic' : ''}">${safe}</p>`;
+            }).join('');
+        }
+
+        function renderDetails(details = []) {
+            if (!details.length) return '';
+            return `
+                <div class="preview-detail-grid">
+                    ${details.map(detail => `
+                        <div class="preview-detail">
+                            <div class="preview-detail-label">${escapeHtml(detail.label)}</div>
+                            <div class="preview-detail-value">${escapeHtml(detail.value)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function renderGallery(gallery = []) {
+            if (!gallery.length) return '';
+            return `
+                <div class="preview-gallery">
+                    ${gallery.map(image => `<img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt || '')}" loading="lazy">`).join('')}
+                </div>
+            `;
+        }
+
+        function renderPoster(poster) {
+            if (!poster) return '';
+            return `
+                <div class="preview-poster">
+                    <img src="${escapeHtml(poster.url)}" alt="${escapeHtml(poster.alt || '')}" loading="lazy">
+                </div>
+            `;
+        }
+
+        function renderPost(post) {
+            return `
+                <article class="preview-card draft-content">
+                    <div class="preview-card-body">
+                        <div class="preview-meta">
+                            <span class="preview-eyebrow">${escapeHtml(post.eyebrow || 'Update')}</span>
+                            <span class="preview-source">Facebook import</span>
+                            <span class="preview-published">${escapeHtml(post.published_label || '')}</span>
+                        </div>
+                        <h2>${escapeHtml(post.title)}</h2>
+                        <div class="preview-content">
+                            ${renderTextBlocks(post.text_blocks || [])}
+                        </div>
+                        ${renderDetails(post.key_details || [])}
+                        ${renderPoster(post.poster)}
+                        ${renderGallery(post.gallery || [])}
+                        <div class="preview-actions">
+                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View original Facebook post</a>
+                            <span class="preview-status">Rendered from extracted Facebook content for website testing</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        async function loadPreview() {
+            const root = document.getElementById('preview-root');
+            try {
+                const response = await fetch('data/facebook-news-preview.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                if (!data.posts || !data.posts.length) {
+                    root.className = 'preview-empty';
+                    root.textContent = 'No preview posts found.';
+                    return;
+                }
+                root.className = 'preview-list';
+                root.innerHTML = data.posts.map(renderPost).join('');
+            } catch (error) {
+                root.className = 'preview-empty';
+                root.innerHTML = `<strong>Preview failed to load.</strong><p>${escapeHtml(error.message)}</p>`;
+            }
+        }
+
+        loadPreview();
+    </script>
+    <script src="js/main.js?v=20241220"></script>
+</body>
+</html>

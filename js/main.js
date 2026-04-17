@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form validation
     initFormValidation();
+
+    // Dynamic footer year
+    initCurrentYear();
 });
 
 /**
@@ -213,6 +216,16 @@ function initFaqAccordions() {
                 item.classList.toggle('active');
             });
         }
+    });
+}
+
+/**
+ * Dynamic Footer Year
+ */
+function initCurrentYear() {
+    const currentYear = new Date().getFullYear();
+    document.querySelectorAll('[data-current-year]').forEach(el => {
+        el.textContent = currentYear;
     });
 }
 
