@@ -69,41 +69,68 @@
             border: 1px solid rgba(13,92,77,0.10);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-rows: auto 1fr;
             height: 100%;
+            min-height: 710px;
             width: 100%;
             max-width: 500px;
             margin: 0 auto;
         }
         .latest-update-media {
-            background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
-            padding: 1rem;
+            padding: 1rem 1rem 0.55rem;
+        }
+        .latest-update-media-stage {
+            position: relative;
+            min-height: clamp(300px, 35vw, 380px);
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(13,92,77,0.08), rgba(196,169,98,0.18));
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 260px;
+            padding: 1rem;
+            overflow: hidden;
+        }
+        .latest-update-media:not(.is-portrait) .latest-update-media-stage::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 36%),
+                radial-gradient(circle at bottom right, rgba(13,92,77,0.14), transparent 34%),
+                linear-gradient(135deg, rgba(196,169,98,0.18), rgba(13,92,77,0.04));
+            opacity: 0.95;
+        }
+        .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            width: 44%;
+            height: 2px;
+            transform: translateX(-50%);
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, rgba(196,169,98,0.88), transparent);
         }
         .latest-update-media img {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            border-radius: 18px;
-            background: var(--cream);
+            height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            background: var(--ivory);
         }
         .latest-update-media.is-portrait img {
-            aspect-ratio: 3 / 4;
-            max-width: 260px;
-            object-fit: contain;
-            background: var(--ivory);
+            max-width: min(74%, 250px);
             box-shadow: var(--shadow-soft);
         }
         .latest-update-body {
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
+            padding: 1rem 1.25rem 1.25rem;
+            display: grid;
+            grid-template-rows: auto auto minmax(0, 1fr) auto;
             gap: 0.8rem;
-            flex: 1;
+            min-height: 0;
         }
         .latest-update-meta {
             display: flex;
@@ -128,11 +155,30 @@
         .latest-update-title {
             font-size: clamp(1.3rem, 2vw, 1.7rem);
             line-height: 1.25;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
         .latest-update-excerpt {
             color: var(--slate);
             margin: 0;
             max-width: none;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+        }
+        .latest-update-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(13, 92, 77, 0.10);
         }
         .latest-updates-controls {
             display: flex;
@@ -220,20 +266,25 @@
             }
             .latest-update-card {
                 max-width: 100%;
+                min-height: 760px;
                 border-radius: 20px;
             }
             .latest-update-media {
-                min-height: 0;
-                padding: 0.85rem;
+                padding: 0.85rem 0.85rem 0.45rem;
             }
-            .latest-update-media img {
-                aspect-ratio: 16 / 9;
+            .latest-update-media-stage {
+                min-height: 360px;
+                padding: 0.9rem;
+            }
+            .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
+                bottom: 0.85rem;
+                width: 52%;
             }
             .latest-update-media.is-portrait img {
-                max-width: min(72vw, 260px);
+                max-width: min(64vw, 210px);
             }
             .latest-update-body {
-                padding: 1rem;
+                padding: 0.95rem 1rem 1rem;
                 gap: 0.65rem;
             }
             .latest-update-meta {
@@ -242,6 +293,21 @@
             }
             .latest-update-title {
                 font-size: 1.2rem;
+                -webkit-line-clamp: 2;
+            }
+            .latest-update-excerpt {
+                -webkit-line-clamp: 4;
+            }
+            .latest-update-actions {
+                align-items: stretch;
+            }
+            .latest-update-actions .btn {
+                flex: 1 1 100%;
+                justify-content: center;
+            }
+            .news-archive-link {
+                width: 100%;
+                text-align: center;
             }
             .latest-updates-prev,
             .latest-updates-next {
@@ -692,10 +758,21 @@
         function gmtNewsIsPortrait(post) {
             return !!post.poster && !(post.gallery && post.gallery.length);
         }
-        function gmtNewsExcerpt(post) {
+        function gmtNewsExcerpt(post, maxLength = 165) {
             const blocks = post.text_blocks || [];
             const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
-            return candidate || '';
+            if (!candidate) return '';
+            const normalized = candidate.replace(/\s+/g, ' ').trim();
+            if (normalized.length <= maxLength) return normalized;
+
+            const sentenceBoundary = normalized.slice(0, maxLength + 25).search(/[.!?](?=\s|$)/);
+            if (sentenceBoundary >= Math.max(90, maxLength - 35)) {
+                return normalized.slice(0, sentenceBoundary + 1);
+            }
+
+            const softBreak = normalized.lastIndexOf(' ', maxLength);
+            const cutoff = softBreak >= Math.max(80, maxLength - 30) ? softBreak : maxLength;
+            return `${normalized.slice(0, cutoff).trimEnd()}…`;
         }
     </script>
 
@@ -721,15 +798,15 @@
                     return `
                     <div class="swiper-slide">
                         <article class="latest-update-card">
-                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div>` : ''}
+                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><div class="latest-update-media-stage"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div></div>` : ''}
                             <div class="latest-update-body">
                                 <div class="latest-update-meta">
                                     <span class="latest-update-pill">${gmtEscapeHtml(post.eyebrow || 'Update')}</span>
                                     <span>${gmtEscapeHtml(staticDate)}</span>
                                 </div>
                                 <h3 class="latest-update-title">${gmtEscapeHtml(post.title)}</h3>
-                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post))}</p>
-                                <div class="spotlight-actions">
+                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 145 : 165))}</p>
+                                <div class="latest-update-actions">
                                     <a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
                                     <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">Facebook</a>
                                 </div>
