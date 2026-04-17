@@ -23,6 +23,7 @@
             box-shadow: var(--shadow-medium);
             border: 1px solid rgba(13,92,77,0.08);
             overflow: hidden;
+            scroll-margin-top: calc(var(--header-height) + 1.5rem);
         }
         .news-article-body {
             padding: 2rem;
@@ -317,6 +318,16 @@
             `;
         }
 
+        function scrollToHashTarget() {
+            const hash = (window.location.hash || '').split('?')[0];
+            if (!hash || !hash.startsWith('#post-')) return;
+            const target = document.querySelector(hash);
+            if (!target) return;
+            requestAnimationFrame(() => {
+                target.scrollIntoView({ block: 'start' });
+            });
+        }
+
         async function init() {
             const root = document.getElementById('news-root');
             try {
@@ -335,12 +346,14 @@
                 if (!posts.length) throw new Error('No posts found');
                 root.className = 'news-stack';
                 root.innerHTML = posts.map((post, index) => renderPost(post, index, fallbackDate)).join('');
+                scrollToHashTarget();
             } catch (error) {
                 root.className = 'news-error';
                 root.innerHTML = `<strong>Could not load news.</strong><p>${escapeHtml(error.message)}</p>`;
             }
         }
 
+        window.addEventListener('hashchange', scrollToHashTarget);
         init();
     </script>
     <script src="js/main.js?v=20241220"></script>
