@@ -156,19 +156,14 @@
             font-size: clamp(1.3rem, 2vw, 1.7rem);
             line-height: 1.25;
             margin: 0;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
+            min-height: calc(1.25em * 2);
         }
         .latest-update-excerpt {
             color: var(--slate);
             margin: 0;
             max-width: none;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
-            overflow: hidden;
+            line-height: 1.58;
+            min-height: calc(1.58em * 4);
         }
         .latest-update-actions {
             display: flex;
@@ -293,10 +288,9 @@
             }
             .latest-update-title {
                 font-size: 1.2rem;
-                -webkit-line-clamp: 2;
             }
             .latest-update-excerpt {
-                -webkit-line-clamp: 4;
+                min-height: calc(1.58em * 4);
             }
             .latest-update-actions {
                 align-items: stretch;
@@ -758,21 +752,25 @@
         function gmtNewsIsPortrait(post) {
             return !!post.poster && !(post.gallery && post.gallery.length);
         }
-        function gmtNewsExcerpt(post, maxLength = 165) {
-            const blocks = post.text_blocks || [];
-            const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
-            if (!candidate) return '';
-            const normalized = candidate.replace(/\s+/g, ' ').trim();
+        function gmtClampText(text, maxLength) {
+            const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+            if (!normalized) return '';
             if (normalized.length <= maxLength) return normalized;
 
-            const sentenceBoundary = normalized.slice(0, maxLength + 25).search(/[.!?](?=\s|$)/);
-            if (sentenceBoundary >= Math.max(90, maxLength - 35)) {
+            const sentenceBoundary = normalized.slice(0, maxLength + 20).search(/[.!?](?=\s|$)/);
+            if (sentenceBoundary >= Math.max(36, maxLength - 18)) {
                 return normalized.slice(0, sentenceBoundary + 1);
             }
 
             const softBreak = normalized.lastIndexOf(' ', maxLength);
-            const cutoff = softBreak >= Math.max(80, maxLength - 30) ? softBreak : maxLength;
+            const cutoff = softBreak >= Math.max(30, maxLength - 16) ? softBreak : maxLength;
             return `${normalized.slice(0, cutoff).trimEnd()}…`;
+        }
+        function gmtNewsExcerpt(post, maxLength = 165) {
+            const blocks = post.text_blocks || [];
+            const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
+            if (!candidate) return '';
+            return gmtClampText(candidate, maxLength);
         }
     </script>
 
@@ -804,11 +802,11 @@
                                     <span class="latest-update-pill">${gmtEscapeHtml(post.eyebrow || 'Update')}</span>
                                     <span>${gmtEscapeHtml(staticDate)}</span>
                                 </div>
-                                <h3 class="latest-update-title">${gmtEscapeHtml(post.title)}</h3>
-                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 145 : 165))}</p>
+                                <h3 class="latest-update-title">${gmtEscapeHtml(gmtClampText(post.title, gmtNewsIsPortrait(post) ? 64 : 74))}</h3>
+                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
                                 <div class="latest-update-actions">
                                     <a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
-                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">Facebook</a>
+                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>
                                 </div>
                             </div>
                         </article>
