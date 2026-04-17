@@ -108,11 +108,11 @@
         }
         .news-poster {
             max-width: 440px;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
             padding: 1rem;
             background: linear-gradient(180deg, rgba(13,92,77,0.04), rgba(196,169,98,0.08));
             border-radius: 22px;
-            display: inline-flex;
+            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -129,17 +129,7 @@
             gap: 0.75rem;
             flex-wrap: wrap;
             align-items: center;
-        }
-        .news-top-actions {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 1.75rem;
-        }
-        .news-helper {
-            color: var(--stone);
+            justify-content: center;
         }
         .news-loading,
         .news-error {
@@ -193,19 +183,66 @@
         </div>
     </header>
 
+    <!-- Prayer Times Banner -->
+    <section class="prayer-banner">
+        <div class="container">
+            <div class="prayer-banner-content">
+                <div class="prayer-banner-left">
+                    <div class="juma-times">
+                        <span class="juma-label">Jum'a</span>
+                        <span class="juma-time">1:30 & 2:15</span>
+                    </div>
+                    <div class="prayer-banner-date">
+                        <span class="gregorian-date" id="gregorian-date"></span>
+                        <span class="hijri-date" id="hijri-date">Loading...</span>
+                    </div>
+                </div>
+                <div class="prayer-times-quick" id="prayer-times-quick">
+                    <div class="prayer-times-labels">
+                        <span class="row-label"></span>
+                        <span class="row-label">Jama'at</span>
+                        <span class="row-label">Begins</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Fajr</span>
+                        <span class="jamaat-time" id="fajr-jamaat">--:--</span>
+                        <span class="begins-time" id="fajr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Dhuhr</span>
+                        <span class="jamaat-time" id="dhuhr-jamaat">--:--</span>
+                        <span class="begins-time" id="dhuhr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Asr</span>
+                        <span class="jamaat-time" id="asr-jamaat">--:--</span>
+                        <span class="begins-time" id="asr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Maghrib</span>
+                        <span class="jamaat-time" id="maghrib-jamaat">--:--</span>
+                        <span class="begins-time" id="maghrib-time">--:--</span>
+                    </div>
+                    <div class="prayer-time-item">
+                        <span class="prayer-name">Isha</span>
+                        <span class="jamaat-time" id="isha-jamaat">--:--</span>
+                        <span class="begins-time" id="isha-time">--:--</span>
+                    </div>
+                </div>
+                <a href="prayer-times.html" class="btn btn-outline-light btn-sm">Full Timetable</a>
+            </div>
+        </div>
+    </section>
+
     <section class="page-hero">
         <div class="container">
             <h1>News</h1>
-            <p>Recent announcements, notices, and community updates from Greenwich Madina Trust.</p>
+            <p>Recent announcements and community updates from Greenwich Madina Trust.</p>
         </div>
     </section>
 
     <main class="content-section news-listing">
         <div class="container">
-            <div class="news-top-actions">
-                <p class="news-helper">Recent announcements, notices, and community updates in fuller detail.</p>
-                <a href="index.html" class="btn btn-outline">Back to home</a>
-            </div>
             <div id="news-root" class="news-loading">Loading news…</div>
         </div>
     </main>
@@ -311,7 +348,7 @@
                         ${renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
                         <div class="news-actions">
-                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View original post</a>
+                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View post on Facebook</a>
                         </div>
                     </div>
                 </article>
@@ -356,6 +393,7 @@
         window.addEventListener('hashchange', scrollToHashTarget);
         init();
     </script>
+    <script src="js/prayer-times.js?v=20241220"></script>
     <script src="js/main.js?v=20241220"></script>
 </body>
 </html>
