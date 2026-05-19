@@ -1413,8 +1413,9 @@
                                 <h3 class="latest-update-title">${gmtEscapeHtml(gmtClampText(post.title, gmtNewsIsPortrait(post) ? 64 : 74))}</h3>
                                 <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
                                 <div class="latest-update-actions">
-                                    <a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a>
-                                    <a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>
+                                    ${post.donation_url
+                                        ? `<a href="${gmtEscapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Donate now</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
+                                        : `<a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a><a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>`}
                                 </div>
                             </div>
                         </article>

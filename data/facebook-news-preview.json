@@ -1,8 +1,39 @@
 {
-  "generated_from": "Facebook public page extraction for local preview only",
-  "status": "draft-local-only",
-  "updated_at": "2026-04-16",
+  "generated_from": "Greenwich Madina Trust Facebook news imports",
+  "status": "published",
+  "updated_at": "2026-05-19",
   "posts": [
+    {
+      "slug": "online-donations-live",
+      "source": "facebook",
+      "source_url": "https://www.facebook.com/GreenwichMadinaTrust/posts/pfbid02Bcx2vsrvETxPwt9QasiMyRBBkh3ykkK7EAz5JmZUCEACH8bdvjw1bZbmF225AukFl",
+      "published_label": "19 May 2026 on Facebook",
+      "published_date": "19 May 2026",
+      "eyebrow": "Donations",
+      "title": "A New Way to Support the Masjid",
+      "text_blocks": [
+        "Make a secure donation in a few moments, with Gift Aid available for UK taxpayers.",
+        "Use the Donate now button below to open Greenwich Madina Trust’s secure Hibabox donation page.",
+        "Your support helps maintain the masjid, support learning, and improve community spaces for the whole community.",
+        "If you are a UK taxpayer, please select YES for Gift Aid. Gift Aid boosts your donation by 25% at no extra cost to you.",
+        "Greenwich Madina Trust is a registered UK charity, number 1129277."
+      ],
+      "key_details": [
+        {
+          "label": "Donation method",
+          "value": "Secure online donation via Hibabox"
+        },
+        {
+          "label": "Gift Aid",
+          "value": "UK taxpayers can select YES for Gift Aid to increase their donation by 25% at no extra cost"
+        }
+      ],
+      "poster": {
+        "url": "images/news/online-donations-live.jpg",
+        "alt": "Poster announcing that online donations are now live for Greenwich Madina Trust"
+      },
+      "donation_url": "https://hibabox.com/greenwich-madina-trust/mosque-maintenance"
+    },
     {
       "slug": "jummah-new-entrance-exit",
       "source": "facebook",

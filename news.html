@@ -348,7 +348,8 @@
                         ${renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
                         <div class="news-actions">
-                            <a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View post on Facebook</a>
+                            ${post.donation_url ? `<a class="btn btn-primary" href="${escapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer">Donate now</a>` : ''}
+                            ${post.donation_url ? '' : `<a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View post on Facebook</a>`}
                         </div>
                     </div>
                 </article>
