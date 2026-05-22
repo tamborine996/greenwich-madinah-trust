@@ -1,12 +1,12 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-05-11",
-    "badgeText": "For Brothers Only",
-    "title": "Excellence of Hajj",
-    "date": "Sunday 10th May 2026",
-    "description": "A brothers-only gathering on the excellence of Hajj, led by Mawlana Muhammad Irfan Naqshbandi.",
-    "time": "Asr till Maghrib",
+    "hideFrom": "2026-05-28",
+    "badgeText": "Eid Prayer Times",
+    "title": "Eid ul Adha 2026 Prayer Times",
+    "date": "Wednesday 27th May 2026",
+    "description": "Eid ul Adha prayer times at Ghousia Masjid. Please see the poster for full Jama'ah details.",
+    "time": "",
     "location": "Ghousia Masjid, 56 Camrose St, London, SE2 0JA",
     "poster": "images/event-poster.jpg",
     "buttonText": "",
@@ -15,9 +15,9 @@
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-05-11",
-    "badgeText": "Upcoming Event",
-    "linkText": "Excellence of Hajj — Sunday 10th May, Asr till Maghrib",
+    "hideFrom": "2026-05-28",
+    "badgeText": "Eid Prayer Times",
+    "linkText": "Eid ul Adha 2026 — Wednesday 27th May, Jama'ah at 8:00am, 9:00am and 10:00am",
     "linkUrl": "#event-spotlight"
   }
 }
