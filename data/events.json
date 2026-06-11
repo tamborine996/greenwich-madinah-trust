@@ -1,13 +1,13 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-05-28",
-    "badgeText": "Eid Prayer Times",
-    "title": "Eid ul Adha 2026 Prayer Times",
-    "date": "Wednesday 27th May 2026",
-    "description": "Eid ul Adha prayer times at Ghousia Masjid. Please see the poster for full Jama'ah details.",
-    "time": "",
-    "location": "Ghousia Masjid, 56 Camrose St, London, SE2 0JA",
+    "hideFrom": "2026-06-15",
+    "badgeText": "Upcoming Event",
+    "title": "Monthly Gyarwee Shareef",
+    "date": "Sunday 14th June 2026",
+    "description": "Monthly Gyarwee Shareef gathering with Ethaale Thawaab for the parents of Haji Manzoor Hussain Qadari and brothers. Urdu speech by Khalifah Al Hajj Muhammad Sharif Naqshbandi sahib.",
+    "time": "From 6:30pm",
+    "location": "Greenwich Madina Trust Ghousia Masjid, 56 Camrose Street, Plumstead, SE2 0JA",
     "poster": "images/event-poster.jpg",
     "buttonText": "",
     "buttonUrl": "",
@@ -15,9 +15,9 @@
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-05-28",
-    "badgeText": "Eid Prayer Times",
-    "linkText": "Eid ul Adha 2026 — Wednesday 27th May, Jama'ah at 8:00am, 9:00am and 10:00am",
+    "hideFrom": "2026-06-15",
+    "badgeText": "Upcoming Event",
+    "linkText": "Monthly Gyarwee Shareef — Sunday 14th June, from 6:30pm",
     "linkUrl": "#event-spotlight"
   }
 }
