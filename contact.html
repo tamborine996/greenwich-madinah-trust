@@ -134,6 +134,15 @@
                             <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                         </div>
 
+                        <div class="form-group phone-form-group" data-phone-group>
+                            <label for="phone">
+                                Phone number
+                                <span class="field-badge" data-phone-badge>Recommended</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="Your phone number">
+                            <p class="form-helper" data-phone-helper>Recommended if you would like us to call you back.</p>
+                        </div>
+
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <select id="subject" name="subject">
@@ -269,16 +278,39 @@
         // Pre-select subject from URL hash (e.g., #janazah)
         (function() {
             const hash = window.location.hash.substring(1); // Remove the #
-            if (hash) {
-                const select = document.getElementById('subject');
-                if (select) {
-                    // Check if the hash value matches an option
-                    const option = select.querySelector('option[value="' + hash + '"]');
-                    if (option) {
-                        select.value = hash;
-                    }
+            const select = document.getElementById('subject');
+            const phoneGroup = document.querySelector('[data-phone-group]');
+            const phoneBadge = document.querySelector('[data-phone-badge]');
+            const phoneHelper = document.querySelector('[data-phone-helper]');
+            const phoneInput = document.getElementById('phone');
+            const strongPhoneSubjects = new Set(['nikah']);
+
+            function updatePhonePrompt() {
+                if (!select || !phoneGroup || !phoneBadge || !phoneHelper || !phoneInput) {
+                    return;
+                }
+
+                const isStronglyRecommended = strongPhoneSubjects.has(select.value);
+                phoneGroup.classList.toggle('phone-form-group-strong', isStronglyRecommended);
+                phoneBadge.textContent = isStronglyRecommended ? 'Strongly recommended' : 'Recommended';
+                phoneHelper.textContent = isStronglyRecommended
+                    ? 'Strongly recommended for Nikah enquiries so we can confirm details quickly. This is still optional.'
+                    : 'Recommended if you would like us to call you back.';
+                phoneInput.placeholder = isStronglyRecommended ? 'Best phone number for a call back' : 'Your phone number';
+            }
+
+            if (hash && select) {
+                // Check if the hash value matches an option
+                const option = select.querySelector('option[value="' + hash + '"]');
+                if (option) {
+                    select.value = hash;
                 }
             }
+
+            if (select) {
+                select.addEventListener('change', updatePhonePrompt);
+            }
+            updatePhonePrompt();
         })();
     </script>
 </body>
