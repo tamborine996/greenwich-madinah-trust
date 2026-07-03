@@ -1,16 +1,16 @@
 {
     "description": "Greenwich Madina Trust official Hijri calendar. Update this when new Islamic month is announced.",
-    "lastUpdated": "2026-06-15",
+    "lastUpdated": "2026-07-03",
     "currentMonth": {
-        "hijriMonth": "Dhul-Hijjah",
-        "hijriYear": 1447,
-        "gregorianStartDate": "2026-05-18",
-        "note": "1st Dhul-Hijjah 1447 = Monday 18th May 2026"
-    },
-    "nextMonth": {
         "hijriMonth": "Muharram",
         "hijriYear": 1448,
-        "gregorianStartDate": "2026-06-17",
-        "note": "1st Muharram 1448 = Wednesday 17th June 2026, based on the Sunni Ru'yat al-Hilal Board U.K. announcement"
+        "gregorianStartDate": "2026-06-16",
+        "note": "1st Muharram 1448 = Tuesday 16th June 2026, matching the approved 2026 prayer-times JSON moon marker"
+    },
+    "nextMonth": {
+        "hijriMonth": "Safar",
+        "hijriYear": 1448,
+        "gregorianStartDate": "2026-07-16",
+        "note": "1st Safar 1448 = Thursday 16th July 2026, matching the approved July 2026 prayer-times JSON moon marker"
     }
 }
