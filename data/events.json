@@ -1,12 +1,12 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-06-27",
-    "badgeText": "Brothers Only",
-    "title": "The Legacy of Imam Hussain & The Day of Ashura",
-    "date": "Friday 26th June 2026",
-    "description": "A brothers-only gathering at Ghousia Masjid with Mawlana Irfan Naqshbandi and Mawlana Faizan Raza. Langar e Hussaini will be served.",
-    "time": "8pm to Maghrib Salah",
+    "hideFrom": "2026-07-19",
+    "badgeText": "Upcoming Event",
+    "title": "Monthly Gyarwee Shareef",
+    "date": "Saturday 18th July 2026",
+    "description": "Monthly Gyarwee Shareef commemorating Imam Rabbani Mujaddid al-Alf al-Thani, Shaykh Ahmad Faruqi Sirhindi, and Imam Ahmad Raza Khan, with Mawlana Muhammad Irfan Naqshbandi and Mawlana Hafiz Faizan Raza.",
+    "time": "From Asr",
     "location": "GMT Ghousia Masjid, 56 Camrose Street, SE2 0JA",
     "poster": "images/event-poster.jpg",
     "buttonText": "",
@@ -15,9 +15,9 @@
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-06-27",
+    "hideFrom": "2026-07-19",
     "badgeText": "Upcoming Event",
-    "linkText": "The Legacy of Imam Hussain & The Day of Ashura — Friday 26th June, 8pm to Maghrib Salah",
+    "linkText": "Monthly Gyarwee Shareef — Saturday 18th July, from Asr",
     "linkUrl": "#event-spotlight"
   }
 }
