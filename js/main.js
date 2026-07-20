@@ -237,7 +237,7 @@ function initSmoothScroll() {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
-            if (href !== '#') {
+            if (href && href !== '#' && href.startsWith('#')) {
                 e.preventDefault();
 
                 const target = document.querySelector(href);

@@ -9,7 +9,7 @@
     // Load events data and update the page
     async function loadEvents() {
         try {
-            const response = await fetch('data/events.json');
+            const response = await fetch('data/events.json?v=20260720-editorial-live');
             if (!response.ok) {
                 throw new Error('Failed to load events data');
             }
@@ -68,6 +68,15 @@
         // Show the bar and update content
         bar.style.display = '';
         bar.href = config.linkUrl || '#event-spotlight';
+        bar.setAttribute('aria-label', config.ariaLabel || config.linkText || 'View event details');
+
+        if (config.openInNewTab) {
+            bar.target = '_blank';
+            bar.rel = 'noopener noreferrer';
+        } else {
+            bar.removeAttribute('target');
+            bar.removeAttribute('rel');
+        }
 
         // Update badge text
         const badgeEl = bar.querySelector('.event-notif-badge');
@@ -113,11 +122,16 @@
             badgeEl.textContent = config.badgeText;
         }
 
-        // Update poster
+        // Update poster and its full-size link
         const posterImg = section.querySelector('.spotlight-poster img');
+        const posterLink = section.querySelector('.spotlight-poster-link');
         if (posterImg && config.poster) {
             posterImg.src = config.poster;
             posterImg.alt = config.title + ' Poster';
+        }
+        if (posterLink && config.poster) {
+            posterLink.href = config.poster;
+            posterLink.setAttribute('aria-label', 'Open the full ' + config.title + ' poster');
         }
 
         // Update title

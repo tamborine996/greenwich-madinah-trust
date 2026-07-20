@@ -1582,7 +1582,7 @@ p {
 
 @media (max-width: 960px) {
     .hero-combined {
-        padding: var(--space-2xl) 0;
+        padding: var(--space-lg) 0 var(--space-2xl);
     }
 
     .hero-grid {
@@ -1590,7 +1590,13 @@ p {
         gap: var(--space-2xl);
     }
 
+    .hero-carousel-compact {
+        order: 1;
+        animation-delay: 0s;
+    }
+
     .hero-welcome {
+        order: 2;
         text-align: center;
     }
 
@@ -5683,7 +5689,7 @@ td.col-maghrib,
 .current-timetable-preview figcaption { margin-top: var(--space-xs); color: var(--slate); font-size: 0.85rem; }
 @media (max-width: 640px) { .timetable-actions { align-items: stretch; flex-direction: column; } .timetable-actions .btn { justify-content: center; width: 100%; } .current-timetable-preview { max-width: 100%; } }
 
-/* Temporary Youth Summer Retreat campaign carousel */
+/* Campaign carousel foundation */
 .slide-campaign {
     isolation: isolate;
 }
@@ -5918,5 +5924,752 @@ td.col-maghrib,
         height: 210px;
         opacity: 0.16;
         transform: scale(0.9);
+    }
+}
+
+/* Staging review: event-led hero slide */
+.slide-event-feature {
+    background:
+        radial-gradient(circle at 80% 35%, rgba(238, 196, 107, 0.38) 0%, rgba(238, 196, 107, 0) 30%),
+        linear-gradient(135deg, #20131a 0%, #4b1d29 58%, #0b4d3c 145%);
+}
+
+.slide-event-feature::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, transparent 0 46%, rgba(240, 204, 126, 0.08) 46% 47%, transparent 47% 100%),
+        linear-gradient(45deg, transparent 0 76%, rgba(240, 204, 126, 0.07) 76% 77%, transparent 77% 100%);
+    background-size: 78px 78px;
+    pointer-events: none;
+}
+
+.slide-event-feature .slide-title-compact {
+    color: #f4d48f;
+}
+
+.slide-event-feature .slide-description-compact {
+    color: rgba(255, 249, 234, 0.9);
+}
+
+.slide-event-feature .campaign-meta span {
+    border-color: rgba(244, 212, 143, 0.42);
+    background: rgba(20, 10, 15, 0.34);
+    color: #fff7e7;
+}
+
+.event-hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-hero-visual::before {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 218px;
+    border: 1px solid rgba(244, 212, 143, 0.45);
+    border-radius: 88px 88px 18px 18px;
+    transform: translateY(3px);
+}
+
+.event-hero-visual img {
+    position: relative;
+    z-index: 1;
+    width: 142px;
+    height: 200px;
+    object-fit: contain;
+    border: 2px solid rgba(244, 212, 143, 0.82);
+    border-radius: 8px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.38);
+    transform: rotate(1.5deg);
+}
+
+@media (max-width: 600px) {
+    .slide-event-feature .event-hero-visual {
+        right: -28px;
+        bottom: -32px;
+        opacity: 0.12;
+    }
+
+    .slide-event-feature .event-hero-visual::before {
+        display: none;
+    }
+
+    .slide-event-feature .event-hero-visual img {
+        width: 138px;
+        height: 184px;
+    }
+}
+
+/* Independently art-directed editorial campaign slides */
+.slide-campaign {
+    --editorial-ink: #171426;
+    color: #fff;
+}
+
+.slide-campaign::before,
+.slide-campaign::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.slide-campaign .slide-content-compact {
+    position: relative;
+    z-index: 2;
+}
+
+.slide-campaign .slide-title-compact,
+.slide-campaign .slide-description-compact {
+    text-shadow: none;
+}
+
+.slide-campaign .slide-badge,
+.slide-campaign .campaign-meta span,
+.slide-campaign .btn-light {
+    border-radius: 0;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.hero-carousel-compact .swiper-button-prev,
+.hero-carousel-compact .swiper-button-next {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(20, 20, 28, 0.16);
+    box-shadow: 0 7px 18px rgba(18, 16, 26, 0.18);
+    backdrop-filter: none;
+}
+
+.hero-carousel-compact .swiper-button-prev::after,
+.hero-carousel-compact .swiper-button-next::after {
+    color: #1a1724;
+}
+
+.hero-carousel-compact .swiper-button-prev:hover,
+.hero-carousel-compact .swiper-button-next:hover {
+    background: #fff;
+    border-color: rgba(20, 20, 28, 0.35);
+}
+
+/* 01 — Event: atmospheric printed invitation */
+.slide-event-feature {
+    background: #2b1635;
+}
+
+.slide-event-feature::before {
+    inset: auto;
+    width: 360px;
+    height: 360px;
+    right: -105px;
+    top: -92px;
+    border-radius: 50%;
+    background: #d85d69;
+    opacity: 0.88;
+}
+
+.slide-event-feature::after {
+    inset: 0;
+    background-image: repeating-linear-gradient(112deg, transparent 0 24px, rgba(255, 226, 172, 0.075) 24px 26px, transparent 26px 48px);
+    background-size: auto;
+}
+
+.slide-event-feature .slide-badge {
+    padding: 0.45rem 0.72rem;
+    border: 1px solid #f7d79a;
+    background: transparent;
+    color: #f7d79a;
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    letter-spacing: 0.17em;
+}
+
+.slide-event-feature .slide-title-compact {
+    max-width: 11ch;
+    color: #fff1d6;
+    font-family: var(--font-display);
+    font-size: clamp(2.05rem, 3.7vw, 2.72rem);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+}
+
+.slide-event-feature .slide-description-compact {
+    color: rgba(255, 241, 214, 0.88);
+}
+
+.slide-event-feature .campaign-meta span {
+    min-height: 0;
+    padding: 0.18rem 0 0.18rem 0.72rem;
+    border: 0;
+    border-left: 2px solid #ef8790;
+    background: transparent;
+    color: #fff1d6;
+}
+
+.slide-event-feature .btn-light {
+    border: 1px solid #fff1d6;
+    background: #fff1d6;
+    color: #2b1635;
+}
+
+.slide-event-feature .btn-light:hover {
+    background: #f7d79a;
+    border-color: #f7d79a;
+    color: #2b1635;
+}
+
+.event-hero-visual {
+    display: block;
+}
+
+.event-hero-visual::before {
+    display: none;
+}
+
+.event-poster-card {
+    position: absolute;
+    left: 18px;
+    top: 13px;
+    padding: 8px;
+    background: #fff1d6;
+    box-shadow: 13px 15px 0 #8b2f57;
+    transform: rotate(3.5deg);
+}
+
+.event-poster-card img {
+    display: block;
+    width: 134px;
+    height: 184px;
+    object-fit: contain;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+.event-editorial-date,
+.event-editorial-note {
+    position: absolute;
+    z-index: 3;
+    display: inline-block;
+    padding: 0.42rem 0.55rem;
+    color: #2b1635;
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.event-editorial-date {
+    right: -4px;
+    top: 0;
+    background: #f7d79a;
+    transform: rotate(5deg);
+}
+
+.event-editorial-note {
+    left: 1px;
+    bottom: 4px;
+    background: #ef8790;
+    transform: rotate(-5deg);
+}
+
+/* 02 — Retreat: sun-bleached field guide */
+.slide-youth-retreat {
+    background: #f2a65a;
+    color: #14213d;
+}
+
+.slide-youth-retreat::before {
+    inset: 0 0 0 auto;
+    width: 43%;
+    height: 100%;
+    background: #13a8a3;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 22% 76%, 3% 52%, 28% 27%);
+    opacity: 1;
+}
+
+.slide-youth-retreat::after {
+    inset: auto auto 28px 39%;
+    width: 110px;
+    height: 7px;
+    background: #14213d;
+    transform: rotate(-5deg);
+}
+
+.slide-youth-retreat .slide-badge {
+    padding: 0.45rem 0.7rem;
+    border: 2px solid #14213d;
+    background: #14213d;
+    color: #fff0cd;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    transform: rotate(-1deg);
+}
+
+.slide-youth-retreat .slide-title-compact {
+    max-width: 10ch;
+    color: #14213d;
+    font-family: var(--font-body);
+    font-size: clamp(1.95rem, 3.4vw, 2.55rem);
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.slide-youth-retreat .slide-description-compact {
+    color: rgba(20, 33, 61, 0.88);
+    font-weight: 560;
+}
+
+.slide-youth-retreat .campaign-meta {
+    gap: 0.35rem;
+}
+
+.slide-youth-retreat .campaign-meta span {
+    min-height: 0;
+    padding: 0.36rem 0.58rem;
+    border: 2px solid #14213d;
+    background: #fff0cd;
+    color: #14213d;
+    font-size: 0.68rem;
+}
+
+.slide-youth-retreat .btn-light {
+    border: 2px solid #14213d;
+    background: #14213d;
+    color: #fff0cd;
+}
+
+.slide-youth-retreat .btn-light:hover {
+    background: #fff0cd;
+    color: #14213d;
+}
+
+.retreat-visual {
+    color: #14213d;
+}
+
+.retreat-sun {
+    position: absolute;
+    right: -2px;
+    top: -5px;
+    width: 132px;
+    height: 132px;
+    border: 4px solid #14213d;
+    border-radius: 50%;
+    background: #ffe48d;
+}
+
+.retreat-date-card {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    width: 112px;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #14213d;
+    background: #fff0cd;
+    box-shadow: 10px 10px 0 #14213d;
+    transform: rotate(-4deg);
+}
+
+.retreat-date-card span,
+.retreat-date-card small {
+    font-size: 0.65rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.retreat-date-card strong {
+    font-family: var(--font-body);
+    font-size: 3.35rem;
+    line-height: 0.9;
+}
+
+.retreat-route {
+    position: absolute;
+    right: 5px;
+    bottom: 15px;
+    width: 68px;
+    height: 50px;
+    border-right: 3px dashed #fff0cd;
+    border-bottom: 3px dashed #fff0cd;
+    transform: rotate(-8deg);
+}
+
+.retreat-field-label {
+    position: absolute;
+    right: -13px;
+    bottom: -2px;
+    padding: 0.34rem 0.48rem;
+    background: #fff0cd;
+    color: #14213d;
+    font-size: 0.59rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: rotate(4deg);
+}
+
+/* 03 — Questionnaire: electric opinion poster */
+.slide-youth-questionnaire {
+    background: #4435d9;
+}
+
+.slide-youth-questionnaire::before {
+    inset: auto -60px -100px auto;
+    width: 365px;
+    height: 365px;
+    background: #d9ff55;
+    transform: rotate(12deg);
+    opacity: 1;
+}
+
+.slide-youth-questionnaire::after {
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.3px, transparent 1.3px);
+    background-size: 18px 18px;
+    opacity: 1;
+}
+
+.slide-youth-questionnaire .slide-badge {
+    padding: 0.42rem 0.68rem;
+    border: 0;
+    background: #d9ff55;
+    color: #171426;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    transform: rotate(1deg);
+}
+
+.slide-youth-questionnaire .slide-title-compact {
+    max-width: 10ch;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: clamp(1.9rem, 3.35vw, 2.45rem);
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.slide-youth-questionnaire .slide-description-compact {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slide-youth-questionnaire .campaign-meta span {
+    min-height: 0;
+    padding: 0.2rem 0;
+    border: 0;
+    border-bottom: 2px solid rgba(217, 255, 85, 0.78);
+    background: transparent;
+    color: #fff;
+}
+
+.slide-youth-questionnaire .btn-light {
+    border: 2px solid #171426;
+    background: #d9ff55;
+    color: #171426;
+}
+
+.slide-youth-questionnaire .btn-light:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #171426;
+}
+
+.question-poster {
+    position: absolute;
+    left: 9px;
+    top: 28px;
+    width: 142px;
+    height: 146px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.8rem;
+    border: 3px solid #171426;
+    background: #fff;
+    box-shadow: 11px 11px 0 #ff796d;
+    color: #171426;
+    font-family: var(--font-body);
+    line-height: 0.83;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+}
+
+.question-poster small {
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.23em;
+}
+
+.question-poster strong {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+}
+
+.question-poster em {
+    align-self: flex-end;
+    margin-top: 0.45rem;
+    padding: 0.28rem 0.35rem;
+    background: #d9ff55;
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.slide-youth-questionnaire .topic-card {
+    min-width: 0;
+    min-height: 0;
+    padding: 0.38rem 0.5rem;
+    border: 2px solid #171426;
+    border-radius: 0;
+    background: #fff;
+    color: #171426;
+    box-shadow: 5px 5px 0 #171426;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+}
+
+.slide-youth-questionnaire .topic-faith {
+    left: -5px;
+    bottom: 18px;
+    background: #ff796d;
+}
+
+.slide-youth-questionnaire .topic-confidence {
+    right: -2px;
+    bottom: 3px;
+    background: #d9ff55;
+}
+
+.slide-youth-questionnaire .topic-real-life {
+    right: -7px;
+    top: 4px;
+}
+
+@media (max-width: 600px) {
+    .slide-campaign .slide-content-compact {
+        padding: 1.35rem 2.05rem 2.55rem;
+    }
+
+    .slide-campaign .slide-badge {
+        margin-bottom: 0.72rem;
+    }
+
+    .slide-campaign .slide-title-compact {
+        font-size: clamp(1.78rem, 8vw, 2.08rem);
+        line-height: 0.98;
+    }
+
+    .slide-campaign .slide-description-compact {
+        margin-bottom: 0.72rem;
+        font-size: 0.88rem;
+        line-height: 1.38;
+    }
+
+    .slide-campaign .campaign-meta {
+        gap: 0.28rem;
+        margin-bottom: 0.78rem;
+    }
+
+    .slide-campaign .campaign-meta span {
+        font-size: 0.64rem;
+    }
+
+    .slide-campaign .btn-sm {
+        padding: 0.62rem 0.82rem;
+        font-size: 0.72rem;
+    }
+
+    .slide-event-feature::before {
+        width: 250px;
+        height: 250px;
+        right: -140px;
+        top: -80px;
+    }
+
+    .slide-event-feature .event-hero-visual,
+    .slide-youth-retreat .retreat-visual,
+    .slide-youth-questionnaire .questionnaire-visual {
+        right: -28px;
+        bottom: -30px;
+        opacity: 0.16;
+    }
+
+    .slide-youth-retreat::before {
+        width: 34%;
+    }
+
+    .slide-youth-questionnaire::before {
+        width: 260px;
+        height: 260px;
+        right: -155px;
+        bottom: -105px;
+    }
+}
+
+/* Gold poster ribbon + distinct Islamic geometry */
+.event-notification-bar {
+    min-height: 42px;
+    gap: 0.65rem;
+    padding: 0.42rem 1rem;
+    border-top: 1px solid #b58c2d;
+    border-bottom: 1px solid #b58c2d;
+    background: #d8b85b;
+    color: #21182a;
+    font-size: 0.84rem;
+    font-weight: 650;
+}
+
+.event-notification-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22 3l4.5 10.5L37 9l-4.5 10.5L41 22l-8.5 2.5L37 35l-10.5-4.5L22 41l-4.5-10.5L7 35l4.5-10.5L3 22l8.5-2.5L7 9l10.5 4.5z' fill='none' stroke='%234f3b17' stroke-opacity='.13' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 44px 44px;
+    pointer-events: none;
+}
+
+.event-notification-bar:hover {
+    background: #e4c86f;
+}
+
+.event-notif-badge,
+.event-notif-text,
+.event-notif-arrow {
+    position: relative;
+    z-index: 1;
+}
+
+.event-notif-badge {
+    padding: 0.24rem 0.5rem;
+    border: 1px solid rgba(255, 241, 214, 0.45);
+    border-radius: 0;
+    background: #2b1635;
+    color: #fff1d6;
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+}
+
+.event-notif-text strong {
+    font-weight: 800;
+}
+
+/* Event: mihrab frame and eight-point-star linework */
+.slide-event-feature::after {
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 8l9 20 21-9-9 20 19 9-19 9 9 21-21-9-9 19-9-19-21 9 9-21-19-9 19-9-9-21 21 9z' fill='none' stroke='%23f7d79a' stroke-opacity='.16' stroke-width='1.2'/%3E%3Ccircle cx='48' cy='48' r='13' fill='none' stroke='%23f7d79a' stroke-opacity='.1'/%3E%3C/svg%3E");
+    background-size: 96px 96px;
+}
+
+.event-hero-visual::before {
+    display: block;
+    position: absolute;
+    left: 1px;
+    top: -2px;
+    width: 174px;
+    height: 222px;
+    border: 2px solid rgba(255, 241, 214, 0.58);
+    border-radius: 90px 90px 8px 8px;
+    transform: rotate(-2deg);
+}
+
+/* Retreat: the sun becomes an eight-point compass rosette */
+.retreat-sun::before,
+.retreat-sun::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.retreat-sun::before {
+    inset: 19px;
+    background: #14213d;
+    clip-path: polygon(50% 0, 61% 29%, 85% 15%, 71% 39%, 100% 50%, 71% 61%, 85% 85%, 61% 71%, 50% 100%, 39% 71%, 15% 85%, 29% 61%, 0 50%, 29% 39%, 15% 15%, 39% 29%);
+}
+
+.retreat-sun::after {
+    inset: 39px;
+    border: 3px solid #fff0cd;
+    border-radius: 50%;
+    background: #13a8a3;
+}
+
+/* Questionnaire: contemporary zellige tile rather than a generic dot grid */
+.slide-youth-questionnaire::after {
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 3l7 17 17-7-7 17 16 6-16 6 7 17-17-7-7 17-7-17-17 7 7-17-16-6 16-6-7-17 17 7z' fill='none' stroke='%23ffffff' stroke-opacity='.19' stroke-width='1.2'/%3E%3Cpath d='M0 0l19 19M72 0L53 19M0 72l19-19M72 72L53 53' fill='none' stroke='%23d9ff55' stroke-opacity='.16' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-size: 72px 72px;
+    opacity: 1;
+}
+
+.spotlight-poster-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.spotlight-poster-link .poster-frame {
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.spotlight-poster-link:hover .poster-frame,
+.spotlight-poster-link:focus-visible .poster-frame {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.spotlight-poster-link:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 5px;
+}
+
+@media (max-width: 600px) {
+    .event-notification-bar {
+        min-height: 40px;
+        gap: 0.5rem;
+        padding: 0.38rem 0.7rem;
+        font-size: 0.78rem;
+        line-height: 1.2;
+    }
+
+    .event-notif-badge {
+        padding: 0.22rem 0.4rem;
+        font-size: 0.56rem;
+        white-space: nowrap;
+    }
+
+    .event-notif-text {
+        white-space: nowrap;
+    }
+
+    .event-notif-arrow {
+        flex: 0 0 auto;
+    }
+
+    .event-hero-visual::before {
+        left: 4px;
+        top: 1px;
+        width: 160px;
+        height: 205px;
     }
 }
