@@ -1,8 +1,57 @@
 {
   "generated_from": "Greenwich Madina Trust Facebook news imports",
   "status": "published",
-  "updated_at": "2026-05-19",
+  "updated_at": "2026-07-20",
   "posts": [
+    {
+      "slug": "youth-summer-retreat-2026",
+      "source": "facebook",
+      "source_url": "https://www.facebook.com/GreenwichMadinaTrust/posts/pfbid0KySaCRDakxLUm1K3kbqMQAwmXbMrXbZTzbs9L4QwbGEKQaKKZiYisRtqCZdgBptzl",
+      "published_label": "20 July 2026 on Facebook",
+      "published_date": "20 July 2026",
+      "eyebrow": "Youth Summer Retreat",
+      "title": "Youth Summer Retreat 2026: help shape the Friday talks",
+      "text_blocks": [
+        "Greenwich Madina Trust’s six-week Youth Summer Retreat begins Monday 20 July—and young people, families and the wider community are invited to help shape its special Friday talks.",
+        "The programme runs Monday to Thursday until the final week of August, with Islamic learning, practical workshops and activities for boys and girls aged 5–16. Children do not need to be enrolled at the Madrasah to take part.",
+        "Activities include learning about the life of Prophet Muḥammad ﷺ, a practical Ṣalāh workshop, selected aḥādīth and Islamic teachings, quizzes, stories, football, a planned trip and a barbecue.",
+        "There will be no Summer Retreat or Madrasah session at the Educational Centre on Fridays. Instead, young people are expected to attend the 1pm Jumuʿah at Ghousia Masjid, where a special English talk will be delivered for them.",
+        "Because these Friday talks are intended for retreat attendees aged 5–16, GMT is asking young people to answer directly and parents, carers and community members to respond with attendees in mind. The questionnaire takes about two minutes and no name or email is needed.",
+        "Existing Madrasah students do not need to register for the retreat. Parents and carers of other children should contact Greenwich Madina Trust to book a place."
+      ],
+      "key_details": [
+        {
+          "label": "Dates",
+          "value": "Monday 20 July to the final week of August 2026"
+        },
+        {
+          "label": "Monday–Thursday",
+          "value": "5:00pm–6:30pm at GMT Educational Centre, 46 Conway Road, Plumstead, SE18 1AR"
+        },
+        {
+          "label": "Fridays",
+          "value": "Arrive by 1:00pm at Ghousia Masjid, 56 Camrose Street, London, SE2 0JA"
+        },
+        {
+          "label": "Who can attend",
+          "value": "Boys and girls aged 5–16, including children not currently enrolled at the Madrasah"
+        },
+        {
+          "label": "Questionnaire",
+          "value": "About two minutes; young people and adults may respond; no name or email needed"
+        },
+        {
+          "label": "Registration",
+          "value": "Existing Madrasah students do not need to register; all others should call +44 7792 884795"
+        }
+      ],
+      "poster": {
+        "url": "images/news/youth-summer-retreat-and-questionnaire-2026.png",
+        "alt": "Figure-free Youth Summer Retreat questionnaire graphic with a backpack, books, pencil and speech bubbles"
+      },
+      "action_url": "https://gmt-surveys.pages.dev/youth-summer-retreat-2026",
+      "action_label": "Complete the questionnaire"
+    },
     {
       "slug": "online-donations-live",
       "source": "facebook",

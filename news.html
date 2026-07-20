@@ -131,6 +131,9 @@
             align-items: center;
             justify-content: center;
         }
+        .news-actions-inline {
+            margin-bottom: 1.25rem;
+        }
         .news-loading,
         .news-error {
             padding: 2rem;
@@ -344,13 +347,14 @@
                         </div>
                         <h2>${escapeHtml(post.title)}</h2>
                         <div class="news-prose">${renderTextBlocks(post.text_blocks || [])}</div>
+                        ${post.action_url ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(post.action_label || 'Learn more')}</a></div>` : ''}
                         ${renderDetails(post.key_details || [])}
                         ${renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
+                        ${post.action_url ? '' : `
                         <div class="news-actions">
-                            ${post.donation_url ? `<a class="btn btn-primary" href="${escapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer">Donate now</a>` : ''}
-                            ${post.donation_url ? '' : `<a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View post on Facebook</a>`}
-                        </div>
+                            ${post.donation_url ? `<a class="btn btn-primary" href="${escapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer">Donate now</a>` : `<a class="btn btn-primary" href="${escapeHtml(post.source_url)}" target="_blank" rel="noopener">View post on Facebook</a>`}
+                        </div>`}
                     </div>
                 </article>
             `;
