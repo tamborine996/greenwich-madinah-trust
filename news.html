@@ -295,6 +295,12 @@
                 .replace(/'/g, '&#039;');
         }
 
+        function linkAttributes(url) {
+            return /^https?:\/\//i.test(String(url || ''))
+                ? ' target="_blank" rel="noopener noreferrer"'
+                : '';
+        }
+
         function isArabicLine(text) {
             return /[\u0600-\u06FF]/.test(text) && text.replace(/[\u0600-\u06FF\s،۔,:;!?.\-]/g, '').length < 8;
         }
@@ -347,7 +353,7 @@
                         </div>
                         <h2>${escapeHtml(post.title)}</h2>
                         <div class="news-prose">${renderTextBlocks(post.text_blocks || [])}</div>
-                        ${post.action_url ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(post.action_label || 'Learn more')}</a></div>` : ''}
+                        ${post.action_url ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}"${linkAttributes(post.action_url)}>${escapeHtml(post.action_label || 'Learn more')}</a>${post.related_url ? `<a class="btn btn-secondary" href="${escapeHtml(post.related_url)}"${linkAttributes(post.related_url)}>${escapeHtml(post.related_label || 'Related information')}</a>` : ''}</div>` : ''}
                         ${renderDetails(post.key_details || [])}
                         ${renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}

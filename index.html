@@ -1354,6 +1354,11 @@
                 .replace(/"/g, '&quot;')
                 .replace(/'/g, '&#039;');
         }
+        function gmtLinkAttributes(url) {
+            return /^https?:\/\//i.test(String(url || ''))
+                ? ' target="_blank" rel="noopener noreferrer"'
+                : '';
+        }
         function gmtNewsFirstImage(post) {
             return (post.poster && post.poster.url) || (post.gallery && post.gallery[0] && post.gallery[0].url) || '';
         }
@@ -1414,7 +1419,7 @@
                                 <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
                                 <div class="latest-update-actions">
                                     ${post.action_url
-                                        ? `<a href="${gmtEscapeHtml(post.action_url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">${gmtEscapeHtml(post.action_label || 'Learn more')}</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
+                                        ? `<a href="${gmtEscapeHtml(post.action_url)}"${gmtLinkAttributes(post.action_url)} class="btn btn-primary btn-sm">${gmtEscapeHtml(post.action_label || 'Learn more')}</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
                                         : post.donation_url
                                             ? `<a href="${gmtEscapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Donate now</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
                                             : `<a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a><a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>`}

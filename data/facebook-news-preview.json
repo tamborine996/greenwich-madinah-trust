@@ -10,14 +10,13 @@
       "published_label": "20 July 2026 on Facebook",
       "published_date": "20 July 2026",
       "eyebrow": "Youth Summer Retreat",
-      "title": "Youth Summer Retreat 2026: help shape the Friday talks",
+      "title": "Youth Summer Retreat 2026: six weeks of learning and activities",
       "text_blocks": [
-        "Greenwich Madina Trust’s six-week Youth Summer Retreat begins Monday 20 July—and young people, families and the wider community are invited to help shape its special Friday talks.",
-        "The programme runs Monday to Thursday until the final week of August, with Islamic learning, practical workshops and activities for boys and girls aged 5–16. Children do not need to be enrolled at the Madrasah to take part.",
+        "Greenwich Madina Trust’s six-week Youth Summer Retreat begins Monday 20 July, with Islamic learning, practical workshops and activities for boys and girls aged 5–16.",
+        "The programme runs Monday to Thursday until the final week of August. Children do not need to be enrolled at the Madrasah to take part.",
         "Activities include learning about the life of Prophet Muḥammad ﷺ, a practical Ṣalāh workshop, selected aḥādīth and Islamic teachings, quizzes, stories, football, a planned trip and a barbecue.",
         "There will be no Summer Retreat or Madrasah session at the Educational Centre on Fridays. Instead, young people are expected to attend the 1pm Jumuʿah at Ghousia Masjid, where a special English talk will be delivered for them.",
-        "Because these Friday talks are intended for retreat attendees aged 5–16, GMT is asking young people to answer directly and parents, carers and community members to respond with attendees in mind. The questionnaire takes about two minutes and no name or email is needed.",
-        "Existing Madrasah students do not need to register for the retreat. Parents and carers of other children should contact Greenwich Madina Trust to book a place."
+        "Existing Madrasah students do not need to register for the retreat. Parents and carers of other children should call Greenwich Madina Trust to book a place."
       ],
       "key_details": [
         {
@@ -37,20 +36,59 @@
           "value": "Boys and girls aged 5–16, including children not currently enrolled at the Madrasah"
         },
         {
-          "label": "Questionnaire",
-          "value": "About two minutes; young people and adults may respond; no name or email needed"
-        },
-        {
           "label": "Registration",
           "value": "Existing Madrasah students do not need to register; all others should call +44 7792 884795"
         }
       ],
       "poster": {
-        "url": "images/news/youth-summer-retreat-and-questionnaire-2026.png",
-        "alt": "Figure-free Youth Summer Retreat questionnaire graphic with a backpack, books, pencil and speech bubbles"
+        "url": "images/news/youth-summer-retreat-2026.png",
+        "alt": "Figure-free Youth Summer Retreat graphic with dates, times, books, backpack, football and pencil"
+      },
+      "action_url": "tel:+447792884795",
+      "action_label": "Call to register",
+      "related_url": "news.html#post-2",
+      "related_label": "Help shape the Friday talks"
+    },
+    {
+      "slug": "youth-friday-talks-questionnaire-2026",
+      "source": "gmt-survey",
+      "source_url": "https://gmt-surveys.pages.dev/youth-summer-retreat-2026",
+      "published_label": "20 July 2026",
+      "published_date": "20 July 2026",
+      "eyebrow": "Youth Talk Questionnaire",
+      "title": "What should our Friday youth talks be about?",
+      "text_blocks": [
+        "As part of GMT’s Youth Summer Retreat, attendees aged 5–16 will join the 1pm Jumuʿah at Ghousia Masjid on Fridays for a special English talk.",
+        "GMT is asking young people, families and the wider community which topics would be most helpful for those talks this summer.",
+        "Young people can answer directly. Parents, carers and community members should respond with retreat attendees aged 5–16 in mind.",
+        "The questionnaire takes approximately two minutes to complete. No name or email is needed."
+      ],
+      "key_details": [
+        {
+          "label": "Connected programme",
+          "value": "Youth Summer Retreat 2026 Friday talks"
+        },
+        {
+          "label": "Who can respond",
+          "value": "Young people and adults; adults should answer with attendees aged 5–16 in mind"
+        },
+        {
+          "label": "Time needed",
+          "value": "Approximately two minutes"
+        },
+        {
+          "label": "Privacy",
+          "value": "No name or email is needed"
+        }
+      ],
+      "poster": {
+        "url": "images/news/youth-friday-talks-questionnaire-2026.png",
+        "alt": "Figure-free Friday youth talks questionnaire graphic with a backpack, books, pencil and speech bubbles"
       },
       "action_url": "https://gmt-surveys.pages.dev/youth-summer-retreat-2026",
-      "action_label": "Complete the questionnaire"
+      "action_label": "Complete the questionnaire",
+      "related_url": "news.html#post-1",
+      "related_label": "View retreat details"
     },
     {
       "slug": "online-donations-live",
