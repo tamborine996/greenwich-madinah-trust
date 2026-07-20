@@ -6466,6 +6466,165 @@ td.col-maghrib,
     top: 4px;
 }
 
+/* 04 — Madrassah: illuminated learning folio */
+.slide-madrassah {
+    background: #f4e8cb;
+    color: #0b5149;
+}
+
+.slide-madrassah::before {
+    inset: 0 0 0 auto;
+    width: 44%;
+    height: 100%;
+    background: #0b5b52;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 9% 76%, 2% 52%, 12% 27%);
+    opacity: 1;
+}
+
+.slide-madrassah::after {
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cpath d='M44 8l8 18 18-8-8 18 18 8-18 8 8 18-18-8-8 18-8-18-18 8 8-18-18-8 18-8-8-18 18 8z' fill='none' stroke='%23c59a43' stroke-opacity='.13' stroke-width='1.1'/%3E%3Ccircle cx='44' cy='44' r='11' fill='none' stroke='%23c59a43' stroke-opacity='.09'/%3E%3C/svg%3E");
+    background-size: 88px 88px;
+    opacity: 1;
+}
+
+.slide-madrassah .slide-badge {
+    padding: 0.43rem 0.7rem;
+    border: 2px solid #0b5149;
+    background: transparent;
+    color: #0b5149;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    transform: rotate(-1deg);
+}
+
+.slide-madrassah .slide-title-compact {
+    max-width: 10ch;
+    color: #0b5149;
+    font-family: var(--font-display);
+    font-size: clamp(2.05rem, 3.6vw, 2.68rem);
+    font-style: italic;
+    font-weight: 550;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+}
+
+.slide-madrassah .slide-description-compact {
+    color: rgba(11, 81, 73, 0.88);
+    font-weight: 560;
+}
+
+.slide-madrassah .campaign-meta span {
+    min-height: 0;
+    padding: 0.2rem 0 0.2rem 0.72rem;
+    border: 0;
+    border-left: 2px solid #c59a43;
+    background: transparent;
+    color: #0b5149;
+}
+
+.slide-madrassah .btn-light {
+    border: 2px solid #0b5149;
+    background: #0b5149;
+    color: #fff5d9;
+}
+
+.slide-madrassah .btn-light:hover {
+    border-color: #c59a43;
+    background: #c59a43;
+    color: #123f3a;
+}
+
+.madrassah-visual {
+    color: #123f3a;
+}
+
+.madrassah-arch {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 171px;
+    height: 220px;
+    border: 2px solid rgba(244, 232, 203, 0.68);
+    border-radius: 88px 88px 8px 8px;
+    transform: rotate(-2deg);
+}
+
+.madrassah-book {
+    position: absolute;
+    left: 13px;
+    top: 58px;
+    width: 146px;
+    height: 104px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 3px solid #123f3a;
+    background: #fff7df;
+    box-shadow: 10px 10px 0 #c59a43;
+    transform: rotate(-3deg);
+}
+
+.madrassah-book::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 50%;
+    width: 1px;
+    background: rgba(18, 63, 58, 0.34);
+}
+
+.madrassah-book span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.madrassah-book small {
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.madrassah-book strong {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    line-height: 1;
+}
+
+.madrassah-weekdays,
+.madrassah-field-label {
+    position: absolute;
+    z-index: 3;
+    display: inline-block;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.madrassah-weekdays {
+    right: -4px;
+    top: 25px;
+    border: 2px solid #123f3a;
+    background: #dcb753;
+    color: #123f3a;
+    transform: rotate(5deg);
+}
+
+.madrassah-field-label {
+    left: -6px;
+    bottom: 8px;
+    background: #fff7df;
+    color: #123f3a;
+    transform: rotate(-4deg);
+}
+
 @media (max-width: 600px) {
     .slide-campaign .slide-content-compact {
         padding: 1.35rem 2.05rem 2.55rem;
@@ -6509,7 +6668,8 @@ td.col-maghrib,
 
     .slide-event-feature .event-hero-visual,
     .slide-youth-retreat .retreat-visual,
-    .slide-youth-questionnaire .questionnaire-visual {
+    .slide-youth-questionnaire .questionnaire-visual,
+    .slide-madrassah .madrassah-visual {
         right: -28px;
         bottom: -30px;
         opacity: 0.16;
@@ -6524,6 +6684,11 @@ td.col-maghrib,
         height: 260px;
         right: -155px;
         bottom: -105px;
+    }
+
+    .slide-madrassah::before {
+        width: 40%;
+        opacity: 0.14;
     }
 }
 
