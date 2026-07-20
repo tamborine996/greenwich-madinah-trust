@@ -5682,3 +5682,241 @@ td.col-maghrib,
 .current-timetable-preview img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow-elevated); background: var(--ivory); }
 .current-timetable-preview figcaption { margin-top: var(--space-xs); color: var(--slate); font-size: 0.85rem; }
 @media (max-width: 640px) { .timetable-actions { align-items: stretch; flex-direction: column; } .timetable-actions .btn { justify-content: center; width: 100%; } .current-timetable-preview { max-width: 100%; } }
+
+/* Temporary Youth Summer Retreat campaign carousel */
+.slide-campaign {
+    isolation: isolate;
+}
+
+.slide-youth-retreat {
+    background: linear-gradient(135deg, #073f36 0%, #0d6654 62%, #9a7432 145%);
+}
+
+.slide-youth-questionnaire {
+    background: linear-gradient(135deg, #0b3f38 0%, #176d5b 58%, #315f75 135%);
+}
+
+.slide-campaign::after {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    right: -90px;
+    top: -90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(241, 209, 124, 0.24), rgba(241, 209, 124, 0));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slide-youth-questionnaire::after {
+    background: radial-gradient(circle, rgba(173, 229, 213, 0.22), rgba(173, 229, 213, 0));
+}
+
+.slide-campaign .slide-content-compact {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(165px, 0.65fr);
+    align-items: center;
+    gap: var(--space-lg);
+    padding: 2.25rem 2.75rem 3rem;
+    text-align: left;
+}
+
+.slide-campaign .campaign-copy {
+    position: relative;
+    z-index: 3;
+}
+
+.slide-campaign .slide-badge {
+    margin-bottom: var(--space-sm);
+}
+
+.slide-campaign .slide-title-compact {
+    max-width: 12ch;
+}
+
+.slide-campaign .slide-description-compact {
+    max-width: 38ch;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: var(--space-md);
+}
+
+.campaign-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: var(--space-lg);
+}
+
+.campaign-meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.11);
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    line-height: 1.25;
+    backdrop-filter: blur(7px);
+}
+
+.campaign-visual {
+    position: relative;
+    z-index: 2;
+    width: 175px;
+    height: 230px;
+    justify-self: center;
+}
+
+.campaign-calendar {
+    position: absolute;
+    left: 22px;
+    top: 28px;
+    width: 108px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #f3dfaa;
+    border-radius: 16px;
+    background: #fffaf0;
+    color: #093f35;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+    transform: rotate(-4deg);
+}
+
+.campaign-calendar::before,
+.campaign-calendar::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    width: 8px;
+    height: 22px;
+    border-radius: 5px;
+    background: #d5aa4e;
+}
+
+.campaign-calendar::before { left: 22px; }
+.campaign-calendar::after { right: 22px; }
+.campaign-calendar span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.campaign-calendar strong { font-family: var(--font-display); font-size: 3.25rem; line-height: 0.95; }
+.campaign-calendar small { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #9a6b1d; }
+
+.campaign-object {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    font-size: 1.75rem;
+}
+
+.object-books { right: 0; top: 0; transform: rotate(6deg); }
+.object-backpack { right: -2px; top: 82px; transform: rotate(4deg); }
+.object-football { left: 0; bottom: 2px; transform: rotate(-7deg); }
+.object-pencil { right: 12px; bottom: 5px; transform: rotate(8deg); }
+
+.question-mark {
+    position: absolute;
+    left: 34px;
+    top: 24px;
+    width: 112px;
+    height: 112px;
+    display: grid;
+    place-items: center;
+    border: 5px solid #f1d17c;
+    border-radius: 50%;
+    background: #fffdf5;
+    color: #0b5145;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.23);
+    font-family: var(--font-display);
+    font-size: 4.6rem;
+    line-height: 1;
+}
+
+.topic-card {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 88px;
+    min-height: 38px;
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    background: #f7f2df;
+    color: #0b5145;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.topic-faith { left: -4px; bottom: 42px; transform: rotate(-5deg); }
+.topic-confidence { right: -9px; bottom: 18px; transform: rotate(5deg); }
+.topic-real-life { right: -5px; top: 3px; transform: rotate(6deg); }
+
+@media (max-width: 1100px) and (min-width: 961px) {
+    .slide-campaign .slide-content-compact {
+        grid-template-columns: minmax(0, 1fr) 145px;
+        gap: var(--space-sm);
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .campaign-visual {
+        transform: scale(0.86);
+    }
+}
+
+@media (max-width: 600px) {
+    .slide-campaign .slide-content-compact {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 2.1rem 2.6rem;
+        text-align: center;
+    }
+
+    .slide-campaign .campaign-copy {
+        width: 100%;
+    }
+
+    .slide-campaign .slide-title-compact,
+    .slide-campaign .slide-description-compact {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slide-campaign .slide-description-compact {
+        max-width: 34ch;
+    }
+
+    .campaign-meta {
+        align-items: center;
+        margin-bottom: var(--space-md);
+    }
+
+    .campaign-meta span {
+        font-size: 0.67rem;
+    }
+
+    .campaign-visual {
+        position: absolute;
+        right: -20px;
+        bottom: -40px;
+        width: 165px;
+        height: 210px;
+        opacity: 0.16;
+        transform: scale(0.9);
+    }
+}
