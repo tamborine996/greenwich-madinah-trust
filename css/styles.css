@@ -6895,3 +6895,48 @@ td.col-maghrib,
         height: 205px;
     }
 }
+
+/* Phone-first homepage finishing pass — 21 July 2026 */
+.prayer-banner .prayer-name,
+.prayer-banner .row-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.prayer-banner .begins-time {
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .prayer-banner .prayer-time-item {
+        gap: 2px;
+    }
+
+    .prayer-banner .begins-time,
+    .prayer-banner .row-label:nth-child(3) {
+        box-sizing: border-box;
+        padding-top: 1px;
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0.16);
+    }
+
+    .slide-youth-questionnaire .questionnaire-visual {
+        right: -4px;
+        bottom: -22px;
+        opacity: 0.14;
+        transform: scale(0.82);
+        transform-origin: right bottom;
+    }
+
+    .slide-youth-questionnaire .questionnaire-visual .topic-card {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .prayer-banner-actions .btn {
+        padding-inline: 0.4rem;
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+}
