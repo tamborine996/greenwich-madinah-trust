@@ -4,7 +4,7 @@
    Refined elegance meets Islamic geometric tradition
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Source+Sans+3:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap');
 
 /* ========== CSS VARIABLES ========== */
 :root {
@@ -12,6 +12,7 @@
     --emerald: #0D5C4D;
     --emerald-deep: #083D33;
     --emerald-light: #1A7A67;
+    --logo-teal: #0B5261;
     --gold: #C4A962;
     --gold-bright: #D4BE7A;
     --gold-muted: #A08A4B;
@@ -58,7 +59,7 @@
     /* Layout */
     --container-max: 1200px;
     --container-narrow: 800px;
-    --header-height: 80px;
+    --header-height: 96px;
 }
 
 /* ========== RESET ========== */
@@ -434,13 +435,13 @@ p {
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: 2rem;
     text-decoration: none;
     min-width: 0;
 }
 
 .logo-symbol {
-    height: 55px;
+    height: 76px;
     width: auto;
     /* Blend out white background */
     mix-blend-mode: multiply;
@@ -451,17 +452,65 @@ p {
     transform: scale(1.05) rotate(3deg);
 }
 
-.logo-text {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--emerald);
-    letter-spacing: 0.02em;
+.logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     min-width: 0;
+}
+
+.logo-text {
+    font-family: 'Cormorant Garamond', var(--font-display);
+    font-size: 1.56rem;
+    font-weight: 600;
+    line-height: 0.9;
+    color: var(--logo-teal);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
     transition: color var(--duration-fast) var(--ease-out-expo);
 }
 
-.logo:hover .logo-text {
+.logo-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.38rem;
+    margin: 0.38rem 0 0.3rem;
+}
+
+.logo-rule::before,
+.logo-rule::after {
+    content: '';
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.78;
+}
+
+.logo-rule::before { width: 4rem; }
+.logo-rule::after { width: 1.2rem; }
+
+.logo-star {
+    width: 0.42rem;
+    height: 0.42rem;
+    flex: 0 0 auto;
+    background: var(--gold);
+    clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
+}
+
+.logo-subtext {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--logo-teal);
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.logo:hover .logo-text,
+.logo:hover .logo-subtext {
     color: var(--gold-muted);
 }
 
@@ -620,22 +669,42 @@ p {
 }
 
 @media (max-width: 600px) {
+    :root {
+        --header-height: clamp(84px, 22vw, 92px);
+    }
+
     .logo {
         flex: 1 1 auto;
-        gap: var(--space-sm);
+        gap: clamp(0.8rem, 4vw, 1rem);
     }
 
     .logo-symbol {
-        height: 32px;
+        height: clamp(44px, 12vw, 50px);
         flex: 0 0 auto;
     }
 
     .logo-text {
-        font-size: clamp(0.95rem, 4.2vw, 1.12rem);
-        line-height: 1.08;
-        max-width: min(14rem, calc(100vw - 120px));
-        white-space: normal;
-        text-wrap: balance;
+        font-size: clamp(0.88rem, 4vw, 1.06rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+    }
+
+    .logo-rule {
+        gap: 0.3rem;
+        margin: 0.22rem 0 0.2rem;
+    }
+
+    .logo-rule::before { width: clamp(3.2rem, 18vw, 4.8rem); }
+    .logo-rule::after { width: clamp(0.8rem, 4vw, 1rem); }
+
+    .logo-star {
+        width: 0.29rem;
+        height: 0.29rem;
+    }
+
+    .logo-subtext {
+        font-size: clamp(0.54rem, 2.35vw, 0.6rem);
+        letter-spacing: 0.27em;
     }
 }
 
@@ -929,18 +998,6 @@ p {
 }
 
 @media (max-width: 600px) {
-    .logo-symbol {
-        height: 28px;
-    }
-
-    .logo-text {
-        font-size: clamp(0.95rem, 4.2vw, 1.08rem);
-        line-height: 1.08;
-        max-width: min(14rem, calc(100vw - 120px));
-        white-space: normal;
-        text-wrap: balance;
-    }
-
     .prayer-banner {
         padding: var(--space-sm) 0;
     }
