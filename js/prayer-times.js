@@ -24,7 +24,7 @@ const PrayerTimes = (function() {
         }
 
         try {
-            const response = await fetch('data/prayer-times-2026.json?v=20260703');
+            const response = await fetch('data/prayer-times-2026.json?v=20260726-isha-update');
             if (!response.ok) {
                 throw new Error('Failed to load prayer times data');
             }
