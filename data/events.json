@@ -1,23 +1,23 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-07-19",
+    "hideFrom": "2026-08-17",
     "badgeText": "Upcoming Event",
-    "title": "Monthly Gyarwee Shareef",
-    "date": "Saturday 18th July 2026",
-    "description": "Monthly Gyarwee Shareef commemorating Imam Rabbani Mujaddid al-Alf al-Thani, Shaykh Ahmad Faruqi Sirhindi, and Imam Ahmad Raza Khan, with Mawlana Muhammad Irfan Naqshbandi and Mawlana Hafiz Faizan Raza.",
-    "time": "From Asr",
+    "title": "Annual Mawlid un Nabi",
+    "date": "Sunday 16th August 2026",
+    "description": "Annual Mawlid un Nabi gathering under the spiritual guidance of Hazrat Allamah Qibla Pir Syed Shamsul Arifeen Shah Sahib, with English and Urdu speeches and naat recitations. Please see the poster for the full programme.",
+    "time": "From 5:00pm",
     "location": "GMT Ghousia Masjid, 56 Camrose Street, SE2 0JA",
     "poster": "images/event-poster.jpg",
     "buttonText": "",
     "buttonUrl": "",
-    "facebookUrl": "https://www.facebook.com/GreenwichMadinaTrust/"
+    "facebookUrl": ""
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-07-19",
-    "badgeText": "Upcoming Event",
-    "linkText": "Monthly Gyarwee Shareef — Saturday 18th July, from Asr",
+    "hideFrom": "2026-08-17",
+    "badgeText": "Event",
+    "linkText": "Annual Mawlid — Sun 16 Aug, 5pm",
     "linkUrl": "#event-spotlight"
   }
 }
