@@ -16,6 +16,29 @@ const PrayerTimes = (function() {
     let hijriCalendarData = null;
 
     /**
+     * Return the current civil date in Europe/London.
+     * GMT_PRAYER_TIMES_TEST_DATE is a harmless browser test hook used to verify
+     * future date rollovers before they happen.
+     */
+    function getLondonToday() {
+        const source = window.GMT_PRAYER_TIMES_TEST_DATE
+            ? new Date(window.GMT_PRAYER_TIMES_TEST_DATE)
+            : new Date();
+        const parts = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/London',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).formatToParts(source).reduce((acc, part) => {
+            if (part.type !== 'literal') acc[part.type] = part.value;
+            return acc;
+        }, {});
+
+        // Local noon avoids DST/midnight edge cases while preserving the civil date.
+        return new Date(Number(parts.year), Number(parts.month) - 1, Number(parts.day), 12, 0, 0);
+    }
+
+    /**
      * Load prayer times JSON data
      */
     async function loadPrayerTimesData() {
@@ -24,7 +47,7 @@ const PrayerTimes = (function() {
         }
 
         try {
-            const response = await fetch('data/prayer-times-2026.json?v=20260726-isha-update');
+            const response = await fetch('data/prayer-times-2026.json?v=20260731-august');
             if (!response.ok) {
                 throw new Error('Failed to load prayer times data');
             }
@@ -79,7 +102,7 @@ const PrayerTimes = (function() {
      * Get today's prayer times
      */
     async function getTodaysTimes() {
-        const today = new Date();
+        const today = getLondonToday();
         return await getTimesForDate(today);
     }
 
@@ -114,7 +137,7 @@ const PrayerTimes = (function() {
             return { day: '?', month: '?', year: '?' };
         }
 
-        const today = new Date();
+        const today = getLondonToday();
         today.setHours(0, 0, 0, 0);
 
         // Parse the current month start date (required)
@@ -179,7 +202,7 @@ const PrayerTimes = (function() {
             return;
         }
 
-        const today = new Date();
+        const today = getLondonToday();
 
         // Update Begins times (when prayer time starts)
         // Fajr begins is 1 minute after sehri_end (JSON stores adjusted sehri cutoff)
@@ -262,9 +285,10 @@ const PrayerTimes = (function() {
             return;
         }
 
-        const today = new Date().getDate();
-        const currentMonth = new Date().getMonth() + 1;
-        const currentYear = new Date().getFullYear();
+        const londonToday = getLondonToday();
+        const today = londonToday.getDate();
+        const currentMonth = londonToday.getMonth() + 1;
+        const currentYear = londonToday.getFullYear();
 
         let html = `
             <div class="timetable-wrapper">
