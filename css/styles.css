@@ -5084,19 +5084,21 @@ td.col-maghrib,
     }
 
     .spotlight-detail-location {
-        display: grid;
-        grid-template-columns: 20px minmax(0, 1fr);
-        align-items: start;
-        width: min(100%, 25rem);
-        text-align: left;
+        display: block;
+        width: min(100%, 17rem);
+        text-align: center;
     }
 
     .spotlight-detail-location svg {
-        margin-top: 0.15rem;
+        display: inline-block;
+        margin-right: var(--space-xs);
+        vertical-align: -0.3rem;
     }
 
     .spotlight-location {
+        display: inline;
         line-height: 1.5;
+        text-align: center;
     }
 
     .spotlight-poster {
@@ -6957,5 +6959,481 @@ td.col-maghrib,
         font-size: 0.66rem;
         letter-spacing: 0.08em;
         white-space: nowrap;
+    }
+}
+
+/* Annual Mawlid dual-poster spotlight and carousel */
+.event-spotlight {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.slide-mawlid-weekend .slide-title-compact {
+    max-width: 12ch;
+}
+
+.mawlid-poster-pair {
+    width: 192px;
+    height: 230px;
+}
+
+.event-poster-mini {
+    position: absolute;
+    padding: 6px;
+    background: #fff1d6;
+    box-shadow: 8px 10px 0 rgba(139, 47, 87, 0.78);
+}
+
+.slide-event-feature .mawlid-poster-pair .event-poster-mini img {
+    display: block;
+    width: 88px;
+    height: 124px;
+    object-fit: cover;
+}
+
+.event-poster-mini-sisters {
+    left: 4px;
+    top: 54px;
+    transform: rotate(-7deg);
+}
+
+.event-poster-mini-brothers {
+    right: 0;
+    top: 20px;
+    transform: rotate(6deg);
+}
+
+.slide-mawlid-weekend .event-editorial-date {
+    right: -2px;
+    top: 0;
+}
+
+.slide-mawlid-weekend .event-editorial-note {
+    left: -2px;
+    bottom: 8px;
+}
+
+.spotlight-content {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: var(--space-2xl);
+}
+
+.spotlight-posters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--space-md);
+    min-width: 0;
+}
+
+.spotlight-posters .spotlight-poster-link {
+    min-width: 0;
+}
+
+.spotlight-posters .poster-frame {
+    width: 100%;
+    max-width: 260px;
+}
+
+.spotlight-poster-label {
+    display: block;
+    padding: 0.55rem 0.6rem;
+    background: var(--emerald);
+    color: var(--ivory);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.spotlight-gatherings[hidden] {
+    display: none;
+}
+
+.spotlight-gatherings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.35rem;
+}
+
+.spotlight-gathering {
+    min-width: 0;
+    padding: 1rem 1.05rem 1.05rem;
+    background: rgba(255, 253, 247, 0.92);
+    border: 1px solid rgba(199, 161, 74, 0.38);
+    border-top: 4px solid var(--emerald);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(15, 62, 54, 0.08);
+    text-align: left;
+}
+
+.spotlight-gathering-sisters {
+    border-top-color: var(--gold);
+}
+
+.spotlight-gathering-title {
+    margin: 0 0 0.72rem;
+    color: var(--emerald);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+.spotlight-gathering-when {
+    margin: 0 0 0.85rem;
+    color: var(--text-dark);
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.spotlight-gathering-date,
+.spotlight-gathering-time {
+    display: block;
+}
+
+.spotlight-gathering-time {
+    color: var(--emerald);
+    font-weight: 800;
+}
+
+.spotlight-gathering-separator {
+    display: none;
+}
+
+.spotlight-gathering-venue {
+    margin: 0 0 0.25rem;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.spotlight-gathering-address {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+    .spotlight-content {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .spotlight-posters {
+        order: -1;
+        width: min(100%, 580px);
+        margin-inline: auto;
+    }
+
+    .spotlight-posters .poster-frame {
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .slide-event-feature .mawlid-poster-pair {
+        right: -12px;
+        bottom: -22px;
+        width: 182px;
+        opacity: 0.14;
+        transform: scale(0.86);
+        transform-origin: right bottom;
+    }
+
+    .slide-event-feature .mawlid-poster-pair .event-poster-mini img {
+        width: 86px;
+        height: 122px;
+    }
+
+    .event-spotlight {
+        padding-block: var(--space-xl);
+    }
+
+    .spotlight-content {
+        gap: var(--space-xl);
+    }
+
+    .spotlight-posters {
+        gap: 0.6rem;
+    }
+
+    .spotlight-poster-label {
+        padding: 0.45rem 0.25rem;
+        font-size: 0.61rem;
+        letter-spacing: 0.035em;
+    }
+
+    .spotlight-posters .poster-frame {
+        border-width: 2px;
+        border-radius: 8px;
+    }
+
+    .spotlight-gatherings {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        margin-top: 1.2rem;
+    }
+
+    .spotlight-gathering {
+        padding: 1rem 1.1rem;
+    }
+
+    .spotlight-gathering-when {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.15rem 0.38rem;
+    }
+
+    .spotlight-gathering-date,
+    .spotlight-gathering-time,
+    .spotlight-gathering-separator {
+        display: inline;
+    }
+
+    .spotlight-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Annual Mawlid carousel: midnight blue, emerald and ceremonial gold */
+.slide-mawlid-weekend {
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(226, 190, 101, 0.28) 0%, rgba(226, 190, 101, 0) 30%),
+        radial-gradient(circle at 94% 88%, rgba(20, 126, 99, 0.72) 0%, rgba(20, 126, 99, 0) 42%),
+        linear-gradient(128deg, #031a34 0%, #073a4a 48%, #075f50 100%);
+}
+
+.slide-mawlid-weekend::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 360px;
+    height: 360px;
+    right: -122px;
+    top: -178px;
+    border: 1px solid rgba(232, 196, 111, 0.38);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 196, 111, 0.13) 0 24%, transparent 25% 100%);
+    box-shadow:
+        0 0 0 34px rgba(232, 196, 111, 0.045),
+        0 0 0 68px rgba(232, 196, 111, 0.025);
+    opacity: 1;
+}
+
+.slide-mawlid-weekend::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background-image:
+        linear-gradient(30deg, transparent 0 47%, rgba(236, 205, 132, 0.075) 48% 52%, transparent 53% 100%),
+        linear-gradient(150deg, transparent 0 47%, rgba(236, 205, 132, 0.075) 48% 52%, transparent 53% 100%);
+    background-position: 0 0, 28px 0;
+    background-size: 56px 84px;
+    opacity: 0.62;
+    pointer-events: none;
+}
+
+.slide-mawlid-weekend .slide-content-compact {
+    position: relative;
+    z-index: 2;
+}
+
+.slide-mawlid-weekend .campaign-copy {
+    position: relative;
+    z-index: 5;
+    max-width: 59%;
+}
+
+.slide-mawlid-weekend .slide-badge {
+    border: 1px solid rgba(239, 207, 132, 0.92);
+    background: rgba(3, 26, 52, 0.72);
+    color: #f0d08a;
+    box-shadow: 0 0 0 4px rgba(240, 208, 138, 0.06);
+}
+
+.slide-mawlid-weekend .slide-title-compact {
+    max-width: 10.5ch;
+    color: #fff6dd;
+    text-shadow: 0 4px 26px rgba(0, 0, 0, 0.34);
+}
+
+.slide-mawlid-weekend .slide-description-compact {
+    max-width: 28ch;
+    color: rgba(255, 250, 235, 0.92);
+}
+
+.slide-mawlid-weekend .campaign-meta span {
+    border-left-color: #e3bb61;
+    color: #fff8e7;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.32);
+}
+
+.slide-mawlid-weekend .btn-light {
+    border-color: #e5bd63;
+    background: linear-gradient(135deg, #f2d58f 0%, #dfb454 100%);
+    color: #06273d;
+    box-shadow: 0 10px 24px rgba(0, 10, 22, 0.3);
+}
+
+.slide-mawlid-weekend .btn-light:hover {
+    border-color: #f5de9f;
+    background: #f5de9f;
+    color: #031a34;
+}
+
+.slide-mawlid-weekend .mawlid-poster-pair {
+    z-index: 4;
+    width: 258px;
+    height: 292px;
+    right: 18px;
+    top: 50%;
+    bottom: auto;
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.slide-mawlid-weekend .mawlid-poster-pair::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 208px;
+    height: 258px;
+    right: 6px;
+    top: 18px;
+    border: 1px solid rgba(236, 205, 132, 0.64);
+    border-radius: 108px 108px 16px 16px;
+    background: linear-gradient(180deg, rgba(2, 28, 51, 0.3), rgba(4, 74, 68, 0.13));
+    box-shadow: inset 0 0 45px rgba(225, 185, 91, 0.06);
+}
+
+.slide-mawlid-weekend .event-poster-mini {
+    z-index: 2;
+    padding: 5px;
+    background: #f2d58f;
+    box-shadow: 12px 18px 36px rgba(0, 10, 22, 0.42);
+}
+
+.slide-mawlid-weekend .event-poster-mini > span {
+    display: block;
+    padding: 0.28rem 0.22rem;
+    background: #063b45;
+    color: #fff7e2;
+    font-size: 0.52rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.slide-mawlid-weekend .mawlid-poster-pair .event-poster-mini img {
+    width: 112px;
+    height: 158px;
+    object-fit: cover;
+}
+
+.slide-mawlid-weekend .event-poster-mini-sisters {
+    left: 2px;
+    top: 76px;
+    transform: rotate(-6deg);
+}
+
+.slide-mawlid-weekend .event-poster-mini-brothers {
+    right: 2px;
+    top: 34px;
+    transform: rotate(5deg);
+}
+
+.slide-mawlid-weekend .event-editorial-date {
+    z-index: 5;
+    right: 4px;
+    top: 3px;
+    background: #e6be66;
+    color: #05283c;
+    box-shadow: 6px 7px 0 rgba(2, 28, 51, 0.46);
+    transform: rotate(3deg);
+}
+
+.slide-mawlid-weekend .event-editorial-note {
+    z-index: 5;
+    left: 12px;
+    bottom: 2px;
+    border: 1px solid rgba(236, 205, 132, 0.66);
+    background: #063d43;
+    color: #fff4d4;
+    box-shadow: 7px 8px 0 rgba(2, 28, 51, 0.36);
+    transform: rotate(-3deg);
+}
+
+@media (max-width: 600px) {
+    .slide-mawlid-weekend {
+        background:
+            linear-gradient(90deg, rgba(3, 26, 52, 0.96) 0%, rgba(4, 48, 59, 0.88) 62%, rgba(7, 95, 80, 0.78) 100%),
+            linear-gradient(128deg, #031a34 0%, #073a4a 48%, #075f50 100%);
+    }
+
+    .slide-mawlid-weekend::before {
+        width: 270px;
+        height: 270px;
+        right: -150px;
+        top: -120px;
+    }
+
+    .slide-mawlid-weekend .campaign-copy {
+        max-width: 100%;
+    }
+
+    .slide-mawlid-weekend .slide-title-compact,
+    .slide-mawlid-weekend .slide-description-compact {
+        margin-inline: auto;
+    }
+
+    .slide-mawlid-weekend .mawlid-poster-pair {
+        right: -14px;
+        top: auto;
+        bottom: -20px;
+        width: 218px;
+        height: 250px;
+        opacity: 0.3;
+        transform: scale(0.92);
+        transform-origin: right bottom;
+    }
+
+    .slide-mawlid-weekend .mawlid-poster-pair::before {
+        width: 176px;
+        height: 220px;
+        right: 4px;
+        top: 22px;
+    }
+
+    .slide-mawlid-weekend .mawlid-poster-pair .event-poster-mini img {
+        width: 94px;
+        height: 132px;
+    }
+
+    .slide-mawlid-weekend .event-poster-mini-sisters {
+        left: 0;
+        top: 78px;
+    }
+
+    .slide-mawlid-weekend .event-poster-mini-brothers {
+        right: 0;
+        top: 42px;
+    }
+
+    .slide-mawlid-weekend .event-editorial-date,
+    .slide-mawlid-weekend .event-editorial-note {
+        display: none;
     }
 }

@@ -122,17 +122,38 @@
             badgeEl.textContent = config.badgeText;
         }
 
-        // Update poster and its full-size link
-        const posterImg = section.querySelector('.spotlight-poster img');
-        const posterLink = section.querySelector('.spotlight-poster-link');
-        if (posterImg && config.poster) {
-            posterImg.src = config.poster;
-            posterImg.alt = config.title + ' Poster';
-        }
-        if (posterLink && config.poster) {
-            posterLink.href = config.poster;
-            posterLink.setAttribute('aria-label', 'Open the full ' + config.title + ' poster');
-        }
+        // Update one or more posters and their full-size links.
+        // The single `poster` field remains supported for older event entries.
+        const configuredPosters = Array.isArray(config.posters) && config.posters.length
+            ? config.posters
+            : (config.poster ? [{ src: config.poster }] : []);
+        const posterLinks = Array.from(section.querySelectorAll('.spotlight-poster-link'));
+
+        posterLinks.forEach((posterLink, index) => {
+            const poster = configuredPosters[index];
+            if (!poster) {
+                posterLink.style.display = 'none';
+                return;
+            }
+
+            const posterSrc = poster.src || poster.url || poster.poster;
+            const posterImg = posterLink.querySelector('img');
+            const posterLabel = posterLink.querySelector('.spotlight-poster-label');
+            const posterName = poster.label || config.title || 'event';
+
+            posterLink.style.display = '';
+            posterLink.href = posterSrc;
+            posterLink.setAttribute('aria-label', poster.ariaLabel || 'Open the full ' + posterName + ' poster');
+
+            if (posterImg) {
+                posterImg.src = posterSrc;
+                posterImg.alt = poster.alt || posterName + ' poster';
+            }
+            if (posterLabel) {
+                posterLabel.textContent = poster.label || '';
+                posterLabel.style.display = poster.label ? '' : 'none';
+            }
+        });
 
         // Update title
         const titleEl = section.querySelector('.spotlight-title');
@@ -152,25 +173,67 @@
             descEl.textContent = config.description;
         }
 
-        // Update time - hide if empty
-        const timeDetail = section.querySelector('.spotlight-time')?.closest('.spotlight-detail');
-        if (timeDetail) {
-            if (config.time) {
-                timeDetail.style.display = '';
-                section.querySelector('.spotlight-time').textContent = config.time;
-            } else {
-                timeDetail.style.display = 'none';
-            }
-        }
+        // Multi-gathering events need complete, self-contained detail cards instead of
+        // shared time and location rows. Older single-event entries keep the legacy rows.
+        const gatheringWrap = section.querySelector('.spotlight-gatherings');
+        const gatheringCards = Array.from(section.querySelectorAll('[data-gathering-index]'));
+        const gatherings = Array.isArray(config.gatherings)
+            ? config.gatherings.filter(gathering => gathering && gathering.title)
+            : [];
+        const hasGatherings = gatherings.length > 0 && gatheringWrap;
+        const legacyDate = section.querySelector('.spotlight-legacy-date');
+        const legacyDetails = section.querySelector('.spotlight-legacy-details');
 
-        // Update location - hide if empty
-        const locationDetail = section.querySelector('.spotlight-location')?.closest('.spotlight-detail');
-        if (locationDetail) {
-            if (config.location) {
-                locationDetail.style.display = '';
-                section.querySelector('.spotlight-location').textContent = config.location;
-            } else {
-                locationDetail.style.display = 'none';
+        if (hasGatherings) {
+            gatheringWrap.hidden = false;
+            if (legacyDate) legacyDate.style.display = 'none';
+            if (legacyDetails) legacyDetails.style.display = 'none';
+
+            gatheringCards.forEach((card, index) => {
+                const gathering = gatherings[index];
+                if (!gathering) {
+                    card.style.display = 'none';
+                    return;
+                }
+
+                card.style.display = '';
+                const title = card.querySelector('.spotlight-gathering-title');
+                const date = card.querySelector('.spotlight-gathering-date');
+                const time = card.querySelector('.spotlight-gathering-time');
+                const venue = card.querySelector('.spotlight-gathering-venue');
+                const address = card.querySelector('.spotlight-gathering-address');
+
+                if (title) title.textContent = gathering.title;
+                if (date) date.textContent = gathering.date || '';
+                if (time) time.textContent = gathering.time || '';
+                if (venue) venue.textContent = gathering.venue || '';
+                if (address) address.textContent = gathering.address || '';
+            });
+        } else {
+            if (gatheringWrap) gatheringWrap.hidden = true;
+            if (legacyDate) legacyDate.style.display = '';
+            if (legacyDetails) legacyDetails.style.display = '';
+
+            // Update time - hide if empty
+            const timeDetail = section.querySelector('.spotlight-time')?.closest('.spotlight-detail');
+            if (timeDetail) {
+                if (config.time) {
+                    timeDetail.style.display = '';
+                    section.querySelector('.spotlight-time').textContent = config.time;
+                } else {
+                    timeDetail.style.display = 'none';
+                }
+            }
+
+            // Update location - hide if empty
+            const locationDetail = section.querySelector('.spotlight-location')?.closest('.spotlight-detail');
+            if (locationDetail) {
+                if (config.location) {
+                    locationDetail.style.display = '';
+                    section.querySelector('.spotlight-location').textContent = config.location;
+                } else {
+                    locationDetail.style.display = 'none';
+                }
             }
         }
 
