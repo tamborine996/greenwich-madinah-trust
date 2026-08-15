@@ -47,7 +47,7 @@ const PrayerTimes = (function() {
         }
 
         try {
-            const response = await fetch('data/prayer-times-2026.json?v=20260731-august');
+            const response = await fetch('data/prayer-times-2026.json?v=20260815-asr1900');
             if (!response.ok) {
                 throw new Error('Failed to load prayer times data');
             }
