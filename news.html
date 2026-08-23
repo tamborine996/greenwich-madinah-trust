@@ -904,7 +904,6 @@
             return `
                 <article class="news-article mawlid-feature-record" id="post-${index + 1}">
                     <div class="mawlid-record">
-                        <a class="mawlid-record-back" href="news.html">← All GMT news</a>
                         <header class="mawlid-record-intro">
                             <div class="mawlid-record-meta">
                                 <span>${escapeHtml(post.eyebrow || 'Event highlights')}</span>
@@ -931,7 +930,6 @@
 
                         <section class="mawlid-record-story" aria-labelledby="mawlid-story-title">
                             <div class="mawlid-story-heading">
-                                <span class="mawlid-chapter-number">02 · The gathering</span>
                                 <h3 id="mawlid-story-title">An evening of remembrance</h3>
                             </div>
                             <div class="mawlid-story-prose">
@@ -952,13 +950,10 @@
                                 </div>
                             </div>
                             <div class="mawlid-playlist-copy">
-                                <span class="mawlid-chapter-number">03 · Continue watching</span>
-                                <h3 id="mawlid-playlist-title">More from the gathering</h3>
-                                <p>The short film is only an introduction. Continue with videos from the event, collected together in GMT’s full YouTube playlist.</p>
+                                <h3 id="mawlid-playlist-title">Full event playlist</h3>
                                 <a href="${escapeHtml(post.action_url || post.source_url || '#')}"${linkAttributes(post.action_url || post.source_url)}>
-                                    <span>${escapeHtml(post.action_label || 'Open the full YouTube playlist')}</span><i aria-hidden="true">↗</i>
+                                    <span>${escapeHtml(post.action_label || 'Open on YouTube')}</span><i aria-hidden="true">↗</i>
                                 </a>
-                                <small>Opens GMT’s playlist on YouTube</small>
                             </div>
                         </section>
                     </div>
