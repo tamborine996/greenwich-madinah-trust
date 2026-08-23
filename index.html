@@ -13,7 +13,7 @@
     </script>
     <meta name="description" content="Greenwich Madina Trust - Serving the local Muslim community with prayers, events, education, and services.">
     <title>Greenwich Madina Trust | Home</title>
-    <link rel="stylesheet" href="css/styles.css?v=20260801-mawlid-weekend-live">
+    <link rel="stylesheet" href="css/styles.css?v=20260823-mawlid-candidate1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
@@ -1025,24 +1025,33 @@
                 <!-- Right: Carousel (Swiper.js) -->
                 <div class="hero-carousel-compact swiper" id="hero-carousel">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1: Annual Mawlid weekend -->
-                        <div class="swiper-slide carousel-slide-compact slide-campaign slide-event-feature slide-mawlid-weekend">
+                        <!-- Slide 1: Annual Mawlid video highlights -->
+                        <div class="swiper-slide carousel-slide-compact slide-campaign slide-mawlid-video" data-mawlid-video-slide>
                             <div class="slide-content-compact">
                                 <div class="campaign-copy">
-                                    <span class="slide-badge">Mawlid un Nabi</span>
-                                    <h3 class="slide-title-compact">Annual Mawlid un Nabi</h3>
-                                    <p class="slide-description-compact">A weekend of love, gratitude and remembrance.</p>
-                                    <div class="campaign-meta" aria-label="Mawlid gathering dates and times">
-                                        <span>Sisters · Sat 15 Aug · 12:00pm</span>
-                                        <span>Brothers · Sun 16 Aug · 5:00pm</span>
+                                    <span class="slide-badge">Event highlights</span>
+                                    <h3 class="slide-title-compact">Watch the Mawlid highlights</h3>
+                                    <p class="slide-description-compact">See moments of recitation, reminders, Naʿat and Ṣalawāt from the blessed gathering.</p>
+                                    <div class="mawlid-carousel-actions">
+                                        <a href="news.html#post-1" class="btn btn-light btn-sm">Read event article</a>
+                                        <a href="https://www.youtube.com/playlist?list=PLPS3SFPVXzgc" target="_blank" rel="noopener noreferrer" class="mawlid-carousel-playlist-link">Full YouTube playlist <span aria-hidden="true">↗</span></a>
                                     </div>
-                                    <a href="#event-spotlight" class="btn btn-light btn-sm">View both posters</a>
                                 </div>
-                                <div class="campaign-visual event-hero-visual mawlid-poster-pair" aria-hidden="true">
-                                    <div class="event-poster-mini event-poster-mini-sisters"><span>Sisters</span><img src="images/event-poster-sisters.jpg" alt=""></div>
-                                    <div class="event-poster-mini event-poster-mini-brothers"><span>Brothers</span><img src="images/event-poster-brothers.jpg" alt=""></div>
-                                    <span class="event-editorial-date">15–16 Aug</span>
-                                    <span class="event-editorial-note">Love · Gratitude · Ṣalawāt</span>
+                                <div class="campaign-visual mawlid-video-visual">
+                                    <div class="mawlid-carousel-player">
+                                        <video id="mawlid-carousel-video" muted autoplay playsinline preload="metadata" poster="images/news/mawlid-carousel-landscape-poster.jpg" aria-label="Annual Mawlid-un-Nabi highlights film">
+                                            <source src="videos/annual-mawlid-highlights-carousel-landscape-2026.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="mawlid-video-controls" aria-label="Highlights video controls">
+                                            <button type="button" class="mawlid-video-control" id="mawlid-video-play" aria-pressed="true" aria-label="Pause highlights video">
+                                                <span aria-hidden="true">Ⅱ</span><span class="control-label">Pause</span>
+                                            </button>
+                                            <button type="button" class="mawlid-video-control mawlid-sound-control" id="mawlid-video-sound" aria-pressed="false" aria-label="Turn sound on">
+                                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm12.5 3a3.5 3.5 0 0 0-1.5-2.87v5.74A3.5 3.5 0 0 0 15.5 12zm0-7.18v2.06A7 7 0 0 1 19 12a7 7 0 0 1-3.5 6.12v2.06A9 9 0 0 0 21 12a9 9 0 0 0-5.5-7.18z"></path></svg>
+                                                <span class="control-label">Sound on</span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1057,7 +1066,7 @@
                                         <span>Starts Monday 20 July</span>
                                         <span>Mon–Thu · 5:00–6:30pm</span>
                                     </div>
-                                    <a href="news.html#post-1" class="btn btn-light btn-sm">View retreat details</a>
+                                    <a href="news.html#post-2" class="btn btn-light btn-sm">View retreat details</a>
                                 </div>
                                 <div class="campaign-visual retreat-visual" aria-hidden="true">
                                     <span class="retreat-sun"></span>
@@ -1581,6 +1590,113 @@
                     onlyInViewport: true
                 }
             });
+
+            const video = document.getElementById('mawlid-carousel-video');
+            const videoSlide = document.querySelector('[data-mawlid-video-slide]');
+            const playButton = document.getElementById('mawlid-video-play');
+            const soundButton = document.getElementById('mawlid-video-sound');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            if (!video || !videoSlide || !playButton || !soundButton) return;
+
+            const updatePlayButton = () => {
+                const isPlaying = !video.paused && !video.ended;
+                playButton.setAttribute('aria-pressed', String(isPlaying));
+                playButton.setAttribute('aria-label', isPlaying ? 'Pause highlights video' : 'Play highlights video');
+                playButton.querySelector('[aria-hidden="true"]').textContent = isPlaying ? 'Ⅱ' : '▶';
+                playButton.querySelector('.control-label').textContent = isPlaying ? 'Pause' : 'Play';
+            };
+
+            const updateSoundButton = () => {
+                const soundIsOn = !video.muted && video.volume > 0;
+                soundButton.setAttribute('aria-pressed', String(soundIsOn));
+                soundButton.setAttribute('aria-label', soundIsOn ? 'Turn sound off' : 'Turn sound on');
+                soundButton.querySelector('.control-label').textContent = soundIsOn ? 'Sound off' : 'Sound on';
+            };
+
+            const videoSlideIsActive = () => videoSlide.classList.contains('swiper-slide-active');
+
+            const playActiveVideo = async () => {
+                if (!videoSlideIsActive()) return;
+                window.heroSwiper.autoplay.stop();
+                try {
+                    await video.play();
+                } catch (error) {
+                    updatePlayButton();
+                }
+            };
+
+            const syncVideoWithSlide = () => {
+                if (videoSlideIsActive()) {
+                    window.heroSwiper.autoplay.stop();
+                    if (reducedMotion.matches) {
+                        video.pause();
+                    } else {
+                        playActiveVideo();
+                    }
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.muted = true;
+                    updateSoundButton();
+                    if (reducedMotion.matches) {
+                        window.heroSwiper.autoplay.stop();
+                    } else {
+                        window.heroSwiper.autoplay.start();
+                    }
+                }
+                updatePlayButton();
+            };
+
+            playButton.addEventListener('click', async () => {
+                if (video.paused || video.ended) {
+                    if (video.ended) video.currentTime = 0;
+                    await playActiveVideo();
+                } else {
+                    video.pause();
+                    window.heroSwiper.autoplay.stop();
+                }
+                updatePlayButton();
+            });
+
+            soundButton.addEventListener('click', async () => {
+                const soundIsOn = !video.muted && video.volume > 0;
+                if (soundIsOn) {
+                    video.muted = true;
+                } else {
+                    if (video.volume === 0) video.volume = 1;
+                    video.muted = false;
+                }
+                updateSoundButton();
+                if (video.paused) await playActiveVideo();
+            });
+
+            video.addEventListener('play', updatePlayButton);
+            video.addEventListener('pause', updatePlayButton);
+            video.addEventListener('volumechange', updateSoundButton);
+            video.addEventListener('ended', () => {
+                updatePlayButton();
+                window.setTimeout(() => {
+                    if (video.ended && videoSlideIsActive()) window.heroSwiper.slideNext();
+                }, 700);
+            });
+
+            window.heroSwiper.on('slideChangeTransitionStart', syncVideoWithSlide);
+            if (typeof reducedMotion.addEventListener === 'function') {
+                reducedMotion.addEventListener('change', syncVideoWithSlide);
+            } else {
+                reducedMotion.addListener(syncVideoWithSlide);
+            }
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    video.pause();
+                } else {
+                    syncVideoWithSlide();
+                }
+            });
+
+            updateSoundButton();
+            syncVideoWithSlide();
         });
     </script>
 </body>

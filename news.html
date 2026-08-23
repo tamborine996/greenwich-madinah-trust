@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Recent news and updates from Greenwich Madina Trust.">
     <title>News | Greenwich Madina Trust</title>
-    <link rel="stylesheet" href="css/styles.css?v=20260720h-option-c-logo">
+    <link rel="stylesheet" href="css/styles.css?v=20260823-mawlid-candidate1">
     <style>
         .news-listing {
             padding: 0 0 5rem;
@@ -124,6 +124,34 @@
             background: var(--ivory);
             box-shadow: var(--shadow-soft);
         }
+        .news-video {
+            width: min(100%, 330px);
+            margin: 0 auto 1.75rem;
+        }
+        .news-video-stage {
+            padding: 0.65rem;
+            border: 1px solid rgba(196, 169, 98, 0.48);
+            border-radius: 26px;
+            background:
+                radial-gradient(circle at 84% 12%, rgba(228, 193, 111, 0.22), transparent 28%),
+                linear-gradient(145deg, #031a34, #075f50);
+            box-shadow: 0 22px 50px rgba(5, 39, 52, 0.2);
+        }
+        .news-video video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            object-fit: contain;
+            border-radius: 18px;
+            background: #020b12;
+        }
+        .news-video-caption {
+            margin: 0.8rem 0 0;
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            text-align: center;
+        }
         .news-actions {
             display: flex;
             gap: 0.75rem;
@@ -141,6 +169,497 @@
             border-radius: 24px;
             box-shadow: var(--shadow-soft);
         }
+
+        /* Dedicated Mawlid event record */
+        .news-listing .container {
+            max-width: 1228px;
+        }
+        .mawlid-feature-record {
+            --record-deep: #043d38;
+            --record-green: #07594d;
+            --record-gold: #c89b3c;
+            --record-ink: #173d36;
+            overflow: visible;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .mawlid-record {
+            max-width: 1180px;
+            margin: 0 auto 5rem;
+            padding: 0 1.5rem;
+            color: var(--record-ink);
+        }
+        .mawlid-record-back {
+            display: inline-flex;
+            margin: 0 0 1.4rem;
+            border-bottom: 1px solid rgba(7,89,77,.3);
+            color: var(--record-green);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .mawlid-record-intro {
+            position: relative;
+            max-width: 970px;
+            margin: 0 auto 2rem;
+            padding: 2rem 3rem 2.25rem;
+            border-top: 4px double var(--record-gold);
+            border-bottom: 1px solid rgba(7,89,77,.22);
+            background: radial-gradient(circle at 50% 0, rgba(235,205,119,.24), transparent 52%);
+            text-align: center;
+        }
+        .mawlid-record-intro::before,
+        .mawlid-record-intro::after {
+            content: '✦';
+            position: absolute;
+            top: -12px;
+            padding: 0 10px;
+            background: var(--cream);
+            color: var(--record-green);
+        }
+        .mawlid-record-intro::before { left: 13%; }
+        .mawlid-record-intro::after { right: 13%; }
+        .mawlid-record-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+            font-size: .72rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+        .mawlid-record-meta span {
+            padding: .45rem .7rem;
+            background: #e4eee8;
+            color: var(--record-green);
+            font-weight: 800;
+        }
+        .mawlid-record-meta time { color: #806c43; }
+        .mawlid-record-intro .mawlid-record-title {
+            margin: 0;
+            color: #0a3440;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(2.4rem, 5vw, 4.7rem);
+            font-weight: 500;
+            letter-spacing: -.035em;
+            line-height: .98;
+            text-align: center;
+        }
+        .mawlid-record-title em {
+            color: var(--record-green);
+            font-weight: 400;
+        }
+        .mawlid-record-lede {
+            max-width: 760px;
+            margin: 1.4rem auto 0;
+            color: #4e5b55;
+            font-size: 1.06rem;
+            line-height: 1.72;
+        }
+        .mawlid-film-chapter {
+            display: grid;
+            grid-template-columns: minmax(240px,.64fr) minmax(0,1.36fr);
+            gap: 2rem;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto 4rem;
+            padding: 1.15rem;
+            border: 1px solid rgba(202,162,73,.78);
+            background: linear-gradient(135deg, #052e39, #07594d);
+            box-shadow: 0 26px 55px rgba(3,45,50,.17);
+        }
+        .mawlid-film-copy {
+            padding: 1rem 1rem 1rem 1.35rem;
+            color: #fff;
+        }
+        .mawlid-chapter-number {
+            display: block;
+            margin-bottom: .75rem;
+            color: #d9b75f;
+            font-size: .67rem;
+            font-weight: 900;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+        }
+        .mawlid-film-copy h3,
+        .mawlid-story-heading h3,
+        .mawlid-playlist-copy h3 {
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.25rem;
+            font-weight: 500;
+            line-height: 1.04;
+        }
+        .mawlid-film-copy h3 { color: #fff; }
+        .mawlid-film-copy p {
+            margin: 1rem 0;
+            color: #d8e6df;
+            font-size: .91rem;
+            line-height: 1.65;
+        }
+        .mawlid-film-note {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            color: #c2d8ce !important;
+            font-size: .71rem !important;
+        }
+        .mawlid-film-note span {
+            width: 7px;
+            height: 7px;
+            border: 1px solid #d9b75f;
+            transform: rotate(45deg);
+        }
+        .mawlid-film-frame {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(242,213,131,.65);
+            background: #011a21;
+            box-shadow: 0 15px 35px rgba(0,0,0,.28);
+        }
+        .mawlid-film-frame video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background: #011019;
+        }
+        .mawlid-film-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+            width: max-content;
+            height: max-content;
+            margin: auto;
+            padding: .8rem 1rem;
+            border: 1px solid rgba(255,239,188,.8);
+            background: rgba(3,49,46,.92);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,.25);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .mawlid-film-play i {
+            display: grid;
+            place-items: center;
+            width: 26px;
+            height: 26px;
+            padding-left: 2px;
+            border-radius: 50%;
+            background: #d4ad4f;
+            color: #063d37;
+            font-style: normal;
+        }
+
+        .mawlid-film-play[hidden] { display: none; }
+        .mawlid-film-play:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
+        .mawlid-record-story {
+            display: grid;
+            grid-template-columns: .72fr 1.28fr;
+            gap: 3rem;
+            max-width: 930px;
+            margin: 0 auto 2.5rem;
+            padding: 0 1.2rem;
+        }
+        .mawlid-story-heading h3 {
+            color: #123b35;
+            font-size: 2.65rem;
+        }
+        .mawlid-story-prose {
+            color: #3e4c46;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.06rem;
+            line-height: 1.85;
+        }
+        .mawlid-story-prose p { margin: 0 0 1.25rem; }
+        .mawlid-story-prose .mawlid-dua {
+            padding: 1.25rem 1.35rem;
+            border-left: 3px solid var(--record-gold);
+            background: #fff9ea;
+            color: #24463f;
+            font-style: italic;
+        }
+        .mawlid-record-gallery {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            grid-template-rows: 1fr 1fr;
+            gap: .8rem;
+            max-width: 1080px;
+            margin: 0 auto 4rem;
+        }
+        .mawlid-record-gallery figure {
+            position: relative;
+            overflow: hidden;
+            min-height: 220px;
+            margin: 0;
+            background: #dde5df;
+        }
+        .mawlid-record-gallery .mawlid-gallery-large {
+            grid-row: 1 / 3;
+            min-height: 455px;
+        }
+        .mawlid-record-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mawlid-record-gallery figcaption {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            padding: .55rem .7rem;
+            background: rgba(3,55,49,.88);
+            color: #fff;
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .mawlid-playlist-feature {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: .86fr 1.14fr;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1080px;
+            min-height: 360px;
+            margin: 0 auto 2rem;
+            padding: 2.6rem 4rem;
+            border: 1px solid #c69a3d;
+            background:
+                radial-gradient(circle at 15% 25%, rgba(218,177,82,.18), transparent 30%),
+                linear-gradient(135deg, #042e37, #07594d);
+            color: #fff;
+            box-shadow: 0 26px 55px rgba(3,45,50,.2);
+        }
+        .mawlid-playlist-feature::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: .15;
+            background-image: linear-gradient(45deg, transparent 46%, #e8cb79 48%, #e8cb79 52%, transparent 54%);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(90deg, #000, transparent 48%);
+        }
+        .mawlid-playlist-art {
+            position: relative;
+            z-index: 1;
+            height: 270px;
+        }
+        .mawlid-playlist-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            overflow: hidden;
+            width: 170px;
+            height: 230px;
+            border: 1px solid rgba(241,211,128,.8);
+            background: #062d35;
+            box-shadow: 0 17px 34px rgba(0,0,0,.28);
+        }
+        .mawlid-playlist-card-back {
+            display: grid;
+            place-items: end start;
+            padding: 1rem;
+            color: #d6b254;
+            font-size: .65rem;
+            font-weight: 800;
+            letter-spacing: .2em;
+            transform: translate(-73%,-54%) rotate(-11deg);
+        }
+        .mawlid-playlist-card-mid {
+            display: grid;
+            place-items: start end;
+            padding: 1rem;
+            color: #d6b254;
+            font-size: .55rem;
+            font-weight: 800;
+            letter-spacing: .17em;
+            transform: translate(-45%,-52%) rotate(4deg);
+        }
+        .mawlid-playlist-card-front { transform: translate(-50%,-50%); }
+        .mawlid-playlist-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mawlid-playlist-play {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            margin: auto;
+            padding-left: 3px;
+            border-radius: 50%;
+            background: rgba(246,221,149,.92);
+            color: #06463e;
+            box-shadow: 0 8px 22px rgba(0,0,0,.28);
+        }
+        .mawlid-playlist-copy {
+            position: relative;
+            z-index: 1;
+        }
+        .mawlid-playlist-copy h3 {
+            color: #fff;
+            font-size: 3rem;
+        }
+        .mawlid-playlist-copy p {
+            max-width: 520px;
+            margin: 1rem 0 1.55rem;
+            color: #dbe9e3;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .mawlid-playlist-copy > a {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: .9rem 1.05rem;
+            background: #e4c46f;
+            color: #073e38;
+            font-size: .74rem;
+            font-weight: 900;
+            letter-spacing: .1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .mawlid-playlist-copy > a i {
+            font-size: 1rem;
+            font-style: normal;
+        }
+        .mawlid-playlist-copy > a:hover,
+        .mawlid-playlist-copy > a:focus-visible {
+            background: #f1d98e;
+        }
+        .mawlid-playlist-copy > a:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 4px;
+        }
+        .mawlid-playlist-copy small {
+            display: block;
+            margin-top: .75rem;
+            color: #a8c8bd;
+            font-size: .7rem;
+        }
+
+        @media (max-width: 800px) {
+            .mawlid-record {
+                padding: 0 1rem;
+            }
+            .mawlid-record-back { margin-bottom: 1rem; }
+            .mawlid-record-intro {
+                margin-bottom: 1.25rem;
+                padding: 1.45rem .75rem 1.6rem;
+            }
+            .mawlid-record-meta {
+                gap: 8px;
+                font-size: .61rem;
+            }
+            .mawlid-record-intro .mawlid-record-title {
+                font-size: 2.35rem;
+                line-height: 1.02;
+            }
+            .mawlid-record-lede {
+                margin-top: 1rem;
+                font-size: .92rem;
+                line-height: 1.62;
+            }
+            .mawlid-film-chapter {
+                grid-template-columns: 1fr;
+                gap: .5rem;
+                margin-bottom: 2.5rem;
+                padding: .75rem;
+            }
+            .mawlid-film-copy { padding: .8rem .65rem .4rem; }
+            .mawlid-film-copy h3 { font-size: 1.75rem; }
+            .mawlid-film-copy p {
+                margin: .65rem 0;
+                font-size: .83rem;
+            }
+            .mawlid-film-note { margin-bottom: .2rem !important; }
+            .mawlid-film-play {
+                padding: .58rem .7rem;
+                font-size: .6rem;
+            }
+            .mawlid-film-play i {
+                width: 22px;
+                height: 22px;
+            }
+            .mawlid-record-story {
+                grid-template-columns: 1fr;
+                gap: .7rem;
+                margin-bottom: 2rem;
+                padding: 0 .25rem;
+            }
+            .mawlid-story-heading h3 { font-size: 2rem; }
+            .mawlid-story-prose {
+                font-size: .95rem;
+                line-height: 1.72;
+            }
+            .mawlid-record-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 240px 150px;
+                margin-bottom: 2.5rem;
+            }
+            .mawlid-record-gallery .mawlid-gallery-large {
+                grid-column: 1 / 3;
+                grid-row: auto;
+                min-height: 240px;
+            }
+            .mawlid-record-gallery figure { min-height: 150px; }
+            .mawlid-record-gallery figcaption { font-size: .55rem; }
+            .mawlid-playlist-feature {
+                grid-template-columns: 1fr;
+                gap: .7rem;
+                min-height: auto;
+                padding: 1.6rem 1.2rem 1.8rem;
+            }
+            .mawlid-playlist-art { height: 190px; }
+            .mawlid-playlist-card {
+                width: 120px;
+                height: 164px;
+            }
+            .mawlid-playlist-copy { text-align: center; }
+            .mawlid-playlist-copy h3 { font-size: 2.25rem; }
+            .mawlid-playlist-copy p {
+                margin: .8rem auto 1.2rem;
+                font-size: .9rem;
+            }
+            .mawlid-playlist-copy > a {
+                padding: .8rem .85rem;
+                font-size: .64rem;
+            }
+            .mawlid-playlist-copy small { font-size: .63rem; }
+        }
+
+        @media (max-width: 390px) {
+            .mawlid-record-intro .mawlid-record-title { font-size: 2.08rem; }
+            .mawlid-film-chapter {
+                margin-left: -.25rem;
+                margin-right: -.25rem;
+            }
+            .mawlid-film-copy h3 { font-size: 1.58rem; }
+            .mawlid-film-copy p { font-size: .8rem; }
+
+            .mawlid-playlist-copy > a { letter-spacing: .07em; }
+        }
+
         @media (max-width: 720px) {
             .news-gallery {
                 grid-template-columns: 1fr;
@@ -346,7 +865,136 @@
             return `<div class="news-poster"><img src="${escapeHtml(poster.url)}" alt="${escapeHtml(poster.alt || '')}" loading="lazy"></div>`;
         }
 
+        function renderVideo(video) {
+            if (!video || !video.url) return '';
+            const title = video.title || 'Event highlights video';
+            return `
+                <figure class="news-video">
+                    <div class="news-video-stage">
+                        <video controls playsinline preload="metadata"${video.poster ? ` poster="${escapeHtml(video.poster)}"` : ''} aria-label="${escapeHtml(title)}">
+                            <source src="${escapeHtml(video.url)}" type="${escapeHtml(video.type || 'video/mp4')}">
+                            Your browser cannot play this video. <a href="${escapeHtml(video.url)}">Open the highlights film</a>.
+                        </video>
+                    </div>
+                    ${video.caption ? `<figcaption class="news-video-caption">${escapeHtml(video.caption)}</figcaption>` : ''}
+                </figure>
+            `;
+        }
+
+        function renderMawlidFeature(post, index, fallbackDate) {
+            const staticDate = post.published_date || fallbackDate || post.published_label || '';
+            const blocks = post.text_blocks || [];
+            const video = post.video || {};
+            const gallery = post.gallery || [];
+            const poster = post.poster || {};
+            const titleParts = String(post.title || 'Annual Mawlid-un-Nabi highlights').split(':');
+            const titleHtml = titleParts.length > 1
+                ? `${escapeHtml(titleParts.shift())}:<br><em>${escapeHtml(titleParts.join(':').trim())}</em>`
+                : escapeHtml(titleParts[0]);
+            const galleryHtml = gallery.length ? `
+                <section class="mawlid-record-gallery" aria-label="Photographs from the gathering">
+                    ${gallery.map((image, galleryIndex) => `
+                        <figure class="${galleryIndex === 0 ? 'mawlid-gallery-large' : ''}">
+                            <img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt || '')}" loading="lazy">
+                            ${galleryIndex === 0 ? '<figcaption>Annual Mawlid-un-Nabi · Greenwich Madina Trust</figcaption>' : ''}
+                        </figure>`).join('')}
+                </section>` : '';
+
+            return `
+                <article class="news-article mawlid-feature-record" id="post-${index + 1}">
+                    <div class="mawlid-record">
+                        <a class="mawlid-record-back" href="news.html">← All GMT news</a>
+                        <header class="mawlid-record-intro">
+                            <div class="mawlid-record-meta">
+                                <span>${escapeHtml(post.eyebrow || 'Event highlights')}</span>
+                                <time>${escapeHtml(staticDate)}</time>
+                            </div>
+                            <h2 class="mawlid-record-title">${titleHtml}</h2>
+                            ${blocks[0] ? `<p class="mawlid-record-lede">${escapeHtml(blocks[0])}</p>` : ''}
+                        </header>
+
+                        <section class="mawlid-film-chapter" aria-labelledby="mawlid-film-title">
+                            <div class="mawlid-film-copy">
+                                <span class="mawlid-chapter-number">01 · Short film</span>
+                                <h3 id="mawlid-film-title">Watch the event highlights</h3>
+                                <p>A brief glimpse of recitation, reminders, Naʿat and Ṣalawāt from the blessed gathering.</p>
+                                <p class="mawlid-film-note"><span aria-hidden="true"></span> The film will only play when you choose.</p>
+                            </div>
+                            <div class="mawlid-film-frame">
+                                <video id="mawlid-story-film" data-mawlid-film controls playsinline preload="metadata"${video.poster ? ` poster="${escapeHtml(video.poster)}"` : ''} aria-label="${escapeHtml(video.title || 'Annual Mawlid-un-Nabi highlights film')}">
+                                    <source src="${escapeHtml(video.url || '')}" type="${escapeHtml(video.type || 'video/mp4')}">
+                                    Your browser cannot play this video. <a href="${escapeHtml(video.url || '')}">Open the highlights film</a>.
+                                </video>
+                                <button class="mawlid-film-play" type="button" aria-controls="mawlid-story-film" aria-label="Play the Mawlid highlights film">
+                                    <i aria-hidden="true">▶</i><span>Play highlights</span>
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="mawlid-record-story" aria-labelledby="mawlid-story-title">
+                            <div class="mawlid-story-heading">
+                                <span class="mawlid-chapter-number">02 · The gathering</span>
+                                <h3 id="mawlid-story-title">An evening of remembrance</h3>
+                            </div>
+                            <div class="mawlid-story-prose">
+                                ${blocks[1] ? `<p>${escapeHtml(blocks[1])}</p>` : ''}
+                                ${blocks[2] ? `<p class="mawlid-dua">${escapeHtml(blocks[2])}</p>` : ''}
+                            </div>
+                        </section>
+
+                        ${galleryHtml}
+
+                        <section class="mawlid-playlist-feature" aria-labelledby="mawlid-playlist-title">
+                            <div class="mawlid-playlist-art" aria-hidden="true">
+                                <div class="mawlid-playlist-card mawlid-playlist-card-back"><span>GMT</span></div>
+                                <div class="mawlid-playlist-card mawlid-playlist-card-mid"><span>MAWLID</span></div>
+                                <div class="mawlid-playlist-card mawlid-playlist-card-front">
+                                    ${poster.url ? `<img src="${escapeHtml(poster.url)}" alt="">` : ''}
+                                    <span class="mawlid-playlist-play">▶</span>
+                                </div>
+                            </div>
+                            <div class="mawlid-playlist-copy">
+                                <span class="mawlid-chapter-number">03 · Continue watching</span>
+                                <h3 id="mawlid-playlist-title">More from the gathering</h3>
+                                <p>The short film is only an introduction. Continue with videos from the event, collected together in GMT’s full YouTube playlist.</p>
+                                <a href="${escapeHtml(post.action_url || post.source_url || '#')}"${linkAttributes(post.action_url || post.source_url)}>
+                                    <span>${escapeHtml(post.action_label || 'Open the full YouTube playlist')}</span><i aria-hidden="true">↗</i>
+                                </a>
+                                <small>Opens GMT’s playlist on YouTube</small>
+                            </div>
+                        </section>
+                    </div>
+                </article>`;
+        }
+
+        function initMawlidFeatureVideos() {
+            document.querySelectorAll('[data-mawlid-film]').forEach(video => {
+                if (video.dataset.mawlidReady === 'true') return;
+                video.dataset.mawlidReady = 'true';
+                const frame = video.closest('.mawlid-film-frame');
+                const playButton = frame?.querySelector('.mawlid-film-play');
+                if (!playButton) return;
+                const label = playButton.querySelector('span');
+                playButton.addEventListener('click', async () => {
+                    try {
+                        await video.play();
+                    } catch (error) {
+                        playButton.hidden = false;
+                    }
+                });
+                video.addEventListener('play', () => { playButton.hidden = true; });
+                video.addEventListener('ended', () => {
+                    playButton.hidden = false;
+                    label.textContent = 'Replay highlights';
+                    playButton.setAttribute('aria-label', 'Replay the Mawlid highlights film');
+                });
+            });
+        }
+
         function renderPost(post, index, fallbackDate) {
+            if (post.slug === 'annual-mawlid-un-nabi-highlights-2026') {
+                return renderMawlidFeature(post, index, fallbackDate);
+            }
             const staticDate = post.published_date || fallbackDate || post.published_label || '';
             return `
                 <article class="news-article" id="post-${index + 1}">
@@ -356,10 +1004,11 @@
                             <span class="news-date">${escapeHtml(staticDate)}</span>
                         </div>
                         <h2>${escapeHtml(post.title)}</h2>
+                        ${renderVideo(post.video)}
                         <div class="news-prose">${renderTextBlocks(post.text_blocks || [])}</div>
                         ${post.action_url ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}"${linkAttributes(post.action_url)}>${escapeHtml(post.action_label || 'Learn more')}</a>${post.related_url ? `<a class="btn btn-secondary" href="${escapeHtml(post.related_url)}"${linkAttributes(post.related_url)}>${escapeHtml(post.related_label || 'Related information')}</a>` : ''}</div>` : ''}
                         ${renderDetails(post.key_details || [])}
-                        ${renderPoster(post.poster)}
+                        ${post.video ? '' : renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
                         ${post.action_url ? '' : `
                         <div class="news-actions">
@@ -398,6 +1047,7 @@
                 if (!posts.length) throw new Error('No posts found');
                 root.className = 'news-stack';
                 root.innerHTML = posts.map((post, index) => renderPost(post, index, fallbackDate)).join('');
+                initMawlidFeatureVideos();
                 scrollToHashTarget();
             } catch (error) {
                 root.className = 'news-error';

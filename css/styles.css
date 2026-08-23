@@ -7437,3 +7437,251 @@ td.col-maghrib,
         display: none;
     }
 }
+
+/* Post-event Mawlid video feature — staging review */
+.slide-mawlid-video {
+    background:
+        radial-gradient(circle at 82% 18%, rgba(64, 198, 178, 0.22), transparent 30%),
+        radial-gradient(circle at 12% 92%, rgba(236, 196, 105, 0.18), transparent 34%),
+        linear-gradient(135deg, #031525 0%, #07384a 54%, #08624f 125%);
+}
+
+.slide-mawlid-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(115deg, transparent 0 61%, rgba(255, 255, 255, 0.045) 61% 61.4%, transparent 61.4%),
+        linear-gradient(25deg, transparent 0 82%, rgba(239, 205, 128, 0.07) 82% 82.4%, transparent 82.4%);
+    pointer-events: none;
+}
+
+.slide-mawlid-video .slide-content-compact {
+    grid-template-columns: minmax(0, 0.95fr) minmax(270px, 1.05fr);
+    gap: 1.1rem;
+    padding: 1.75rem 2.45rem 2.75rem;
+}
+
+.slide-mawlid-video .slide-badge {
+    background: #f1d384;
+    color: #05283a;
+    box-shadow: 0 5px 20px rgba(235, 196, 103, 0.22);
+}
+
+.slide-mawlid-video .campaign-copy {
+    padding-left: 0.65rem;
+}
+
+.slide-mawlid-video .slide-title-compact {
+    max-width: 11ch;
+    color: #fff7df;
+}
+
+.slide-mawlid-video .slide-description-compact {
+    max-width: 34ch;
+    color: rgba(244, 252, 249, 0.9);
+}
+
+.slide-mawlid-video .btn-light {
+    background: #f8e7b9;
+    color: #05283a;
+}
+
+.slide-mawlid-video .btn-light:hover {
+    background: #ffffff;
+}
+
+.mawlid-carousel-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+}
+
+.mawlid-carousel-playlist-link {
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(248, 231, 185, 0.72);
+    color: #fff7df;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.045em;
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+.mawlid-carousel-playlist-link:hover,
+.mawlid-carousel-playlist-link:focus-visible {
+    border-bottom-color: #ffffff;
+    color: #ffffff;
+}
+
+.mawlid-carousel-playlist-link:focus-visible {
+    outline: 2px solid #fff3cf;
+    outline-offset: 4px;
+}
+
+.slide-mawlid-video .mawlid-video-visual {
+    z-index: 4;
+    width: 292px;
+    height: 250px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    justify-self: center;
+}
+
+.mawlid-carousel-player {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(242, 212, 143, 0.8);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(31, 128, 110, 0.44), transparent 42%),
+        #020b13;
+    box-shadow:
+        0 22px 45px rgba(0, 7, 14, 0.46),
+        0 0 0 7px rgba(222, 187, 107, 0.07);
+}
+
+.mawlid-carousel-player::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, transparent 55%, rgba(1, 10, 17, 0.78) 100%);
+    pointer-events: none;
+}
+
+.mawlid-carousel-player video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #020b13;
+}
+
+.mawlid-video-controls {
+    position: absolute;
+    z-index: 4;
+    left: 0.65rem;
+    right: 0.65rem;
+    bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+}
+
+.mawlid-video-control {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.34rem;
+    padding: 0.42rem 0.58rem;
+    border: 1px solid rgba(246, 220, 157, 0.68);
+    border-radius: 999px;
+    background: rgba(1, 17, 27, 0.82);
+    color: #fff7df;
+    font: inherit;
+    font-size: 0.65rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.mawlid-video-control:hover {
+    border-color: #fff3cf;
+    background: rgba(10, 48, 58, 0.94);
+}
+
+.mawlid-video-control:focus-visible {
+    outline: 2px solid #fff3cf;
+    outline-offset: 2px;
+}
+
+.mawlid-sound-control[aria-pressed="true"] {
+    border-color: #bde9d7;
+    background: #0a6757;
+    color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(189, 233, 215, 0.18);
+}
+
+.mawlid-sound-control[aria-pressed="false"] {
+    background: rgba(1, 17, 27, 0.82);
+    color: #fff7df;
+}
+
+.mawlid-video-control svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+@media (max-width: 600px) {
+    .slide-mawlid-video .slide-content-compact {
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem 1.35rem 2.65rem;
+        text-align: center;
+    }
+
+    .slide-mawlid-video .mawlid-video-visual {
+        position: relative;
+        order: -1;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: 230px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .slide-mawlid-video .mawlid-carousel-player {
+        border-radius: 17px;
+    }
+
+    .slide-mawlid-video .campaign-copy {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .slide-mawlid-video .slide-badge {
+        margin-bottom: 0.45rem;
+        padding: 0.34rem 0.78rem;
+        font-size: 0.62rem;
+    }
+
+    .slide-mawlid-video .slide-title-compact {
+        max-width: none;
+        margin-bottom: 0.4rem;
+        font-size: clamp(1.45rem, 7vw, 1.8rem);
+        line-height: 1.08;
+    }
+
+    .slide-mawlid-video .slide-description-compact {
+        max-width: 34ch;
+        margin-bottom: 0.7rem;
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+
+    .slide-mawlid-video .btn-light {
+        padding: 0.62rem 1rem;
+    }
+
+    .mawlid-carousel-actions {
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mawlid-carousel-playlist-link {
+        font-size: 0.7rem;
+    }
+}
