@@ -396,6 +396,7 @@ const PrayerTimes = (function() {
         getTodaysTimes,
         getTimesForDate,
         getMonthlyCalendar,
+        getHijriDate,
         updateDisplay,
         renderMonthlyTable,
         getMetadata

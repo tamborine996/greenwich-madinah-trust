@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="120" viewBox="0 0 70 120" fill="none">
+  <defs>
+    <radialGradient id="msk" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F4E2A9" stop-opacity=".55"/><stop offset="100%" stop-color="#F4E2A9" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path d="M16.9,9.4 Q22.4,19.1 33.3,20.9" stroke="#B08D3F" stroke-width=".7" opacity=".62" fill="none"/>
+  <path d="M15.3,11.0 Q17.5,28.6 32.7,37.9" stroke="#B08D3F" stroke-width=".5" opacity=".45" fill="none"/>
+  <path d="M13.1,11.9 Q9.8,24.8 17.7,35.4" stroke="#B08D3F" stroke-width=".7" opacity=".62" fill="none"/>
+  <path d="M10.9,11.9 Q4.2,20.8 7.0,31.5" stroke="#B08D3F" stroke-width=".5" opacity=".45" fill="none"/>
+  <path d="M8.7,11.0 Q-6.4,20.3 -8.7,37.9" stroke="#B08D3F" stroke-width=".7" opacity=".62" fill="none"/>
+  <path d="M7.1,9.4 Q-6.0,11.6 -12.6,23.2" stroke="#B08D3F" stroke-width=".5" opacity=".45" fill="none"/>
+  <path d="M14,12 C19,26 21,42 19.5,60" stroke="#B08D3F" stroke-width=".55" opacity=".6" fill="none"/>
+  <path d="M18,32 C22.5,29.5 27.5,29 32,30.5 C28.5,34 23,34.8 18,32 Z" stroke="#B08D3F" stroke-width=".5" fill="#D3B26A" fill-opacity=".24" opacity=".8"/>
+  <path d="M19.5,50 C24,48.5 28.8,48.6 33,50.5 C29,53.5 23.8,53.4 19.5,50 Z" stroke="#B08D3F" stroke-width=".5" fill="#D3B26A" fill-opacity=".2" opacity=".7"/>
+  <path d="M12,8 C10,30 12,58 11,88 C10.6,102 11,112 11,120" stroke="#B08D3F" stroke-width=".75" opacity=".68" fill="none" stroke-linecap="round"/>
+  <circle cx="17" cy="54" r="9" fill="url(#msk)"/>
+  <path d="M17,50 C17.72,52.416 18.584,53.28 21,54 C18.584,54.72 17.72,55.584 17,58 C16.28,55.584 15.416,54.72 13,54 C15.416,53.28 16.28,52.416 17,50 Z" fill="#B08D3F" opacity="0.85"/>
+</svg>

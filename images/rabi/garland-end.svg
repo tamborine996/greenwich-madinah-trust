@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="204" viewBox="0 0 64 204" fill="none">
+  <defs>
+    <radialGradient id="ge" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F4E2A9" stop-opacity=".55"/><stop offset="100%" stop-color="#F4E2A9" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path d="M30,0 C30,44 20,84 23,124 C24.2,139 24.8,148 25,156" stroke="#B08D3F" stroke-width=".75" opacity=".6" stroke-linecap="round" fill="none"/>
+  <circle cx="25" cy="168" r="22" fill="url(#ge)"/>
+  <polygon points="25.00,157.00 27.44,162.11 32.78,160.22 30.89,165.56 36.00,168.00 30.89,170.44 32.78,175.78 27.44,173.89 25.00,179.00 22.56,173.89 17.22,175.78 19.11,170.44 14.00,168.00 19.11,165.56 17.22,160.22 22.56,162.11" stroke="#8F7031" stroke-width=".7" fill="#D3B26A" fill-opacity=".28" opacity="0.92"/>
+  <circle cx="25" cy="168" r="1.1" fill="#8F7031" opacity="0.92"/>
+  <path d="M25,180 C22.2,185 22.2,190.5 25,195 C27.8,190.5 27.8,185 25,180 Z" stroke="#B08D3F" stroke-width=".6" fill="#D3B26A" fill-opacity=".28" opacity=".85"/>
+  <circle cx="25" cy="199" r=".9" fill="#B08D3F" opacity=".5"/>
+</svg>

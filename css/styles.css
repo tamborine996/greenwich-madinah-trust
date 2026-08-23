@@ -7686,6 +7686,313 @@ td.col-maghrib,
     }
 }
 
+/* ==================================================================
+   Rabi al-Awwal seasonal identity — "Nur, the Radiant Address"
+   Enabled site-wide from the official GMT Hijri calendar (days 1-30 of
+   Rabi al-Awwal); js/main.js builds the elements beneath .prayer-banner
+   and sets body.season-rabi-al-awwal. Anatomy: champagne radiance band,
+   the Na'layn Sharif crest in an apron of falling light, fountains of
+   curved rays at the band's corners flowing into garlands of light down
+   both margins (phone-native drawings below 1300px), fore-edge veils and
+   a gilt seam beneath the fixed header. All decoration pointer-inert.
+   ================================================================== */
+body:not(.season-rabi-al-awwal) .rabi-nur-band,
+body:not(.season-rabi-al-awwal) .rabi-nur-veil,
+body:not(.season-rabi-al-awwal) .rabi-nur-garland { display: none !important; }
+
+.rabi-nur-band {
+    position: relative;
+    z-index: 5;
+    background: linear-gradient(180deg, #FCF7EA 0%, #F8F0DD 55%, #F5EBD3 100%);
+    border-top: 1px solid rgba(176, 141, 63, .5);
+    margin-bottom: 44px;
+}
+
+.rabi-nur-band::before {
+    content: '';
+    position: absolute;
+    inset: 3px 0;
+    border-top: 1px solid rgba(176, 141, 63, .22);
+    pointer-events: none;
+}
+
+/* the band's lower rule dissolves before the corners so the fountains
+   grow out of the fading line rather than sitting on a hard one */
+.rabi-nur-rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 4px;
+    background: linear-gradient(180deg,
+        rgba(176, 141, 63, .22) 0, rgba(176, 141, 63, .22) 1px,
+        transparent 1px, transparent 3px,
+        rgba(176, 141, 63, .5) 3px, rgba(176, 141, 63, .5) 4px);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 160px, #000 calc(100% - 160px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 160px, #000 calc(100% - 160px), transparent 100%);
+    pointer-events: none;
+}
+
+.rabi-nur-rays-clip {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.rabi-nur-rays,
+.rabi-nur-rays-m {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+.rabi-nur-rays { width: 920px; max-width: none; }
+.rabi-nur-rays-m { display: none; width: min(380px, 94vw); }
+
+.rabi-nur-rays-clip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 96px;
+    background: radial-gradient(ellipse closest-side,
+        rgba(250, 244, 228, .95) 34%,
+        rgba(250, 244, 228, .55) 66%,
+        rgba(250, 244, 228, 0) 100%);
+    pointer-events: none;
+}
+
+/* the apron of light: the zone beneath the band is falling radiance */
+.rabi-nur-apron {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 150px;
+    z-index: 0;
+    background:
+        radial-gradient(46% 100% at 50% 0%,
+            rgba(236, 216, 168, .34),
+            rgba(236, 216, 168, 0) 78%),
+        linear-gradient(180deg,
+            rgba(236, 216, 168, .42) 0,
+            rgba(236, 216, 168, .13) 52%,
+            rgba(236, 216, 168, 0) 100%);
+    pointer-events: none;
+}
+
+.rabi-nur-apron-rays {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    width: min(720px, 96vw);
+    z-index: 0;
+    opacity: .85;
+    pointer-events: none;
+    user-select: none;
+}
+
+.rabi-nur-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 24px 24px 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    text-align: center;
+}
+
+.rabi-nur-month {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #8E6F2E;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .34em;
+    text-indent: .34em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.rabi-nur-month i {
+    font-style: normal;
+    font-size: 8px;
+    color: #B08D3F;
+    letter-spacing: 0;
+    text-indent: 0;
+    transform: translateY(-.5px);
+}
+
+.rabi-nur-month b { font-weight: inherit; }
+
+.rabi-nur-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.rabi-nur-main {
+    margin: 0;
+    color: #123F35;
+    font-family: var(--font-display);
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.24;
+    text-wrap: balance;
+}
+
+.rabi-nur-link {
+    padding-bottom: 3px;
+    color: #0A5A4B;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(176, 141, 63, .65);
+    transition: color .25s ease, border-color .25s ease;
+}
+
+.rabi-nur-link:hover,
+.rabi-nur-link:focus-visible { color: #083D33; border-bottom-color: #8E6F2E; }
+.rabi-nur-link:focus-visible { outline: 2px solid #0A5A4B; outline-offset: 5px; }
+.rabi-nur-link .rabi-nur-arrow { margin-left: 4px; }
+
+/* the Na'layn Sharif crest, hanging in its pool of light */
+.rabi-nur-crest {
+    position: absolute;
+    left: 50%;
+    bottom: -76px;
+    transform: translateX(-50%);
+    width: 64px;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+}
+
+.rabi-nur-crest-glow {
+    position: absolute;
+    left: 50%;
+    bottom: -104px;
+    transform: translateX(-50%);
+    width: 190px;
+    height: 190px;
+    background: radial-gradient(circle, rgba(233, 214, 164, .55), rgba(233, 214, 164, 0) 68%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* fore-edge veils (desktop) */
+.rabi-nur-veil {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    z-index: 55;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 13%, #000 87%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 13%, #000 87%, transparent 100%);
+}
+.rabi-nur-veil-l { left: 0; background: linear-gradient(90deg, rgba(233, 214, 164, .58), rgba(233, 214, 164, 0)); }
+.rabi-nur-veil-r { right: 0; background: linear-gradient(270deg, rgba(233, 214, 164, .58), rgba(233, 214, 164, 0)); }
+
+/* garlands of light: corner fountain -> serpentine descent -> terminal */
+.rabi-nur-garland {
+    position: absolute;
+    display: none;
+    width: 130px;
+    z-index: 60;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: none;
+    user-select: none;
+}
+.rabi-nur-garland.rabi-nur-garland-on { display: flex; }
+.rabi-nur-garland-l { left: 2px; }
+.rabi-nur-garland-r { right: 2px; transform: scaleX(-1); }
+.rabi-nur-garland img { display: block; }
+/* togglers carry the parent class: they must outrank `.rabi-nur-garland img` */
+.rabi-nur-garland .rabi-nur-garland-spray-m,
+.rabi-nur-garland .rabi-nur-garland-end-m { display: none; }
+.rabi-nur-garland-line {
+    width: 64px;
+    flex: 1 1 auto;
+    min-height: 0;
+    background: url('../images/rabi/garland-tile.svg') top left / 64px 1250px repeat-y;
+}
+
+/* persistent gilt seam beneath the fixed header */
+body.season-rabi-al-awwal .header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 3px;
+    background: linear-gradient(90deg,
+        rgba(176, 141, 63, 0) 2%,
+        rgba(176, 141, 63, .52) 20%,
+        rgba(211, 178, 106, .95) 50%,
+        rgba(176, 141, 63, .52) 80%,
+        rgba(176, 141, 63, 0) 98%);
+    pointer-events: none;
+}
+
+/* below 1300px the garland swaps to its phone-native drawing */
+@media (max-width: 1299px) {
+    .rabi-nur-veil { display: none !important; }
+    .rabi-nur-garland { width: 70px; }
+    .rabi-nur-garland-l { left: 0; }
+    .rabi-nur-garland-r { right: 0; }
+    .rabi-nur-garland .rabi-nur-garland-spray-d,
+    .rabi-nur-garland .rabi-nur-garland-end-d { display: none; }
+    .rabi-nur-garland .rabi-nur-garland-spray-m,
+    .rabi-nur-garland .rabi-nur-garland-end-m { display: block; }
+    .rabi-nur-garland-line {
+        width: 24px;
+        background: url('../images/rabi/garland-tile-m.svg') top left / 24px 900px repeat-y;
+    }
+}
+
+@media (max-width: 900px) {
+    .rabi-nur-band { margin-bottom: 34px; }
+    .rabi-nur-apron { height: 100px; }
+    .rabi-nur-apron-rays { width: min(400px, 96vw); }
+    .rabi-nur-rays { display: none; }
+    .rabi-nur-rays-m { display: block; }
+    .rabi-nur-rays-clip::after { width: 420px; height: 104px; }
+    .rabi-nur-copy { padding: 20px 20px 22px; }
+    .rabi-nur-main { font-size: 19px; }
+    .rabi-nur-month { font-size: 9.5px; letter-spacing: .26em; text-indent: .26em; gap: 9px; }
+    .rabi-nur-crest { width: 48px; bottom: -58px; }
+    .rabi-nur-crest-glow { width: 140px; height: 140px; bottom: -80px; }
+}
+
+@media (max-width: 620px) {
+    .rabi-nur-copy { padding: 19px 18px 20px; gap: 5px; }
+    .rabi-nur-main { font-size: 17.5px; line-height: 1.3; }
+    .rabi-nur-month { font-size: 8.5px; letter-spacing: .22em; text-indent: .22em; }
+    .rabi-nur-link { font-size: 12px; }
+    body.season-rabi-al-awwal .header::after { height: 2px; bottom: -2px; }
+}
+
+@media (max-width: 360px) {
+    .rabi-nur-main { font-size: 16.5px; }
+    .rabi-nur-rays-clip::after { width: 300px; height: 92px; }
+}
+
 /* Slide 3: TikTok announcement — a multifoil arch niche (the cusped
    arch of Cordoba and the Alhambra) drawn tall like a phone screen holds
    the glyph; beneath it a dome-topped gold equalizer gently pulses —

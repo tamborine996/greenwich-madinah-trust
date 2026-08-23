@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dynamic footer year
     initCurrentYear();
+
+    // Rabi al-Awwal seasonal detailing (automatically expires after day 30)
+    initRabiAlAwwalSeason();
 });
 
 /**
@@ -227,6 +230,115 @@ function initCurrentYear() {
     document.querySelectorAll('[data-current-year]').forEach(el => {
         el.textContent = currentYear;
     });
+}
+
+/**
+ * Dress the site for Rabi al-Awwal while the official GMT Hijri calendar
+ * reports days 1–30 of the month. The prayer banner remains untouched and the
+ * seasonal treatment occupies the established strip immediately beneath it.
+ */
+async function initRabiAlAwwalSeason() {
+    if (!document.body.hasAttribute('data-seasonal-shell')) return;
+    if (typeof PrayerTimes === 'undefined' || typeof PrayerTimes.getHijriDate !== 'function') return;
+
+    try {
+        const hijri = await PrayerTimes.getHijriDate();
+        const month = String(hijri.month || '').toLowerCase().replace(/[^a-z]/g, '');
+        const day = Number(hijri.day);
+        const isRabiAlAwwal = month === 'rabialawwal' && day >= 1 && day <= 30;
+
+        document.body.dataset.rabiSeason = isRabiAlAwwal ? 'active' : 'inactive';
+        document.body.classList.toggle('season-rabi-al-awwal', isRabiAlAwwal);
+        document.querySelectorAll('.rabi-season-banner, .rabi-nur-band, .rabi-nur-veil, .rabi-nur-garland')
+            .forEach(element => element.remove());
+        if (!isRabiAlAwwal) return;
+
+        const prayerBanner = document.querySelector('.prayer-banner');
+        if (!prayerBanner) return;
+
+        const assets = 'images/rabi/';
+
+        // The radiance band with the Na'layn Sharif crest in its apron of light
+        const band = document.createElement('aside');
+        band.className = 'rabi-nur-band';
+        band.setAttribute('aria-labelledby', 'rabi-nur-title');
+        band.innerHTML = `
+            <div class="rabi-nur-rays-clip" aria-hidden="true">
+                <img class="rabi-nur-rays" src="${assets}rays.svg" alt="">
+                <img class="rabi-nur-rays-m" src="${assets}rays-m.svg" alt="">
+            </div>
+            <div class="rabi-nur-copy">
+                <span class="rabi-nur-month"><i aria-hidden="true">✦</i> Rabiʿ al-Awwal <b class="rabi-nur-year"></b> <i aria-hidden="true">✦</i></span>
+                <div class="rabi-nur-row">
+                    <p class="rabi-nur-main" id="rabi-nur-title">Honouring the month in which the Prophet Muhammad&nbsp;ﷺ was born</p>
+                    <a class="rabi-nur-link" href="news.html#post-1">Read about our Mawlid event <span class="rabi-nur-arrow" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+            <span class="rabi-nur-rule" aria-hidden="true"></span>
+            <span class="rabi-nur-apron" aria-hidden="true"></span>
+            <img class="rabi-nur-apron-rays" src="${assets}apron-rays.svg" alt="" aria-hidden="true">
+            <span class="rabi-nur-crest-glow" aria-hidden="true"></span>
+            <img class="rabi-nur-crest" src="${assets}nalayn.png" alt="" aria-hidden="true">`;
+        band.querySelector('.rabi-nur-year').textContent = `${hijri.year || ''} AH`;
+        prayerBanner.insertAdjacentElement('afterend', band);
+
+        // Fore-edge veils (desktop widths only, via CSS)
+        ['l', 'r'].forEach(side => {
+            const veil = document.createElement('span');
+            veil.className = `rabi-nur-veil rabi-nur-veil-${side}`;
+            veil.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(veil);
+        });
+
+        // Garlands of light down both margins (phone drawings below 1300px)
+        const garlands = ['l', 'r'].map(side => {
+            const garland = document.createElement('div');
+            garland.className = `rabi-nur-garland rabi-nur-garland-${side}`;
+            garland.setAttribute('aria-hidden', 'true');
+            garland.innerHTML = `
+                <img class="rabi-nur-garland-spray-d" src="${assets}spray.svg" alt="">
+                <img class="rabi-nur-garland-spray-m" src="${assets}spray-m.svg" alt="">
+                <div class="rabi-nur-garland-line"></div>
+                <img class="rabi-nur-garland-end-d" src="${assets}garland-end.svg" alt="">
+                <img class="rabi-nur-garland-end-m" src="${assets}garland-end-m.svg" alt="">`;
+            document.body.appendChild(garland);
+            return garland;
+        });
+
+        // The garlands span from the band's corners to just above the footer
+        const sizeGarlands = () => {
+            const footer = document.querySelector('.footer') || document.querySelector('footer');
+            const mobile = window.innerWidth < 1300;
+            let on = !!footer && document.body.contains(band);
+            if (on) {
+                const top = band.getBoundingClientRect().bottom + window.scrollY - (mobile ? 10 : 18);
+                const height = footer.getBoundingClientRect().top + window.scrollY - top - 44;
+                on = height > 900;
+                garlands.forEach(garland => {
+                    garland.style.top = `${top}px`;
+                    garland.style.height = `${height}px`;
+                });
+            }
+            garlands.forEach(garland => garland.classList.toggle('rabi-nur-garland-on', on));
+        };
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(sizeGarlands, 200);
+        });
+        if (document.readyState === 'complete') {
+            sizeGarlands();
+            setTimeout(sizeGarlands, 700);
+        } else {
+            window.addEventListener('load', () => {
+                sizeGarlands();
+                setTimeout(sizeGarlands, 700);
+            });
+        }
+        setTimeout(sizeGarlands, 1600);
+    } catch (error) {
+        console.warn('Could not apply the Rabi al-Awwal seasonal theme:', error);
+    }
 }
 
 /**
