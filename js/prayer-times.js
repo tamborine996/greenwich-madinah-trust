@@ -47,7 +47,7 @@ const PrayerTimes = (function() {
         }
 
         try {
-            const response = await fetch('data/prayer-times-2026.json?v=20260815-asr1900-v2');
+            const response = await fetch('data/prayer-times-2026.json?v=20260831-september-rollover');
             if (!response.ok) {
                 throw new Error('Failed to load prayer times data');
             }

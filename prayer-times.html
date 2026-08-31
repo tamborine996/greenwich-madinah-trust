@@ -121,7 +121,7 @@
         </div>
     </section>
 
-    <!-- Current Monthly Timetable: automatically switches to August from 1 August 2026 (Europe/London). -->
+    <!-- Current Monthly Timetable: automatically switches to September from 1 September 2026 (Europe/London). -->
     <section class="content-section timetable-section" id="monthly-timetable-section">
         <div class="container">
             <div class="timetable-header current-timetable-card" style="text-align: center;">
@@ -187,7 +187,7 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20260823-rabi-season-live1"></script>
+    <script src="js/prayer-times.js?v=20260831-september-rollover"></script>
     <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
     <script>
         // Prayer Times Page Specific JS
@@ -213,10 +213,16 @@
         }
 
         function applyCurrentTimetable() {
+            const septemberLive = isOnOrAfterLondonDate(2026, 9, 1);
             const augustLive = isOnOrAfterLondonDate(2026, 8, 1);
             const julyLive = isOnOrAfterLondonDate(2026, 7, 1);
             const juneLive = isOnOrAfterLondonDate(2026, 6, 1);
-            const config = augustLive ? {
+            const config = septemberLive ? {
+                title: 'September 2026 Prayer Timetable', downloadHref: 'documents/september-2026-timetable.pdf?v=20260831-september-rollover',
+                downloadText: 'View/Download September 2026 Timetable',
+                imageHref: 'documents/september-2026-timetable.jpg?v=20260831-september-rollover', imageAlt: 'September 2026 Greenwich Madina Trust prayer timetable',
+                imageCaption: 'September 2026 timetable image'
+            } : augustLive ? {
                 title: 'August 2026 Prayer Timetable', downloadHref: 'documents/august-2026-timetable.pdf?v=20260731-august',
                 downloadText: 'View/Download August 2026 Timetable',
                 imageHref: 'documents/august-2026-timetable.jpg?v=20260731-august', imageAlt: 'August 2026 Greenwich Madina Trust prayer timetable',
