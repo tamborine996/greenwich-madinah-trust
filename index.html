@@ -13,7 +13,7 @@
     </script>
     <meta name="description" content="Greenwich Madina Trust - Serving the local Muslim community with prayers, events, education, and services.">
     <title>Greenwich Madina Trust | Home</title>
-    <link rel="stylesheet" href="css/styles.css?v=20260823-rabi-nur-live1">
+    <link rel="stylesheet" href="css/styles.css?v=20260908-gyaarwee-live1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
@@ -880,8 +880,9 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/gyaarwee-campaign.css?v=20260908-ribbon-v3">
 </head>
-<body data-seasonal-shell>
+<body>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1004,9 +1005,9 @@
     </section>
 
     <!-- Event Notification Bar -->
-    <a href="images/event-poster.jpg" class="event-notification-bar" id="event-notification-bar" style="display: none;" aria-label="Open the full event poster">
+    <a href="#event-spotlight" class="event-notification-bar" id="event-notification-bar" style="display: none;" aria-label="Open the full event poster">
         <span class="event-notif-badge">Upcoming</span>
-        <span class="event-notif-text"><strong>Gyarwee Shareef</strong> — Saturday, 21st December</span>
+        <span class="event-notif-text"><strong>Gyaarwee Shareef</strong> — 13 September · 5:15pm · View poster</span>
         <span class="event-notif-arrow">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
         </span>
@@ -1029,7 +1030,11 @@
                 <!-- Right: Carousel (Swiper.js) -->
                 <div class="hero-carousel-compact swiper" id="hero-carousel">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1: Annual Mawlid video highlights -->
+                        <!-- Current event: expires with the event spotlight -->
+                        <div class="swiper-slide carousel-slide-compact slide-campaign slide-gyaarwee" data-hide-from="2026-09-14">
+<div class="slide-content-compact"><img class="gw-poster-teaser" src="images/event-poster.jpg?v=20260913" alt="" aria-hidden="true"><div class="gw-wash"></div><img class="gw-dome" src="images/gyaarwee-turquoise-dome.png" alt="" aria-hidden="true"><svg class="gw-ornament" viewBox="0 0 270 400" fill="none" aria-hidden="true"><path d="M20 398V164C20 103 50 72 96 46L135 14L174 46C220 72 250 103 250 164V398" stroke="currentColor" stroke-width="1.2"/><path d="M30 398V167C30 110 59 82 104 55L135 29L166 55C211 82 240 110 240 167V398" stroke="currentColor" stroke-width=".7"/><path d="M135 49l6 14 14-6-6 14 14 6-14 6 6 14-14-6-6 14-6-14-14 6 6-14-14-6 14-6-6-14 14 6z" stroke="currentColor"/><path d="M20 353H250M30 363H240" stroke="currentColor" stroke-width=".6"/></svg><div class="gw-copy"><div class="gw-kicker"><small>The</small> Grand Annual</div><h3 class="gw-title"><span>Gyaarwee</span><span>Shareef</span></h3><p class="gw-purpose">English &amp; Urdu talks.<br>Na’at in praise of the Prophet&nbsp;ﷺ.</p><p class="gw-supervision"><small>Under the supervision of</small><strong>Mufti Syed Siraj ul Arifeen</strong><span>Shah Raaji Sahib</span></p><div class="gw-logistics"><div class="gw-date"><strong>13</strong><small>Sunday<br>September</small></div><div class="gw-when"><strong>5:15pm</strong>GMT Ghousia Masjid</div></div><a class="gw-action" href="#event-spotlight">View event details <b aria-hidden="true">↗</b></a></div><span class="gw-bottom-rule"></span></div>
+                        </div>
+                        <!-- Annual Mawlid video highlights -->
                         <div class="swiper-slide carousel-slide-compact slide-campaign slide-mawlid-video" data-mawlid-video-slide>
                             <div class="slide-content-compact">
                                 <div class="campaign-copy">
@@ -1056,27 +1061,6 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Slide 2: Youth Summer Retreat -->
-                        <div class="swiper-slide carousel-slide-compact slide-campaign slide-youth-retreat">
-                            <div class="slide-content-compact">
-                                <div class="campaign-copy">
-                                    <span class="slide-badge">Youth Summer Retreat</span>
-                                    <h3 class="slide-title-compact">Youth Summer Retreat 2026</h3>
-                                    <p class="slide-description-compact">Six weeks of Islamic learning, practical workshops and activities for ages 5–16.</p>
-                                    <div class="campaign-meta" aria-label="Retreat highlights">
-                                        <span>Starts Monday 20 July</span>
-                                        <span>Mon–Thu · 5:00–6:30pm</span>
-                                    </div>
-                                    <a href="news.html#post-2" class="btn btn-light btn-sm">View retreat details</a>
-                                </div>
-                                <div class="campaign-visual retreat-visual" aria-hidden="true">
-                                    <span class="retreat-sun"></span>
-                                    <div class="retreat-date-card"><span>Starts</span><strong>20</strong><small>July</small></div>
-                                    <span class="retreat-route"></span>
-                                    <span class="retreat-field-label">Learn / Make / Play</span>
                                 </div>
                             </div>
                         </div>
@@ -1122,56 +1106,28 @@
     <section class="event-spotlight light" id="event-spotlight" style="display: none;">
         <div class="container">
             <div class="spotlight-content">
-                <div class="spotlight-posters" aria-label="Mawlid event posters">
-                    <a class="spotlight-poster-link" href="images/event-poster-sisters.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full sisters’ Mawlid poster">
+                <div class="spotlight-posters" aria-label="Event poster">
+                    <a class="spotlight-poster-link" href="images/event-poster.jpg?v=20260913" target="_blank" rel="noopener noreferrer" aria-label="Open the full Gyaarwee Shareef poster">
                         <div class="poster-frame">
-                            <span class="spotlight-poster-label">Sisters · 15 August</span>
-                            <img src="images/event-poster-sisters.jpg" alt="Sisters’ Annual Mawlid un Nabi poster">
-                        </div>
-                    </a>
-                    <a class="spotlight-poster-link" href="images/event-poster-brothers.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full brothers’ Mawlid poster">
-                        <div class="poster-frame">
-                            <span class="spotlight-poster-label">Brothers · 16 August</span>
-                            <img src="images/event-poster-brothers.jpg" alt="Brothers’ Annual Mawlid un Nabi poster">
+                            <span class="spotlight-poster-label" style="display:none"></span>
+                            <img src="images/event-poster.jpg?v=20260913" alt="Grand Annual Gyaarwee Shareef poster, Sunday 13 September 2026 at 5:15pm">
                         </div>
                     </a>
                 </div>
                 <div class="spotlight-text">
                     <span class="spotlight-badge">Upcoming Event</span>
-                    <h2 class="spotlight-title">Gyarwee Shareef</h2>
-                    <p class="spotlight-date spotlight-legacy-date">Saturday, 21st December 2025</p>
-                    <p class="spotlight-description">Join us for our monthly gathering commemorating Sheikh Abdul Qadir Jilani (RA). All are welcome.</p>
+                    <h2 class="spotlight-title">Grand Annual Gyaarwee Shareef</h2>
+                    <p class="spotlight-date spotlight-legacy-date">Sunday 13 September 2026</p>
+                    <p class="spotlight-description">The programme will include talks in English and Urdu, and Na’at recitations in praise of the Prophet ﷺ. Food will be served. Please see the poster for the full programme.</p>
                     <div class="spotlight-details spotlight-legacy-details">
                         <div class="spotlight-detail">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            <span class="spotlight-time">After Isha Prayer</span>
+                            <span class="spotlight-time">Starts 5:15pm</span>
                         </div>
                         <div class="spotlight-detail spotlight-detail-location">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span class="spotlight-location">Ghousia Masjid</span>
+                            <span class="spotlight-location">GMT Ghousia Masjid, 56 Camrose Street, London SE2 0JA</span>
                         </div>
-                    </div>
-                    <div class="spotlight-gatherings" aria-label="Mawlid gathering details" hidden>
-                        <article class="spotlight-gathering spotlight-gathering-sisters" data-gathering-index="0">
-                            <h3 class="spotlight-gathering-title">Sisters’ Gathering</h3>
-                            <p class="spotlight-gathering-when">
-                                <span class="spotlight-gathering-date">Saturday 15 August 2026</span>
-                                <span class="spotlight-gathering-separator" aria-hidden="true">·</span>
-                                <span class="spotlight-gathering-time">12:00pm</span>
-                            </p>
-                            <p class="spotlight-gathering-venue">St Mark’s Hall</p>
-                            <p class="spotlight-gathering-address">Old Mill Road, London SE18 1QE</p>
-                        </article>
-                        <article class="spotlight-gathering spotlight-gathering-brothers" data-gathering-index="1">
-                            <h3 class="spotlight-gathering-title">Brothers’ Gathering</h3>
-                            <p class="spotlight-gathering-when">
-                                <span class="spotlight-gathering-date">Sunday 16 August 2026</span>
-                                <span class="spotlight-gathering-separator" aria-hidden="true">·</span>
-                                <span class="spotlight-gathering-time">5:00pm</span>
-                            </p>
-                            <p class="spotlight-gathering-venue">GMT Ghousia Masjid</p>
-                            <p class="spotlight-gathering-address">56 Camrose Street, London SE2 0JA</p>
-                        </article>
                     </div>
                     <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" class="btn btn-primary spotlight-fb-link">View on Facebook</a>
                 </div>
@@ -1566,19 +1522,31 @@
     </script>
 
     <script src="js/prayer-times.js?v=20260831-september-rollover"></script>
-    <script src="js/events.js?v=20260801-gathering-panels-live"></script>
+    <script src="js/events.js?v=20260908-ribbon-v3"></script>
     <!-- Swiper.js for carousel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GLightbox for video modals -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="js/youtube.js?v=20241220"></script>
     <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script>
+        // Remove expired campaign cards before Swiper counts or displays them.
+        (() => {
+            const parts = new Intl.DateTimeFormat('en-GB', {timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'}).formatToParts(new Date());
+            const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+            const today = `${values.year}-${values.month}-${values.day}`;
+            document.querySelectorAll('#hero-carousel [data-hide-from]').forEach(slide => {
+                if (today >= slide.dataset.hideFrom) slide.remove();
+            });
+        })();
+    </script>
     <!-- Initialize Swiper carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Store globally so youtube.js can call update() after showing spotlight slide
             window.heroSwiper = new Swiper('#hero-carousel', {
                 loop: true,
+                autoHeight: true,
                 autoplay: {
                     delay: 10000,
                     disableOnInteraction: false,

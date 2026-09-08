@@ -1,52 +1,27 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-08-17",
-    "badgeText": "Mawlid Weekend",
-    "title": "Annual Mawlid un Nabi",
-    "description": "At the heart of Mawlid is gratitude to Allah Almighty for sending the Best of Creation, our beloved Master Sayyiduna Muhammad—peace and blessings be upon him, his family and companions. Open either poster for the full programme.",
-    "gatherings": [
-      {
-        "title": "Sisters’ Gathering",
-        "date": "Saturday 15 August 2026",
-        "time": "12:00pm",
-        "venue": "St Mark’s Hall",
-        "address": "Old Mill Road, London SE18 1QE"
-      },
-      {
-        "title": "Brothers’ Gathering",
-        "date": "Sunday 16 August 2026",
-        "time": "5:00pm",
-        "venue": "GMT Ghousia Masjid",
-        "address": "56 Camrose Street, London SE2 0JA"
-      }
-    ],
-    "poster": "images/event-poster-brothers.jpg",
-    "posters": [
-      {
-        "src": "images/event-poster-sisters.jpg",
-        "label": "Sisters · 15 August",
-        "alt": "Sisters’ Annual Mawlid un Nabi poster for Saturday 15 August 2026 at St Mark’s Hall",
-        "ariaLabel": "Open the full sisters’ Mawlid poster"
-      },
-      {
-        "src": "images/event-poster-brothers.jpg",
-        "label": "Brothers · 16 August",
-        "alt": "Brothers’ Annual Mawlid un Nabi poster for Sunday 16 August 2026 at GMT Ghousia Masjid",
-        "ariaLabel": "Open the full brothers’ Mawlid poster"
-      }
-    ],
+    "hideFrom": "2026-09-14",
+    "badgeText": "Upcoming Event",
+    "title": "Grand Annual Gyaarwee Shareef",
+    "date": "Sunday 13 September 2026",
+    "description": "The programme will include talks in English and Urdu, and Na’at recitations in praise of the Prophet ﷺ. Food will be served. Please see the poster for the full programme.",
+    "time": "Starts 5:15pm",
+    "location": "GMT Ghousia Masjid, 56 Camrose Street, London SE2 0JA",
+    "poster": "images/event-poster.jpg?v=20260913",
     "buttonText": "",
     "buttonUrl": "",
     "facebookUrl": ""
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-08-17",
-    "badgeText": "Mawlid",
-    "linkText": "Weekend gatherings · 15–16 August",
+    "hideFrom": "2026-09-14",
+    "badgeText": "13 Sep @ 5:15pm",
+    "linkText": "Grand Annual Gyaarwee Shareef",
     "linkUrl": "#event-spotlight",
     "openInNewTab": false,
-    "ariaLabel": "View the sisters’ and brothers’ Annual Mawlid gathering posters"
+    "ariaLabel": "View the Grand Annual Gyaarwee Shareef poster and event details. 13 September at 5:15pm.",
+    "linkDetails": "",
+    "actionText": "View more"
   }
 }

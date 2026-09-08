@@ -9,7 +9,7 @@
     // Load events data and update the page
     async function loadEvents() {
         try {
-            const response = await fetch('data/events.json?v=20260720-editorial-live');
+            const response = await fetch('data/events.json?v=20260908-ribbon-v3');
             if (!response.ok) {
                 throw new Error('Failed to load events data');
             }
@@ -80,12 +80,33 @@
 
         // Update badge text
         const badgeEl = bar.querySelector('.event-notif-badge');
-        if (badgeEl && config.badgeText) {
-            badgeEl.textContent = config.badgeText;
+        if (badgeEl) {
+            badgeEl.textContent = config.badgeText || '';
+            badgeEl.style.display = config.badgeText ? '' : 'none';
+        }
+
+        const arrow = bar.querySelector('.event-notif-arrow');
+        if (arrow) {
+            let action = arrow.querySelector('.event-notif-action');
+            if (!action) {
+                action = document.createElement('span');
+                action.className = 'event-notif-action';
+                arrow.prepend(action);
+            }
+            action.textContent = config.actionText || '';
+            action.hidden = !config.actionText;
         }
 
         const textEl = bar.querySelector('.event-notif-text');
-        if (textEl && config.linkText) {
+        if (textEl && config.linkText && config.linkDetails) {
+            const title = document.createElement('strong');
+            title.className = 'event-notif-title';
+            title.textContent = config.linkText;
+            const details = document.createElement('span');
+            details.className = 'event-notif-details';
+            details.textContent = config.linkDetails;
+            textEl.replaceChildren(title, details);
+        } else if (textEl && config.linkText) {
             // Parse the text to bold the event name (before the em dash)
             const parts = config.linkText.split('—');
             if (parts.length === 2) {
