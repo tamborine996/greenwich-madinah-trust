@@ -121,7 +121,7 @@
         </div>
     </section>
 
-    <!-- Current Monthly Timetable: automatically switches to September from 1 September 2026 (Europe/London). -->
+    <!-- Current Monthly Timetable: automatically switches to October from 1 October 2026 (Europe/London). -->
     <section class="content-section timetable-section" id="monthly-timetable-section">
         <div class="container">
             <div class="timetable-header current-timetable-card" style="text-align: center;">
@@ -187,7 +187,7 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20260831-september-rollover"></script>
+    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
     <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
     <script>
         // Prayer Times Page Specific JS
@@ -213,11 +213,17 @@
         }
 
         function applyCurrentTimetable() {
+            const octoberLive = isOnOrAfterLondonDate(2026, 10, 1);
             const septemberLive = isOnOrAfterLondonDate(2026, 9, 1);
             const augustLive = isOnOrAfterLondonDate(2026, 8, 1);
             const julyLive = isOnOrAfterLondonDate(2026, 7, 1);
             const juneLive = isOnOrAfterLondonDate(2026, 6, 1);
-            const config = septemberLive ? {
+            const config = octoberLive ? {
+                title: 'October 2026 Prayer Timetable', downloadHref: 'documents/october-2026-timetable.pdf?v=20260929-october-rollover',
+                downloadText: 'View/Download October 2026 Timetable',
+                imageHref: 'documents/october-2026-timetable.jpg?v=20260929-october-rollover', imageAlt: 'October 2026 Greenwich Madina Trust prayer timetable',
+                imageCaption: 'October 2026 timetable image'
+            } : septemberLive ? {
                 title: 'September 2026 Prayer Timetable', downloadHref: 'documents/september-2026-timetable.pdf?v=20260831-september-rollover',
                 downloadText: 'View/Download September 2026 Timetable',
                 imageHref: 'documents/september-2026-timetable.jpg?v=20260831-september-rollover', imageAlt: 'September 2026 Greenwich Madina Trust prayer timetable',
