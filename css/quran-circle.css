@@ -1,0 +1,47 @@
+/* Qur'an Circle: inherits the shared service-card layout; only the session list is card-specific. */
+.quran-circle-card,
+#quran-circle { scroll-margin-top: 160px; }
+/* clip, not hidden: a hidden-overflow card is a scroll container, so #quran-circle visits would ignore the heading's offset. */
+.quran-circle-card { overflow: clip; }
+
+/* Sessions extend the schedule-table pattern used by Dars-e-Quran: label | time, with the venue beneath the time. */
+.quran-circle-sessions {
+    max-width: 34rem;
+    margin-top: var(--space-lg);
+}
+.quran-circle-session {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    column-gap: var(--space-md);
+    align-items: first baseline;
+    padding: var(--space-md) 0;
+}
+.quran-circle-session + .quran-circle-session { border-top: 1px solid rgba(196, 169, 98, 0.3); }
+.quran-circle-session:last-child { padding-bottom: 0; }
+.quran-circle-session h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 0;
+}
+.service-detail-content .quran-circle-time {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--gold-muted);
+    margin: 0 0 var(--space-xs);
+}
+.service-detail-content .quran-circle-venue {
+    line-height: 1.6;
+    margin: 0;
+}
+.quran-circle-venue strong {
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+@media (max-width: 768px) {
+    .quran-circle-sessions { margin-inline: auto; }
+    .quran-circle-session { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-xs); }
+}

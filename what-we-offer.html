@@ -14,6 +14,7 @@
     <meta name="description" content="What Greenwich Madina Trust offers - Services, educational programs, and community gatherings.">
     <title>What We Offer | Greenwich Madina Trust</title>
     <link rel="stylesheet" href="css/styles.css?v=20260823-rabi-nur-live1">
+    <link rel="stylesheet" href="css/quran-circle.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
@@ -284,17 +285,34 @@
                     </div>
                 </div>
 
-                <!-- Arabic Classes -->
-                <div class="service-detail-card" id="arabic">
-                    <div class="service-detail-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 20c0 10 8 14 16 14s16-4 16-14"/>
-                            <circle cx="24" cy="40" r="3" fill="#c4a962"/>
+                <!-- Qur'an Circle: retain the arabic anchor for existing links. -->
+                <div class="service-detail-card quran-circle-card" id="arabic">
+                    <div class="service-detail-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 13C18 9 11 8 5 10v27c6-2 13-1 19 3 6-4 13-5 19-3V10c-6-2-13-1-19 3Z"/>
+                            <path d="M24 13v27M10 16c3-.2 6 .5 9 2M10 22c3-.2 6 .5 9 2M29 18c3-1.5 6-2.2 9-2M29 24c3-1.5 6-2.2 9-2"/>
                         </svg>
                     </div>
                     <div class="service-detail-content">
-                        <h3>Adult Arabic Classes <span class="badge-coming-soon">Coming Soon</span></h3>
-                        <p>Arabic language classes for adults at all levels, from beginners to advanced. Learn to read, write, and understand Arabic.</p>
+                        <h3 id="quran-circle">Qur’an Circle (Tajweed)</h3>
+                        <p class="service-schedule">Weekly classes</p>
+                        <p>Learn to read the Qur’an with Tajweed.</p>
+                        <div class="quran-circle-sessions">
+                            <section class="quran-circle-session" aria-labelledby="quran-men">
+                                <h4 id="quran-men">Men’s class</h4>
+                                <div>
+                                    <p class="quran-circle-time">Tuesdays, 7:45pm</p>
+                                    <p class="quran-circle-venue"><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<br><span class="location-note">Start time changes through the year. The <a href="prayer-times.html">monthly timetable</a> shows the current time.</span></p>
+                                </div>
+                            </section>
+                            <section class="quran-circle-session" aria-labelledby="quran-ladies">
+                                <h4 id="quran-ladies">Ladies’ class</h4>
+                                <div>
+                                    <p class="quran-circle-time">Fridays, 12–1pm</p>
+                                    <p class="quran-circle-venue"><strong>Educational Centre</strong><br>46 Conway Road, London&nbsp;SE18&nbsp;1AR<br><span class="location-note">(Separate from the Masjid)</span></p>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
