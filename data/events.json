@@ -1,26 +1,26 @@
 {
   "spotlight": {
     "enabled": true,
-    "hideFrom": "2026-09-14",
+    "hideFrom": "2026-10-12",
     "badgeText": "Upcoming Event",
-    "title": "Grand Annual Gyaarwee Shareef",
-    "date": "Sunday 13 September 2026",
-    "description": "The programme will include talks in English and Urdu, and Na’at recitations in praise of the Prophet ﷺ. Food will be served. Please see the poster for the full programme.",
-    "time": "Starts 5:15pm",
+    "title": "Monthly Gyarwee Shareef",
+    "date": "Sunday 11 October 2026",
+    "description": "Please join us for our monthly gathering in remembrance of Allah. Lungar Shareef will be served, in shā’ Allāh.",
+    "time": "6–8 pm",
     "location": "GMT Ghousia Masjid, 56 Camrose Street, London SE2 0JA",
-    "poster": "images/event-poster.jpg?v=20260913",
+    "poster": "images/event-poster.jpg?v=20261011-monthly-v2",
     "buttonText": "",
     "buttonUrl": "",
-    "facebookUrl": ""
+    "facebookUrl": "https://facebook.com/308226829272256_1113400601340668"
   },
   "notificationBar": {
     "enabled": true,
-    "hideFrom": "2026-09-14",
-    "badgeText": "13 Sep @ 5:15pm",
-    "linkText": "Grand Annual Gyaarwee Shareef",
+    "hideFrom": "2026-10-12",
+    "badgeText": "11 Oct · 6–8 pm",
+    "linkText": "Monthly Gyarwee Shareef",
     "linkUrl": "#event-spotlight",
     "openInNewTab": false,
-    "ariaLabel": "View the Grand Annual Gyaarwee Shareef poster and event details. 13 September at 5:15pm.",
+    "ariaLabel": "View the Monthly Gyarwee Shareef poster and event details. Sunday 11 October 2026, 6–8 pm.",
     "linkDetails": "",
     "actionText": "View more"
   }
