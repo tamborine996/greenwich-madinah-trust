@@ -1,16 +1,16 @@
 {
     "description": "Greenwich Madina Trust official Hijri calendar. Update this when new Islamic month is announced.",
-    "lastUpdated": "2026-09-11",
+    "lastUpdated": "2026-10-11",
     "currentMonth": {
-        "hijriMonth": "Rabi al-Awwal",
-        "hijriYear": 1448,
-        "gregorianStartDate": "2026-08-14",
-        "note": "1st Rabi al-Awwal 1448 = Friday 14th August 2026, following the confirmed UK Sunni Moon Sighting Board announcement"
-    },
-    "nextMonth": {
         "hijriMonth": "Rabi ul Thani",
         "hijriYear": 1448,
         "gregorianStartDate": "2026-09-13",
         "note": "1st Rabi ul Thani 1448 = Sunday 13th September 2026, following the Sunni Ru'yat-e-Hilal Board, UK announcement supplied by Mohammed"
+    },
+    "nextMonth": {
+        "hijriMonth": "Jumada al-Ula",
+        "hijriYear": 1448,
+        "gregorianStartDate": "2026-10-13",
+        "note": "1st Jumada al-Ula 1448 = Tuesday 13th October 2026, after completing 30 days of Rabi al-Ghawth (Rabi al-Thani), following the Sunni Royat E Hilal Board UK announcement by Shams-ul-Huda Khan Razvi Misbahi, Darul Ifta Kanz-ul-Iman UK, supplied by Mohammed"
     }
 }
