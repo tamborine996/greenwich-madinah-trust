@@ -11,6 +11,18 @@
     box-sizing: border-box;
 }
 #hero-carousel .slide-programme-dars { background: #082d44; }
+#hero-carousel .slide-programme-tiktok { background: #032f32; }
+#hero-carousel .programme-artwork-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+#hero-carousel .programme-artwork-link:focus-visible {
+    outline: 2px solid #eed295;
+    outline-offset: -4px;
+}
 #hero-carousel .programme-artwork {
     display: block;
     width: auto;
