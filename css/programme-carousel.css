@@ -1,0 +1,91 @@
+/* Approved poster-led programme slides. Scoped to the homepage carousel. */
+#hero-carousel .slide-programme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--programme-height, min(440px, calc(100vw - 48px)));
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #073b30;
+    box-sizing: border-box;
+}
+#hero-carousel .slide-programme-dars { background: #082d44; }
+#hero-carousel .programme-artwork {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+#hero-carousel.has-programme-slide {
+    min-width: 0;
+    border-radius: 9px;
+    box-shadow: none;
+}
+#hero-carousel.has-programme-slide::before,
+#hero-carousel.has-programme-slide::after { display: none; }
+#hero-carousel.has-programme-slide .swiper-button-prev,
+#hero-carousel.has-programme-slide .swiper-button-next {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    top: 50%;
+    margin-top: -22px;
+    border: 1px solid #e6cf9666;
+    border-radius: 50%;
+    background: #082d4477;
+    backdrop-filter: none;
+    color: #fff4d7;
+    box-sizing: border-box;
+}
+#hero-carousel.has-programme-slide .swiper-button-prev { left: 8px; }
+#hero-carousel.has-programme-slide .swiper-button-next { right: 8px; }
+#hero-carousel.has-programme-slide .swiper-button-prev::after,
+#hero-carousel.has-programme-slide .swiper-button-next::after {
+    color: #fff4d7;
+    font-size: 14px;
+    font-weight: normal;
+}
+#hero-carousel.has-programme-slide .swiper-pagination {
+    bottom: 0;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+#hero-carousel.has-programme-slide .swiper-pagination-bullet {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+#hero-carousel.has-programme-slide .swiper-pagination-bullet::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffffff99;
+}
+#hero-carousel.has-programme-slide .swiper-pagination-bullet-active::after {
+    width: 17px;
+    border-radius: 5px;
+    background: #eed295;
+}
+#hero-carousel.has-programme-slide .swiper-button-prev:focus-visible,
+#hero-carousel.has-programme-slide .swiper-button-next:focus-visible,
+#hero-carousel.has-programme-slide .swiper-pagination-bullet:focus-visible {
+    outline: 2px solid #eed295;
+    outline-offset: -2px;
+}
+@media (prefers-reduced-motion: reduce) {
+    #hero-carousel.has-programme-slide { animation: none; }
+}

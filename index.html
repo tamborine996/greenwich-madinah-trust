@@ -881,6 +881,7 @@
         }
     </style>
     <link rel="stylesheet" href="css/gyaarwee-campaign.css?v=20260908-ribbon-v3">
+    <link rel="stylesheet" href="css/programme-carousel.css?v=20261012-programmes1">
 </head>
 <body>
     <!-- Header -->
@@ -1028,8 +1029,15 @@
                     </div>
                 </div>
                 <!-- Right: Carousel (Swiper.js) -->
-                <div class="hero-carousel-compact swiper" id="hero-carousel">
+                <div class="hero-carousel-compact swiper has-programme-slide" id="hero-carousel" role="region" aria-label="Featured programmes and updates">
                     <div class="swiper-wrapper">
+                        <!-- Approved recurring programmes: full-bleed, with native carousel controls. -->
+                        <div class="swiper-slide slide-programme slide-programme-tajweed" data-programme="tajweed" data-swiper-autoplay="16000">
+                            <img class="programme-artwork" src="images/programmes/tajweed-circle-carousel-20261012.webp" width="1254" height="1254" fetchpriority="high" alt="Tajweed Circle — every Tuesday at 7:30pm, free to attend at Ghousia Masjid. Learn to read the Qur’an with Tajweed and rectify your Salah recitation. Suitable for reverts and complete beginners. Non-judgmental environment; all welcome 16+; support WhatsApp group; native English teacher with 13 years of experience.">
+                        </div>
+                        <div class="swiper-slide slide-programme slide-programme-dars" data-programme="dars">
+                            <img class="programme-artwork" src="images/programmes/dars-e-quran-carousel-20261012.webp" width="1254" height="1254" alt="Dars-e-Quran — every Thursday at 7:45pm at Ghousia Masjid, with Hazrat Allamah Pir Syed Shamsul Arifeen Shah Sahib.">
+                        </div>
                         <!-- Current event: expires with the event spotlight -->
                         <div class="swiper-slide carousel-slide-compact slide-campaign slide-gyaarwee" data-hide-from="2026-09-14">
 <div class="slide-content-compact"><img class="gw-poster-teaser" src="images/event-poster.jpg?v=20260913" alt="" aria-hidden="true"><div class="gw-wash"></div><img class="gw-dome" src="images/gyaarwee-turquoise-dome.png" alt="" aria-hidden="true"><svg class="gw-ornament" viewBox="0 0 270 400" fill="none" aria-hidden="true"><path d="M20 398V164C20 103 50 72 96 46L135 14L174 46C220 72 250 103 250 164V398" stroke="currentColor" stroke-width="1.2"/><path d="M30 398V167C30 110 59 82 104 55L135 29L166 55C211 82 240 110 240 167V398" stroke="currentColor" stroke-width=".7"/><path d="M135 49l6 14 14-6-6 14 14 6-14 6 6 14-14-6-6 14-6-14-14 6 6-14-14-6 14-6-6-14 14 6z" stroke="currentColor"/><path d="M20 353H250M30 363H240" stroke="currentColor" stroke-width=".6"/></svg><div class="gw-copy"><div class="gw-kicker"><small>The</small> Grand Annual</div><h3 class="gw-title"><span>Gyaarwee</span><span>Shareef</span></h3><p class="gw-purpose">English &amp; Urdu talks.<br>Na’at in praise of the Prophet&nbsp;ﷺ.</p><p class="gw-supervision"><small>Under the supervision of</small><strong>Mufti Syed Siraj ul Arifeen</strong><span>Shah Raaji Sahib</span></p><div class="gw-logistics"><div class="gw-date"><strong>13</strong><small>Sunday<br>September</small></div><div class="gw-when"><strong>5:15pm</strong>GMT Ghousia Masjid</div></div><a class="gw-action" href="#event-spotlight">View event details <b aria-hidden="true">↗</b></a></div><span class="gw-bottom-rule"></span></div>
@@ -1557,11 +1565,11 @@
                     crossFade: true
                 },
                 navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
+                    nextEl: '#hero-carousel .swiper-button-next',
+                    prevEl: '#hero-carousel .swiper-button-prev'
                 },
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '#hero-carousel .swiper-pagination',
                     clickable: true
                 },
                 keyboard: {
@@ -1678,5 +1686,6 @@
             syncVideoWithSlide();
         });
     </script>
+    <script src="js/programme-carousel.js?v=20261012-programmes1"></script>
 </body>
 </html>
