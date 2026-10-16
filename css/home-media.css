@@ -1,0 +1,165 @@
+/* Homepage "Media" (16 Oct 2026): videos and the live Instagram feed side by side.
+   The newest video is featured; the next three sit beside it as compact rows.
+   Overrides the media rules in styles.css only inside #media-section. */
+
+#media-section {
+    background: var(--cream);
+}
+
+.home-media-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+}
+
+#media-section .media-subsection {
+    margin: 0;
+}
+
+/* Sub-headings in the eyebrow style, icons in house colours. */
+#media-section .media-subsection-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+#media-section .media-subsection-header h3 {
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald);
+}
+
+#media-section .media-subsection-header h3 svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* replaces YouTube red and the Instagram gradient */
+}
+
+#media-section .media-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* ---------- Videos ---------- */
+
+#media-section .youtube-videos-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    max-width: none; /* styles.css caps the phone list at 400px */
+    margin: 0;
+}
+
+#media-section .youtube-video-card {
+    display: grid;
+    grid-template-columns: 148px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    padding: 0.9rem 0;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.4);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#media-section .youtube-video-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#media-section .youtube-video-card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+#media-section .video-thumbnail {
+    display: block;
+    background: var(--emerald-deep);
+}
+
+#media-section .video-thumbnail img {
+    display: block;
+}
+
+#media-section .video-text {
+    display: block;
+    min-width: 0;
+}
+
+#media-section .video-title {
+    display: block;
+    padding: 0;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--emerald-deep);
+    -webkit-line-clamp: unset;
+}
+
+#media-section .video-meta {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--slate);
+}
+
+/* The newest video, featured. */
+#media-section .youtube-video-card:first-child {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+    padding-top: 0;
+}
+
+#media-section .youtube-video-card:first-child .video-title {
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+}
+
+#media-section .youtube-video-card:first-child .video-play-icon {
+    opacity: 1;
+    background: rgba(8, 61, 51, 0.15);
+}
+
+#media-section .youtube-video-card:first-child .video-play-icon svg {
+    width: 64px;
+    height: 64px;
+}
+
+/* ---------- Instagram ---------- */
+
+#media-section .instagram-feed-container {
+    min-height: 0;
+    display: block;
+    padding: 0;
+}
+
+/* ---------- Tablet and phone ---------- */
+
+@media (max-width: 899.98px) {
+    .home-media-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    #media-section .youtube-video-card {
+        grid-template-columns: 112px minmax(0, 1fr);
+    }
+
+    #media-section .youtube-video-card:first-child {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #media-section .video-title {
+        font-size: 1.05rem;
+    }
+}

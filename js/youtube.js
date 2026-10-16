@@ -277,19 +277,36 @@
             return;
         }
 
-        container.innerHTML = videos.map(video => `
-            <button type="button" class="youtube-video-card" data-video-id="${video.videoId}" data-title="${video.title}">
-                <div class="video-thumbnail">
-                    <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
-                    <div class="video-play-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
+        // Channel titles read "Speaker | Talk type | Event | Greenwich Madina Trust":
+        // show the first part as the title and the middle parts as a short description.
+        const escapeText = text => String(text ?? '')
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        const splitTitle = title => {
+            const parts = String(title).split('|').map(part => part.trim()).filter(Boolean)
+                .filter(part => !/^greenwich madina trust$/i.test(part));
+            return { name: parts[0] || title, meta: parts.slice(1).join(' · ') };
+        };
+
+        container.innerHTML = videos.map(video => {
+            const { name, meta } = splitTitle(video.title);
+            return `
+            <button type="button" class="youtube-video-card" data-video-id="${escapeText(video.videoId)}" data-title="${escapeText(video.title)}">
+                <span class="video-thumbnail">
+                    <img src="${escapeText(video.thumbnail)}" alt="" loading="lazy">
+                    <span class="video-play-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                    </div>
-                </div>
-                <h4 class="video-title">${video.title}</h4>
+                    </span>
+                </span>
+                <span class="video-text">
+                    <span class="video-title">${escapeText(name)}</span>
+                    ${meta ? `<span class="video-meta">${escapeText(meta)}</span>` : ''}
+                </span>
             </button>
-        `).join('');
+        `;
+        }).join('');
 
         // Add click handlers for video cards
         container.querySelectorAll('.youtube-video-card').forEach(card => {

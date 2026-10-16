@@ -1,0 +1,131 @@
+/* Inner-page shell (16 Oct 2026): brings every inner page in line with the new homepage.
+   Loaded after styles.css on News, Prayer Times, What We Offer, Resources, Contact and Privacy.
+   Restyles the existing page-hero / section-header / content-section / cta-box markup, so page text
+   and structure stay as they are. Uses home-sections.css for the shared heading and link pattern. */
+
+/* ---------- Page header: compact and left-aligned, instead of a tall centred band ---------- */
+
+.page-hero {
+    padding: clamp(2.25rem, 4.5vw, 3.5rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
+    background: var(--cream);
+    text-align: left;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.45);
+}
+
+.page-hero::before {
+    display: none; /* the faint geometric wash */
+}
+
+.page-hero h1 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(2.3rem, 4.2vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--emerald-deep);
+}
+
+/* A short gold rule above the title, matching the homepage eyebrow rule. */
+.page-hero h1::after {
+    display: none;
+}
+
+.page-hero h1::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-bottom: 1rem;
+    background: var(--gold);
+}
+
+.page-hero p {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--slate);
+}
+
+/* ---------- Sections ---------- */
+
+.content-section {
+    padding: clamp(2.75rem, 5.5vw, 4.5rem) 0;
+}
+
+.section-header {
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+    text-align: left;
+}
+
+.section-header h2 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--emerald-deep);
+}
+
+.section-header h2::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-bottom: 0.85rem;
+    background: var(--gold);
+}
+
+.section-header p {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 1rem;
+    color: var(--slate);
+}
+
+/* ---------- Call-to-action band: square-edged emerald with a gold rule, like the donate panel ---------- */
+
+.cta-box {
+    border-radius: 0;
+    border-top: 3px solid var(--gold);
+    background: var(--emerald-deep);
+    text-align: left;
+    padding: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.cta-box::before {
+    display: none;
+}
+
+.cta-box h2,
+.cta-box h3 {
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+}
+
+.cta-box p {
+    margin: 0 0 1.4rem;
+}
+
+.cta-box .cta-buttons {
+    justify-content: flex-start;
+}
+
+/* The primary button was emerald on emerald; gold, as on the donate panel. */
+.cta-box .btn-primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--emerald-deep);
+}
+
+.cta-box .btn-primary:hover {
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    color: var(--emerald-deep);
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 600px) {
+    .page-hero h1 {
+        font-size: clamp(2rem, 9vw, 2.5rem);
+    }
+}

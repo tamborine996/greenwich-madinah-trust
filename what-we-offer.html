@@ -11,15 +11,20 @@
       gtag('js', new Date());
       gtag('config', 'G-1SG005B9VX');
     </script>
-    <meta name="description" content="What Greenwich Madina Trust offers - Services, educational programs, and community gatherings.">
+    <meta name="description" content="What Greenwich Madina Trust offers: services, education, and community gatherings.">
     <title>What We Offer | Greenwich Madina Trust</title>
     <link rel="stylesheet" href="css/styles.css?v=20260823-rabi-nur-live1">
-    <link rel="stylesheet" href="css/quran-circle.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
+    <!-- shared shell matching the new homepage -->
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/what-we-offer.css?v=20261016-redesign">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -115,278 +120,373 @@
     </section>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" id="content" tabindex="-1">
         <div class="container">
             <h1>What We Offer</h1>
-            <p>Services, programs, and gatherings for our community</p>
+            <p>Services, education, and gatherings for our community</p>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="content-section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
-                <p>Supporting our community through all stages of life</p>
-            </div>
+    <!-- What We Offer (16 Oct 2026): an index beside three groups (sticky on desktop; js/offer-index.js
+         marks the item being read). Every item follows one pattern: icon and name, an "At a glance" strip
+         (facts and next step), then the approved description. Wording inside the cards is unchanged.
+         Icons: images/icons/offer-icons.svg. Class times: data-session, filled by js/offer-times.js. -->
+    <div class="offer-layout">
+        <div class="container offer-layout-inner">
 
-            <div class="services-detail-grid">
-                <!-- Janazah Services -->
-                <div class="service-detail-card" id="janazah">
-                    <div class="service-detail-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 6c-3 4-5 7-5 10c0 3 2 5 5 5s5-2 5-5c0-3-2-6-5-10z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <path d="M24 12c-1 1.5-2 3-2 4c0 1.2 0.9 2 2 2s2-0.8 2-2c0-1-1-2.5-2-4z" fill="#c4a962" fill-opacity="0.3"/>
-                            <rect x="18" y="21" width="12" height="22" rx="1" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <path d="M14 43h20" stroke="#c4a962" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Funeral Services (Janazah)</h3>
-                        <p>We provide comprehensive funeral services for the Muslim community, including:</p>
+            <nav class="offer-index" aria-label="On this page">
+                <p class="offer-index-title">On this page</p>
+                <ol class="offer-index-groups">
+                    <li class="offer-index-group">
+                        <a class="offer-index-label" href="#services"><span class="offer-index-num" aria-hidden="true">01</span>Services</a>
                         <ul>
-                            <li>Guidance and support during bereavement</li>
-                            <li>Ghusl (ritual washing) facilities</li>
-                            <li>Kafan (shrouding) services</li>
-                            <li>Janazah prayer at the mosque</li>
-                            <li>Transportation to cemetery included</li>
-                            <li>Liaison with funeral directors</li>
+                            <li><a href="#janazah">Janazah</a></li>
+                            <li><a href="#nikah">Nikah</a></li>
+                            <li><a href="#counselling">Counselling</a></li>
                         </ul>
-                        <p class="service-note">For urgent assistance, please contact us immediately.</p>
-                        <a href="contact.html#janazah" class="btn btn-primary">Contact for Janazah Services</a>
-                    </div>
-                </div>
-
-                <!-- Nikah Services -->
-                <div class="service-detail-card" id="nikah">
-                    <div class="service-detail-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="8" y="4" width="24" height="32" rx="2" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <path d="M14 12h12M14 18h12M14 24h8" stroke="#c4a962" stroke-width="1" stroke-opacity="0.6"/>
-                            <path d="M12 30h8M22 30h8" stroke="#c4a962" stroke-width="1.5"/>
-                            <path d="M34 20l8-12 2 2-8 12-3 1 1-3z" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Marriage Services (Nikah)</h3>
-                        <p>We offer Islamic marriage ceremonies conducted according to the Sunni tradition:</p>
+                    </li>
+                    <li class="offer-index-group">
+                        <a class="offer-index-label" href="#education"><span class="offer-index-num" aria-hidden="true">02</span>Educational programmes</a>
                         <ul>
-                            <li>Pre-marital guidance and counselling</li>
-                            <li>Nikah ceremony at the mosque</li>
-                            <li>Islamic marriage certificate</li>
-                            <li>Guidance on Islamic marital rights and responsibilities</li>
+                            <li><a href="#madrassah">Children’s Madrassah</a></li>
+                            <li><a href="#dars">Dars-e-Quran</a></li>
+                            <li><a href="#quran-circle">Qur’an Circle</a></li>
                         </ul>
-                        <p class="service-note">Please contact us in advance to arrange a Nikah ceremony.</p>
-                        <a href="contact.html#nikah" class="btn btn-primary">Enquire About Nikah Services</a>
-                        <a href="nikah-certificate.html" class="btn btn-outline" style="margin-left: 8px;">Nikah Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Counselling -->
-                <div class="service-detail-card" id="counselling">
-                    <div class="service-detail-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="16" r="8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <path d="M12 40c0-8 5-12 12-12s12 4 12 12" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <path d="M32 28c4 0 8 3 8 8" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                            <circle cx="36" cy="18" r="5" stroke="#c4a962" stroke-width="1.5" fill="none"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Counselling</h3>
-                        <p>We provide confidential counselling and support services:</p>
+                    </li>
+                    <li class="offer-index-group">
+                        <a class="offer-index-label" href="#gatherings"><span class="offer-index-num" aria-hidden="true">03</span>Gatherings</a>
                         <ul>
-                            <li>Marriage and family counselling</li>
-                            <li>Spiritual guidance</li>
-                            <li>Support during difficult times</li>
-                            <li>Referrals to specialist services when needed</li>
+                            <li><a href="#gyarwee">Gyarwee Shareef</a></li>
+                            <li><a href="#mawlid">Milad-un-Nabi</a></li>
                         </ul>
-                        <p class="service-note">All counselling is strictly confidential.</p>
-                        <a href="contact.html#counselling" class="btn btn-primary">Request Counselling</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </li>
+                </ol>
+            </nav>
 
-    <!-- Educational Programs Section -->
-    <section class="content-section" id="education">
-        <div class="container">
-            <div class="section-header">
-                <h2>Educational Programs</h2>
-                <p>Nurturing faith and knowledge in our community</p>
-            </div>
+            <div class="offer-main">
 
-            <div class="services-detail-grid">
-                <!-- Madrassah -->
-                <div class="service-detail-card" id="madrassah">
-                    <div class="service-detail-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="14" cy="12" r="5"/>
-                            <circle cx="34" cy="12" r="5"/>
-                            <path d="M14 17v6l6 4"/>
-                            <path d="M34 17v6l-6 4"/>
-                            <path d="M14 34l10-4 10 4v8l-10-3-10 3v-8z"/>
-                            <path d="M24 30v9"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Children's Madrassah</h3>
-                        <p class="service-schedule">Weekdays after school</p>
-                        <table class="schedule-table">
-                            <tr><td>Junior (ages 5-9)</td><td>4:30 - 5:40 PM</td></tr>
-                            <tr><td>Senior (ages 10-16)</td><td>5:40 - 6:50 PM</td></tr>
-                        </table>
-                        <p class="location-info">
-                            <strong>Location:</strong> Greenwich Madina Trust Educational Centre<br>
-                            46 Conway Road, London SE18 1AR<br>
-                            <span class="location-note">(Separate from the Masjid)</span>
-                            <a href="https://www.google.com/maps/search/?api=1&query=46+Conway+Road+London+SE18+1AR" target="_blank" class="directions-link">Get Directions</a>
-                        </p>
-                        <p>Our Madrassah provides comprehensive Islamic education with a dedicated syllabus for each age group:</p>
-                        <ul>
-                            <li>Quran recitation and Tajweed</li>
-                            <li>Islamic studies and Aqeedah</li>
-                            <li>Duas and etiquette</li>
-                            <li>Arabic language fundamentals</li>
-                            <li>Seerah and Islamic history</li>
-                        </ul>
-                        <p>Download the enrolment form, complete it, and submit it to the Educational Centre (46 Conway Road) with a copy of your child's birth certificate or passport.</p>
-                        <div class="button-group">
-                            <a href="documents/madrassah-enrolment-form.pdf" class="btn btn-primary" download>Download Enrolment Form</a>
-                            <a href="contact.html#madrassah" class="btn btn-secondary">Have Questions?</a>
+                <!-- ============ 01 Services ============ -->
+                <section class="offer-group" id="services" aria-labelledby="services-title">
+                    <header class="offer-group-head">
+                        <span class="offer-group-num" aria-hidden="true">01</span>
+                        <div>
+                            <h2 id="services-title">Services</h2>
+                            <p>Supporting our community through all stages of life</p>
                         </div>
-                    </div>
-                </div>
+                    </header>
 
-                <!-- Dars-e-Quran -->
-                <div class="service-detail-card" id="dars">
-                    <div class="service-detail-icon">
-                        <!-- Person speaking/teaching with speech bubble - Quran lesson -->
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Person/speaker -->
-                            <circle cx="14" cy="14" r="6"/>
-                            <path d="M14 20v10"/>
-                            <path d="M8 42l6-12 6 12"/>
-                            <!-- Speech bubble with lines (teaching/speaking) -->
-                            <path d="M24 8h18c2 0 4 2 4 4v12c0 2-2 4-4 4H30l-4 6v-6h-2c-2 0-4-2-4-4V12c0-2 2-4 4-4z" fill="#c4a962" fill-opacity="0.1"/>
-                            <path d="M28 14h10"/>
-                            <path d="M28 20h8"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Dars-e-Quran</h3>
-                        <p class="service-schedule">Weekly</p>
-                        <table class="schedule-table">
-                            <tr><td>Men's</td><td>Every Thursday at 7:45pm</td></tr>
-                            <tr><td>Ladies'</td><td>TBA</td></tr>
-                        </table>
-                        <p>Weekly Quran study sessions with tafseer (explanation) and discussion. These are not formal classes but regular talks that anyone can attend to deepen their understanding of the Quran.</p>
-                    </div>
-                </div>
-
-                <!-- Qur'an Circle: retain the arabic anchor for existing links. -->
-                <div class="service-detail-card quran-circle-card" id="arabic">
-                    <div class="service-detail-icon" aria-hidden="true">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M24 13C18 9 11 8 5 10v27c6-2 13-1 19 3 6-4 13-5 19-3V10c-6-2-13-1-19 3Z"/>
-                            <path d="M24 13v27M10 16c3-.2 6 .5 9 2M10 22c3-.2 6 .5 9 2M29 18c3-1.5 6-2.2 9-2M29 24c3-1.5 6-2.2 9-2"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3 id="quran-circle">Qur’an Circle (Tajweed)</h3>
-                        <p class="service-schedule">Weekly classes</p>
-                        <p>Learn to read the Qur’an with Tajweed.</p>
-                        <div class="quran-circle-sessions">
-                            <section class="quran-circle-session" aria-labelledby="quran-men">
-                                <h4 id="quran-men">Men’s class</h4>
+                    <!-- Janazah: the urgent call comes first. -->
+                    <article class="offer" id="janazah" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-janazah"/></svg></span>
+                            <h3>Funeral services (Janazah)</h3>
+                        </header>
+                        <div class="offer-urgent">
+                            <p>For urgent assistance, please contact us immediately.</p>
+                            <!-- the contact page's published phone (confirm it is right for urgent Janazah calls) -->
+                            <a href="tel:+447792884795" class="btn offer-urgent-call"><svg aria-hidden="true"><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-phone"/></svg>Call 07792 884795</a>
+                        </div>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
                                 <div>
-                                    <p class="quran-circle-time">Tuesdays, after Isha</p>
-                                    <p class="quran-circle-venue"><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<br><span class="location-note">The class starts after Isha prayer. Check the <a href="prayer-times.html">monthly timetable</a> for the Isha jamaat time.</span></p>
+                                    <dt>Janazah prayer</dt>
+                                    <dd><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<a class="offer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=51.486854553222656,0.10261762142181396" target="_blank" rel="noopener">Get directions</a></dd>
                                 </div>
-                            </section>
-                            <section class="quran-circle-session" aria-labelledby="quran-ladies">
-                                <h4 id="quran-ladies">Ladies’ class</h4>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd><a href="contact.html#janazah" class="btn btn-primary">Contact for Janazah services</a></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>We provide comprehensive funeral services for the Muslim community, including:</p>
+                            <ul class="offer-list offer-list--two">
+                                <li>Guidance and support during bereavement</li>
+                                <li>Ghusl (ritual washing) facilities</li>
+                                <li>Kafan (shrouding) services</li>
+                                <li>Janazah prayer at the mosque</li>
+                                <li>Transportation to cemetery included</li>
+                                <li>Liaison with funeral directors</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="offer" id="nikah" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-nikah"/></svg></span>
+                            <h3>Marriage services (Nikah)</h3>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
                                 <div>
-                                    <p class="quran-circle-time">Fridays, 12–1pm</p>
-                                    <p class="quran-circle-venue"><strong>Educational Centre</strong><br>46 Conway Road, London&nbsp;SE18&nbsp;1AR<br><span class="location-note">(Separate from the Masjid)</span></p>
+                                    <dt>Ceremony</dt>
+                                    <dd><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<a class="offer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=51.486854553222656,0.10261762142181396" target="_blank" rel="noopener">Get directions</a></dd>
                                 </div>
-                            </section>
+                                <div>
+                                    <dt>Arranging</dt>
+                                    <dd>Please contact us in advance to arrange a Nikah ceremony.</dd>
+                                </div>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd>
+                                        <a href="contact.html#nikah" class="btn btn-primary">Enquire about Nikah services</a>
+                                        <a href="nikah-certificate.html" class="btn btn-outline">Nikah certificate</a>
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gatherings Section -->
-    <section class="content-section" id="gatherings">
-        <div class="container">
-            <div class="section-header">
-                <h2>Gatherings</h2>
-                <p>Coming together to commemorate and celebrate</p>
-            </div>
-
-            <div class="services-detail-grid">
-                <!-- Gyarwee Shareef -->
-                <div class="service-detail-card" id="gyarwee">
-                    <div class="service-detail-icon">
-                        <!-- Number 11 - Gyarwee means 11th -->
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 10v28"/>
-                            <path d="M12 14l4-4"/>
-                            <path d="M32 10v28"/>
-                            <path d="M28 14l4-4"/>
-                            <path d="M8 42h32" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Gyarwee Shareef</h3>
-                        <p class="service-schedule">Monthly (usually second Sunday)</p>
-                        <p>Monthly gatherings commemorating Shaykh ʿAbd al-Qādir al-Jīlānī (may Allah be pleased with him), one of the most revered saints in Islamic history. These gatherings include Quran recitation, Hamd, Naat, Manqabats, and the sharing of food.</p>
-                        <p class="service-note">Dates may vary. Check our social media for announcements.</p>
-                        <p><strong>Sponsor a Gyarwee</strong> and dedicate the reward to your departed loved ones.</p>
-                        <div class="button-group">
-                            <a href="resources.html#gyarwee" class="btn btn-outline">Learn about Gyarwee</a>
-                            <a href="contact.html#gyarwee" class="btn btn-primary">Contact Us to Sponsor</a>
+                        <div class="offer-detail">
+                            <p>We offer Islamic marriage ceremonies conducted according to the Sunni tradition:</p>
+                            <ul class="offer-list offer-list--two">
+                                <li>Pre-marital guidance and counselling</li>
+                                <li>Nikah ceremony at the mosque</li>
+                                <li>Islamic marriage certificate</li>
+                                <li>Guidance on Islamic marital rights and responsibilities</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Mawlid -->
-                <div class="service-detail-card" id="mawlid">
-                    <div class="service-detail-icon">
-                        <!-- Crescent and star - Islamic celebration symbol -->
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c4a962" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 8c-8 2-14 10-14 18c0 10 8 18 18 18c8 0 15-5 17-12c-12 0-21-10-21-24z"/>
-                            <path d="M36 14l1 3h3l-2.5 2 1 3-2.5-2-2.5 2 1-3-2.5-2h3l1-3z" fill="#c4a962"/>
-                        </svg>
-                    </div>
-                    <div class="service-detail-content">
-                        <h3>Milad-un-Nabi (Mawlid)</h3>
-                        <p class="service-schedule">Main celebration in Rabi' al-Awwal</p>
-                        <p>We celebrate the birth of Prophet Muhammad (peace, blessings and salutations be upon him) with gatherings that include Quran recitation, Salawat, Na'at and Qasida, and talks on the Prophet's life and teachings.</p>
-                        <p>Our main celebration is held during the blessed month of Rabi' al-Awwal, with smaller Mehfil-e-Milad gatherings throughout the year.</p>
-                        <a href="resources.html#milad" class="btn btn-outline">Learn about Milad-un-Nabi</a>
+                    <article class="offer" id="counselling" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-counselling"/></svg></span>
+                            <h3>Counselling</h3>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
+                                <div>
+                                    <dt>Confidentiality</dt>
+                                    <dd>All counselling is strictly confidential.</dd>
+                                </div>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd><a href="contact.html#counselling" class="btn btn-primary">Request counselling</a></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>We provide confidential counselling and support services:</p>
+                            <ul class="offer-list offer-list--two">
+                                <li>Marriage and family counselling</li>
+                                <li>Spiritual guidance</li>
+                                <li>Support during difficult times</li>
+                                <li>Referrals to specialist services when needed</li>
+                            </ul>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- ============ 02 Educational programmes ============ -->
+                <section class="offer-group" id="education" aria-labelledby="education-title">
+                    <header class="offer-group-head">
+                        <span class="offer-group-num" aria-hidden="true">02</span>
+                        <div>
+                            <h2 id="education-title">Educational programmes</h2>
+                            <p>Nurturing faith and knowledge in our community</p>
+                        </div>
+                    </header>
+
+                    <article class="offer" id="madrassah" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-madrassah"/></svg></span>
+                            <div>
+                                <p class="offer-kicker">Weekdays after school</p>
+                                <h3>Children’s Madrassah</h3>
+                            </div>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
+                                <div>
+                                    <dt>When</dt>
+                                    <dd>
+                                        <span class="offer-session"><span class="offer-session-name">Junior (ages 5–9)</span><span class="offer-time">4:30–5:40pm</span></span>
+                                        <span class="offer-session"><span class="offer-session-name">Senior (ages 10–16)</span><span class="offer-time">5:40–6:50pm</span></span>
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>Where</dt>
+                                    <dd><strong>Greenwich Madina Trust Educational Centre</strong><br>46 Conway Road, London&nbsp;SE18&nbsp;1AR<br><span class="location-note">(Separate from the Masjid)</span><a class="offer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=46+Conway+Road+London+SE18+1AR" target="_blank" rel="noopener">Get directions</a></dd>
+                                </div>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd>
+                                        <a href="documents/madrassah-enrolment-form.pdf" class="btn btn-primary" download>Download enrolment form</a>
+                                        <a href="contact.html#madrassah" class="btn btn-outline">Have questions?</a>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>Our Madrassah provides comprehensive Islamic education with a dedicated syllabus for each age group:</p>
+                            <ul class="offer-list offer-list--two">
+                                <li>Quran recitation and Tajweed</li>
+                                <li>Islamic studies and Aqeedah</li>
+                                <li>Duas and etiquette</li>
+                                <li>Arabic language fundamentals</li>
+                                <li>Seerah and Islamic history</li>
+                            </ul>
+                            <p>Download the enrolment form, complete it, and submit it to the Educational Centre (46 Conway Road) with a copy of your child's birth certificate or passport.</p>
+                        </div>
+                    </article>
+
+                    <article class="offer" id="dars" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-dars"/></svg></span>
+                            <div>
+                                <p class="offer-kicker">Weekly</p>
+                                <h3>Dars-e-Quran</h3>
+                            </div>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
+                                <div>
+                                    <dt>When</dt>
+                                    <dd>
+                                        <span class="offer-session"><span class="offer-session-name">Men’s</span><span class="offer-time" data-session="dars-men">Every Thursday at 7:45pm</span></span>
+                                        <span class="offer-session"><span class="offer-session-name">Ladies’</span><span class="offer-time">TBA</span></span>
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>Where</dt>
+                                    <dd><strong>Ghousia Masjid</strong> (men’s)<br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<a class="offer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=51.486854553222656,0.10261762142181396" target="_blank" rel="noopener">Get directions</a></dd>
+                                </div>
+                                <div>
+                                    <dt>Who</dt>
+                                    <dd>Anyone can attend</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>Weekly Quran study sessions with tafseer (explanation) and discussion. These are not formal classes but regular talks that anyone can attend to deepen their understanding of the Quran.</p>
+                        </div>
+                    </article>
+
+                    <!-- Qur'an Circle: the article keeps the old "arabic" anchor; the heading keeps "quran-circle". -->
+                    <article class="offer" id="arabic" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-quran-circle"/></svg></span>
+                            <div>
+                                <p class="offer-kicker">Weekly classes</p>
+                                <h3 id="quran-circle" tabindex="-1">Qur’an Circle (Tajweed)</h3>
+                                <p class="offer-summary">Learn to read the Qur’an with Tajweed.</p>
+                            </div>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <div class="offer-glance-grid">
+                                <section aria-labelledby="quran-men">
+                                    <h4 id="quran-men" class="offer-glance-label">Men’s class</h4>
+                                    <p class="offer-time" data-session="quran-circle-men">Tuesdays, after Isha</p>
+                                    <p><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA</p>
+                                    <p class="location-note">The class starts after Isha prayer. Check the <a href="prayer-times.html">monthly timetable</a> for the Isha Jama’at time.</p>
+                                </section>
+                                <section aria-labelledby="quran-ladies">
+                                    <h4 id="quran-ladies" class="offer-glance-label">Ladies’ class</h4>
+                                    <p class="offer-time" data-session="quran-circle-ladies">Fridays, 12–1pm</p>
+                                    <p><strong>Educational Centre</strong><br>46 Conway Road, London&nbsp;SE18&nbsp;1AR</p>
+                                    <p class="location-note">(Separate from the Masjid)</p>
+                                </section>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- ============ 03 Gatherings ============ -->
+                <section class="offer-group" id="gatherings" aria-labelledby="gatherings-title">
+                    <header class="offer-group-head">
+                        <span class="offer-group-num" aria-hidden="true">03</span>
+                        <div>
+                            <h2 id="gatherings-title">Gatherings</h2>
+                            <p>Coming together to commemorate and celebrate</p>
+                        </div>
+                    </header>
+
+                    <article class="offer" id="gyarwee" tabindex="-1">
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-gyarwee"/></svg></span>
+                            <div>
+                                <p class="offer-kicker">Monthly (usually second Sunday)</p>
+                                <h3>Gyarwee Shareef</h3>
+                            </div>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
+                                <div>
+                                    <dt>Where</dt>
+                                    <dd><strong>Ghousia Masjid</strong><br>56 Camrose Street, London&nbsp;SE2&nbsp;0JA<a class="offer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=51.486854553222656,0.10261762142181396" target="_blank" rel="noopener">Get directions</a></dd>
+                                </div>
+                                <div>
+                                    <dt>Dates</dt>
+                                    <dd>Dates may vary. Check our social media for announcements.</dd>
+                                </div>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd><a href="resources.html#gyarwee" class="btn btn-outline">Learn about Gyarwee</a></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>Monthly gatherings commemorating Shaykh ʿAbd al-Qādir al-Jīlānī (may Allah be pleased with him), one of the most revered saints in Islamic history. These gatherings include Quran recitation, Hamd, Naat, Manqabats, and the sharing of food.</p>
+                            <div class="offer-callout">
+                                <p><strong>Sponsor a Gyarwee</strong> and dedicate the reward to your departed loved ones.</p>
+                                <a href="contact.html#gyarwee" class="btn btn-primary">Contact us to sponsor</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer offer--photo" id="mawlid" tabindex="-1">
+                        <figure class="offer-photo">
+                            <img src="images/offer/ghousia-masjid-mawlid-2026-naat-1280.webp"
+                                 srcset="images/offer/ghousia-masjid-mawlid-2026-naat-800.webp 800w, images/offer/ghousia-masjid-mawlid-2026-naat-1280.webp 1280w"
+                                 sizes="(min-width: 1100px) 900px, 100vw"
+                                 width="1280" height="960" loading="lazy"
+                                 alt="Na’at recited at the lectern during the Annual Mawlid-un-Nabi at Ghousia Masjid, with scholars seated beneath a banner of the Green Dome and the Ka’bah">
+                            <figcaption>Annual Mawlid-un-Nabi, 2026</figcaption>
+                        </figure>
+                        <header class="offer-head">
+                            <span class="offer-icon" aria-hidden="true"><svg><use href="images/icons/offer-icons.svg?v=20261016-icons2#icon-mawlid"/></svg></span>
+                            <div>
+                                <p class="offer-kicker">Main celebration in Rabi' al-Awwal</p>
+                                <h3>Milad-un-Nabi (Mawlid)</h3>
+                            </div>
+                        </header>
+                        <div class="offer-glance">
+                            <p class="offer-glance-title">At a glance</p>
+                            <dl class="offer-glance-grid">
+                                <div>
+                                    <dt>Through the year</dt>
+                                    <dd>Smaller Mehfil-e-Milad gatherings</dd>
+                                </div>
+                                <div class="offer-glance-next">
+                                    <dt>Next step</dt>
+                                    <dd><a href="resources.html#milad" class="btn btn-outline">Learn about Milad-un-Nabi</a></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div class="offer-detail">
+                            <p>We celebrate the birth of Prophet Muhammad (peace, blessings and salutations be upon him) with gatherings that include Quran recitation, Salawat, Na'at and Qasida, and talks on the Prophet's life and teachings.</p>
+                            <p>Our main celebration is held during the blessed month of Rabi' al-Awwal, with smaller Mehfil-e-Milad gatherings throughout the year.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- CTA -->
+                <div class="cta-box large offer-help">
+                    <h2>Need our help?</h2>
+                    <p>We're here to serve our community. Reach out to us for any of our services or if you have questions.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Use the contact form</a>
+                        <a href="mailto:info@greenwichmadinatrust.org.uk" class="btn btn-outline">Email us</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="content-section">
-        <div class="container">
-            <div class="cta-box large">
-                <h2>Need Our Help?</h2>
-                <p>We're here to serve our community. Reach out to us for any of our services or if you have questions.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Use Contact Form</a>
-                    <a href="mailto:info@greenwichmadinatrust.org.uk" class="btn btn-outline">Email Directly</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -412,7 +512,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
                         <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="X (formerly Twitter)">X (Twitter)</a>
                         <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
                         <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" aria-label="TikTok">TikTok</a>
                     </div>
@@ -425,7 +525,11 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
-    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script src="js/prayer-times.js?v=20261016-redesign"></script>
+    <script src="js/main.js?v=20261016-redesign"></script>
+    <!-- class times from data/weekly-schedule.json -->
+    <script src="js/offer-times.js?v=20261016-redesign"></script>
+    <!-- marks the side index entry for the item being read -->
+    <script src="js/offer-index.js?v=20261016-redesign"></script>
 </body>
 </html>

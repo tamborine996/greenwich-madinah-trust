@@ -17,8 +17,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
+    <!-- shared shell matching the new homepage -->
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/contact-page.css?v=20261016-redesign">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -114,10 +120,34 @@
     </section>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" id="content" tabindex="-1">
         <div class="container">
             <h1>Contact Us</h1>
             <p>We'd love to hear from you</p>
+        </div>
+    </section>
+
+    <!-- quick routes first. Arriving from a Janazah link (#janazah) also shows the urgent line. -->
+    <section class="contact-quick" aria-label="Quick contact">
+        <div class="container">
+            <p class="contact-urgent" id="contact-urgent" hidden>
+                <strong>Janazah:</strong> For urgent assistance, please contact us immediately.
+                <a href="tel:+447792884795">Call 07792 884795</a>
+            </p>
+            <div class="contact-quick-grid">
+                <a class="contact-quick-item" href="tel:+447792884795">
+                    <span class="contact-quick-label">Phone</span>
+                    <span class="contact-quick-value">07792 884795</span>
+                </a>
+                <a class="contact-quick-item" href="mailto:info@greenwichmadinatrust.org.uk">
+                    <span class="contact-quick-label">Email</span>
+                    <span class="contact-quick-value">info@greenwichmadinatrust.org.uk</span>
+                </a>
+                <a class="contact-quick-item" href="#our-buildings">
+                    <span class="contact-quick-label">Visit</span>
+                    <span class="contact-quick-value">Ghousia Masjid · Educational Centre</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -127,7 +157,7 @@
             <div class="contact-grid">
                 <!-- Contact Form -->
                 <div class="contact-form-container">
-                    <h2>Send Us a Message</h2>
+                    <h2>Send us a message</h2>
                     <form class="contact-form" id="contact-form" action="https://formspree.io/f/xeejqajk" method="POST">
                         <div class="form-group">
                             <label for="name">Name <span class="required">*</span></label>
@@ -171,21 +201,21 @@
                             <p>* Required fields</p>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-block">Send message</button>
                     </form>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="contact-info">
+                <div class="contact-info" id="our-buildings">
                     <div class="contact-card">
                         <h3>Ghousia Masjid</h3>
-                        <p class="location-label">Main mosque for prayers, Jummah, and events</p>
+                        <p class="location-label">Main masjid for prayers, Jum’a, and events</p>
                         <address>
                             <p>56 Camrose Street</p>
                             <p>London</p>
                             <p>SE2 0JA</p>
                         </address>
-                        <a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" class="btn btn-outline btn-sm" target="_blank">Get Directions</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" class="btn btn-outline btn-sm" target="_blank">Get directions</a>
                     </div>
 
                     <div class="contact-card">
@@ -196,25 +226,18 @@
                             <p>London</p>
                             <p>SE18 1AR</p>
                         </address>
-                        <a href="https://www.google.com/maps/search/?api=1&query=46+Conway+Road+London+SE18+1AR" class="btn btn-outline btn-sm" target="_blank">Get Directions</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=46+Conway+Road+London+SE18+1AR" class="btn btn-outline btn-sm" target="_blank">Get directions</a>
                     </div>
 
                     <div class="contact-card">
-                        <h3>Get in Touch</h3>
-                        <p>Phone:</p>
-                        <a href="tel:07792884795" class="phone-link">07792 884795</a>
-                        <p style="margin-top: 1rem;">Email:</p>
-                        <a href="mailto:info@greenwichmadinatrust.org.uk" class="email-link">info@greenwichmadinatrust.org.uk</a>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Follow Us</h3>
+                        <h3>Follow us</h3>
                         <p>Stay connected on social media:</p>
                         <div class="social-links-vertical">
                             <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank">Facebook</a>
                             <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank">Instagram</a>
-                            <a href="https://mobile.twitter.com/TrustMadina/" target="_blank">Twitter</a>
+                            <a href="https://mobile.twitter.com/TrustMadina/" target="_blank">X (Twitter)</a>
                             <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank">YouTube</a>
+                            <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank">TikTok</a>
                         </div>
                     </div>
 
@@ -224,9 +247,9 @@
     </section>
 
     <!-- Map Section -->
-    <section class="map-section">
+    <section class="map-section" id="find-us">
         <div class="container">
-            <h2>Find Us</h2>
+            <h2>Find us</h2>
             <div class="map-container">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5!2d0.1026!3d51.4869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzEyLjciTiAwwrAwNicwOS40IkU!5e0!3m2!1sen!2suk!4v1234567890"
@@ -265,7 +288,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
                         <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="X (formerly Twitter)">X (Twitter)</a>
                         <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
                         <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" aria-label="TikTok">TikTok</a>
                     </div>
@@ -278,8 +301,8 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
-    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script src="js/prayer-times.js?v=20261016-redesign"></script>
+    <script src="js/main.js?v=20261016-redesign"></script>
     <script>
         // Pre-select subject from URL hash (e.g., #janazah)
         (function() {
@@ -311,6 +334,13 @@
                 if (option) {
                     select.value = hash;
                 }
+            }
+
+            // someone arriving from a Janazah link sees the urgent phone line first.
+            const urgent = document.getElementById('contact-urgent');
+            if (urgent && hash === 'janazah') {
+                urgent.hidden = false;
+                window.scrollTo(0, 0);
             }
 
             if (select) {

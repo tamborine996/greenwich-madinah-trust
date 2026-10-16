@@ -1,0 +1,66 @@
+/* Resources page (16 Oct 2026): document cards and question accordions in the homepage
+   style (square edges, gold top rule, no hover lift). */
+
+.quick-link-card {
+    border: 0;
+    border-top: 2px solid var(--gold);
+    border-radius: 0;
+    box-shadow: var(--shadow-soft);
+    align-items: center;
+}
+
+.quick-link-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-medium);
+}
+
+.quick-link-card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.quick-link-content h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.quick-link-content p {
+    color: var(--slate);
+}
+
+/* Questions */
+
+.faq-category {
+    margin-bottom: 0; /* the next section's own padding is enough */
+}
+
+#common-questions {
+    padding-bottom: 0;
+}
+
+.faq-item {
+    scroll-margin-top: 110px;
+    border: 0;
+    border-top: 1px solid rgba(196, 169, 98, 0.45);
+    border-radius: 0;
+    margin-bottom: 0;
+    background: var(--ivory);
+}
+
+.faq-item:last-child {
+    border-bottom: 1px solid rgba(196, 169, 98, 0.45);
+}
+
+.faq-item.active {
+    border-top: 2px solid var(--gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-question {
+    font-size: 1.2rem;
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+}

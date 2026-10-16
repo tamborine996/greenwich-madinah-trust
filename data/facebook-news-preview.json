@@ -34,6 +34,10 @@
           "alt": "Wide view of the Annual Mawlid programme inside Ghousia Masjid"
         }
       ],
+      "home_image": {
+        "url": "images/news/mawlid-highlights-gathering-3.jpg",
+        "alt": "A speaker addressing the Annual Mawlid-un-Nabi gathering at Ghousia Masjid"
+      },
       "action_url": "https://www.youtube.com/playlist?list=PLPS3SFPVXzgc",
       "action_label": "Open on YouTube",
       "video": {
@@ -87,6 +91,8 @@
       },
       "action_url": "tel:+447792884795",
       "action_label": "Call to register",
+      "action_until": "2026-08-31",
+      "home_until": "2026-08-31",
       "related_url": "news.html#post-3",
       "related_label": "Help shape the Friday talks"
     },
@@ -128,6 +134,8 @@
       },
       "action_url": "https://gmt-surveys.pages.dev/youth-summer-retreat-2026",
       "action_label": "Complete the questionnaire",
+      "action_until": "2026-08-31",
+      "home_until": "2026-08-31",
       "related_url": "news.html#post-2",
       "related_label": "View retreat details"
     },

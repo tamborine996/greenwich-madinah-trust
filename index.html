@@ -21,869 +21,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- GLightbox for video modals -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    <style>
-        .latest-updates-preview {
-            padding: var(--space-3xl) 0;
-            background: var(--cream-warm);
-            border-top: 1px solid rgba(196, 169, 98, 0.28);
-            border-bottom: 1px solid rgba(196, 169, 98, 0.28);
-        }
-        .latest-updates-preview .section-header {
-            margin-bottom: var(--space-xl);
-            text-align: center;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .latest-updates-preview .section-header p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .latest-updates-header-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: var(--space-lg);
-        }
-        .latest-updates-carousel-wrap {
-            position: relative;
-            padding: 0 3.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .latest-updates-carousel {
-            overflow: hidden;
-        }
-        .latest-updates-carousel .swiper-wrapper {
-            align-items: stretch;
-        }
-        .latest-updates-carousel .swiper-slide {
-            height: auto;
-            display: flex;
-            justify-content: center;
-        }
-        .latest-update-card {
-            --latest-update-media-row: 500px;
-            background: var(--ivory);
-            border-radius: 24px;
-            border: 1px solid rgba(13,92,77,0.10);
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: var(--latest-update-media-row) 1fr;
-            height: 100%;
-            min-height: 790px;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .latest-update-media {
-            height: 100%;
-            padding: 1rem 1rem 0.55rem;
-        }
-        .latest-update-media-stage {
-            position: relative;
-            height: 100%;
-            min-height: 0;
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage {
-            background: linear-gradient(180deg, rgba(13,92,77,0.10), rgba(196,169,98,0.22));
-            padding: 1.35rem;
-        }
-        .latest-update-media.is-portrait .latest-update-media-stage {
-            padding: 0;
-            background: transparent;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.38), transparent 34%),
-                radial-gradient(circle at bottom right, rgba(13,92,77,0.16), transparent 36%),
-                linear-gradient(135deg, rgba(196,169,98,0.24), rgba(13,92,77,0.05));
-            opacity: 1;
-        }
-        .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-            content: '';
-            position: absolute;
-            inset: 18px;
-            border-radius: 18px;
-            border: 1px solid rgba(255,255,255,0.38);
-            box-shadow: inset 0 0 0 1px rgba(13,92,77,0.05);
-        }
-        .latest-update-media img {
-            position: relative;
-            z-index: 1;
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 18px;
-            background: var(--ivory);
-        }
-        .latest-update-media:not(.is-portrait) img {
-            max-width: 86%;
-            max-height: 76%;
-            box-shadow: 0 12px 28px rgba(13, 92, 77, 0.10);
-        }
-        .latest-update-media.is-portrait img {
-            max-width: min(100%, 360px);
-            max-height: 100%;
-            box-shadow: 0 18px 42px rgba(13, 92, 77, 0.14);
-        }
-        .latest-update-body {
-            padding: 1rem 1.25rem 1.25rem;
-            display: grid;
-            grid-template-rows: auto auto minmax(0, 1fr) auto;
-            gap: 0.8rem;
-            min-height: 0;
-        }
-        .latest-update-meta {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.65rem;
-            font-size: 0.9rem;
-            color: var(--stone);
-        }
-        .latest-update-pill {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 999px;
-            padding: 0.32rem 0.78rem;
-            background: rgba(13, 92, 77, 0.1);
-            color: var(--emerald-deep);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: 0.74rem;
-            font-weight: 700;
-        }
-        .latest-update-title {
-            font-size: clamp(1.3rem, 2vw, 1.7rem);
-            line-height: 1.25;
-            margin: 0;
-            min-height: calc(1.25em * 2);
-        }
-        .latest-update-excerpt {
-            color: var(--slate);
-            margin: 0;
-            max-width: none;
-            line-height: 1.58;
-            min-height: calc(1.58em * 4);
-        }
-        .latest-update-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-            padding-top: 0.85rem;
-            border-top: 1px solid rgba(13, 92, 77, 0.10);
-        }
-        .latest-updates-controls {
-            display: flex;
-            gap: 0.65rem;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .latest-updates-status {
-            min-width: 10.5rem;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            color: var(--emerald-deep);
-        }
-        .latest-updates-prev,
-        .latest-updates-next {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 999px;
-            border: 1px solid rgba(13, 92, 77, 0.28);
-            background: var(--emerald-deep);
-            color: var(--ivory);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-medium);
-            cursor: pointer;
-            transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo), background var(--duration-fast) var(--ease-out-expo), color var(--duration-fast) var(--ease-out-expo);
-        }
-        .latest-updates-prev:hover,
-        .latest-updates-next:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-elevated);
-            background: var(--emerald);
-            color: var(--gold-bright);
-        }
-        .latest-updates-prev.swiper-button-disabled,
-        .latest-updates-next.swiper-button-disabled {
-            opacity: 0.5;
-            cursor: default;
-            transform: none;
-            box-shadow: var(--shadow-soft);
-            background: rgba(13,92,77,0.28);
-            color: rgba(255,255,255,0.9);
-        }
-        .latest-updates-footer {
-            margin-top: var(--space-lg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-        .latest-updates-footer p {
-            margin: 0 auto;
-        }
-        .news-archive-link {
-            color: var(--emerald-deep);
-            font-weight: 700;
-        }
-        .home-donate-section {
-            scroll-margin-top: 135px;
-            position: relative;
-            overflow: hidden;
-            padding: clamp(3.7rem, 6.1vw, 5.45rem) 0;
-            background:
-                radial-gradient(circle at 10% 12%, rgba(196, 169, 98, 0.095), transparent 24%),
-                radial-gradient(circle at 86% 10%, rgba(13, 92, 77, 0.045), transparent 34%),
-                linear-gradient(135deg, #fffdf6 0%, #f8f0dc 100%);
-            border-top: 1px solid rgba(196, 169, 98, 0.24);
-            border-bottom: 1px solid rgba(196, 169, 98, 0.24);
-        }
-
-        .home-donate-section::before {
-            content: '';
-            position: absolute;
-            inset: -20% -10% auto auto;
-            width: min(520px, 70vw);
-            height: min(520px, 70vw);
-            background-image:
-                linear-gradient(30deg, rgba(13,92,77,0.035) 12%, transparent 12.5%, transparent 87%, rgba(13,92,77,0.035) 87.5%, rgba(13,92,77,0.035)),
-                linear-gradient(150deg, rgba(13,92,77,0.035) 12%, transparent 12.5%, transparent 87%, rgba(13,92,77,0.035) 87.5%, rgba(13,92,77,0.035));
-            background-size: 70px 122px;
-            border-radius: 50%;
-            opacity: 0.55;
-            pointer-events: none;
-        }
-
-        .home-donate-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .home-donate-site-header {
-            margin-bottom: clamp(2rem, 4vw, 3.1rem);
-        }
-
-        .home-donate-frame {
-            position: relative;
-            overflow: visible;
-            border-radius: 0;
-            padding: 0;
-            background: transparent;
-            border: 0;
-            box-shadow: none;
-            width: min(100%, 1040px);
-            margin: 0 auto;
-        }
-
-        .home-donate-frame::before,
-        .home-donate-frame::after {
-            content: none;
-        }
-
-        .home-donate-layout {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-            gap: clamp(1.1rem, 2.1vw, 2.25rem);
-            align-items: stretch;
-        }
-
-        .home-donate-copy {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 0 0 0;
-        }
-
-        .home-donate-impact-title {
-            margin: 0 0 1rem;
-            color: var(--emerald-deep);
-            font-family: var(--font-display);
-            font-size: clamp(1.62rem, 2.35vw, 2.08rem);
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-        }
-
-        .home-donate-body-title {
-            margin: 0 0 0.75rem;
-            color: var(--emerald-deep);
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 3.2vw, 3.05rem);
-            line-height: 1.04;
-            letter-spacing: -0.035em;
-            max-width: 12ch;
-        }
-
-        .home-donate-body-kicker {
-            display: block;
-            margin-bottom: 0.65rem;
-            color: var(--gold-dark);
-            font-size: 0.76rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .home-donate-ornament {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            width: min(348px, 78vw);
-            margin: clamp(1.05rem, 2vw, 1.45rem) 0 clamp(1.05rem, 2.6vw, 1.75rem);
-            color: var(--gold-dark);
-        }
-
-        .home-donate-ornament::before,
-        .home-donate-ornament::after {
-            content: '';
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, transparent, rgba(196,169,98,0.9), transparent);
-        }
-
-        .home-donate-ornament span {
-            width: 0.72rem;
-            height: 0.72rem;
-            transform: rotate(45deg);
-            border: 1px solid currentColor;
-            box-shadow: 0 0 0 4px rgba(196,169,98,0.10);
-            background: rgba(255,250,240,0.95);
-        }
-
-        .home-donate-copy p {
-            color: #2c3c3a;
-            font-size: clamp(1.04rem, 1.28vw, 1.13rem);
-            line-height: 1.76;
-            max-width: 47ch;
-            margin: 0;
-        }
-
-        .home-donate-action {
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 1.28rem;
-            margin-top: clamp(1.28rem, 2.4vw, 1.75rem);
-        }
-
-        .home-donate-action .btn {
-            min-width: 246px;
-            justify-content: center;
-            border: 1px solid rgba(196, 169, 98, 0.68);
-            border-radius: 14px;
-            background: linear-gradient(135deg, #063f35, #0d5c4d);
-            box-shadow: 0 18px 38px rgba(13, 92, 77, 0.27);
-            font-size: 0.9rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding-top: 1.08rem;
-            padding-bottom: 1.08rem;
-        }
-
-        .home-donate-action-note {
-            margin: 0;
-            color: #51615e;
-            font-size: 0.92rem;
-            line-height: 1.55;
-            max-width: 20rem;
-        }
-
-        .home-donate-action-note strong {
-            color: var(--emerald-deep);
-        }
-
-        .gift-aid-card {
-            position: relative;
-            overflow: hidden;
-            width: min(100%, 390px);
-            min-height: 100%;
-            margin-top: 0;
-            border-radius: 32px;
-            padding: clamp(1.8rem, 2.65vw, 2.45rem) clamp(1.45rem, 2.25vw, 2.05rem);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background:
-                radial-gradient(circle at 50% 4%, rgba(196, 169, 98, 0.18), transparent 30%),
-                linear-gradient(180deg, rgba(255,252,243,0.95), rgba(247,238,213,0.92));
-            border: 1px solid rgba(196, 169, 98, 0.48);
-            box-shadow: 0 20px 48px rgba(13, 92, 77, 0.13);
-            color: var(--emerald-deep);
-            justify-self: end;
-        }
-
-        .gift-aid-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(30deg, rgba(13,92,77,0.032) 12%, transparent 12.5%, transparent 87%, rgba(13,92,77,0.032) 87.5%, rgba(13,92,77,0.032)),
-                linear-gradient(150deg, rgba(13,92,77,0.032) 12%, transparent 12.5%, transparent 87%, rgba(13,92,77,0.032) 87.5%, rgba(13,92,77,0.032));
-            background-size: 46px 80px;
-            opacity: 0.22;
-            pointer-events: none;
-        }
-
-        .gift-aid-card::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -3px;
-            height: 74px;
-            opacity: 0.28;
-            background:
-                radial-gradient(circle at 11% 100%, transparent 0 27px, var(--gold-dark) 28px 30px, transparent 31px),
-                radial-gradient(circle at 30% 100%, transparent 0 42px, var(--gold-dark) 43px 45px, transparent 46px),
-                radial-gradient(circle at 50% 100%, transparent 0 31px, var(--gold-dark) 32px 34px, transparent 35px),
-                radial-gradient(circle at 70% 100%, transparent 0 42px, var(--gold-dark) 43px 45px, transparent 46px),
-                radial-gradient(circle at 89% 100%, transparent 0 27px, var(--gold-dark) 28px 30px, transparent 31px);
-            pointer-events: none;
-        }
-
-        .gift-aid-card h3 {
-            color: var(--emerald-deep);
-            font-family: var(--font-display);
-            font-size: clamp(1.72rem, 2.08vw, 1.98rem);
-            line-height: 1.06;
-            max-width: 100%;
-            white-space: normal;
-            overflow-wrap: normal;
-            text-wrap: balance;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gift-aid-card p {
-            color: #31413e;
-            line-height: 1.68;
-            max-width: 31ch;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gift-aid-mark {
-            position: relative;
-            z-index: 1;
-            width: 4.15rem;
-            height: 4.15rem;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            margin-bottom: 1.15rem;
-            background: transparent;
-            border: 0;
-            box-shadow: none;
-        }
-
-        .gift-aid-divider {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            width: min(210px, 75%);
-            margin: 1rem 0 1.05rem;
-            color: var(--gold-dark);
-        }
-
-        .gift-aid-divider::before,
-        .gift-aid-divider::after {
-            content: '';
-            height: 1px;
-            flex: 1;
-            background: rgba(196,169,98,0.78);
-        }
-
-        .gift-aid-divider span {
-            width: 0.5rem;
-            height: 0.5rem;
-            transform: rotate(45deg);
-            border: 1px solid currentColor;
-            background: rgba(255,250,240,0.95);
-        }
-
-        .gift-aid-mark img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 12px 22px rgba(13, 92, 77, 0.18));
-        }
-
-        .home-donate-uses svg,
-        .home-donate-uses img {
-            width: 3.32rem;
-            height: 3.32rem;
-        }
-
-        .home-donate-uses svg {
-            stroke: currentColor;
-            stroke-width: 1.85;
-        }
-
-        .home-donate-uses img {
-            object-fit: contain;
-            display: block;
-            filter: drop-shadow(0 2px 0 rgba(196, 169, 98, 0.10));
-        }
-
-        .home-donate-uses {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.78rem;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .home-donate-uses li {
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            gap: clamp(0.62rem, 0.95vw, 0.9rem);
-            padding: clamp(0.86rem, 1.04vw, 1rem) clamp(0.68rem, 0.9vw, 0.84rem);
-            border-radius: 24px;
-            background: rgba(255, 253, 246, 0.98);
-            border: 1px solid rgba(196, 169, 98, 0.40);
-            box-shadow: 0 12px 28px rgba(13, 92, 77, 0.06);
-            color: #263532;
-            font-weight: 500;
-            font-size: clamp(0.98rem, 1.08vw, 1.08rem);
-            line-height: 1.34;
-            letter-spacing: -0.012em;
-        }
-
-        .home-donate-uses span {
-            display: grid;
-            place-items: center;
-            width: 3.38rem;
-            height: 3.38rem;
-            flex: 0 0 3.38rem;
-            color: var(--emerald-deep);
-            background: transparent;
-            border: 0;
-            border-radius: 0;
-        }
-
-        .home-donate-uses strong {
-            display: block;
-            max-width: none;
-            font: inherit;
-            color: inherit;
-        }
-
-        .home-donate-copy .home-donate-more {
-            margin: 1.35rem 0 0;
-            color: #51615e;
-            font-size: 0.96rem;
-            line-height: 1.55;
-        }
-
-        @media (max-width: 900px) {
-            .home-donate-layout {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
-            }
-
-            .home-donate-uses {
-                margin-left: -0.45rem;
-                margin-right: -0.45rem;
-                padding-left: 0.45rem;
-                padding-right: 0.45rem;
-            }
-
-            .latest-updates-carousel-wrap {
-                padding: 0 2.75rem;
-            }
-            .latest-update-card {
-                max-width: 430px;
-            }
-        }
-        @media (max-width: 680px) {
-            .home-donate-section {
-                padding: 3.2rem 0;
-            }
-
-            .home-donate-section .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .home-donate-section::before {
-                inset: -10% 0 auto auto;
-                width: 100%;
-            }
-
-            .home-donate-frame {
-                width: 100%;
-                max-width: 100%;
-                padding: 1rem;
-                border-radius: 26px;
-            }
-
-            .home-donate-frame::after {
-                display: none;
-            }
-
-            .home-donate-layout,
-            .home-donate-copy,
-            .gift-aid-card,
-            .home-donate-uses,
-            .home-donate-uses li {
-                min-width: 0;
-                max-width: 100%;
-            }
-
-            .home-donate-copy,
-            .gift-aid-card {
-                min-height: auto;
-            }
-
-            .home-donate-copy {
-                padding: 0.55rem;
-            }
-
-            .home-donate-site-header {
-                margin-bottom: 1.65rem;
-            }
-
-            .home-donate-body-title {
-                font-size: clamp(2rem, 10vw, 2.75rem);
-                line-height: 1.05;
-                max-width: 12ch;
-            }
-
-            .home-donate-body-kicker {
-                font-size: 0.7rem;
-                letter-spacing: 0.15em;
-            }
-
-            .home-donate-copy p {
-                font-size: 1rem;
-                line-height: 1.7;
-            }
-
-            .home-donate-ornament {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .home-donate-action {
-                display: flex;
-                flex-direction: column;
-                gap: 1.35rem;
-            }
-
-            .home-donate-action .btn {
-                width: 100%;
-                max-width: 100%;
-                min-width: 0;
-                justify-content: center;
-                padding-left: 1.15rem;
-                padding-right: 1.15rem;
-            }
-
-            .home-donate-action-note {
-                max-width: none;
-            }
-
-            .gift-aid-card {
-                padding: 1.45rem 1rem;
-                border-radius: 24px;
-            }
-
-            .gift-aid-mark {
-                width: 3.4rem;
-                height: 3.4rem;
-                margin-bottom: 1rem;
-            }
-
-            .gift-aid-card h3 {
-                font-size: clamp(1.45rem, 7.2vw, 1.9rem);
-                white-space: normal;
-            }
-
-            .gift-aid-card p {
-                font-size: 0.98rem;
-                line-height: 1.62;
-            }
-
-            .home-donate-uses {
-                display: grid;
-                grid-template-columns: 1fr;
-                overflow: visible;
-                scroll-snap-type: none;
-                gap: 0.72rem;
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 0;
-                padding-right: 0;
-                padding-bottom: 0;
-            }
-
-            .home-donate-uses li {
-                min-height: 86px;
-                width: 100%;
-                flex: none;
-                scroll-snap-align: none;
-                flex-direction: row;
-                align-items: center;
-                gap: 0.72rem;
-                border-radius: 20px;
-                padding: 0.82rem 0.95rem;
-                font-size: 0.95rem;
-            }
-
-            .home-donate-uses span {
-                width: 2.85rem;
-                height: 2.85rem;
-                flex-basis: 2.85rem;
-            }
-
-            .home-donate-uses img {
-                width: 2.8rem;
-                height: 2.8rem;
-            }
-
-            .home-donate-uses strong {
-                max-width: none;
-            }
-
-            .gift-aid-flow {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .gift-aid-arrow {
-                transform: rotate(90deg);
-            }
-
-            .latest-updates-header-row {
-                gap: 0.75rem;
-            }
-            .latest-updates-carousel-wrap {
-                padding: 0 0.85rem;
-            }
-            .latest-updates-controls {
-                gap: 0.5rem;
-            }
-            .latest-updates-status {
-                min-width: 0;
-                font-size: 0.9rem;
-            }
-            .latest-update-card {
-                --latest-update-media-row: 245px;
-                max-width: 100%;
-                min-height: 0;
-                grid-template-rows: var(--latest-update-media-row) auto;
-                border-radius: 20px;
-            }
-            .latest-update-media {
-                padding: 0.75rem 0.75rem 0;
-            }
-            .latest-update-media-stage {
-                height: 100%;
-                min-height: 0;
-                border-radius: 18px;
-            }
-            .latest-update-media:not(.is-portrait) .latest-update-media-stage {
-                padding: 0;
-            }
-            .latest-update-media.is-portrait .latest-update-media-stage {
-                padding: 0;
-                background: rgba(13,92,77,0.06);
-            }
-            .latest-update-media:not(.is-portrait) .latest-update-media-stage::before,
-            .latest-update-media:not(.is-portrait) .latest-update-media-stage::after {
-                display: none;
-            }
-            .latest-update-media img,
-            .latest-update-media:not(.is-portrait) img,
-            .latest-update-media.is-portrait img {
-                width: 100%;
-                height: 100%;
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: cover;
-                border-radius: 18px;
-            }
-            .latest-update-media.is-portrait img {
-                object-fit: contain;
-                background: rgba(255,250,240,0.82);
-            }
-            .latest-update-body {
-                padding: 0.95rem 1rem 1rem;
-                gap: 0.6rem;
-                grid-template-rows: auto auto auto auto;
-            }
-            .latest-update-meta {
-                gap: 0.5rem;
-                font-size: 0.82rem;
-            }
-            .latest-update-title {
-                min-height: 0;
-                font-size: 1.2rem;
-            }
-            .latest-update-excerpt {
-                min-height: 0;
-            }
-            .latest-update-actions {
-                align-items: stretch;
-            }
-            .latest-update-actions .btn {
-                flex: 1 1 100%;
-                justify-content: center;
-            }
-            .news-archive-link {
-                width: 100%;
-                text-align: center;
-            }
-            .latest-updates-prev,
-            .latest-updates-next {
-                width: 2.7rem;
-                height: 2.7rem;
-            }
-        }
-    </style>
     <link rel="stylesheet" href="css/gyaarwee-campaign.css?v=20260908-ribbon-v3">
     <link rel="stylesheet" href="css/programme-carousel.css?v=20261012-programmes2">
+    <link rel="stylesheet" href="css/hero-two-column.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-news.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-week.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-media.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-visit.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-donate.css?v=20261016-redesign">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1014,21 +164,34 @@
         </span>
     </a>
 
-    <!-- Hero Section: Welcome + Carousel Side by Side -->
-    <section class="hero-combined">
+    <!-- Hero Section: welcome above the carousel on ivory; exterior photograph on a diagonal.
+         Desktop: the photograph is positioned against the section and bleeds to the right edge.
+         Below 1024px: carousel, then photograph, then welcome. -->
+    <section class="hero-combined hero-two-column" id="content" tabindex="-1">
         <div class="container">
             <div class="hero-grid">
-                <!-- Left: Welcome Message -->
                 <div class="hero-welcome">
-                    <h1 class="welcome-title">Welcome to Greenwich Madina Trust</h1>
+                    <h1 class="welcome-title"><span class="welcome-eyebrow">Welcome to</span> <span class="welcome-name">Greenwich Madina Trust</span></h1>
                     <p class="welcome-mosque-name">Ghousia Masjid</p>
                     <p class="welcome-subtitle">Serving the local Muslim community with prayers, education, and services since 2009.</p>
                     <div class="welcome-buttons">
                         <a href="what-we-offer.html" class="btn btn-primary">What We Offer</a>
-                        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                        <a href="contact.html" class="btn btn-outline">Get in touch</a>
                     </div>
                 </div>
-                <!-- Right: Carousel (Swiper.js) -->
+                <!-- Hero photograph: clear-day frontage, AI-edited from the Trust's Facebook cover, with the sign
+                     composited from a January 2024 photograph. Approved for the live site by Mohammed, 16 Oct 2026. -->
+                <figure class="hero-photo">
+                    <div class="hero-photo-frame">
+                        <img src="images/hero/ghousia-masjid-clear-cleaned-1280.webp"
+                             srcset="images/hero/ghousia-masjid-clear-cleaned-800.webp 800w, images/hero/ghousia-masjid-clear-cleaned-1280.webp 1280w, images/hero/ghousia-masjid-clear-cleaned-1399.webp 1399w"
+                             sizes="(min-width: 1024px) 62vw, 100vw"
+                             width="1399" height="1124"
+                             alt="Ghousia Masjid on Camrose Street on a clear day: the timber porch beneath the Greenwich Madina Trust sign">
+                    </div>
+                </figure>
+                <!-- Carousel (Swiper.js). Arrows sit outside the slides so they do not cover the artwork. -->
+                <div class="hero-carousel-frame">
                 <div class="hero-carousel-compact swiper has-programme-slide" id="hero-carousel" role="region" aria-label="Featured programmes and updates">
                     <div class="swiper-wrapper">
                         <!-- Approved recurring programmes: full-bleed, with native carousel controls. -->
@@ -1049,11 +212,12 @@
                             </a>
                         </div>
                     </div>
+                    <!-- Swiper Pagination (dots) -->
+                    <div class="swiper-pagination"></div>
+                </div>
                     <!-- Swiper Navigation -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-                    <!-- Swiper Pagination (dots) -->
-                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
@@ -1092,127 +256,90 @@
         </div>
     </section>
 
-    <section class="latest-updates-preview" id="latest-updates-preview">
+    <!-- What We Offer: weekly schedule and services from data/weekly-schedule.json -->
+    <section class="home-section home-section--warm" id="what-we-offer" aria-labelledby="home-week-title">
         <div class="container">
-            <div class="latest-updates-header-row">
-                <div class="section-header">
-                    <span class="overline">Latest Updates</span>
-                    <h2>Recent news</h2>
+            <div class="section-intro">
+                <div>
+                    <p class="section-intro-eyebrow">What we offer</p>
+                    <h2 class="section-intro-title" id="home-week-title">Classes, gatherings, and services</h2>
                 </div>
-                <div class="latest-updates-controls" aria-label="Recent updates navigation">
-                    <button class="latest-updates-prev" type="button" aria-label="Show previous update">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                    </button>
-                    <span class="latest-updates-status" id="latest-updates-status">1–2 of 3</span>
-                    <button class="latest-updates-next" type="button" aria-label="Show next update">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                    </button>
-                </div>
+                <a href="what-we-offer.html" class="text-link">Everything we offer</a>
             </div>
-            <div class="latest-updates-carousel-wrap">
-                <div class="latest-updates-carousel swiper" id="latest-updates-carousel">
-                    <div id="latest-updates-wrapper" class="swiper-wrapper"></div>
-                </div>
-            </div>
-            <div class="latest-updates-footer">
-                <a href="news.html" class="btn btn-outline">View all news</a>
+            <div class="home-week-grid" id="home-week-root">
+                <p>Our classes and services are listed on <a href="what-we-offer.html">What We Offer</a>.</p>
             </div>
         </div>
     </section>
 
-    <!-- What We Offer Section -->
-    <section class="quick-links">
-        <div class="container">
-            <div class="section-header">
-                <h2>What We Offer</h2>
-                <p>Services, programs, and gatherings for our community</p>
-            </div>
-            <div class="services-grid">
-                <a href="what-we-offer.html#services" class="service-card">
-                    <div class="service-icon">
-                        <!-- House with heart - caring life services -->
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 22l16-14 16 14"/>
-                            <path d="M12 20v20h24V20"/>
-                            <path d="M24 38l-6-6c-2-2-2-5 0-7s5-2 6 1c1-3 4-3 6-1s2 5 0 7l-6 6z" fill="currentColor" fill-opacity="0.2"/>
-                        </svg>
-                    </div>
-                    <h3>Services</h3>
-                    <p>Janazah, Nikah, and counselling support</p>
-                </a>
-                <a href="what-we-offer.html#education" class="service-card">
-                    <div class="service-icon">
-                        <!-- Book/education symbol -->
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 14l18-6 18 6v26l-18-6-18 6V14z"/>
-                            <path d="M24 8v26"/>
-                            <path d="M10 18c4-1 8-1 14 1M10 24c4-1 8-1 14 1" stroke-opacity="0.5"/>
-                            <path d="M38 18c-4-1-8-1-14 1M38 24c-4-1-8-1-14 1" stroke-opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <h3>Educational Programs</h3>
-                    <p>Madrassah, Dars-e-Quran and Qur’an Circle</p>
-                </a>
-                <a href="what-we-offer.html#gatherings" class="service-card">
-                    <div class="service-icon">
-                        <!-- Calendar with star - special events/gatherings -->
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="6" y="10" width="36" height="32" rx="2"/>
-                            <path d="M6 18h36"/>
-                            <path d="M14 6v8"/>
-                            <path d="M34 6v8"/>
-                            <path d="M24 24l2 4h4l-3 3 1 5-4-2-4 2 1-5-3-3h4l2-4z" fill="currentColor" fill-opacity="0.2"/>
-                        </svg>
-                    </div>
-                    <h3>Gatherings</h3>
-                    <p>Gyarwee Shareef, Mawlid, and community events</p>
-                </a>
+    <!-- Donate Section: interior photograph beside an emerald appeal panel, Gift Aid band beneath.
+         Same copy, Hibabox link and Gift Aid wording as the live section. -->
+    <section class="donate-feature" id="donate" aria-labelledby="donate-title">
+        <div class="donate-feature-main">
+            <figure class="donate-feature-photo">
+                <img src="images/donate/ghousia-masjid-mawlid-2026-congregation-hall-1280.webp"
+                     srcset="images/donate/ghousia-masjid-mawlid-2026-congregation-hall-800.webp 800w, images/donate/ghousia-masjid-mawlid-2026-congregation-hall-1280.webp 1280w"
+                     sizes="(min-width: 900px) 62vw, 100vw"
+                     width="1280" height="760" loading="lazy"
+                     alt="The congregation gathered in the prayer hall at Ghousia Masjid for Mawlid 2026">
+                <figcaption>Ghousia Masjid<span aria-hidden="true">·</span>Mawlid 2026</figcaption>
+            </figure>
+            <div class="donate-feature-panel">
+                <h2 class="donate-feature-title" id="donate-title"><span class="donate-feature-eyebrow">Donate</span> Support the masjid today and for the future.</h2>
+                <h3 class="donate-feature-subtitle">How your donation helps</h3>
+                <ul class="donate-feature-uses">
+                    <li>Maintaining the masjid</li>
+                    <li>Supporting learning</li>
+                    <li>Improving community spaces</li>
+                </ul>
+                <p class="donate-feature-more">…and much more.</p>
+                <a href="https://hibabox.com/greenwich-madina-trust/mosque-maintenance" class="donate-feature-button" target="_blank" rel="noopener noreferrer">Donate now</a>
+                <p class="donate-feature-note">Secure donation via Hibabox.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Donate Section -->
-    <section class="home-donate-section" id="donate" aria-labelledby="donate-title">
-        <div class="container">
-            <div class="section-header home-donate-site-header">
-                <h2 id="donate-title">Donate</h2>
-                <p>Support the masjid today and for the future.</p>
-            </div>
-            <div class="home-donate-frame">
-                <div class="home-donate-layout">
-                    <div class="home-donate-copy">
-                        <h3 class="home-donate-impact-title">How your donation helps</h3>
-                        <ul class="home-donate-uses" aria-label="How your donation helps">
-                            <li><span aria-hidden="true"><img src="images/ui/donate-use-facilities.svg" alt=""></span><strong>Maintaining the masjid</strong></li>
-                            <li><span aria-hidden="true"><img src="images/ui/donate-use-learning.svg" alt=""></span><strong>Supporting learning</strong></li>
-                            <li><span aria-hidden="true"><img src="images/ui/donate-use-community.svg" alt=""></span><strong>Improving community spaces</strong></li>
-                        </ul>
-                        <p class="home-donate-more">…and much more.</p>
-                        <div class="home-donate-action">
-                            <a href="https://hibabox.com/greenwich-madina-trust/mosque-maintenance" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Donate Now</a>
-                            <p class="home-donate-action-note">Secure donation via <strong>Hibabox</strong>.</p>
-                        </div>
-                    </div>
-                    <aside class="gift-aid-card" aria-labelledby="gift-aid-title">
-                        <div class="gift-aid-mark" aria-hidden="true">
-                            <img src="images/ui/donate-gift-aid-mark.png" alt="">
-                        </div>
-                        <h3 id="gift-aid-title">Boost your donation by 25%</h3>
-                        <div class="gift-aid-divider" aria-hidden="true"><span></span></div>
-                        <p>If you are a UK taxpayer, select Gift Aid when donating so the masjid can receive more at no extra cost to you.</p>
-                    </aside>
+        <aside class="donate-giftaid" aria-labelledby="gift-aid-title">
+            <div class="container donate-giftaid-inner">
+                <svg class="donate-giftaid-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="6" y="17" width="36" height="9"/>
+                    <path d="M9 26v16h30V26"/>
+                    <path d="M24 17v25"/>
+                    <path d="M24 17c-2-6-10-9-11-4s7 4 11 4c4 0 12 1 11-4s-9-2-11 4z"/>
+                </svg>
+                <span class="donate-giftaid-rule" aria-hidden="true"></span>
+                <div class="donate-giftaid-copy">
+                    <h3 class="donate-giftaid-title" id="gift-aid-title">Boost your donation by 25%</h3>
+                    <span class="donate-giftaid-rule" aria-hidden="true"></span>
+                    <p class="donate-giftaid-text">If you are a UK taxpayer, select Gift Aid when donating so the masjid can receive more at no extra cost to you.</p>
                 </div>
             </div>
+        </aside>
+    </section>
+
+    <!-- Recent news: one lead story beside two compact ones, from data/facebook-news-preview.json.
+         Posts past their home_until date leave the homepage; calls to action past action_until are hidden. -->
+    <section class="home-section home-section--warm" id="latest-updates-preview" aria-labelledby="home-news-title">
+        <div class="container">
+            <div class="section-intro">
+                <div>
+                    <p class="section-intro-eyebrow">Latest updates</p>
+                    <h2 class="section-intro-title" id="home-news-title">Recent news</h2>
+                </div>
+                <a href="news.html" class="text-link">All news</a>
+            </div>
+            <div class="home-news-grid" id="home-news-root" aria-live="polite"></div>
         </div>
     </section>
 
-    <!-- Media Section - YouTube & Instagram -->
-    <section id="media-section" class="media-section">
+    <!-- Media Section: newest video featured, three more beside it; live Instagram feed alongside -->
+    <section id="media-section" class="media-section home-section" aria-labelledby="home-media-title">
         <div class="container">
-            <div class="section-header">
-                <h2>Media</h2>
-                <p>Videos and updates from our community</p>
+            <div class="section-intro">
+                <div>
+                    <p class="section-intro-eyebrow">Media</p>
+                    <h2 class="section-intro-title" id="home-media-title">Watch and follow</h2>
+                </div>
             </div>
+            <div class="home-media-grid">
 
             <!-- YouTube Videos -->
             <div class="media-subsection" id="youtube-section" style="display: none;">
@@ -1263,6 +390,7 @@
                     <behold-widget feed-id="NvUlYqJtlkywvlwqle0g"></behold-widget>
                 </div>
             </div>
+            </div>
         </div>
     </section>
     <script>
@@ -1272,24 +400,35 @@
       })();
     </script>
 
-    <!-- Location Section -->
-    <section class="location">
+    <!-- Visit Us: both buildings with what happens at each; descriptions from contact.html -->
+    <section class="home-section home-section--warm" id="visit" aria-labelledby="home-visit-title">
         <div class="container">
-            <div class="location-content">
-                <div class="location-info">
-                    <h2>Visit Us</h2>
-                    <address>
-                        <p><strong>Greenwich Madina Trust</strong></p>
-                        <p>56 Camrose Street</p>
-                        <p>London</p>
-                        <p>SE2 0JA</p>
-                    </address>
-                    <p class="location-email">
-                        <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>
-                    </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" class="btn btn-outline" target="_blank">Get Directions</a>
+            <div class="section-intro">
+                <div>
+                    <p class="section-intro-eyebrow">Visit us</p>
+                    <h2 class="section-intro-title" id="home-visit-title">Find us</h2>
                 </div>
-                <div class="location-map">
+                <a href="contact.html" class="text-link">Contact us</a>
+            </div>
+            <div class="home-visit-grid">
+                <div>
+                    <ul class="home-visit-places">
+                        <li class="home-visit-place">
+                            <h3 class="home-visit-name">Ghousia Masjid</h3>
+                            <p class="home-visit-use">Main masjid for prayers, Jum’a, and events</p>
+                            <address>56 Camrose Street, London SE2 0JA</address>
+                            <a href="https://www.google.com/maps/search/?api=1&query=51.486854553222656,0.10261762142181396" class="text-link" target="_blank" rel="noopener">Get directions</a>
+                        </li>
+                        <li class="home-visit-place">
+                            <h3 class="home-visit-name">Educational Centre</h3>
+                            <p class="home-visit-use">Madrassah classes for children</p>
+                            <address>46 Conway Road, London SE18 1AR</address>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46+Conway+Road+London+SE18+1AR" class="text-link" target="_blank" rel="noopener">Get directions</a>
+                        </li>
+                    </ul>
+                    <p class="home-visit-email">Email <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a></p>
+                </div>
+                <div class="home-visit-map">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5!2d0.1026!3d51.4869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzEyLjciTiAwwrAwNicwOS40IkU!5e0!3m2!1sen!2suk!4v1234567890"
                         width="100%"
@@ -1328,7 +467,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
                         <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="X (formerly Twitter)">X (Twitter)</a>
                         <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
                         <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" aria-label="TikTok">TikTok</a>
                     </div>
@@ -1375,6 +514,16 @@
             const cutoff = softBreak >= Math.max(30, maxLength - 16) ? softBreak : maxLength;
             return `${normalized.slice(0, cutoff).trimEnd()}…`;
         }
+        // Today's date in London as YYYY-MM-DD, for the posts' action_until / home_until fields.
+        function gmtLondonToday() {
+            const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
+            const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+            return `${value.year}-${value.month}-${value.day}`;
+        }
+        // A date field has passed once London's date is after it (the end date itself still counts).
+        function gmtHasPassed(isoDate) {
+            return Boolean(isoDate) && gmtLondonToday() > isoDate;
+        }
         function gmtNewsExcerpt(post, maxLength = 165) {
             const blocks = post.text_blocks || [];
             const candidate = blocks.find(block => !/[؀-ۿ]/.test(block) && !/^https?:/.test(block));
@@ -1385,107 +534,90 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
-            const root = document.getElementById('latest-updates-wrapper');
+            const root = document.getElementById('home-news-root');
             if (!root) return;
             try {
                 const response = await fetch('data/facebook-news-preview.json', { cache: 'no-store' });
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                const posts = (data.posts || []).slice(0, 3);
-                const fallbackDate = data.updated_at
-                    ? new Date(`${data.updated_at}T12:00:00Z`).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        timeZone: 'UTC'
-                    })
-                    : '';
-                root.innerHTML = posts.map((post, index) => {
-                    const staticDate = post.published_date || fallbackDate || post.published_label || '';
-                    return `
-                    <div class="swiper-slide">
-                        <article class="latest-update-card">
-                            ${gmtNewsFirstImage(post) ? `<div class="latest-update-media ${gmtNewsIsPortrait(post) ? 'is-portrait' : ''}"><div class="latest-update-media-stage ${gmtNewsIsPortrait(post) ? 'is-portrait-stage' : ''}"><img src="${gmtEscapeHtml(gmtNewsFirstImage(post))}" alt="${gmtEscapeHtml(post.title)}" loading="lazy"></div></div>` : ''}
-                            <div class="latest-update-body">
-                                <div class="latest-update-meta">
-                                    <span class="latest-update-pill">${gmtEscapeHtml(post.eyebrow || 'Update')}</span>
-                                    <span>${gmtEscapeHtml(staticDate)}</span>
-                                </div>
-                                <h3 class="latest-update-title">${gmtEscapeHtml(gmtClampText(post.title, gmtNewsIsPortrait(post) ? 64 : 74))}</h3>
-                                <p class="latest-update-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(post, gmtNewsIsPortrait(post) ? 150 : 180))}</p>
-                                <div class="latest-update-actions">
-                                    ${post.action_url
-                                        ? `<a href="${gmtEscapeHtml(post.action_url)}"${gmtLinkAttributes(post.action_url)} class="btn btn-primary btn-sm">${gmtEscapeHtml(post.action_label || 'Learn more')}</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
-                                        : post.donation_url
-                                            ? `<a href="${gmtEscapeHtml(post.donation_url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Donate now</a><a href="news.html#post-${index + 1}" class="news-archive-link">Read more</a>`
-                                            : `<a href="news.html#post-${index + 1}" class="btn btn-primary btn-sm">Read more</a><a href="${gmtEscapeHtml(post.source_url)}" target="_blank" rel="noopener" class="news-archive-link">View on Facebook</a>`}
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    `;
-                }).join('');
-
-                window.latestUpdatesSwiper = new Swiper('#latest-updates-carousel', {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                    centeredSlides: false,
-                    watchOverflow: true,
-                    navigation: {
-                        nextEl: '.latest-updates-next',
-                        prevEl: '.latest-updates-prev'
-                    },
-                    keyboard: {
-                        enabled: true,
-                        onlyInViewport: true
-                    },
-                    breakpoints: {
-                        0: {
-                            slidesPerView: 1,
-                            spaceBetween: 12
-                        },
-                        681: {
-                            slidesPerView: 2,
-                            spaceBetween: 16
-                        },
-                        900: {
-                            slidesPerView: 2,
-                            spaceBetween: 24
-                        }
-                    },
-                    on: {
-                        init: updateLatestStatus,
-                        breakpoint: updateLatestStatus,
-                        resize: updateLatestStatus,
-                        slideChange: updateLatestStatus
-                    }
-                });
-
-                function updateLatestStatus() {
-                    const status = document.getElementById('latest-updates-status');
-                    if (!status || !window.latestUpdatesSwiper) return;
-                    const swiper = window.latestUpdatesSwiper;
-                    const total = posts.length;
-                    const configured = Number(swiper.params.slidesPerView) || 1;
-                    const visible = Math.min(configured, total);
-                    const start = Math.min(swiper.activeIndex + 1, total);
-                    const end = Math.min(start + visible - 1, total);
-                    status.textContent = visible === 1 ? `${start} of ${total}` : `${start}–${end} of ${total}`;
+                // Keep each post's position in the full list: news.html anchors are #post-<position>.
+                // Posts past their home_until date stay on the News page but leave the homepage.
+                const posts = (data.posts || [])
+                    .map((post, position) => ({ ...post, newsAnchor: `news.html#post-${position + 1}` }))
+                    .filter(post => !gmtHasPassed(post.home_until))
+                    .slice(0, 3);
+                if (!posts.length) {
+                    root.innerHTML = '<p class="home-news-error">No current news. <a href="news.html">See past updates</a>.</p>';
+                    return;
                 }
+
+                // Image preference: an editor-chosen home_image, then the first photograph, then the poster.
+                const imageFor = post => post.home_image
+                    || (post.gallery && post.gallery[0])
+                    || post.poster
+                    || null;
+                const dateFor = post => post.published_date || post.published_label || '';
+
+                // The main call to action, unless its action_until date has passed.
+                const primaryAction = post => {
+                    const actionUrl = gmtHasPassed(post.action_until) ? '' : post.action_url;
+                    if (actionUrl) return { url: actionUrl, label: post.action_label || 'Learn more' };
+                    if (post.donation_url) return { url: post.donation_url, label: 'Donate now' };
+                    return null;
+                };
+
+                const [lead, ...rest] = posts;
+                const leadImage = imageFor(lead);
+                const leadAction = primaryAction(lead);
+                const leadIsPoster = leadImage && !lead.home_image && leadImage === lead.poster;
+
+                const leadHtml = `
+                    <article class="home-news-lead">
+                        ${leadImage ? `<a class="home-news-lead-media${leadIsPoster ? ' is-poster' : ''}" href="${lead.newsAnchor}" tabindex="-1" aria-hidden="true"><img src="${gmtEscapeHtml(leadImage.url)}" alt="" loading="lazy"></a>` : ''}
+                        <p class="home-news-meta"><span>${gmtEscapeHtml(lead.eyebrow || 'Update')}</span><time>${gmtEscapeHtml(dateFor(lead))}</time></p>
+                        <h3 class="home-news-lead-title"><a href="${lead.newsAnchor}">${gmtEscapeHtml(lead.title)}</a></h3>
+                        <p class="home-news-excerpt">${gmtEscapeHtml(gmtNewsExcerpt(lead, 220))}</p>
+                        <div class="home-news-actions">
+                            ${leadAction ? `<a class="btn btn-primary" href="${gmtEscapeHtml(leadAction.url)}"${gmtLinkAttributes(leadAction.url)}>${gmtEscapeHtml(leadAction.label)}</a>` : ''}
+                            <a class="text-link" href="${lead.newsAnchor}">Read the story</a>
+                        </div>
+                    </article>`;
+
+                const listHtml = rest.length ? `
+                    <ul class="home-news-list">
+                        ${rest.map(post => {
+                            const image = imageFor(post);
+                            return `
+                            <li class="home-news-item">
+                                ${image ? `<a class="home-news-item-media" href="${post.newsAnchor}" tabindex="-1" aria-hidden="true"><img src="${gmtEscapeHtml(image.url)}" alt="" loading="lazy"></a>` : '<span></span>'}
+                                <div>
+                                    <p class="home-news-meta"><span>${gmtEscapeHtml(post.eyebrow || 'Update')}</span><time>${gmtEscapeHtml(dateFor(post))}</time></p>
+                                    <h3 class="home-news-item-title"><a href="${post.newsAnchor}">${gmtEscapeHtml(post.title)}</a></h3>
+                                    <a class="text-link" href="${post.newsAnchor}" aria-label="Read the story: ${gmtEscapeHtml(post.title)}">Read the story</a>
+                                </div>
+                            </li>`;
+                        }).join('')}
+                    </ul>` : '';
+
+                root.innerHTML = leadHtml + listHtml;
             } catch (error) {
-                root.innerHTML = `<div class="swiper-slide"><p>Could not load news: ${gmtEscapeHtml(error.message)}</p></div>`;
+                root.innerHTML = `<p class="home-news-error">News could not be loaded. <a href="news.html">Open the News page</a>.</p>`;
             }
         });
     </script>
 
-    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
+    <script src="js/prayer-times.js?v=20261016-redesign"></script>
     <script src="js/events.js?v=20260908-ribbon-v3"></script>
     <!-- Swiper.js for carousel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GLightbox for video modals -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="js/youtube.js?v=20241220"></script>
-    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script src="js/youtube.js?v=20261016-redesign"></script>
+    <script src="js/main.js?v=20261016-redesign"></script>
+    <!-- sizes the square poster before Swiper measures it -->
+    <script src="js/hero-two-column.js?v=20261016-redesign"></script>
+    <!-- weekly schedule and services -->
+    <script src="js/home-week.js?v=20261016-redesign"></script>
     <script>
         // Remove expired campaign cards before Swiper counts or displays them.
         (() => {
@@ -1514,8 +646,8 @@
                     crossFade: true
                 },
                 navigation: {
-                    nextEl: '#hero-carousel .swiper-button-next',
-                    prevEl: '#hero-carousel .swiper-button-prev'
+                    nextEl: '.hero-carousel-frame .swiper-button-next',
+                    prevEl: '.hero-carousel-frame .swiper-button-prev'
                 },
                 pagination: {
                     el: '#hero-carousel .swiper-pagination',
@@ -1645,5 +777,7 @@
         });
     </script>
     <script src="js/programme-carousel.js?v=20261012-programmes2"></script>
+    <!-- pause / play beside the slide dots; focus holds the slides still -->
+    <script src="js/carousel-controls.js?v=20261016-redesign"></script>
 </body>
 </html>

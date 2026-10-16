@@ -1,0 +1,35 @@
+/* Footer in the house colours (16 Oct 2026): deep emerald with a gold rule instead of
+   charcoal. Same markup and content as every page's footer, so this file can be added site-wide. */
+
+.footer {
+    background: var(--emerald-deep);
+    border-top: 3px solid var(--gold);
+    color: rgba(255, 254, 249, 0.78);
+}
+
+.footer-section h4 {
+    color: var(--ivory);
+}
+
+.footer-links a,
+.social-links a {
+    color: rgba(255, 254, 249, 0.78);
+}
+
+.footer-links a:hover,
+.social-links a:hover,
+.footer-bottom a:hover {
+    color: var(--gold-bright);
+}
+
+.charity-number {
+    color: var(--gold-bright);
+}
+
+.footer-bottom {
+    border-top-color: rgba(196, 169, 98, 0.35);
+}
+
+.footer-bottom a {
+    color: rgba(255, 254, 249, 0.65);
+}

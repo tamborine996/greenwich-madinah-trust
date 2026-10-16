@@ -1,0 +1,186 @@
+/* Contact page (16 Oct 2026): quick routes first, an urgent Janazah line for visitors
+   arriving from a Janazah link, then the form beside the two buildings, in the homepage style. */
+
+/* ---------- Quick routes ---------- */
+
+.contact-quick {
+    padding: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+    background: var(--cream);
+}
+
+.contact-urgent {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--emerald-deep);
+    border-top: 3px solid var(--gold);
+    color: var(--ivory);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.contact-urgent strong {
+    color: var(--gold-bright);
+}
+
+.contact-urgent a {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: var(--gold);
+    color: var(--emerald-deep);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.contact-urgent a:hover {
+    background: var(--gold-bright);
+}
+
+.contact-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 2px solid var(--gold);
+    background: var(--ivory);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-quick-item {
+    display: block;
+    padding: 1.15rem 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    border-left: 1px solid rgba(196, 169, 98, 0.35);
+    transition: background var(--duration-fast) ease;
+}
+
+.contact-quick-item:first-child {
+    border-left: 0;
+}
+
+.contact-quick-item:hover {
+    background: rgba(196, 169, 98, 0.1);
+}
+
+.contact-quick-item:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+}
+
+.contact-quick-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+}
+
+.contact-quick-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.25;
+    color: var(--emerald-deep);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Form and buildings ---------- */
+
+#our-buildings {
+    scroll-margin-top: 110px;
+}
+
+.contact-form-container h2 {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.6rem, 2.4vw, 2rem);
+    font-weight: 400;
+}
+
+.contact-form-container h2::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-bottom: 0.85rem;
+    background: var(--gold);
+}
+
+.contact-form {
+    border: 0;
+    border-top: 2px solid var(--gold);
+    border-radius: 0;
+}
+
+.contact-card {
+    border: 0;
+    border-top: 2px solid var(--gold);
+    border-radius: 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-card:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-card h3 {
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.contact-card .location-label {
+    color: var(--gold-muted);
+}
+
+/* ---------- Map ---------- */
+
+.map-section {
+    scroll-margin-top: 110px;
+}
+
+.map-section h2 {
+    text-align: left;
+    font-weight: 400;
+}
+
+.map-section h2::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-bottom: 0.85rem;
+    background: var(--gold);
+}
+
+.map-container {
+    border: 0;
+    border-top: 2px solid var(--gold);
+    border-radius: 0;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 760px) {
+    .contact-quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-quick-item {
+        border-left: 0;
+        border-top: 1px solid rgba(196, 169, 98, 0.35);
+    }
+
+    .contact-quick-item:first-child {
+        border-top: 0;
+    }
+
+    .contact-urgent a {
+        display: block;
+        margin: 0.75rem 0 0;
+        text-align: center;
+    }
+}

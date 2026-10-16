@@ -194,6 +194,15 @@ function initMobileMenu() {
                 toggle.setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Escape closes the open menu and returns focus to its button
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.focus();
+            }
+        });
     }
 }
 
@@ -203,23 +212,45 @@ function initMobileMenu() {
 function initFaqAccordions() {
     const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
+    // Keep each question's aria-expanded in step with what is shown.
+    function setOpen(item, open) {
+        item.classList.toggle('active', open);
         const question = item.querySelector('.faq-question');
+        if (question) question.setAttribute('aria-expanded', String(open));
+    }
+
+    faqItems.forEach((item, index) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
 
         if (question) {
+            if (answer) {
+                answer.id = answer.id || `faq-answer-${index + 1}`;
+                question.setAttribute('aria-controls', answer.id);
+            }
+            question.setAttribute('aria-expanded', 'false');
             question.addEventListener('click', function() {
+                const open = !item.classList.contains('active');
                 // Close other items
                 faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
+                    if (otherItem !== item) setOpen(otherItem, false);
                 });
-
-                // Toggle current item
-                item.classList.toggle('active');
+                setOpen(item, open);
             });
         }
     });
+
+    // Open the question a link points at (e.g. resources.html#gyarwee from What We Offer).
+    function openFromHash() {
+        const id = window.location.hash.slice(1);
+        const target = id && document.getElementById(id);
+        if (target && target.classList.contains('faq-item')) {
+            faqItems.forEach(otherItem => setOpen(otherItem, otherItem === target));
+            target.scrollIntoView({ block: 'start' });
+        }
+    }
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
 }
 
 /**
@@ -358,6 +389,11 @@ function initSmoothScroll() {
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Targets made focusable on purpose (e.g. the skip link's #content) also take
+                    // keyboard focus, which preventDefault would otherwise lose.
+                    if (target.hasAttribute('tabindex')) {
+                        target.focus({ preventScroll: true });
+                    }
                 }
             }
         });

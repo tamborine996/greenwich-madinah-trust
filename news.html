@@ -672,8 +672,14 @@
             }
         }
     </style>
+    <!-- shared shell matching the new homepage -->
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/news-page.css?v=20261016-redesign">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -760,7 +766,7 @@
         </div>
     </section>
 
-    <section class="page-hero">
+    <section class="page-hero" id="content" tabindex="-1">
         <div class="container">
             <h1>News</h1>
             <p>Recent announcements and community updates from Greenwich Madina Trust.</p>
@@ -796,7 +802,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
                         <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="X (formerly Twitter)">X (Twitter)</a>
                         <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
                         <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" aria-label="TikTok">TikTok</a>
                     </div>
@@ -984,11 +990,21 @@
             });
         }
 
+        // True once London's date is after an action_until date: the post stays as history,
+        // but its call to action (and paired related button) is no longer offered.
+        function actionHasEnded(post) {
+            if (!post.action_until) return false;
+            const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
+            const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+            return `${value.year}-${value.month}-${value.day}` > post.action_until;
+        }
+
         function renderPost(post, index, fallbackDate) {
             if (post.slug === 'annual-mawlid-un-nabi-highlights-2026') {
                 return renderMawlidFeature(post, index, fallbackDate);
             }
             const staticDate = post.published_date || fallbackDate || post.published_label || '';
+            const actionLive = post.action_url && !actionHasEnded(post);
             return `
                 <article class="news-article" id="post-${index + 1}">
                     <div class="news-article-body">
@@ -999,7 +1015,7 @@
                         <h2>${escapeHtml(post.title)}</h2>
                         ${renderVideo(post.video)}
                         <div class="news-prose">${renderTextBlocks(post.text_blocks || [])}</div>
-                        ${post.action_url ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}"${linkAttributes(post.action_url)}>${escapeHtml(post.action_label || 'Learn more')}</a>${post.related_url ? `<a class="btn btn-secondary" href="${escapeHtml(post.related_url)}"${linkAttributes(post.related_url)}>${escapeHtml(post.related_label || 'Related information')}</a>` : ''}</div>` : ''}
+                        ${actionLive ? `<div class="news-actions news-actions-inline"><a class="btn btn-primary" href="${escapeHtml(post.action_url)}"${linkAttributes(post.action_url)}>${escapeHtml(post.action_label || 'Learn more')}</a>${post.related_url ? `<a class="btn btn-secondary" href="${escapeHtml(post.related_url)}"${linkAttributes(post.related_url)}>${escapeHtml(post.related_label || 'Related information')}</a>` : ''}</div>` : ''}
                         ${renderDetails(post.key_details || [])}
                         ${post.video ? '' : renderPoster(post.poster)}
                         ${renderGallery(post.gallery || [])}
@@ -1012,14 +1028,70 @@
             `;
         }
 
-        function scrollToHashTarget() {
-            const hash = (window.location.hash || '').split('?')[0];
-            if (!hash || !hash.startsWith('#post-')) return;
-            const target = document.querySelector(hash);
-            if (!target) return;
-            requestAnimationFrame(() => {
-                target.scrollIntoView({ block: 'start' });
-            });
+        // the page opens on a short index; #post-N (the existing link format) opens one story.
+        const PAGE_TITLE = document.title;
+        let newsPosts = [];
+        let newsFallbackDate = '';
+
+        function newsImage(post) {
+            return post.home_image || (post.gallery && post.gallery[0]) || post.poster || null;
+        }
+
+        function newsExcerpt(post, maxLength) {
+            const block = (post.text_blocks || []).find(text => !/[؀-ۿ]/.test(text) && !/^https?:/.test(text)) || '';
+            const clean = block.replace(/\s+/g, ' ').trim();
+            if (clean.length <= maxLength) return clean;
+            const cut = clean.lastIndexOf(' ', maxLength);
+            return `${clean.slice(0, cut > 40 ? cut : maxLength).trimEnd()}…`;
+        }
+
+        function renderIndexItem(post, index, lead) {
+            const image = newsImage(post);
+            const date = post.published_date || newsFallbackDate || post.published_label || '';
+            const href = `#post-${index + 1}`;
+            return `
+                <article class="${lead ? 'news-index-lead' : 'news-index-card'}">
+                    ${image ? `<a class="news-index-media" href="${href}" tabindex="-1" aria-hidden="true"><img src="${escapeHtml(image.url)}" alt="" loading="lazy"></a>` : ''}
+                    <div class="news-index-body">
+                        <p class="home-news-meta"><span>${escapeHtml(post.eyebrow || 'Update')}</span><time>${escapeHtml(date)}</time></p>
+                        <h2 class="${lead ? 'news-index-lead-title' : 'news-index-title'}"><a href="${href}">${escapeHtml(post.title)}</a></h2>
+                        <p class="news-index-excerpt">${escapeHtml(newsExcerpt(post, lead ? 260 : 150))}</p>
+                        <a class="text-link" href="${href}" aria-label="Read the story: ${escapeHtml(post.title)}">Read the story</a>
+                    </div>
+                </article>`;
+        }
+
+        function renderIndex(root) {
+            const [lead, ...rest] = newsPosts;
+            root.className = 'news-index';
+            root.innerHTML = renderIndexItem(lead, 0, true)
+                + `<div class="news-index-grid">${rest.map((post, i) => renderIndexItem(post, i + 1, false)).join('')}</div>`;
+            document.title = PAGE_TITLE;
+        }
+
+        function renderStory(root, index) {
+            const post = newsPosts[index];
+            const others = newsPosts.map((p, i) => ({ p, i })).filter(({ i }) => i !== index).slice(0, 2);
+            root.className = 'news-story';
+            root.innerHTML = `
+                <p class="news-story-back"><a class="text-link news-back-link" href="news.html">All news</a></p>
+                <div class="news-stack">${renderPost(post, index, newsFallbackDate)}</div>
+                <aside class="news-story-more" aria-labelledby="news-more-title">
+                    <p class="section-intro-eyebrow" id="news-more-title">More news</p>
+                    <div class="news-index-grid">${others.map(({ p, i }) => renderIndexItem(p, i, false)).join('')}</div>
+                </aside>`;
+            initMawlidFeatureVideos();
+            document.title = `${post.title} | News | Greenwich Madina Trust`;
+            const top = root.getBoundingClientRect().top + window.scrollY - 110;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+        }
+
+        function renderNews() {
+            const root = document.getElementById('news-root');
+            const match = (window.location.hash || '').match(/^#post-(\d+)/);
+            const index = match ? Number(match[1]) - 1 : -1;
+            if (index >= 0 && index < newsPosts.length) renderStory(root, index);
+            else renderIndex(root);
         }
 
         async function init() {
@@ -1028,8 +1100,8 @@
                 const response = await fetch('data/facebook-news-preview.json', { cache: 'no-store' });
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                const posts = data.posts || [];
-                const fallbackDate = data.updated_at
+                newsPosts = data.posts || [];
+                newsFallbackDate = data.updated_at
                     ? new Date(`${data.updated_at}T12:00:00Z`).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'long',
@@ -1037,21 +1109,18 @@
                         timeZone: 'UTC'
                     })
                     : '';
-                if (!posts.length) throw new Error('No posts found');
-                root.className = 'news-stack';
-                root.innerHTML = posts.map((post, index) => renderPost(post, index, fallbackDate)).join('');
-                initMawlidFeatureVideos();
-                scrollToHashTarget();
+                if (!newsPosts.length) throw new Error('No posts found');
+                renderNews();
             } catch (error) {
                 root.className = 'news-error';
                 root.innerHTML = `<strong>Could not load news.</strong><p>${escapeHtml(error.message)}</p>`;
             }
         }
 
-        window.addEventListener('hashchange', scrollToHashTarget);
+        window.addEventListener('hashchange', renderNews);
         init();
     </script>
-    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
-    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script src="js/prayer-times.js?v=20261016-redesign"></script>
+    <script src="js/main.js?v=20261016-redesign"></script>
 </body>
 </html>

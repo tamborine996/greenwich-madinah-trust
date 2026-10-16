@@ -1,0 +1,175 @@
+/* News page (16 Oct 2026): a short index (lead story, then cards) instead of every story
+   in full; one story at a time when opened. Uses home-sections.css and the home-news meta style. */
+
+/* ---------- Index ---------- */
+
+.news-index-lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    border-bottom: 2px solid var(--gold);
+}
+
+.news-index-media {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--emerald-deep);
+}
+
+.news-index-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.news-index-media:hover img {
+    transform: scale(1.03);
+}
+
+.news-index-lead-title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.news-index-title {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.news-index-lead-title a,
+.news-index-title a {
+    color: var(--emerald-deep);
+    text-decoration: none;
+}
+
+.news-index-lead-title a:hover,
+.news-index-title a:hover {
+    color: var(--emerald);
+}
+
+.news-index-excerpt {
+    margin: 0 0 1rem;
+    color: var(--slate);
+    line-height: 1.6;
+}
+
+.news-index-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.news-index-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--ivory);
+    border-top: 2px solid var(--gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.news-index-card .news-index-media {
+    aspect-ratio: 4 / 3;
+}
+
+.news-index-card .news-index-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.2rem 1.3rem 1.4rem;
+}
+
+.news-index-card .text-link {
+    margin-top: auto;
+    font-size: 0.75rem;
+}
+
+/* ---------- Single story ---------- */
+
+.news-story-back {
+    margin: 0 0 1.5rem;
+}
+
+/* The story card in the homepage style: square edges, gold top rule, left-aligned title. */
+.news-story .news-article {
+    border: 0;
+    border-top: 2px solid var(--gold);
+    border-radius: 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.news-story .news-article h2 {
+    text-align: left;
+    font-weight: 400;
+    color: var(--emerald-deep);
+}
+
+.news-story .news-pill {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: var(--gold-muted);
+    letter-spacing: 0.16em;
+}
+
+.news-back-link::after {
+    content: none;
+}
+
+.news-back-link::before {
+    content: '←';
+    transition: transform var(--duration-fast) ease;
+}
+
+.news-back-link:hover::before {
+    transform: translateX(-3px);
+}
+
+.news-story-more {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    border-top: 2px solid var(--gold);
+}
+
+.news-story-more .news-index-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1rem;
+}
+
+/* ---------- Tablet and phone ---------- */
+
+@media (max-width: 900px) {
+    .news-index-lead {
+        grid-template-columns: 1fr;
+    }
+
+    .news-index-grid,
+    .news-story-more .news-index-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .news-index-grid,
+    .news-story-more .news-index-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .news-index-media img,
+    .news-back-link::before {
+        transition: none;
+    }
+}

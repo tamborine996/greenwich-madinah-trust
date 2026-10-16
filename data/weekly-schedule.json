@@ -1,0 +1,84 @@
+{
+  "updated": "2026-10-16",
+  "source": "Wording and times copied from what-we-offer.html (live) and the approved Tajweed / Dars-e-Quran posters (12-13 Oct 2026). Confirm monthly with CONTENT-REGISTER.md. Read by the homepage schedule and, by id, by the What We Offer class times.",
+  "sessions": [
+    {
+      "id": "madrassah",
+      "day": "Weekdays",
+      "title": "Children’s Madrassah",
+      "detail": "Ages 5–9: 4:30–5:40pm · Ages 10–16: 5:40–6:50pm",
+      "time": "After school",
+      "place": "Educational Centre",
+      "link": "what-we-offer.html#madrassah"
+    },
+    {
+      "id": "quran-circle-men",
+      "day": "Tuesday",
+      "title": "Qur’an Circle (Tajweed)",
+      "detail": "Men’s class",
+      "time": "After Isha",
+      "place": "Ghousia Masjid",
+      "link": "what-we-offer.html#quran-circle"
+    },
+    {
+      "id": "dars-men",
+      "day": "Thursday",
+      "title": "Dars-e-Quran",
+      "detail": "Men’s",
+      "time": "7:45pm",
+      "place": "Ghousia Masjid",
+      "link": "what-we-offer.html#dars"
+    },
+    {
+      "id": "jumua",
+      "day": "Friday",
+      "title": "Jum’a",
+      "detail": "English speech 30 minutes before the first prayer",
+      "time": "1:30pm & 2:15pm",
+      "place": "Ghousia Masjid",
+      "link": "prayer-times.html"
+    },
+    {
+      "id": "quran-circle-ladies",
+      "day": "Friday",
+      "title": "Qur’an Circle (Tajweed)",
+      "detail": "Ladies’ class",
+      "time": "12–1pm",
+      "place": "Educational Centre",
+      "link": "what-we-offer.html#quran-ladies"
+    },
+    {
+      "id": "gyarwee",
+      "day": "Monthly",
+      "title": "Gyarwee Shareef",
+      "detail": "Usually the second Sunday; dates may vary",
+      "time": "",
+      "place": "Ghousia Masjid",
+      "link": "what-we-offer.html#gyarwee"
+    }
+  ],
+  "services": [
+    {
+      "title": "Funeral services (Janazah)",
+      "detail": "For urgent assistance, please contact us immediately.",
+      "action": "Contact for Janazah",
+      "link": "contact.html#janazah"
+    },
+    {
+      "title": "Marriage services (Nikah)",
+      "detail": "Islamic marriage ceremonies conducted according to the Sunni tradition.",
+      "action": "Enquire about Nikah",
+      "link": "contact.html#nikah"
+    },
+    {
+      "title": "Counselling",
+      "detail": "Confidential counselling and support services.",
+      "action": "Request counselling",
+      "link": "contact.html#counselling"
+    }
+  ],
+  "places": {
+    "Ghousia Masjid": "56 Camrose Street, SE2 0JA",
+    "Educational Centre": "46 Conway Road, SE18 1AR"
+  }
+}

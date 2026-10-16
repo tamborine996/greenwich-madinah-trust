@@ -1,0 +1,313 @@
+/* Prayer Times page (16 Oct 2026): today and tomorrow cards, and the month table
+   laid out like the printed timetable (Fridays shaded, Jama'at times in bold). */
+
+.prayer-today-section {
+    padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.prayer-days {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.prayer-day {
+    background: var(--ivory);
+    border-top: 2px solid var(--gold);
+    box-shadow: var(--shadow-soft);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.prayer-day--today {
+    border-top-color: var(--emerald);
+}
+
+.prayer-day-title {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--emerald-deep);
+}
+
+.prayer-day-title span {
+    display: block;
+    margin-top: 0.2rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+}
+
+.prayer-day-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.prayer-day-table th,
+.prayer-day-table td {
+    padding: 0.6rem 0.4rem;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.35);
+    text-align: right;
+}
+
+.prayer-day-table thead th {
+    padding-top: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+}
+
+.prayer-day-table th:first-child {
+    text-align: left;
+}
+
+.prayer-day-table tbody th {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--emerald-deep);
+}
+
+.prayer-day-table tbody tr:last-child th,
+.prayer-day-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.prayer-jamaat {
+    font-weight: 700;
+    color: var(--emerald-deep);
+}
+
+.prayer-day-table tr.is-next th,
+.prayer-day-table tr.is-next td {
+    background: rgba(196, 169, 98, 0.16);
+}
+
+.prayer-next {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.45rem;
+    background: var(--emerald);
+    color: var(--ivory);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.prayer-day--missing p {
+    margin: 0;
+    color: var(--slate);
+}
+
+.prayer-note {
+    margin: 1.25rem 0 0;
+    color: var(--slate);
+}
+
+/* ---------- Month table ---------- */
+
+.prayer-month-section {
+    padding-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.prayer-month-guidance {
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(196, 169, 98, 0.16);
+    border-left: 3px solid var(--gold);
+    color: var(--charcoal);
+}
+
+.prayer-month-scroll {
+    overflow-x: auto;
+    background: var(--ivory);
+    box-shadow: var(--shadow-soft);
+    border-top: 2px solid var(--gold);
+}
+
+.prayer-month-scroll:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.prayer-month-table {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.prayer-month-table caption {
+    padding: 0.85rem 1rem;
+    caption-side: top;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+}
+
+.prayer-month-table thead th {
+    padding: 0.55rem 0.4rem;
+    background: var(--emerald-deep);
+    color: var(--ivory);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.15;
+    border-left: 1px solid rgba(255, 254, 249, 0.12);
+}
+
+.prayer-month-table thead .prayer-month-sub th {
+    background: #e8ede6;
+    color: var(--emerald-deep);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.prayer-month-table tbody th,
+.prayer-month-table tbody td {
+    padding: 0.5rem 0.4rem;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.25);
+    font-size: 0.95rem;
+}
+
+.prayer-month-table tbody th {
+    font-weight: 700;
+    color: var(--emerald-deep);
+}
+
+.prayer-month-table tbody .col-day {
+    color: var(--slate);
+    text-transform: none; /* "Thu", as on the printed timetable */
+}
+
+.prayer-month-table td.prayer-jamaat {
+    background: rgba(196, 169, 98, 0.08);
+}
+
+/* Opaque, so the sticky date/day cells hide the columns scrolling beneath them. */
+.prayer-month-table tr.is-friday th,
+.prayer-month-table tr.is-friday td {
+    background: #f3eddb;
+}
+
+.prayer-month-table tr.is-friday .col-date {
+    box-shadow: inset 4px 0 0 var(--gold);
+}
+
+.prayer-month-table tr.is-today th,
+.prayer-month-table tr.is-today td {
+    background: var(--emerald);
+    color: var(--ivory);
+}
+
+.prayer-month-note td {
+    padding: 0.45rem 1rem;
+    background: var(--cream-warm);
+    border-top: 2px solid var(--gold);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--emerald-deep);
+}
+
+/* Date and day stay visible while the table scrolls sideways on phones. */
+.prayer-month-table .col-date,
+.prayer-month-table .col-day {
+    position: sticky;
+    z-index: 1;
+    background: var(--ivory);
+}
+
+.prayer-month-table .col-date {
+    left: 0;
+    min-width: 3rem;
+}
+
+.prayer-month-table .col-day {
+    left: 3rem;
+    min-width: 3.25rem;
+}
+
+.prayer-month-table thead .col-date,
+.prayer-month-table thead .col-day {
+    z-index: 2;
+    background: var(--emerald-deep);
+}
+
+.prayer-month-key {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    margin: 0.85rem 0 0;
+    font-size: 0.88rem;
+    color: var(--slate);
+}
+
+.prayer-month-key span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+.key-friday {
+    background: rgba(196, 169, 98, 0.35);
+    box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.key-today {
+    margin-left: 0.6rem;
+    background: var(--emerald);
+}
+
+/* ---------- Printable timetable ---------- */
+
+/* Left-aligned with the rest of the page: styles.css centres this block. */
+.timetable-section .current-timetable-card {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+}
+
+.timetable-section .section-intro-title {
+    margin-bottom: 1.25rem;
+}
+
+.timetable-section .timetable-actions {
+    justify-content: flex-start;
+}
+
+.timetable-section .current-timetable-preview {
+    margin: 1.75rem 0 0;
+    max-width: 520px;
+}
+
+.timetable-section .current-timetable-preview img {
+    border-radius: 0;
+    box-shadow: var(--shadow-medium);
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 760px) {
+    .prayer-days {
+        grid-template-columns: 1fr;
+    }
+}

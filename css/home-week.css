@@ -1,0 +1,215 @@
+/* Homepage "What we offer" (16 Oct 2026): a weekly schedule of real classes and
+   gatherings beside the three services, replacing the three icon cards.
+   Rendered from data/weekly-schedule.json by js/home-week.js. */
+
+.home-week-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+}
+
+/* ---------- Schedule ---------- */
+
+.home-week-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--gold);
+}
+
+.home-week-row {
+    border-bottom: 1px solid rgba(196, 169, 98, 0.45);
+}
+
+.home-week-link {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+    gap: 0.4rem 1.5rem;
+    align-items: baseline;
+    padding: 1.15rem 0.75rem;
+    color: inherit;
+    text-decoration: none;
+    transition: background var(--duration-fast) ease;
+}
+
+.home-week-link:hover {
+    background: rgba(196, 169, 98, 0.1);
+}
+
+.home-week-link:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+}
+
+.home-week-day {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--gold-muted);
+}
+
+.home-week-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    line-height: 1.2;
+    color: var(--emerald-deep);
+}
+
+.home-week-detail {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--slate);
+}
+
+.home-week-when {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.home-week-time {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--emerald-deep);
+}
+
+.home-week-place {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+}
+
+.home-week-places {
+    margin: 1.1rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--slate);
+}
+
+.home-week-places strong {
+    font-weight: 600;
+    color: var(--emerald-deep);
+}
+
+.home-week-place-item {
+    white-space: nowrap;
+}
+
+.home-week-places-sep {
+    margin: 0 0.6em;
+    color: var(--gold);
+}
+
+/* ---------- Services ---------- */
+
+.home-services {
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    background: var(--ivory);
+    border-top: 2px solid var(--gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.home-services-heading {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald);
+}
+
+.home-services-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-service {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.35);
+}
+
+.home-service:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.home-service-title {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--emerald-deep);
+}
+
+.home-service-detail {
+    margin: 0 0 0.6rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--slate);
+}
+
+.home-service .text-link {
+    font-size: 0.75rem;
+}
+
+/* ---------- Tablet and phone ---------- */
+
+@media (max-width: 899.98px) {
+    .home-week-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-week-link {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.2rem 1rem;
+        padding: 1rem 0.25rem;
+    }
+
+    .home-week-day {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 1.05rem;
+    }
+
+    .home-week-when {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .home-week-main {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .home-week-title {
+        font-size: 1.2rem;
+    }
+
+    /* One place per line on phones. */
+    .home-week-place-item {
+        display: block;
+    }
+
+    .home-week-places-sep {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-week-link {
+        transition: none;
+    }
+}

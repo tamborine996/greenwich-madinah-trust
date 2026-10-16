@@ -1,0 +1,284 @@
+/* Homepage donation section (16 Oct 2026) — built from Codex's interior-donation concept.
+   Desktop (900px+): interior photograph on the left, emerald appeal panel on the right, edge to edge;
+   Gift Aid band beneath on ivory. Below 900px: photograph, then panel, then Gift Aid.
+   Copy, Hibabox link and Gift Aid wording are unchanged from the live section. */
+
+.donate-feature {
+    scroll-margin-top: 135px; /* fixed header + prayer strip */
+    background: var(--cream);
+    border-top: 1px solid rgba(196, 169, 98, 0.35);
+}
+
+.donate-feature-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.62fr) minmax(420px, 1fr);
+    min-height: clamp(520px, 44vw, 700px);
+}
+
+/* ---------- Photograph ---------- */
+
+.donate-feature-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: var(--emerald-deep);
+}
+
+.donate-feature-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%; /* keeps the congregation's faces in frame as the panel crops it */
+}
+
+.donate-feature-photo figcaption {
+    position: absolute;
+    left: 0;
+    bottom: clamp(16px, 2.4vw, 28px);
+    padding: 0.5rem 1.1rem 0.5rem clamp(16px, 1.8vw, 24px);
+    background: rgba(255, 254, 249, 0.94);
+    color: var(--emerald-deep);
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+}
+
+.donate-feature-photo figcaption span {
+    margin: 0 0.45em;
+    color: var(--gold);
+}
+
+/* ---------- Appeal panel ---------- */
+
+.donate-feature-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(40px, 5vw, 76px) clamp(28px, 4.4vw, 72px);
+    background: var(--emerald-deep);
+    color: var(--ivory);
+}
+
+.donate-feature-panel > * {
+    max-width: 32rem;
+}
+
+.donate-feature-title {
+    margin: 0 0 clamp(1.4rem, 2.4vw, 2rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 3.5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--ivory);
+}
+
+.donate-feature-eyebrow {
+    display: block;
+    margin-bottom: 1.1rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+}
+
+.donate-feature-eyebrow::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-bottom: 1.1rem;
+    background: var(--gold);
+}
+
+.donate-feature-subtitle {
+    margin: 0 0 0.9rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+    font-weight: 400;
+    color: var(--ivory);
+}
+
+.donate-feature-uses {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.donate-feature-uses li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    color: rgba(255, 254, 249, 0.92);
+}
+
+/* Gold bar marker, as in the concept. */
+.donate-feature-uses li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.18em;
+    width: 3px;
+    height: 1.05em;
+    background: var(--gold);
+}
+
+.donate-feature-more {
+    margin: 1rem 0 clamp(1.4rem, 2.4vw, 1.9rem);
+    font-size: 1.05rem;
+    color: rgba(255, 254, 249, 0.85);
+}
+
+.donate-feature-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    padding: 1.05rem 2.6rem;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--emerald-deep);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+
+.donate-feature-button:hover {
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    color: var(--emerald-deep);
+}
+
+.donate-feature-button:focus-visible {
+    outline: 2px solid var(--ivory);
+    outline-offset: 3px;
+}
+
+.donate-feature-note {
+    margin: 0.9rem 0 0;
+    font-size: 0.9rem;
+    color: rgba(255, 254, 249, 0.8);
+}
+
+/* ---------- Gift Aid band ---------- */
+
+.donate-giftaid {
+    border-bottom: 1px solid rgba(196, 169, 98, 0.35);
+}
+
+.donate-giftaid-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.25rem, 2.6vw, 2.5rem);
+    padding-top: clamp(1.6rem, 2.6vw, 2.2rem);
+    padding-bottom: clamp(1.6rem, 2.6vw, 2.2rem);
+}
+
+.donate-giftaid-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    color: var(--gold);
+}
+
+.donate-giftaid-rule {
+    flex: none;
+    width: 1px;
+    height: 58px;
+    background: rgba(196, 169, 98, 0.7);
+}
+
+.donate-giftaid-copy {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2.6vw, 2.5rem);
+}
+
+.donate-giftaid-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 2.5vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+    white-space: nowrap;
+}
+
+.donate-giftaid-text {
+    margin: 0;
+    max-width: 46ch;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--slate);
+}
+
+/* ---------- Tablet and phone ---------- */
+
+@media (max-width: 899.98px) {
+    .donate-feature-main {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .donate-feature-photo {
+        height: clamp(230px, 58vw, 420px);
+    }
+
+    .donate-feature-panel > * {
+        max-width: none;
+    }
+
+    .donate-giftaid-inner {
+        justify-content: flex-start;
+    }
+
+    .donate-giftaid-copy {
+        display: grid;
+        gap: 0.45rem;
+    }
+
+    .donate-giftaid-copy .donate-giftaid-rule {
+        display: none; /* title sits above the text instead of beside it */
+    }
+}
+
+@media (max-width: 560px) {
+    .donate-feature-button {
+        align-self: stretch;
+    }
+
+    .donate-feature-note {
+        text-align: center;
+    }
+
+    .donate-giftaid-inner {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .donate-giftaid-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .donate-giftaid-title {
+        white-space: normal;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .donate-feature-button {
+        transition: none;
+    }
+}

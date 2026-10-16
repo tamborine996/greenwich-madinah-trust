@@ -1,0 +1,158 @@
+/* Homepage "Recent news" (16 Oct 2026): one lead story beside two compact stories,
+   replacing the two-up card carousel. Rendered from data/facebook-news-preview.json. */
+
+.home-news-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+}
+
+/* ---------- Lead story ---------- */
+
+.home-news-lead-media {
+    display: block;
+    margin: 0 0 1.4rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--emerald-deep);
+}
+
+.home-news-lead-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.home-news-lead-media:hover img {
+    transform: scale(1.03);
+}
+
+/* Portrait posters sit whole on an emerald stage rather than being cropped. */
+.home-news-lead-media.is-poster img {
+    object-fit: contain;
+}
+
+.home-news-lead-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--emerald-deep);
+}
+
+.home-news-lead-title a,
+.home-news-item-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.home-news-lead-title a:hover,
+.home-news-item-title a:hover {
+    color: var(--emerald);
+}
+
+.home-news-excerpt {
+    margin: 0 0 1.4rem;
+    max-width: 58ch;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--slate);
+}
+
+.home-news-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.6rem;
+}
+
+.home-news-actions .btn {
+    padding: 0.8rem 1.5rem;
+}
+
+/* ---------- Compact stories ---------- */
+
+.home-news-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--gold);
+}
+
+.home-news-item {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.45);
+}
+
+.home-news-item-media {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--emerald-deep);
+}
+
+.home-news-item-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-news-item-title {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--emerald-deep);
+}
+
+.home-news-item .text-link {
+    font-size: 0.75rem;
+}
+
+.home-news-error {
+    color: var(--slate);
+}
+
+/* ---------- Tablet and phone ---------- */
+
+@media (max-width: 899.98px) {
+    .home-news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-news-item {
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .home-news-item-title {
+        font-size: 1.15rem;
+    }
+
+    .home-news-actions .btn {
+        flex: 1 1 auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-news-lead-media img {
+        transition: none;
+    }
+
+    .home-news-lead-media:hover img {
+        transform: none;
+    }
+}

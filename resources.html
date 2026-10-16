@@ -11,14 +11,20 @@
       gtag('js', new Date());
       gtag('config', 'G-1SG005B9VX');
     </script>
-    <meta name="description" content="Resources from Greenwich Madina Trust - Islamic FAQs, downloads, useful links, and videos about Sunni traditions.">
+    <meta name="description" content="Resources from Greenwich Madina Trust - forms, the monthly timetable, and answers to common questions about Sunni traditions.">
     <title>Resources | Greenwich Madina Trust</title>
     <link rel="stylesheet" href="css/styles.css?v=20260823-rabi-nur-live1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
+    <!-- shared shell matching the new homepage -->
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/resources-page.css?v=20261016-redesign">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -114,7 +120,7 @@
     </section>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" id="content" tabindex="-1">
         <div class="container">
             <h1>Resources</h1>
             <p>Helpful information and documents for our community</p>
@@ -125,10 +131,25 @@
     <section class="content-section">
         <div class="container">
             <div class="section-header">
-                <h2>Quick Links</h2>
+                <h2>Forms and documents</h2>
                 <p>Downloadable forms and documents</p>
             </div>
             <div class="quick-links-grid">
+                <!-- the monthly timetable joins the Madrassah form (the Nikah certificate stays off this page, per the Imam) -->
+                <a href="prayer-times.html#monthly-timetable-section" class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="10" width="32" height="32" rx="2"/>
+                            <path d="M8 18h32"/>
+                            <path d="M16 6v8M32 6v8"/>
+                            <path d="M15 26h6M27 26h6M15 33h6M27 33h6"/>
+                        </svg>
+                    </div>
+                    <div class="quick-link-content">
+                        <h3>Monthly prayer timetable</h3>
+                        <p>This month’s printable timetable and PDF</p>
+                    </div>
+                </a>
                 <a href="documents/madrassah-enrolment-form.pdf" class="quick-link-card" target="_blank">
                     <div class="quick-link-icon">
                         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
@@ -139,7 +160,7 @@
                         </svg>
                     </div>
                     <div class="quick-link-content">
-                        <h3>Madrassah Enrolment Form</h3>
+                        <h3>Madrassah enrolment form</h3>
                         <p>Download and complete the form to enrol your child</p>
                     </div>
                 </a>
@@ -151,7 +172,7 @@
     <section class="content-section" id="common-questions">
         <div class="container">
             <div class="section-header">
-                <h2>Common Questions</h2>
+                <h2>Common questions</h2>
                 <p>Learn about Islamic practices and traditions</p>
             </div>
 
@@ -280,9 +301,9 @@
     <section class="content-section">
         <div class="container">
             <div class="cta-box">
-                <h3>Have More Questions?</h3>
+                <h3>Have more questions?</h3>
                 <p>If you'd like to learn more about Islamic practices, please get in touch.</p>
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="contact.html" class="btn btn-primary">Contact us</a>
             </div>
         </div>
     </section>
@@ -311,7 +332,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" aria-label="Facebook">Facebook</a>
                         <a href="https://www.instagram.com/greenwichmadinatrust" target="_blank" aria-label="Instagram">Instagram</a>
-                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="Twitter">Twitter</a>
+                        <a href="https://mobile.twitter.com/TrustMadina/" target="_blank" aria-label="X (formerly Twitter)">X (Twitter)</a>
                         <a href="https://www.youtube.com/channel/UCTlPBYKq48KKhrdn51A7F5w" target="_blank" aria-label="YouTube">YouTube</a>
                         <a href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" aria-label="TikTok">TikTok</a>
                     </div>
@@ -324,7 +345,7 @@
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
-    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
+    <script src="js/prayer-times.js?v=20261016-redesign"></script>
+    <script src="js/main.js?v=20261016-redesign"></script>
 </body>
 </html>
