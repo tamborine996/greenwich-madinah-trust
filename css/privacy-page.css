@@ -1,0 +1,89 @@
+/* Privacy policy page (16 Oct 2026): the "In short" summary, the cookie table and the inline
+   "Cookie settings" button, in the house style (square corners, gold rules, emerald text). */
+
+.privacy-summary {
+    margin: 0 0 2.5rem;
+    padding: 1.4rem 1.6rem 1.2rem;
+    border-top: 2px solid var(--gold);
+    background: var(--ivory);
+    box-shadow: var(--shadow-soft);
+}
+
+.legal-content .privacy-summary-title {
+    margin: 0 0 0.75rem;
+    padding: 0;
+    border: 0;
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+}
+
+.privacy-summary ul {
+    margin: 0;
+}
+
+.privacy-table-wrap {
+    margin: 1.25rem 0 1.75rem;
+    overflow-x: auto;
+}
+
+.privacy-table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.privacy-table caption {
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+}
+
+.privacy-table th,
+.privacy-table td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid rgba(196, 169, 98, 0.4);
+    text-align: left;
+    vertical-align: top;
+}
+
+.privacy-table th {
+    font-weight: 600;
+    color: var(--emerald-deep);
+    background: var(--cream-warm);
+}
+
+.privacy-table code {
+    font-size: 0.88rem;
+    color: var(--emerald-deep);
+}
+
+/* "Cookie settings" inside the text: looks like the page's links, opens the cookie choice. */
+.privacy-inline-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--emerald);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}
+
+.privacy-inline-button:hover {
+    color: var(--emerald-deep);
+}
+
+.privacy-inline-button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}

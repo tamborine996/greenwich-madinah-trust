@@ -1,0 +1,226 @@
+/* Cookie choice and maps on request (16 Oct 2026), in the house style: square corners, deep emerald with
+   a gold rule for the bar, ivory for the settings box. Restyles vanilla-cookieconsent 3.0.1 through its
+   CSS variables (#cc-main), styles the footer's "Cookie settings" button, and the map placeholder
+   (.map-consent; .is-loaded is set by js/map-consent.js once the map is shown). */
+
+/* ---------- Settings box (ivory) ---------- */
+
+#cc-main {
+    --cc-font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+    --cc-modal-border-radius: 0;
+    --cc-btn-border-radius: 0;
+    --cc-pm-toggle-border-radius: 1em;
+    --cc-bg: #FFFEF9;
+    --cc-primary-color: #083D33;
+    --cc-secondary-color: #4A4A4A;
+    --cc-btn-primary-bg: #0D5C4D;
+    --cc-btn-primary-color: #FFFEF9;
+    --cc-btn-primary-border-color: #0D5C4D;
+    --cc-btn-primary-hover-bg: #083D33;
+    --cc-btn-primary-hover-color: #FFFEF9;
+    --cc-btn-primary-hover-border-color: #083D33;
+    --cc-btn-secondary-bg: #FFFEF9;
+    --cc-btn-secondary-color: #0D5C4D;
+    --cc-btn-secondary-border-color: #0D5C4D;
+    --cc-btn-secondary-hover-bg: #0D5C4D;
+    --cc-btn-secondary-hover-color: #FFFEF9;
+    --cc-btn-secondary-hover-border-color: #0D5C4D;
+    --cc-separator-border-color: rgba(196, 169, 98, 0.4);
+    --cc-toggle-on-bg: #0D5C4D;
+    --cc-toggle-off-bg: #7A7A7A;
+    --cc-toggle-on-knob-bg: #FFFEF9;
+    --cc-toggle-off-knob-bg: #FFFEF9;
+    --cc-toggle-readonly-bg: #A08A4B;
+    --cc-toggle-readonly-knob-bg: #FFFEF9;
+    --cc-cookie-category-block-bg: #FAF6F0;
+    --cc-cookie-category-block-border: rgba(196, 169, 98, 0.4);
+    --cc-cookie-category-block-hover-bg: #F5EFE6;
+    --cc-cookie-category-block-hover-border: rgba(196, 169, 98, 0.6);
+    --cc-cookie-category-expanded-block-bg: #FAF6F0;
+    --cc-cookie-category-expanded-block-hover-bg: #F5EFE6;
+    --cc-overlay-bg: rgba(8, 61, 51, 0.55);
+    --cc-link-color: #0D5C4D;
+    --cc-footer-bg: #F5EFE6;
+    --cc-footer-color: #4A4A4A;
+    --cc-footer-border-color: rgba(196, 169, 98, 0.4);
+}
+
+#cc-main .pm__title {
+    font-family: 'Bodoni Moda', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+#cc-main .pm {
+    border-top: 3px solid #C4A962;
+}
+
+#cc-main .pm__btn,
+#cc-main .cm__btn {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+/* Bar buttons wide enough for one-line labels on laptops; full width on phones (library default). */
+@media (min-width: 640px) {
+    /* Columns sized to the one-line labels (the library's equal 1fr columns are too narrow and let the
+       buttons overlap), with a clear gap between the two equal gold buttons. */
+    #cc-main .cm--bar.cm--inline .cm__btn-group {
+        grid-auto-columns: max-content;
+        column-gap: 0.75rem;
+    }
+
+    #cc-main .cm--bar.cm--inline .cm__btn {
+        padding-inline: 1.6rem;
+    }
+
+    #cc-main .cm--bar.cm--inline .cm__btn + .cm__btn {
+        margin-top: 0;
+    }
+}
+
+/* ---------- The bar (deep emerald, gold rule, gold buttons) ---------- */
+
+#cc-main .cm {
+    --cc-bg: #083D33;
+    --cc-primary-color: #FFFEF9;
+    --cc-secondary-color: rgba(255, 254, 249, 0.85);
+    --cc-btn-primary-bg: #C4A962;
+    --cc-btn-primary-color: #083D33;
+    --cc-btn-primary-border-color: #C4A962;
+    --cc-btn-primary-hover-bg: #D4BE7A;
+    --cc-btn-primary-hover-color: #083D33;
+    --cc-btn-primary-hover-border-color: #D4BE7A;
+    --cc-btn-secondary-bg: #C4A962;
+    --cc-btn-secondary-color: #083D33;
+    --cc-btn-secondary-border-color: #C4A962;
+    --cc-btn-secondary-hover-bg: #D4BE7A;
+    --cc-btn-secondary-hover-color: #083D33;
+    --cc-btn-secondary-hover-border-color: #D4BE7A;
+    --cc-separator-border-color: rgba(196, 169, 98, 0.35);
+    --cc-link-color: #D4BE7A;
+    border-top: 3px solid #C4A962;
+}
+
+#cc-main .cm__title {
+    font-family: 'Bodoni Moda', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+#cc-main .cm__desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#cc-main .cm__desc a {
+    color: #D4BE7A;
+    text-decoration-color: rgba(212, 190, 122, 0.6);
+}
+
+/* ---------- Footer: "Cookie settings" ---------- */
+
+.footer-cookie-settings {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: inherit;
+    color: rgba(255, 254, 249, 0.65);
+    cursor: pointer;
+}
+
+.footer-cookie-settings:hover {
+    color: var(--gold-bright, #D4BE7A);
+}
+
+.footer-cookie-settings:focus-visible {
+    outline: 2px solid var(--gold, #C4A962);
+    outline-offset: 3px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
+}
+
+/* ---------- Maps on request ---------- */
+
+.map-consent {
+    display: grid;
+    place-items: center;
+    min-height: var(--map-height, 300px);
+    padding: 1.5rem;
+    border: 1px solid rgba(196, 169, 98, 0.5);
+    background:
+        linear-gradient(rgba(250, 246, 240, 0.92), rgba(250, 246, 240, 0.92)),
+        repeating-linear-gradient(0deg, transparent 0 38px, rgba(13, 92, 77, 0.08) 38px 39px),
+        repeating-linear-gradient(90deg, transparent 0 38px, rgba(13, 92, 77, 0.08) 38px 39px),
+        #F5EFE6;
+    text-align: center;
+}
+
+.map-consent-inner {
+    max-width: 30rem;
+}
+
+.map-consent-pin {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.75rem;
+    color: #0D5C4D;
+}
+
+.map-consent-title {
+    margin: 0 0 0.35rem;
+    font-family: 'Bodoni Moda', 'Times New Roman', serif;
+    font-size: 1.35rem;
+    color: #083D33;
+}
+
+.map-consent-note {
+    margin: 0 auto 1rem;
+    max-width: 26rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #4A4A4A;
+}
+
+.map-consent-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-consent-actions .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.78rem;
+}
+
+.map-consent-actions a {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0D5C4D;
+    text-decoration: none;
+    border-bottom: 1px solid #C4A962;
+}
+
+/* Once shown, the map fills the frame. */
+.map-consent.is-loaded {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.map-consent.is-loaded iframe {
+    display: block;
+}

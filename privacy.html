@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
-    <script>
+    <!-- Google tag (gtag.js): runs only after the visitor allows analytics (js/consent.js) -->
+    <script type="text/plain" data-category="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
+    <script type="text/plain" data-category="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-1SG005B9VX');
+      gtag('config', 'G-1SG005B9VX', { allow_google_signals: false, allow_ad_personalization_signals: false });
     </script>
     <meta name="description" content="Data and Privacy Policy for Greenwich Madina Trust.">
     <title>Data & Privacy Policy | Greenwich Madina Trust</title>
@@ -18,9 +18,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
     <!-- shared shell matching the new homepage -->
-    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-privacy">
+    <!-- Cookie choice: optional cookies (analytics) only after the visitor allows them -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/consent.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/privacy-page.css?v=20261016-privacy">
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="js/consent.js?v=20261016-privacy"></script>
 </head>
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -130,96 +136,112 @@
     <section class="content-section">
         <div class="container">
             <div class="legal-content">
-                <p class="last-updated">Last updated: December 2025</p>
+                <p class="last-updated">Last updated: 16 October 2026</p>
 
-                <h2>Introduction</h2>
-                <p>Greenwich Madina Trust ("we", "us", or "our") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website or services.</p>
-                <p>We are a registered charity (No. 1129277) with the Charity Commission for England and Wales.</p>
+                <div class="privacy-summary">
+                    <h2 class="privacy-summary-title">In short</h2>
+                    <ul>
+                        <li>We only use your information to reply to you and to provide the services you ask for.</li>
+                        <li>We never sell it, and we share it only with the services that help us run the website and the masjid, or where the law requires.</li>
+                        <li>Analytics cookies are off unless you allow them. Maps and videos load only when you ask for them.</li>
+                        <li>You can ask to see, correct or delete your information at any time: <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>.</li>
+                    </ul>
+                </div>
 
-                <h2>Information We Collect</h2>
-                <p>We may collect the following types of information:</p>
+                <h2 id="who-we-are">Who we are</h2>
+                <p>Greenwich Madina Trust (“we”, “us”) runs Ghousia Masjid and its Educational Centre. We are a registered charity in England and Wales (No. 1129277) and the controller of the personal information described here.</p>
+                <p>Write to us at 56 Camrose Street, London SE2 0JA, or email <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>.</p>
 
-                <h3>Information You Provide</h3>
+                <h2 id="what-we-collect">What we collect, and why</h2>
+
+                <h3>When you send us a message</h3>
+                <p>The contact form asks for your name, email address, an optional phone number, a subject and your message. The form is run by Formspree, which passes your message to our email inbox and keeps a copy for us. We use what you send only to reply and to help with your request. Emails and calls to us are handled in the same way. Our email is provided by Google Workspace.</p>
+
+                <h3>When you use our services</h3>
+                <p>To arrange a Janazah, a Nikah, counselling or Madrassah enrolment, we need details about you and, sometimes, members of your family. We use them only to provide that service. Because we are a masjid, this information can show your religious belief, so we treat it with extra care: it stays within the Trust and is shared outside it only as described below or with your agreement.</p>
                 <ul>
-                    <li><strong>Contact Information:</strong> Name, email address, and phone number when you contact us or use our services</li>
-                    <li><strong>Service Requests:</strong> Information related to Nikah, Janazah, Madrassah enrolment, or other services</li>
-                    <li><strong>Correspondence:</strong> Records of communications with us</li>
+                    <li><strong>Nikah certificate:</strong> the form on our website stays on your device. Nothing you type is sent to us or stored online; you print it or save it, and bring or email it to us.</li>
+                    <li><strong>Madrassah enrolment:</strong> parents complete the paper form. We use the details only to run classes and keep children safe.</li>
+                    <li><strong>Janazah:</strong> with the family’s agreement, we share what is needed with funeral directors, cemeteries and the registrar.</li>
+                    <li><strong>Counselling:</strong> conversations are confidential. We would share information only if someone were at risk of serious harm, or if the law required it.</li>
                 </ul>
 
-                <h3>Information Collected Automatically</h3>
+                <h3>When you donate</h3>
+                <p>Online donations are made on Hibabox’s secure website, not ours. Hibabox processes your payment and, if you choose it, your Gift Aid declaration, under its own privacy policy. We keep the donation and Gift Aid records we need, for as long as HMRC requires.</p>
+
+                <h3>When you visit the website</h3>
+                <p>Like every website, ours receives your device’s IP address and basic browser details, because these are needed to send you the pages. Our website is hosted by GitHub Pages, which records this in its security logs. If you allow analytics, Google Analytics also counts your visit (see <a href="#cookies">Cookies</a>).</p>
+
+                <h2 id="lawful-basis">Our legal reasons</h2>
                 <ul>
-                    <li><strong>Website Usage:</strong> We may use cookies and similar technologies to understand how visitors use our website</li>
-                    <li><strong>Prayer Times API:</strong> Our website fetches prayer times from Aladhan API using the mosque’s local London area</li>
+                    <li><strong>Replying to you and providing services you ask for:</strong> our legitimate interest in serving our community, or steps you ask us to take.</li>
+                    <li><strong>Information that shows religious belief:</strong> the condition for not-for-profit religious bodies dealing with people in regular contact with them, or your explicit consent where we ask for it.</li>
+                    <li><strong>Donation, Gift Aid and charity records:</strong> our legal obligations.</li>
+                    <li><strong>Analytics cookies:</strong> your consent, which you can withdraw at any time.</li>
                 </ul>
 
-                <h2>How We Use Your Information</h2>
-                <p>We use your information to:</p>
+                <h2 id="sharing">Who we share it with</h2>
+                <p>We do not sell your information or use it for advertising. We use these services to run the website and the masjid:</p>
                 <ul>
-                    <li>Provide the services you request</li>
-                    <li>Respond to your enquiries</li>
-                    <li>Send you relevant updates about our mosque and events (with your consent)</li>
-                    <li>Improve our website and services</li>
-                    <li>Comply with legal obligations</li>
+                    <li><strong>Formspree:</strong> the contact form.</li>
+                    <li><strong>Google:</strong> email (Google Workspace), and Google Analytics only if you allow it.</li>
+                    <li><strong>GitHub:</strong> hosts the website.</li>
+                    <li><strong>Hibabox:</strong> online donations.</li>
+                </ul>
+                <p>We also share information with funeral directors and similar organisations when you ask us to, and with the authorities when the law requires it. Some of these providers are based in, or use servers in, the United States; they protect your information with safeguards recognised in UK law, such as the UK–US data bridge or standard contract clauses.</p>
+
+                <h2 id="retention">How long we keep it</h2>
+                <ul>
+                    <li><strong>Messages and emails:</strong> until your enquiry is resolved, and then for up to two years in case you contact us again about it.</li>
+                    <li><strong>Service records</strong> (Nikah, Janazah, Madrassah): for as long as they are needed for that service, and for any longer period the law or our safeguarding duties require.</li>
+                    <li><strong>Donation and Gift Aid records:</strong> six years, as HMRC requires.</li>
+                    <li><strong>Analytics data:</strong> Google keeps the detailed records for no more than 14 months; after that only anonymous totals remain.</li>
                 </ul>
 
-                <h2>Data Sharing</h2>
-                <p>We do not sell your personal information. We may share your information with:</p>
+                <h2 id="cookies">Cookies and similar technologies</h2>
+                <p>A bar at the foot of the page asks whether we may use analytics cookies. Nothing optional is set until you choose “Allow analytics”, and you can change your mind at any time with <button type="button" class="privacy-inline-button" data-cc="show-preferencesModal">Cookie settings</button>, also at the foot of every page.</p>
+                <div class="privacy-table-wrap">
+                    <table class="privacy-table">
+                        <caption>What the website stores on your device</caption>
+                        <thead>
+                            <tr><th scope="col">Name</th><th scope="col">What it does</th><th scope="col">Kept for</th><th scope="col">When</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>gmt_cookie_choice</code></td><td>Remembers your cookie choice</td><td>6 months</td><td>Always (strictly necessary)</td></tr>
+                            <tr><td><code>_ga</code>, <code>_ga_…</code></td><td>Google Analytics: counts visits and pages viewed, with Google’s advertising features turned off</td><td>2 years</td><td>Only if you allow analytics</td></tr>
+                            <tr><td><code>gmt_youtube_cache</code> (browser storage)</td><td>A copy of our latest video list, so the homepage loads faster. Contains no personal information</td><td>Refreshed every 5 minutes</td><td>Always</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Maps, videos and our Instagram feed</h3>
                 <ul>
-                    <li>Service providers who help us operate (e.g., email services)</li>
-                    <li>Authorities when required by law</li>
+                    <li><strong>Maps:</strong> Google Maps loads only when you press “Show map”. Google may then set its own cookies.</li>
+                    <li><strong>Videos:</strong> videos play from YouTube in its privacy-enhanced mode, and only when you press play.</li>
+                    <li><strong>Instagram feed:</strong> the homepage shows our latest Instagram posts through a service called Behold, which says it sets no cookies.</li>
+                    <li><strong>Fonts and libraries:</strong> our pages load fonts from Google Fonts and programming libraries from jsDelivr. They receive your IP address but set no cookies.</li>
                 </ul>
+                <p>Links to Facebook, Instagram, X, YouTube and TikTok take you to those sites, which have their own privacy policies.</p>
 
-                <h2>Data Security</h2>
-                <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+                <h2 id="children">Children</h2>
+                <p>Our website is not designed to collect information from children. Information about children in our Madrassah comes from their parents or guardians, who can ask to see, correct or remove it at any time.</p>
 
-                <h2>Your Rights</h2>
-                <p>Under UK data protection law, you have the right to:</p>
+                <h2 id="your-rights">Your rights</h2>
+                <p>Under UK data protection law you can ask us to:</p>
                 <ul>
-                    <li>Access your personal data</li>
-                    <li>Correct inaccurate data</li>
-                    <li>Request deletion of your data</li>
-                    <li>Object to processing of your data</li>
-                    <li>Request data portability</li>
+                    <li>give you a copy of the information we hold about you;</li>
+                    <li>correct it if it is wrong;</li>
+                    <li>delete it, or limit how we use it;</li>
+                    <li>stop using it, if we rely on our legitimate interests;</li>
+                    <li>give it to you, or to another organisation, in a common format.</li>
                 </ul>
-                <p>To exercise these rights, please contact us at <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>.</p>
+                <p>Where we rely on your consent, you can withdraw it at any time. Email <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a>; we will reply within one month.</p>
 
-                <h2>Cookies</h2>
-                <p>Our website may use cookies to:</p>
-                <ul>
-                    <li>Remember your preferences</li>
-                    <li>Cache prayer times data for faster loading</li>
-                    <li>Analyse website traffic (if analytics are enabled)</li>
-                </ul>
-                <p>You can control cookies through your browser settings.</p>
+                <h2 id="complaints">Complaints</h2>
+                <p>Please tell us first if you are unhappy with how we have handled your information. You can also complain to the Information Commissioner’s Office: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a>, or call 0303 123 1113.</p>
 
-                <h2>Third-Party Services</h2>
-                <p>Our website may link to or embed content from third-party services:</p>
-                <ul>
-                    <li><strong>Aladhan API:</strong> For prayer times (privacy policy: aladhan.com)</li>
-                    <li><strong>YouTube:</strong> For embedded videos (privacy policy: google.com/policies/privacy)</li>
-                    <li><strong>Google Maps:</strong> For location embedding (privacy policy: google.com/policies/privacy)</li>
-                    <li><strong>Social Media:</strong> Links to Facebook, Instagram, Twitter, and YouTube</li>
-                </ul>
-                <p>These services have their own privacy policies.</p>
-
-                <h2>Children's Privacy</h2>
-                <p>We collect information about children enrolled in our Madrassah with parental consent. Parents/guardians may contact us to access, correct, or delete their child's information.</p>
-
-                <h2>Changes to This Policy</h2>
-                <p>We may update this policy from time to time. The updated version will be posted on this page with a new "last updated" date.</p>
-
-                <h2>Contact Us</h2>
-                <p>If you have questions about this privacy policy or our data practices, please contact us:</p>
-                <address>
-                    <p><strong>Greenwich Madina Trust</strong></p>
-                    <p>56 Camrose Street</p>
-                    <p>London SE2 0JA</p>
-                    <p>Email: <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a></p>
-                </address>
-
-                <h2>Supervisory Authority</h2>
-                <p>If you're not satisfied with how we handle your data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO):</p>
-                <p><a href="https://ico.org.uk/make-a-complaint/" target="_blank">ico.org.uk/make-a-complaint</a></p>
+                <h2 id="changes">Changes to this policy</h2>
+                <p>When we change this policy, we will update it here and change the date at the top.</p>
             </div>
         </div>
     </section>
@@ -256,12 +278,15 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span data-current-year></span> Greenwich Madina Trust. All rights reserved.</p>
-                <a href="privacy.html">Data & Privacy Policy</a>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Data & Privacy Policy</a>
+                    <button type="button" class="footer-cookie-settings" data-cc="show-preferencesModal">Cookie settings</button>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/prayer-times.js?v=20261016-redesign"></script>
-    <script src="js/main.js?v=20261016-redesign"></script>
+    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
+    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
 </body>
 </html>

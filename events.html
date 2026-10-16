@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
-    <script>
+    <!-- Google tag (gtag.js): runs only after the visitor allows analytics (js/consent.js) -->
+    <script type="text/plain" data-category="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
+    <script type="text/plain" data-category="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-1SG005B9VX');
+      gtag('config', 'G-1SG005B9VX', { allow_google_signals: false, allow_ad_personalization_signals: false });
     </script>
     <meta name="description" content="Events and calendar at Greenwich Madina Trust - Regular classes, Gyarwee Shareef, Madrassah, and community gatherings.">
     <title>Events & Calendar | Greenwich Madina Trust</title>
@@ -17,6 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
+    <!-- Cookie choice: optional cookies (analytics) only after the visitor allows them -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/consent.css?v=20261016-privacy">
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="js/consent.js?v=20261016-privacy"></script>
 </head>
 <body>
     <!-- Header -->

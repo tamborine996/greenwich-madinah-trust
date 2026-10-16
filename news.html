@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js): runs only after the visitor allows analytics (js/consent.js) -->
+    <script type="text/plain" data-category="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
+    <script type="text/plain" data-category="analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SG005B9VX', { allow_google_signals: false, allow_ad_personalization_signals: false });
+    </script>
     <meta name="description" content="Recent news and updates from Greenwich Madina Trust.">
     <title>News | Greenwich Madina Trust</title>
     <link rel="stylesheet" href="css/styles.css?v=20260823-rabi-nur-live1">
@@ -673,10 +681,15 @@
         }
     </style>
     <!-- shared shell matching the new homepage -->
-    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/news-page.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/site-refresh.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/news-page.css?v=20261016-privacy">
+    <!-- Cookie choice: optional cookies (analytics) only after the visitor allows them -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/consent.css?v=20261016-privacy">
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="js/consent.js?v=20261016-privacy"></script>
 </head>
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -810,7 +823,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span data-current-year></span> Greenwich Madina Trust. All rights reserved.</p>
-                <a href="privacy.html">Data & Privacy Policy</a>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Data & Privacy Policy</a>
+                    <button type="button" class="footer-cookie-settings" data-cc="show-preferencesModal">Cookie settings</button>
+                </div>
             </div>
         </div>
     </footer>
@@ -1120,7 +1136,7 @@
         window.addEventListener('hashchange', renderNews);
         init();
     </script>
-    <script src="js/prayer-times.js?v=20261016-redesign"></script>
-    <script src="js/main.js?v=20261016-redesign"></script>
+    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
+    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
 </body>
 </html>

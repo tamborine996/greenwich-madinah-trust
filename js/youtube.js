@@ -156,9 +156,14 @@
                     width: 900
                 }],
                 autoplayVideos: true,
+                // YouTube's privacy-enhanced mode (youtube-nocookie.com), and the Plyr player from the same CDN
+                // as our other libraries rather than GLightbox's default player CDN. See privacy.html#cookies.
                 plyr: {
+                    css: 'https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.css',
+                    js: 'https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.js',
                     config: {
                         youtube: {
+                            noCookie: true,
                             rel: 0,
                             showinfo: 0,
                             modestbranding: 1

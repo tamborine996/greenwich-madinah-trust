@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
-    <script>
+    <!-- Google tag (gtag.js): runs only after the visitor allows analytics (js/consent.js) -->
+    <script type="text/plain" data-category="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=G-1SG005B9VX"></script>
+    <script type="text/plain" data-category="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-1SG005B9VX');
+      gtag('config', 'G-1SG005B9VX', { allow_google_signals: false, allow_ad_personalization_signals: false });
     </script>
     <meta name="description" content="Greenwich Madina Trust - Serving the local Muslim community with prayers, events, education, and services.">
     <title>Greenwich Madina Trust | Home</title>
@@ -23,14 +23,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <link rel="stylesheet" href="css/gyaarwee-campaign.css?v=20260908-ribbon-v3">
     <link rel="stylesheet" href="css/programme-carousel.css?v=20261012-programmes2">
-    <link rel="stylesheet" href="css/hero-two-column.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-sections.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-news.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-week.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-media.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-visit.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-redesign">
-    <link rel="stylesheet" href="css/home-donate.css?v=20261016-redesign">
+    <link rel="stylesheet" href="css/hero-two-column.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-news.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-week.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-media.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-visit.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/home-donate.css?v=20261016-privacy">
+    <!-- Cookie choice: optional cookies (analytics) only after the visitor allows them -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/consent.css?v=20261016-privacy">
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="js/consent.js?v=20261016-privacy"></script>
+    <!-- Maps load only when the visitor presses "Show map" -->
+    <script defer src="js/map-consent.js?v=20261016-privacy"></script>
 </head>
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -429,15 +436,17 @@
                     <p class="home-visit-email">Email <a href="mailto:info@greenwichmadinatrust.org.uk">info@greenwichmadinatrust.org.uk</a></p>
                 </div>
                 <div class="home-visit-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5!2d0.1026!3d51.4869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzEyLjciTiAwwrAwNicwOS40IkU!5e0!3m2!1sen!2suk!4v1234567890"
-                        width="100%"
-                        height="300"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        title="Greenwich Madina Trust Location">
-                    </iframe>
+                    <div class="map-consent" style="--map-height: 300px" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5!2d0.1026!3d51.4869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzEyLjciTiAwwrAwNicwOS40IkU!5e0!3m2!1sen!2suk!4v1234567890" data-map-title="Map of Ghousia Masjid, 56 Camrose Street, London SE2 0JA" data-map-height="300">
+                        <div class="map-consent-inner">
+                            <svg class="map-consent-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7-6.1 7-11.5a7 7 0 1 0-14 0c0 5.4 7 11.5 7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                            <p class="map-consent-title">Ghousia Masjid</p>
+                            <p class="map-consent-note">56 Camrose Street, London SE2 0JA. The map comes from Google, which may set cookies once it loads.</p>
+                            <div class="map-consent-actions">
+                                <button type="button" class="btn btn-primary" data-map-show>Show map</button>
+                                <a href="https://www.google.com/maps/search/?api=1&amp;query=51.486854553222656,0.10261762142181396" target="_blank" rel="noopener">Open in Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -475,7 +484,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span data-current-year></span> Greenwich Madina Trust. All rights reserved.</p>
-                <a href="privacy.html">Data & Privacy Policy</a>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Data & Privacy Policy</a>
+                    <button type="button" class="footer-cookie-settings" data-cc="show-preferencesModal">Cookie settings</button>
+                </div>
             </div>
         </div>
     </footer>
@@ -606,18 +618,18 @@
         });
     </script>
 
-    <script src="js/prayer-times.js?v=20261016-redesign"></script>
+    <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
     <script src="js/events.js?v=20260908-ribbon-v3"></script>
     <!-- Swiper.js for carousel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GLightbox for video modals -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="js/youtube.js?v=20261016-redesign"></script>
-    <script src="js/main.js?v=20261016-redesign"></script>
+    <script src="js/youtube.js?v=20261016-privacy"></script>
+    <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
     <!-- sizes the square poster before Swiper measures it -->
-    <script src="js/hero-two-column.js?v=20261016-redesign"></script>
+    <script src="js/hero-two-column.js?v=20261016-privacy"></script>
     <!-- weekly schedule and services -->
-    <script src="js/home-week.js?v=20261016-redesign"></script>
+    <script src="js/home-week.js?v=20261016-privacy"></script>
     <script>
         // Remove expired campaign cards before Swiper counts or displays them.
         (() => {
@@ -778,6 +790,6 @@
     </script>
     <script src="js/programme-carousel.js?v=20261012-programmes2"></script>
     <!-- pause / play beside the slide dots; focus holds the slides still -->
-    <script src="js/carousel-controls.js?v=20261016-redesign"></script>
+    <script src="js/carousel-controls.js?v=20261016-privacy"></script>
 </body>
 </html>
