@@ -1,15 +1,17 @@
-/* (16 Oct 2026) two-column homepage hero.
-   Desktop (1024px+): compact welcome above a square carousel on ivory; the real exterior
-   photograph fills the right of the section behind a diagonal with a thin gold edge.
-   Below 1024px: carousel, then photograph (slanted lower edge), then welcome.
-   Loaded after styles.css and programme-carousel.css; overrides only what the layout needs. */
+/* Homepage hero (16 Oct 2026): the welcome on ivory beside the real exterior photograph, which sits behind a
+   diagonal with a thin gold edge. No poster carousel: the weekly classes follow straight after, and Coming up
+   is in the prayer banner.
+   Desktop (1024px+): welcome on the left, vertically centred; the photograph fills the right of the section.
+   Below 1024px: the photograph (slanted lower edge), then the welcome.
+   Loaded after styles.css; overrides only what the layout needs. */
 
 .hero-two-column {
-    --hero-col: min(460px, 44vw);          /* width of the welcome + carousel column (title is ~440px) */
+    --hero-col: min(460px, 44vw);          /* width of the welcome column (title is ~440px) */
     --hero-gap: clamp(28px, 3vw, 48px);    /* column to the top of the diagonal */
     --hero-slant: clamp(80px, 8vw, 130px); /* horizontal run of the diagonal */
     --hero-slant-m: 34px;                  /* vertical run of the mobile slant */
     --hero-edge: 4px;                      /* gold line along the diagonal */
+    margin-top: 0; /* always directly under the prayer banner, whatever sits between them in the markup */
     padding: 24px 0 28px;
     background: var(--cream);
 }
@@ -22,15 +24,13 @@
 .hero-two-column .hero-grid {
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* styles.css centres hero items; the carousel aligns left with the text */
+    align-items: stretch; /* styles.css centres hero items */
     gap: 20px;
     position: static; /* the photograph positions against the section */
     max-width: var(--hero-col);
 }
 
-/* ---------- Welcome ----------
-   Kept compact so the carousel fits the first screen: every line of the original copy stays,
-   at a tighter scale. The name already appears in the header and on the sign in the photograph. */
+/* ---------- Welcome ---------- */
 
 .hero-two-column .hero-welcome::before {
     display: none; /* the gold rule moves inline with the eyebrow */
@@ -94,92 +94,6 @@
     padding: 0.75rem 1.5rem;
 }
 
-/* ---------- Carousel ---------- */
-
-.hero-carousel-frame {
-    position: relative;
-    width: 100%;
-}
-
-.hero-two-column #hero-carousel {
-    border-radius: 10px;
-    box-shadow: 0 22px 44px -22px rgba(8, 61, 51, 0.55);
-}
-
-/* Corner brackets belong to the old text slides; the posters do not need them. */
-.hero-two-column #hero-carousel::before,
-.hero-two-column #hero-carousel::after {
-    display: none;
-}
-
-/* Arrows straddle the poster edges, so they sit on the page rather than on the artwork. */
-.hero-carousel-frame .swiper-button-prev,
-.hero-carousel-frame .swiper-button-next {
-    --swiper-navigation-size: 44px;
-    top: 50%;
-    width: 44px;
-    height: 44px;
-    margin-top: -22px;
-    border: 1px solid rgba(196, 169, 98, 0.6);
-    border-radius: 50%;
-    background: var(--ivory);
-    box-shadow: 0 6px 16px -6px rgba(8, 61, 51, 0.35);
-    color: var(--emerald);
-    transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
-}
-
-.hero-carousel-frame .swiper-button-prev { left: -22px; }
-.hero-carousel-frame .swiper-button-next { right: -22px; }
-
-.hero-carousel-frame .swiper-button-prev::after,
-.hero-carousel-frame .swiper-button-next::after {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.hero-carousel-frame .swiper-button-prev:hover,
-.hero-carousel-frame .swiper-button-next:hover {
-    background: var(--emerald);
-    color: var(--ivory);
-}
-
-.hero-carousel-frame .swiper-button-prev:focus-visible,
-.hero-carousel-frame .swiper-button-next:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-}
-
-/* Pause / play, sitting just right of the slide dots and drawn like them. */
-.carousel-toggle {
-    position: absolute;
-    bottom: 0;
-    left: calc(50% + 52px);
-    z-index: 11;
-    display: grid;
-    place-items: center;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: rgba(255, 254, 249, 0.85);
-    cursor: pointer;
-}
-
-.carousel-toggle svg {
-    width: 12px;
-    height: 12px;
-}
-
-.carousel-toggle:hover {
-    color: var(--gold-bright);
-}
-
-.carousel-toggle:focus-visible {
-    outline: 2px solid var(--gold-bright);
-    outline-offset: -2px;
-}
-
 /* ---------- Photograph ---------- */
 
 .hero-photo {
@@ -200,32 +114,19 @@
     object-fit: cover;
 }
 
-/* Comparison variant (?photo=facebook-cover): that photo's sky is overcast white, so a soft
-   shade from the prayer strip gives it enough tone to hold the diagonal against the ivory page.
-   The default photo has a blue sky and needs no shade. */
-.hero-two-column[data-photo="facebook-cover"] .hero-photo-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(8, 61, 51, 0.30) 0%, rgba(8, 61, 51, 0.12) 18%, rgba(8, 61, 51, 0) 38%);
-    pointer-events: none;
-}
-
 /* ---------- Desktop ---------- */
 
 @media (min-width: 1024px) {
-    .hero-carousel-frame {
-        width: var(--hero-poster, 400px); /* set by hero-two-column.js */
+    /* A calm block of about 420px: on a 1280x680 laptop the weekly classes start at the fold. */
+    .hero-two-column {
+        display: flex;
+        align-items: center;
+        min-height: clamp(380px, 54vh, 500px);
+        padding: 40px 0;
     }
 
-    .hero-two-column #hero-carousel .swiper-slide {
-        min-height: 0;
-        height: var(--hero-poster, 400px);
-    }
-
-    /* Review variant (?order=carousel-first): the carousel leads, the welcome follows. */
-    .hero-two-column[data-order="carousel-first"] .hero-carousel-frame {
-        order: -1;
+    .hero-two-column > .container {
+        width: 100%;
     }
 
     .hero-photo {
@@ -246,25 +147,14 @@
     .hero-photo img {
         object-position: 72% 0;
     }
-
-    /* Comparison variants. Facebook cover: crop its empty white sky. Jan 2024: crop to the sign. */
-    .hero-two-column[data-photo="facebook-cover"] .hero-photo img {
-        transform: scale(1.08);
-        transform-origin: 85% 100%;
-    }
-
-    .hero-two-column[data-photo="front-2024"] .hero-photo img {
-        object-position: 45% 30%;
-        transform: scale(1.22);
-        transform-origin: 55% 100%;
-    }
 }
 
 /* ---------- Tablet and phone ---------- */
 
 @media (max-width: 1023.98px) {
+    /* The photograph, then the welcome. */
     .hero-two-column {
-        padding: 16px 0 36px;
+        padding: 0 0 36px;
     }
 
     .hero-two-column .hero-grid {
@@ -272,22 +162,19 @@
         gap: 0;
     }
 
-    .hero-carousel-frame,
     .hero-two-column .hero-welcome {
+        order: 2;
         width: 100%;
         max-width: 480px;
-        margin-inline: auto;
-    }
-
-    .hero-carousel-frame {
-        order: 1;
+        margin: 4px auto 0;
+        text-align: left;
     }
 
     .hero-photo {
-        order: 2;
+        order: 1;
         position: relative;
         height: clamp(210px, 56vw, 380px);
-        margin: 28px calc(-1 * var(--space-lg)) 0;
+        margin: 0 calc(-1 * var(--space-lg)) 0;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--hero-slant-m)));
     }
 
@@ -297,16 +184,6 @@
 
     .hero-photo img {
         object-position: 62% 30%;
-    }
-
-    .hero-two-column[data-photo="front-2024"] .hero-photo img {
-        object-position: 50% 40%;
-    }
-
-    .hero-two-column .hero-welcome {
-        order: 3;
-        margin-top: 8px;
-        text-align: left;
     }
 
     .hero-two-column .hero-welcome .welcome-subtitle {
@@ -319,11 +196,6 @@
 }
 
 @media (max-width: 480px) {
-    .hero-carousel-frame .swiper-button-prev,
-    .hero-carousel-frame .swiper-button-next {
-        display: none; /* swipe on phones, as on the live site */
-    }
-
     .hero-two-column .hero-welcome .welcome-title {
         font-size: clamp(1.9rem, 8.4vw, 2.3rem);
     }
@@ -331,12 +203,5 @@
     .hero-two-column .welcome-buttons .btn {
         flex: 1 1 0;
         padding: 0.8rem 1rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-carousel-frame .swiper-button-prev,
-    .hero-carousel-frame .swiper-button-next {
-        transition: none;
     }
 }

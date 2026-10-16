@@ -18,7 +18,11 @@
       "detail": "Men’s class",
       "time": "After Isha",
       "place": "Ghousia Masjid",
-      "link": "what-we-offer.html#quran-circle"
+      "link": "what-we-offer.html#quran-circle",
+      "poster": {
+        "url": "images/programmes/tajweed-circle-carousel-20261013-after-isha.webp",
+        "alt": "Tajweed Circle — every Tuesday after Isha, free to attend at Ghousia Masjid. Learn to read the Qur’an with Tajweed and rectify your Salah recitation. Suitable for reverts and complete beginners. Non-judgmental environment; all welcome 16+; support WhatsApp group; native English teacher with 13 years of experience."
+      }
     },
     {
       "id": "dars-men",
@@ -27,7 +31,11 @@
       "detail": "Men’s",
       "time": "7:45pm",
       "place": "Ghousia Masjid",
-      "link": "what-we-offer.html#dars"
+      "link": "what-we-offer.html#dars",
+      "poster": {
+        "url": "images/programmes/dars-e-quran-carousel-20261012.webp",
+        "alt": "Dars-e-Quran — every Thursday at 7:45pm at Ghousia Masjid, with Hazrat Allamah Pir Syed Shamsul Arifeen Shah Sahib."
+      }
     },
     {
       "id": "jumua",

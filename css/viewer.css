@@ -1,0 +1,126 @@
+/* Picture viewer (16 Oct 2026): js/viewer.js puts .gmt-viewer on GLightbox's container.
+   Laptops: the picture with an ivory panel to its right. Phones: the picture with the panel beneath it, rather
+   than GLightbox's default caption laid over the bottom of the picture. */
+
+.gmt-viewer .goverlay {
+    background: rgba(5, 38, 32, 0.94);
+}
+
+.glightbox-clean.gmt-viewer .gslide-description {
+    background: var(--ivory);
+}
+
+.glightbox-clean.gmt-viewer .gdesc-inner {
+    padding: 26px 24px;
+    border-top: 3px solid var(--gold);
+}
+
+.glightbox-clean.gmt-viewer .gslide-title {
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--emerald-deep);
+}
+
+.gv-kind {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #806b32; /* darker than --gold-muted: 5.1:1 on ivory */
+}
+
+.glightbox-clean.gmt-viewer .gslide-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--slate);
+}
+
+.gv-line {
+    display: block;
+}
+
+.gv-line + .gv-line {
+    margin-top: 6px;
+}
+
+.gv-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.gmt-viewer .gv-actions .btn {
+    padding: 0.7rem 1.2rem;
+}
+
+.gmt-viewer .gv-actions .btn-primary {
+    color: var(--ivory);
+}
+
+.gmt-viewer .gv-actions .btn-outline {
+    color: var(--emerald);
+}
+
+@media (min-width: 769px) {
+    .gmt-viewer .gslide-description.description-right {
+        max-width: 320px;
+    }
+}
+
+/* Phones: the panel takes its own height under the picture (GLightbox sizes it to the whole column otherwise). */
+.glightbox-mobile .gmt-viewer .gslide-description {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: auto;
+    max-height: none;
+    padding: 0;
+    background: var(--ivory);
+}
+
+.glightbox-mobile .gmt-viewer .gdesc-inner {
+    padding: 14px 20px 18px;
+}
+
+.glightbox-mobile .gmt-viewer .gslide-title {
+    margin-bottom: 6px;
+    font-size: 1.25rem;
+    color: var(--emerald-deep);
+}
+
+.glightbox-mobile .gmt-viewer .gslide-desc { color: var(--slate); }
+.glightbox-mobile .gmt-viewer .gslide-desc .gv-kind { color: #806b32; }
+.glightbox-mobile .gmt-viewer .gslide-desc .btn-primary { color: var(--ivory); font-weight: 600; }
+.glightbox-mobile .gmt-viewer .gslide-desc .btn-outline { color: var(--emerald); font-weight: 600; }
+
+.glightbox-mobile .gmt-viewer .gv-actions {
+    margin-top: 12px;
+}
+
+.glightbox-mobile .gmt-viewer .gv-actions .btn {
+    flex: 1 1 0;
+    padding: 0.7rem 0.8rem;
+}
+
+/* A pinch-zoomed picture stays inside its own area, above the panel. */
+.glightbox-mobile .gmt-viewer .gslide-media {
+    overflow: hidden;
+}
+
+.glightbox-mobile .gmt-viewer .gslide-image img {
+    max-height: calc(100vh - 230px);
+    max-height: calc(100dvh - 230px);
+}
+
+/* One picture at a time: no previous / next arrows. */
+.gmt-viewer .gprev,
+.gmt-viewer .gnext {
+    display: none;
+}

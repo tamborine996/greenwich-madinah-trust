@@ -13,31 +13,33 @@
     </script>
     <meta name="description" content="Greenwich Madina Trust - Serving the local Muslim community with prayers, events, education, and services.">
     <title>Greenwich Madina Trust | Home</title>
+    <!-- Coming up: ask for the list first thing, so the strip is ready as the prayer banner appears (js/coming-up.js) -->
+    <link rel="preload" href="js/coming-up.js?v=20261016-comingup" as="script">
+    <script>window.comingUpRequest = fetch('data/coming-up.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).catch(() => null);</script>
     <link rel="stylesheet" href="css/styles.css?v=20260908-gyaarwee-live1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/gemini-logo-final.png">
-    <!-- Swiper.js for carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- GLightbox for video modals -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <link rel="stylesheet" href="css/gyaarwee-campaign.css?v=20260908-ribbon-v3">
-    <link rel="stylesheet" href="css/programme-carousel.css?v=20261012-programmes2">
-    <link rel="stylesheet" href="css/hero-two-column.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-sections.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-news.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-week.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-media.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-visit.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-privacy">
-    <link rel="stylesheet" href="css/home-donate.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/hero-two-column.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/coming-up.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-sections.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-news.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-week.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-media.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-visit.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/footer-refresh.css?v=20261016-comingup">
+    <link rel="stylesheet" href="css/home-donate.css?v=20261016-comingup">
     <!-- Cookie choice: optional cookies (analytics) only after the visitor allows them -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
-    <link rel="stylesheet" href="css/consent.css?v=20261016-privacy">
+    <link rel="stylesheet" href="css/consent.css">
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
-    <script defer src="js/consent.js?v=20261016-privacy"></script>
+    <script defer src="js/consent.js"></script>
     <!-- Maps load only when the visitor presses "Show map" -->
-    <script defer src="js/map-consent.js?v=20261016-privacy"></script>
+    <script defer src="js/map-consent.js"></script>
+    <link rel="stylesheet" href="css/viewer.css?v=20261016-comingup">
 </head>
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -160,20 +162,14 @@
                 </div>
             </div>
         </div>
+        <!-- Coming up: the strip at the foot of the prayer banner, as soon as the list arrives. Kept inside this
+             section: the hero must directly follow the prayer banner (styles.css drops its top margin then). -->
+        <script async src="js/coming-up.js?v=20261016-comingup"></script>
     </section>
 
-    <!-- Event Notification Bar -->
-    <a href="#event-spotlight" class="event-notification-bar" id="event-notification-bar" style="display: none;" aria-label="Open the full event poster">
-        <span class="event-notif-badge">Upcoming</span>
-        <span class="event-notif-text"><strong>Gyaarwee Shareef</strong> — 13 September · 5:15pm · View poster</span>
-        <span class="event-notif-arrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-        </span>
-    </a>
-
-    <!-- Hero Section: welcome above the carousel on ivory; exterior photograph on a diagonal.
+    <!-- Hero Section: the welcome on ivory beside the exterior photograph, on a diagonal.
          Desktop: the photograph is positioned against the section and bleeds to the right edge.
-         Below 1024px: carousel, then photograph, then welcome. -->
+         Below 1024px: photograph, then welcome. Coming up is in the prayer banner; the weekly classes follow. -->
     <section class="hero-combined hero-two-column" id="content" tabindex="-1">
         <div class="container">
             <div class="hero-grid">
@@ -197,68 +193,6 @@
                              alt="Ghousia Masjid on Camrose Street on a clear day: the timber porch beneath the Greenwich Madina Trust sign">
                     </div>
                 </figure>
-                <!-- Carousel (Swiper.js). Arrows sit outside the slides so they do not cover the artwork. -->
-                <div class="hero-carousel-frame">
-                <div class="hero-carousel-compact swiper has-programme-slide" id="hero-carousel" role="region" aria-label="Featured programmes and updates">
-                    <div class="swiper-wrapper">
-                        <!-- Approved recurring programmes: full-bleed, with native carousel controls. -->
-                        <div class="swiper-slide slide-programme slide-programme-tajweed" data-programme="tajweed" data-swiper-autoplay="16000">
-                            <img class="programme-artwork" src="images/programmes/tajweed-circle-carousel-20261013-after-isha.webp" width="1254" height="1254" fetchpriority="high" alt="Tajweed Circle — every Tuesday after Isha, free to attend at Ghousia Masjid. Learn to read the Qur’an with Tajweed and rectify your Salah recitation. Suitable for reverts and complete beginners. Non-judgmental environment; all welcome 16+; support WhatsApp group; native English teacher with 13 years of experience.">
-                        </div>
-                        <div class="swiper-slide slide-programme slide-programme-dars" data-programme="dars">
-                            <img class="programme-artwork" src="images/programmes/dars-e-quran-carousel-20261012.webp" width="1254" height="1254" alt="Dars-e-Quran — every Thursday at 7:45pm at Ghousia Masjid, with Hazrat Allamah Pir Syed Shamsul Arifeen Shah Sahib.">
-                        </div>
-                        <!-- Current event: expires with the event spotlight -->
-                        <div class="swiper-slide carousel-slide-compact slide-campaign slide-gyaarwee" data-hide-from="2026-09-14">
-<div class="slide-content-compact"><img class="gw-poster-teaser" src="images/event-poster.jpg?v=20260913" alt="" aria-hidden="true"><div class="gw-wash"></div><img class="gw-dome" src="images/gyaarwee-turquoise-dome.png" alt="" aria-hidden="true"><svg class="gw-ornament" viewBox="0 0 270 400" fill="none" aria-hidden="true"><path d="M20 398V164C20 103 50 72 96 46L135 14L174 46C220 72 250 103 250 164V398" stroke="currentColor" stroke-width="1.2"/><path d="M30 398V167C30 110 59 82 104 55L135 29L166 55C211 82 240 110 240 167V398" stroke="currentColor" stroke-width=".7"/><path d="M135 49l6 14 14-6-6 14 14 6-14 6 6 14-14-6-6 14-6-14-14 6 6-14-14-6 14-6-6-14 14 6z" stroke="currentColor"/><path d="M20 353H250M30 363H240" stroke="currentColor" stroke-width=".6"/></svg><div class="gw-copy"><div class="gw-kicker"><small>The</small> Grand Annual</div><h3 class="gw-title"><span>Gyaarwee</span><span>Shareef</span></h3><p class="gw-purpose">English &amp; Urdu talks.<br>Na’at in praise of the Prophet&nbsp;ﷺ.</p><p class="gw-supervision"><small>Under the supervision of</small><strong>Mufti Syed Siraj ul Arifeen</strong><span>Shah Raaji Sahib</span></p><div class="gw-logistics"><div class="gw-date"><strong>13</strong><small>Sunday<br>September</small></div><div class="gw-when"><strong>5:15pm</strong>GMT Ghousia Masjid</div></div><a class="gw-action" href="#event-spotlight">View event details <b aria-hidden="true">↗</b></a></div><span class="gw-bottom-rule"></span></div>
-                        </div>
-                        <!-- TikTok: same full-bleed dimensions and controls as the programme slides. -->
-                        <div class="swiper-slide slide-programme slide-programme-tiktok" data-programme="tiktok">
-                            <a class="programme-artwork-link" href="https://www.tiktok.com/@greenwichmadinatrust" target="_blank" rel="noopener noreferrer" aria-label="Follow Greenwich Madina Trust on TikTok — opens in a new tab">
-                                <img class="programme-artwork" src="images/programmes/tiktok-carousel-20261012.webp" width="1254" height="1254" alt="We’re on TikTok. Talks, naʿats and moments from our gatherings. @greenwichmadinatrust. Follow us on TikTok.">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Swiper Pagination (dots) -->
-                    <div class="swiper-pagination"></div>
-                </div>
-                    <!-- Swiper Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Spotlight Section -->
-    <section class="event-spotlight light" id="event-spotlight" style="display: none;">
-        <div class="container">
-            <div class="spotlight-content">
-                <div class="spotlight-posters" aria-label="Event poster">
-                    <a class="spotlight-poster-link" href="images/event-poster.jpg?v=20260913" target="_blank" rel="noopener noreferrer" aria-label="Open the full Gyaarwee Shareef poster">
-                        <div class="poster-frame">
-                            <span class="spotlight-poster-label" style="display:none"></span>
-                            <img src="images/event-poster.jpg?v=20260913" alt="Grand Annual Gyaarwee Shareef poster, Sunday 13 September 2026 at 5:15pm">
-                        </div>
-                    </a>
-                </div>
-                <div class="spotlight-text">
-                    <span class="spotlight-badge">Upcoming Event</span>
-                    <h2 class="spotlight-title">Grand Annual Gyaarwee Shareef</h2>
-                    <p class="spotlight-date spotlight-legacy-date">Sunday 13 September 2026</p>
-                    <p class="spotlight-description">The programme will include talks in English and Urdu, and Na’at recitations in praise of the Prophet ﷺ. Food will be served. Please see the poster for the full programme.</p>
-                    <div class="spotlight-details spotlight-legacy-details">
-                        <div class="spotlight-detail">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            <span class="spotlight-time">Starts 5:15pm</span>
-                        </div>
-                        <div class="spotlight-detail spotlight-detail-location">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span class="spotlight-location">GMT Ghousia Masjid, 56 Camrose Street, London SE2 0JA</span>
-                        </div>
-                    </div>
-                    <a href="https://www.facebook.com/GreenwichMadinaTrust/" target="_blank" class="btn btn-primary spotlight-fb-link">View on Facebook</a>
-                </div>
             </div>
         </div>
     </section>
@@ -619,177 +553,14 @@
     </script>
 
     <script src="js/prayer-times.js?v=20260929-october-rollover"></script>
-    <script src="js/events.js?v=20260908-ribbon-v3"></script>
-    <!-- Swiper.js for carousel -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GLightbox for video modals -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="js/youtube.js?v=20261016-privacy"></script>
     <script src="js/main.js?v=20260823-rabi-nur-live1"></script>
-    <!-- sizes the square poster before Swiper measures it -->
-    <script src="js/hero-two-column.js?v=20261016-privacy"></script>
     <!-- weekly schedule and services -->
-    <script src="js/home-week.js?v=20261016-privacy"></script>
-    <script>
-        // Remove expired campaign cards before Swiper counts or displays them.
-        (() => {
-            const parts = new Intl.DateTimeFormat('en-GB', {timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'}).formatToParts(new Date());
-            const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
-            const today = `${values.year}-${values.month}-${values.day}`;
-            document.querySelectorAll('#hero-carousel [data-hide-from]').forEach(slide => {
-                if (today >= slide.dataset.hideFrom) slide.remove();
-            });
-        })();
-    </script>
-    <!-- Initialize Swiper carousel -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Store globally so youtube.js can call update() after showing spotlight slide
-            window.heroSwiper = new Swiper('#hero-carousel', {
-                loop: true,
-                autoHeight: true,
-                autoplay: {
-                    delay: 10000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                navigation: {
-                    nextEl: '.hero-carousel-frame .swiper-button-next',
-                    prevEl: '.hero-carousel-frame .swiper-button-prev'
-                },
-                pagination: {
-                    el: '#hero-carousel .swiper-pagination',
-                    clickable: true
-                },
-                keyboard: {
-                    enabled: true,
-                    onlyInViewport: true
-                }
-            });
-
-            const video = document.getElementById('mawlid-carousel-video');
-            const videoSlide = document.querySelector('[data-mawlid-video-slide]');
-            const playButton = document.getElementById('mawlid-video-play');
-            const soundButton = document.getElementById('mawlid-video-sound');
-            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-            if (!video || !videoSlide || !playButton || !soundButton) {
-                // The artwork-only carousel still respects reduced motion.
-                const syncAutoplay = () => {
-                    if (reducedMotion.matches) window.heroSwiper.autoplay.stop();
-                    else window.heroSwiper.autoplay.start();
-                };
-                reducedMotion.addEventListener('change', syncAutoplay);
-                syncAutoplay();
-                return;
-            }
-
-            const updatePlayButton = () => {
-                const isPlaying = !video.paused && !video.ended;
-                playButton.setAttribute('aria-pressed', String(isPlaying));
-                playButton.setAttribute('aria-label', isPlaying ? 'Pause highlights video' : 'Play highlights video');
-                playButton.querySelector('[aria-hidden="true"]').textContent = isPlaying ? 'Ⅱ' : '▶';
-                playButton.querySelector('.control-label').textContent = isPlaying ? 'Pause' : 'Play';
-            };
-
-            const updateSoundButton = () => {
-                const soundIsOn = !video.muted && video.volume > 0;
-                soundButton.setAttribute('aria-pressed', String(soundIsOn));
-                soundButton.setAttribute('aria-label', soundIsOn ? 'Turn sound off' : 'Turn sound on');
-                soundButton.querySelector('.control-label').textContent = soundIsOn ? 'Sound off' : 'Sound on';
-            };
-
-            const videoSlideIsActive = () => videoSlide.classList.contains('swiper-slide-active');
-
-            const playActiveVideo = async () => {
-                if (!videoSlideIsActive()) return;
-                window.heroSwiper.autoplay.stop();
-                try {
-                    await video.play();
-                } catch (error) {
-                    updatePlayButton();
-                }
-            };
-
-            const syncVideoWithSlide = () => {
-                if (videoSlideIsActive()) {
-                    window.heroSwiper.autoplay.stop();
-                    if (reducedMotion.matches) {
-                        video.pause();
-                    } else {
-                        playActiveVideo();
-                    }
-                } else {
-                    video.pause();
-                    video.currentTime = 0;
-                    video.muted = true;
-                    updateSoundButton();
-                    if (reducedMotion.matches) {
-                        window.heroSwiper.autoplay.stop();
-                    } else {
-                        window.heroSwiper.autoplay.start();
-                    }
-                }
-                updatePlayButton();
-            };
-
-            playButton.addEventListener('click', async () => {
-                if (video.paused || video.ended) {
-                    if (video.ended) video.currentTime = 0;
-                    await playActiveVideo();
-                } else {
-                    video.pause();
-                    window.heroSwiper.autoplay.stop();
-                }
-                updatePlayButton();
-            });
-
-            soundButton.addEventListener('click', async () => {
-                const soundIsOn = !video.muted && video.volume > 0;
-                if (soundIsOn) {
-                    video.muted = true;
-                } else {
-                    if (video.volume === 0) video.volume = 1;
-                    video.muted = false;
-                }
-                updateSoundButton();
-                if (video.paused) await playActiveVideo();
-            });
-
-            video.addEventListener('play', updatePlayButton);
-            video.addEventListener('pause', updatePlayButton);
-            video.addEventListener('volumechange', updateSoundButton);
-            video.addEventListener('ended', () => {
-                updatePlayButton();
-                window.setTimeout(() => {
-                    if (video.ended && videoSlideIsActive()) window.heroSwiper.slideNext();
-                }, 700);
-            });
-
-            window.heroSwiper.on('slideChangeTransitionStart', syncVideoWithSlide);
-            if (typeof reducedMotion.addEventListener === 'function') {
-                reducedMotion.addEventListener('change', syncVideoWithSlide);
-            } else {
-                reducedMotion.addListener(syncVideoWithSlide);
-            }
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
-                    video.pause();
-                } else {
-                    syncVideoWithSlide();
-                }
-            });
-
-            updateSoundButton();
-            syncVideoWithSlide();
-        });
-    </script>
-    <script src="js/programme-carousel.js?v=20261012-programmes2"></script>
-    <!-- pause / play beside the slide dots; focus holds the slides still -->
-    <script src="js/carousel-controls.js?v=20261016-privacy"></script>
+    <script src="js/home-week.js?v=20261016-comingup"></script>
+    <!-- Full Timetable opens this month's timetable in the picture viewer -->
+    <script src="js/viewer.js?v=20261016-comingup"></script>
+    <script src="js/timetables.js?v=20261016-comingup"></script>
 </body>
 </html>

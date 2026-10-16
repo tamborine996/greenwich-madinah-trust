@@ -1,0 +1,48 @@
+{
+  "about": "The mosque's published monthly prayer timetables, newest first. The site shows the entry for the current month (London time); until a month's entry is added it keeps showing the latest earlier one. Used by the Full Timetable pop-up in the prayer banner on every redesigned page, and by the printable timetable on prayer-times.html. Read by js/timetables.js. Add each new month at the top, with the image (JPG) and PDF in documents/; bump the ?v= when a file is replaced.",
+  "updated": "2026-10-16",
+  "months": [
+    {
+      "month": "2026-10",
+      "title": "October 2026",
+      "image": "documents/october-2026-timetable.jpg?v=20260929-v4-approved",
+      "pdf": "documents/october-2026-timetable.pdf?v=20260929-v4-approved",
+      "alt": "October 2026 Greenwich Madina Trust prayer timetable"
+    },
+    {
+      "month": "2026-09",
+      "title": "September 2026",
+      "image": "documents/september-2026-timetable.jpg?v=20260831-september-rollover",
+      "pdf": "documents/september-2026-timetable.pdf?v=20260831-september-rollover",
+      "alt": "September 2026 Greenwich Madina Trust prayer timetable"
+    },
+    {
+      "month": "2026-08",
+      "title": "August 2026",
+      "image": "documents/august-2026-timetable.jpg?v=20260731-august",
+      "pdf": "documents/august-2026-timetable.pdf?v=20260731-august",
+      "alt": "August 2026 Greenwich Madina Trust prayer timetable"
+    },
+    {
+      "month": "2026-07",
+      "title": "July 2026",
+      "image": "documents/july-2026-timetable.jpg?v=20260726-isha-update",
+      "pdf": "documents/july-2026-timetable.pdf?v=20260726-isha-update",
+      "alt": "July 2026 Greenwich Madina Trust prayer timetable"
+    },
+    {
+      "month": "2026-06",
+      "title": "June 2026",
+      "image": "documents/june-2026-timetable.jpg",
+      "pdf": "documents/june-2026-timetable.pdf",
+      "alt": "June 2026 Greenwich Madina Trust prayer timetable"
+    },
+    {
+      "month": "2026-05",
+      "title": "May 2026",
+      "image": null,
+      "pdf": "documents/may-2026-timetable.pdf",
+      "alt": ""
+    }
+  ]
+}

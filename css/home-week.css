@@ -213,3 +213,37 @@
         transition: none;
     }
 }
+
+/* "See poster" (16 Oct 2026): under a session that has an approved poster, in line with its title; opens the
+   poster in the picture viewer. A separate button, as the row itself is a link. */
+.home-week-poster {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: -0.55rem 0 1rem calc(0.75rem + 8.5rem + 1.5rem);
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(196, 169, 98, 0.7);
+    border-radius: 999px;
+    background: var(--ivory);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--emerald);
+    cursor: pointer;
+    transition: background var(--duration-fast) ease;
+}
+
+.home-week-poster:hover {
+    background: rgba(196, 169, 98, 0.16);
+}
+
+.home-week-poster:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .home-week-poster {
+        margin: -0.4rem 0 0.9rem 0.25rem;
+    }
+}

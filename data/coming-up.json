@@ -1,0 +1,110 @@
+{
+  "about": "Coming up: anything that is only true for a while (events, notices, requests for help, urgent messages). Each item shows from show_from until the day before hide_from (London time), in the homepage strip at the foot of the prayer banner, one at a time, and (if it has text or a poster) as a full post on coming-up.html. Optional per item: label = the strip tag, \"Coming up\" (default), \"Notice\", \"Help needed\" or \"Important\" (Important items show first and alone, in deep red); line = the strip's short second line, word for word (otherwise worked out from starts / ends / time: \"This Sunday · 6–8pm\", \"Starts this Monday\", \"On now\", \"Open until …\"); link = where tapping goes (absent: the full post; a URL such as tel:…, contact.html or https://… with link_label; null: nowhere). Keep the title to about 30 characters and the line to about 45 so both fit two lines on a phone. After an event, post the report to News (data/facebook-news-preview.json). Read by js/coming-up.js.",
+  "updated": "2026-10-16",
+  "items": [
+    {
+      "id": "monthly-gyarwee-2026-10",
+      "kind": "Event",
+      "title": "Monthly Gyarwee Shareef",
+      "when": "Sunday 11 October 2026, 6–8pm",
+      "starts": "2026-10-11",
+      "time": "6–8pm",
+      "place": "Ghousia Masjid, 56 Camrose Street, London SE2 0JA",
+      "text": [
+        "Please join us for our monthly gathering in remembrance of Allah. Lungar Shareef will be served, in shā’ Allāh."
+      ],
+      "details": [],
+      "poster": {
+        "url": "images/event-poster.jpg",
+        "alt": "Monthly Gyarwee Shareef poster: Sunday 11 October 2026, 6–8pm, 56 Camrose Street, London SE2 0JA. Lungar Shareef will be served."
+      },
+      "button": null,
+      "show_from": "2026-10-04",
+      "hide_from": "2026-10-12"
+    },
+    {
+      "id": "youth-summer-retreat-2026",
+      "kind": "Event",
+      "title": "Youth Summer Retreat 2026",
+      "when": "Monday 20 July to the final week of August 2026",
+      "starts": "2026-07-20",
+      "ends": "2026-08-27",
+      "time": "Mon–Thu, 5–6:30pm",
+      "place": "Educational Centre, 46 Conway Road, London SE18 1AR (Monday–Thursday)",
+      "text": [
+        "Greenwich Madina Trust’s six-week Youth Summer Retreat begins Monday 20 July, with Islamic learning, practical workshops and activities for boys and girls aged 5–16.",
+        "The programme runs Monday to Thursday until the final week of August. Children do not need to be enrolled at the Madrasah to take part.",
+        "Activities include learning about the life of Prophet Muḥammad ﷺ, a practical Ṣalāh workshop, selected aḥādīth and Islamic teachings, quizzes, stories, football, a planned trip and a barbecue.",
+        "There will be no Summer Retreat or Madrasah session at the Educational Centre on Fridays. Instead, young people are expected to attend the 1pm Jumuʿah at Ghousia Masjid, where a special English talk will be delivered for them.",
+        "Existing Madrasah students do not need to register for the retreat. Parents and carers of other children should call Greenwich Madina Trust to book a place."
+      ],
+      "details": [
+        {
+          "label": "Monday–Thursday",
+          "value": "5:00pm–6:30pm at the Educational Centre, 46 Conway Road, London SE18 1AR"
+        },
+        {
+          "label": "Fridays",
+          "value": "Arrive by 1:00pm at Ghousia Masjid, 56 Camrose Street, London SE2 0JA"
+        },
+        {
+          "label": "Who can attend",
+          "value": "Boys and girls aged 5–16, including children not currently enrolled at the Madrasah"
+        },
+        {
+          "label": "Registration",
+          "value": "Existing Madrasah students do not need to register; all others should call 07792 884795"
+        }
+      ],
+      "poster": {
+        "url": "images/news/youth-summer-retreat-2026.png",
+        "alt": "Youth Summer Retreat 2026 graphic with dates, times, books, backpack, football and pencil"
+      },
+      "button": {
+        "label": "Call to register",
+        "url": "tel:+447792884795"
+      },
+      "show_from": "2026-07-13",
+      "hide_from": "2026-08-31"
+    },
+    {
+      "id": "youth-talks-questionnaire-2026",
+      "kind": "Questionnaire",
+      "title": "What should our Friday youth talks be about?",
+      "when": "Open until 30 August 2026",
+      "ends": "2026-08-30",
+      "time": "",
+      "place": "",
+      "text": [
+        "As part of GMT’s Youth Summer Retreat, attendees aged 5–16 will join the 1pm Jumuʿah at Ghousia Masjid on Fridays for a special English talk.",
+        "GMT is asking young people, families and the wider community which topics would be most helpful for those talks this summer.",
+        "Young people can answer directly. Parents, carers and community members should respond with retreat attendees aged 5–16 in mind.",
+        "The questionnaire takes approximately two minutes to complete. No name or email is needed."
+      ],
+      "details": [
+        {
+          "label": "Who can respond",
+          "value": "Young people and adults; adults should answer with attendees aged 5–16 in mind"
+        },
+        {
+          "label": "Time needed",
+          "value": "Approximately two minutes"
+        },
+        {
+          "label": "Privacy",
+          "value": "No name or email is needed"
+        }
+      ],
+      "poster": {
+        "url": "images/news/youth-friday-talks-questionnaire-2026.png",
+        "alt": "Friday youth talks questionnaire graphic with a backpack, books, pencil and speech bubbles"
+      },
+      "button": {
+        "label": "Complete the questionnaire",
+        "url": "https://gmt-surveys.pages.dev/youth-summer-retreat-2026"
+      },
+      "show_from": "2026-07-20",
+      "hide_from": "2026-08-31"
+    }
+  ]
+}
