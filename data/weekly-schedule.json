@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-16",
-  "source": "Wording and times copied from what-we-offer.html (live) and the approved Tajweed / Dars-e-Quran posters (12-13 Oct 2026). Confirm monthly with CONTENT-REGISTER.md. Read by the homepage schedule and, by id, by the What We Offer class times.",
+  "updated": "2026-10-22",
+  "source": "Wording and times copied from what-we-offer.html (live) and the approved programme posters. Dars-e-Quran updated to Thursdays after Isha from Mohammed’s supplied poster and instruction on 22 Oct 2026. Confirm monthly with CONTENT-REGISTER.md. Read by the homepage schedule and, by id, by the What We Offer class times.",
   "sessions": [
     {
       "id": "madrassah",
@@ -29,12 +29,12 @@
       "day": "Thursday",
       "title": "Dars-e-Quran",
       "detail": "Men’s",
-      "time": "7:45pm",
+      "time": "After Isha",
       "place": "Ghousia Masjid",
       "link": "what-we-offer.html#dars",
       "poster": {
-        "url": "images/programmes/dars-e-quran-carousel-20261012.webp",
-        "alt": "Dars-e-Quran — every Thursday at 7:45pm at Ghousia Masjid, with Hazrat Allamah Pir Syed Shamsul Arifeen Shah Sahib."
+        "url": "images/programmes/dars-e-quran-after-isha.jpg",
+        "alt": "Dars-e-Quran — every Thursday after Isha at Ghousia Masjid, with Hazrat Allamah Pir Syed Shamsul Arifeen Shah Sahib."
       }
     },
     {
