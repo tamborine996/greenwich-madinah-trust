@@ -1,12 +1,12 @@
 {
   "about": "The mosque's published monthly prayer timetables, newest first. The site shows the entry for the current month (London time); until a month's entry is added it keeps showing the latest earlier one. Used by the Full Timetable pop-up in the prayer banner on every redesigned page, and by the printable timetable on prayer-times.html. Read by js/timetables.js. Add each new month at the top, with the image (JPG) and PDF in documents/; bump the ?v= when a file is replaced.",
-  "updated": "2026-10-16",
+  "updated": "2026-10-23",
   "months": [
     {
       "month": "2026-10",
       "title": "October 2026",
-      "image": "documents/october-2026-timetable.jpg?v=20260929-v4-approved",
-      "pdf": "documents/october-2026-timetable.pdf?v=20260929-v4-approved",
+      "image": "documents/october-2026-timetable.jpg?v=20261023-isha-winter",
+      "pdf": "documents/october-2026-timetable.pdf?v=20261023-isha-winter",
       "alt": "October 2026 Greenwich Madina Trust prayer timetable"
     },
     {
