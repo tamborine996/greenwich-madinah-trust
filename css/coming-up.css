@@ -475,6 +475,26 @@
     color: #ffe3b8;
 }
 
+/* Informational banner spotlight: native strip geometry, calm notice colours. */
+.prayer-coming-up.strip-notice {
+    margin: 14px calc(50% - 50vw) 0;
+    padding: 6px calc(50vw - 50%);
+    border-top: 1px solid #d7c9a4;
+    background: #f1ead8;
+    color: #3f494b;
+}
+.prayer-coming-up.strip-notice .cu-eyebrow {
+    padding: 5px 9px 4px;
+    background: #e4dcc5;
+    color: #465963;
+}
+.prayer-coming-up.strip-notice .cu-title,
+.prayer-coming-up.strip-notice .cu-controls { color: #35484d; }
+.prayer-coming-up.strip-notice .cu-when { font-weight: 600; color: #4c5657; }
+.prayer-coming-up.strip-notice .cu-more { background: #dcd3bc; color: #344b50; }
+.prayer-coming-up.strip-notice a.cu-item:hover .cu-title { color: #253d43; }
+.prayer-coming-up.strip-notice a.cu-item:hover .cu-more { background: #d0c5a9; }
+
 /* ---------- Phones ---------- */
 @media (max-width: 600px) {
     .prayer-coming-up {
@@ -487,7 +507,8 @@
     }
 
     .prayer-coming-up.strip-gold,
-    .prayer-coming-up.strip-important {
+    .prayer-coming-up.strip-important,
+    .prayer-coming-up.strip-notice {
         margin-top: 12px;
         padding-top: 6px;
         padding-bottom: 6px;
@@ -503,7 +524,8 @@
 
     .prayer-coming-up.strip-gold .cu-eyebrow,
     .prayer-coming-up.strip-tag .cu-eyebrow,
-    .prayer-coming-up.strip-important .cu-eyebrow {
+    .prayer-coming-up.strip-important .cu-eyebrow,
+    .prayer-coming-up.strip-notice .cu-eyebrow {
         padding: 5px 6px;
     }
 

@@ -92,6 +92,8 @@
     const CHEVRON = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
     const ALERT_ICON = '<svg class="cu-label-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v6.2"/><circle cx="12" cy="16.6" r="0.6" fill="currentColor"/></svg>';
 
+    const INFO_ICON = '<svg class="cu-label-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 10.5v6" stroke-linecap="round"/><circle cx="12" cy="7.3" r=".9" fill="currentColor" stroke="none"/></svg>';
+
     function renderStrip(current) {
         // The Coming up page lists the posts themselves, so the strip would only repeat them there.
         if (document.getElementById('coming-up-root')) return;
@@ -101,7 +103,7 @@
         const items = important.length ? important : current;
         if (!container || !items.length) return;
         const many = items.length > 1;
-        const tone = important.length ? 'important' : stripTone;
+        const tone = important.length ? 'important' : items.every(item => labelOf(item) === 'Notice') ? 'notice' : stripTone;
         const slides = items.map((item, i) => {
             const link = linkOf(item);
             const when = whenInWords(item);
@@ -122,7 +124,7 @@
                     <div class="cu-item${active}" data-id="${escape(item.id)}"${many ? ' role="group"' : ''}${label}>${body}
                     </div>`;
         }).join('');
-        const tags = items.map((item, i) => `<span class="cu-label${i === 0 ? ' is-active' : ''}">${isImportant(item) ? ALERT_ICON : ''}${escape(labelOf(item))}</span>`).join('');
+        const tags = items.map((item, i) => `<span class="cu-label${i === 0 ? ' is-active' : ''}">${isImportant(item) ? ALERT_ICON : labelOf(item) === 'Notice' ? INFO_ICON : ''}${escape(labelOf(item))}</span>`).join('');
         const controls = many ? `
                 <div class="cu-controls">
                     <span class="cu-dots">${items.map((item, i) => `<button type="button" class="cu-dot" data-index="${i}" aria-label="Show ${escape(item.title)}" aria-pressed="${i === 0}"></button>`).join('')}</span>
@@ -136,7 +138,7 @@
             </section>`);
         const strip = container.lastElementChild;
         // A full-width band (gold, or red for Important) meets the hero, so the prayer banner drops its bottom padding.
-        container.closest('.prayer-banner').classList.toggle('has-gold-strip', tone === 'gold' || tone === 'important');
+        container.closest('.prayer-banner').classList.toggle('has-gold-strip', tone === 'gold' || tone === 'important' || tone === 'notice');
         // On a slow connection the list can arrive after the page has appeared: the strip then slides open rather
         // than jumping in. Arriving in time (the usual case), it is simply there.
         const painted = performance.getEntriesByType('paint').some(entry => entry.name === 'first-contentful-paint');

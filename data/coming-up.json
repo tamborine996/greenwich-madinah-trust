@@ -1,7 +1,16 @@
 {
   "about": "Coming up: anything that is only true for a while (events, notices, requests for help, urgent messages). Each item shows from show_from until the day before hide_from (London time), in the homepage strip at the foot of the prayer banner, one at a time, and (if it has text or a poster) as a full post on coming-up.html. Optional per item: label = the strip tag, \"Coming up\" (default), \"Notice\", \"Help needed\" or \"Important\" (Important items show first and alone, in deep red); line = the strip's short second line, word for word (otherwise worked out from starts / ends / time: \"This Sunday · 6–8pm\", \"Starts this Monday\", \"On now\", \"Open until …\"); link = where tapping goes (absent: the full post; a URL such as tel:…, contact.html or https://… with link_label; null: nowhere). Keep the title to about 30 characters and the line to about 45 so both fit two lines on a phone. After an event, post the report to News (data/facebook-news-preview.json). Read by js/coming-up.js.",
-  "updated": "2026-10-16",
+  "updated": "2026-10-25",
   "items": [
+    {
+      "id": "winter-jumua-2026-10-30",
+      "label": "Notice",
+      "title": "Jum’a time change",
+      "line": "From 30 October · 1pm & 1:30pm",
+      "link": null,
+      "show_from": "2026-10-25",
+      "hide_from": "2026-11-02"
+    },
     {
       "id": "monthly-gyarwee-2026-10",
       "kind": "Event",
