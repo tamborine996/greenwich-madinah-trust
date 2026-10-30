@@ -47,7 +47,7 @@ const PrayerTimes = (function() {
         }
 
         try {
-            const response = await fetch('data/prayer-times-2026.json?v=20261023-isha-winter');
+            const response = await fetch('data/prayer-times-2026.json?v=20261030-november');
             if (!response.ok) {
                 throw new Error('Failed to load prayer times data');
             }
