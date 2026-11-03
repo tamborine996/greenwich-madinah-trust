@@ -1,7 +1,47 @@
 {
   "about": "Coming up: anything that is only true for a while (events, notices, requests for help, urgent messages). Each item shows from show_from until the day before hide_from (London time), in the homepage strip at the foot of the prayer banner, one at a time, and (if it has text or a poster) as a full post on coming-up.html. Optional per item: label = the strip tag, \"Coming up\" (default), \"Notice\", \"Help needed\" or \"Important\" (Important items show first and alone, in deep red); line = the strip's short second line, word for word (otherwise worked out from starts / ends / time: \"This Sunday · 6–8pm\", \"Starts this Monday\", \"On now\", \"Open until …\"); link = where tapping goes (absent: the full post; a URL such as tel:…, contact.html or https://… with link_label; null: nowhere). Keep the title to about 30 characters and the line to about 45 so both fit two lines on a phone. After an event, post the report to News (data/facebook-news-preview.json). Read by js/coming-up.js.",
-  "updated": "2026-10-25",
+  "updated": "2026-11-03",
   "items": [
+    {
+      "id": "monthly-gyarwee-2026-11",
+      "label": "Coming up",
+      "kind": "Event",
+      "title": "Monthly Gyarwee Shareef",
+      "line": "Sunday 8 November · 5–8pm",
+      "when": "Sunday 8 November 2026, 5–8pm",
+      "starts": "2026-11-08",
+      "time": "5–8pm",
+      "place": "Ghousia Masjid, 56 Camrose Street, London SE2 0JA",
+      "text": [
+        "Join us for Qur’an recitation, Na’at Shareef and Khatam-e-Qadriyyah, with an English speech by Allamah Haroon Raza.",
+        "Under the supervision of Mawlana Muhammad Irfan Naqshbandi, with Hafiz Faizan Raza.",
+        "Ethaal e Thawaab for the parents of Haji Manzoor Hussain and brothers."
+      ],
+      "details": [
+        {
+          "label": "Who can attend",
+          "value": "Brothers only"
+        },
+        {
+          "label": "Food",
+          "value": "Langar will be served."
+        },
+        {
+          "label": "More information",
+          "value": "Haji Mubarik Sahib"
+        }
+      ],
+      "poster": {
+        "url": "images/coming-up/monthly-gyarwee-2026-11.jpg",
+        "alt": "Monthly Gyaarwee Shareef at GMT Ghousia Masjid, Sunday 8 November 2026, 5–8pm. English speech by Allamah Haroon Raza. Brothers only; langar will be served. Full programme and participants shown on the poster."
+      },
+      "button": {
+        "label": "Call 07792 884795",
+        "url": "tel:+447792884795"
+      },
+      "show_from": "2026-11-03",
+      "hide_from": "2026-11-09"
+    },
     {
       "id": "winter-jumua-2026-10-30",
       "label": "Notice",
